@@ -107,14 +107,15 @@ export default function Hero() {
             <div className="hero-logo-lockup">
               <KaynosLogo size="hero" />
             </div>
-            <div className="hero-badge">Built for martial arts schools</div>
+            <div className="hero-badge">Made by jiu jitsu practitioners, for jiu jitsu practitioners</div>
             <h1 className="hero-title">
               Review training. Refine technique.{" "}
               <span className="accent">Elevate your school.</span>
             </h1>
             <p className="hero-description">
-              Upload training footage, add timestamped coach notes, and give
-              your students a private video library to review on their own time.
+              Upload rolls and drills, add timestamped coach notes, and give
+              your students a private video library they can review between
+              classes. Built on the mat, not in a boardroom.
             </p>
             <div className="btn-group">
               <a

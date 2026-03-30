@@ -4,7 +4,7 @@ export default function HowItWorks() {
       number: 1,
       title: "Record your training",
       description:
-        "Film your sessions on any device. Phone, GoPro, or gym camera \u2014 MP4, MOV, and more.",
+        "Film your sessions on any device. Phone, GoPro, or gym camera: MP4, MOV, and more.",
     },
     {
       number: 2,
@@ -16,7 +16,7 @@ export default function HowItWorks() {
       number: 3,
       title: "Students review on their time",
       description:
-        "Students watch, add their own notes, and track their progress \u2014 all from their browser.",
+        "Students watch, add their own notes, and track their progress. All from their browser.",
     },
   ];
 

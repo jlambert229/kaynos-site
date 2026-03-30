@@ -28,25 +28,25 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="section">
       <div className="container">
-      <div className="section-header">
-        <span className="section-label">Trusted by Schools</span>
-        <h2 className="section-title">What coaches are saying</h2>
-      </div>
+        <div className="section-header">
+          <span className="section-label">Trusted by Schools</span>
+          <h2 className="section-title">What coaches are saying</h2>
+        </div>
 
-      <div className="testimonials-grid">
-        {testimonials.map((t) => (
-          <div key={t.name} className="testimonial-card">
-            <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
-            <div className="testimonial-author">
-              <div className="testimonial-avatar">{t.initial}</div>
-              <div>
-                <div className="testimonial-name">{t.name}</div>
-                <div className="testimonial-role">{t.role}</div>
+        <div className="testimonials-grid">
+          {testimonials.map((t) => (
+            <div key={t.name} className="testimonial-card">
+              <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
+              <div className="testimonial-author">
+                <div className="testimonial-avatar">{t.initial}</div>
+                <div>
+                  <div className="testimonial-name">{t.name}</div>
+                  <div className="testimonial-role">{t.role}</div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
       </div>
     </section>
   );
