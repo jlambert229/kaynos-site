@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import KaynosLogo from './KaynosLogo';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import KaynosLogo from "./KaynosLogo";
 
 const navLinks = [
   { label: 'Features', href: '#features' },
@@ -15,7 +16,12 @@ const demoDirectLinks = [
   { label: 'Student', href: 'https://student.kaynos.net' },
 ];
 
+function sectionLink(pathname, hashHref) {
+  return pathname === "/" ? hashHref : `/${hashHref}`;
+}
+
 export default function Navbar() {
+  const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -30,16 +36,16 @@ export default function Navbar() {
   return (
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar-inner">
-        <a href="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand">
           <KaynosLogo size="nav" />
           <span className="navbar-brand-text">kaynos</span>
-        </a>
+        </Link>
 
         <div className="navbar-links">
           {navLinks.map(({ label, href }) => (
-            <a key={href} href={href} className="navbar-link">
+            <Link key={href} to={sectionLink(pathname, href)} className="navbar-link">
               {label}
-            </a>
+            </Link>
           ))}
           <span className="navbar-demo-pipe" aria-hidden>
             |
@@ -81,9 +87,9 @@ export default function Navbar() {
           <X size={24} />
         </button>
         {navLinks.map(({ label, href }) => (
-          <a key={href} href={href} onClick={closeMobile}>
+          <Link key={href} to={sectionLink(pathname, href)} onClick={closeMobile}>
             {label}
-          </a>
+          </Link>
         ))}
         {demoDirectLinks.map(({ label, href }) => (
           <a

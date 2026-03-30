@@ -1,6 +1,14 @@
+# Site: kaynos-site (Foggy Clouds). Custom domain: www.kaynos.net (+ alias kaynos.net).
+# DNS lives in the Netlify DNS zone for kaynos.net (NETLIFY records to kaynos-site.netlify.app).
+
 [build]
   command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[headers]]
   for = "/assets/*"
