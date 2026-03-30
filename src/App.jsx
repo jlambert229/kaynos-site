@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./sections/Hero";
+import Demos from "./sections/Demos";
 import Features from "./sections/Features";
 import HowItWorks from "./sections/HowItWorks";
 import Pricing from "./sections/Pricing";
@@ -14,6 +15,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Demos />
         <Features />
         <HowItWorks />
         <Testimonials />

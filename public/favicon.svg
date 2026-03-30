@@ -1,6 +1,13 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="6" fill="#050508"/>
-  <rect x="6" y="13" width="20" height="6" fill="#1a1a1a"/>
-  <rect x="19" y="13" width="4" height="6" fill="#c62828"/>
-  <rect x="6" y="13" width="20" height="6" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+  <rect width="32" height="32" rx="7" fill="#050508"/>
+  <path d="M6 11c-.8 0-1.2.5-1.2 1.1v4.2c0 .8.6 1.4 1.4 1.4h3.2c.4 0 .7-.3.7-.7v-5.2c0-.4-.3-.8-.8-.8H6z" fill="#1a1a1e" stroke="rgba(255,255,255,0.1)" stroke-width="0.35"/>
+  <path d="M10.2 10.5h14.8c.7 0 1.2.5 1.2 1.1v8.8c0 .6-.5 1.1-1.2 1.1H10.2c-.6 0-1-.5-1-1.1v-8.8c0-.6.4-1.1 1-1.1z" fill="url(#fb)" stroke="rgba(255,255,255,0.12)" stroke-width="0.35"/>
+  <rect x="19.5" y="11.5" width="4.2" height="9" rx="0.9" fill="#c62828" stroke="rgba(0,0,0,0.35)" stroke-width="0.25"/>
+  <path d="M11.2 20.2h12.8" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="fb" x1="10" y1="10" x2="10" y2="22" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35353a"/>
+      <stop offset="1" stop-color="#0c0c0e"/>
+    </linearGradient>
+  </defs>
 </svg>

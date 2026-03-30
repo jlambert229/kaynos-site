@@ -39,7 +39,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 88px;
 }
 
 body {
@@ -174,7 +174,7 @@ svg {
   top: 0;
   left: 0;
   right: 0;
-  height: 72px;
+  height: 80px;
   z-index: 1000;
   transition: all 0.3s ease;
 }
@@ -199,19 +199,51 @@ svg {
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   text-decoration: none;
   color: var(--text-primary);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02em;
+}
+
+.navbar-brand .kaynos-logo {
+  flex-shrink: 0;
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 22px;
   list-style: none;
+}
+
+.navbar-demo-pipe {
+  color: var(--text-tertiary);
+  font-size: 13px;
+  user-select: none;
+  margin: 0 -4px;
+}
+
+.navbar-link--demo {
+  color: var(--accent-dim);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.navbar-link--demo:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 1100px) {
+  .navbar-demo-pipe,
+  .navbar-link--demo {
+    display: none;
+  }
+
+  .navbar-links {
+    gap: 18px;
+  }
 }
 
 .navbar-links a {
@@ -309,7 +341,7 @@ svg {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 72px;
+  padding-top: 80px;
   position: relative;
   overflow: hidden;
 }
@@ -349,6 +381,15 @@ svg {
   max-width: 720px;
 }
 
+.hero-logo-lockup {
+  margin-bottom: 28px;
+}
+
+.hero-logo-lockup .kaynos-logo {
+  max-width: min(100%, 340px);
+  height: auto;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -384,6 +425,39 @@ svg {
   line-height: 1.6;
   margin-bottom: 40px;
   max-width: 560px;
+}
+
+.hero-demo-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 22px;
+  font-size: 14px;
+}
+
+.hero-demo-links-label {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+
+.hero-demo-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hero-demo-link:hover {
+  text-decoration: underline;
+}
+
+.hero-demo-sep {
+  color: var(--text-tertiary);
+  margin: 0 2px;
 }
 
 .hero-proof {
@@ -505,6 +579,98 @@ svg {
 
 @media (max-width: 600px) {
   .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- DEMOS ---- */
+
+.demos-section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.demos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.demo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 28px 28px 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.demo-card:hover {
+  border-color: rgba(41, 151, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.demo-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.demo-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.demo-card-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.demo-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.demo-card:hover .demo-card-cta {
+  text-decoration: underline;
+}
+
+.demos-note {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--text-tertiary);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 640px) {
+  .demos-grid {
     grid-template-columns: 1fr;
   }
 }

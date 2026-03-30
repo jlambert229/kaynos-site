@@ -1,4 +1,5 @@
 import { CheckCircle2, Play } from "lucide-react";
+import KaynosLogo from "../components/KaynosLogo";
 
 function DashboardMockup() {
   const navItems = [
@@ -103,6 +104,9 @@ export default function Hero() {
       <div className="container">
         <div className="hero-inner">
           <div className="hero-content">
+            <div className="hero-logo-lockup">
+              <KaynosLogo size="hero" />
+            </div>
             <div className="hero-badge">Built for martial arts schools</div>
             <h1 className="hero-title">
               Review training. Refine technique.{" "}
@@ -121,6 +125,28 @@ export default function Hero() {
               </a>
               <a href="#how-it-works" className="btn btn-secondary btn-lg">
                 See How It Works
+              </a>
+            </div>
+            <div className="hero-demo-links">
+              <span className="hero-demo-links-label">Live demos</span>
+              <a
+                href="https://demo.kaynos.net"
+                className="hero-demo-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instructor
+              </a>
+              <span className="hero-demo-sep" aria-hidden>
+                ·
+              </span>
+              <a
+                href="https://student.kaynos.net"
+                className="hero-demo-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Student
               </a>
             </div>
             <div className="hero-proof">

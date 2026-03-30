@@ -5,8 +5,14 @@ import KaynosLogo from './KaynosLogo';
 const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Demos', href: '#demos' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
+];
+
+const demoDirectLinks = [
+  { label: 'Instructor', href: 'https://demo.kaynos.net' },
+  { label: 'Student', href: 'https://student.kaynos.net' },
 ];
 
 export default function Navbar() {
@@ -25,13 +31,28 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar-inner">
         <a href="/" className="navbar-brand">
-          <KaynosLogo size="md" />
+          <KaynosLogo size="nav" />
           <span className="navbar-brand-text">kaynos</span>
         </a>
 
         <div className="navbar-links">
           {navLinks.map(({ label, href }) => (
             <a key={href} href={href} className="navbar-link">
+              {label}
+            </a>
+          ))}
+          <span className="navbar-demo-pipe" aria-hidden>
+            |
+          </span>
+          {demoDirectLinks.map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              className="navbar-link navbar-link--demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`Open ${label.toLowerCase()} demo in a new tab`}
+            >
               {label}
             </a>
           ))}
@@ -62,6 +83,17 @@ export default function Navbar() {
         {navLinks.map(({ label, href }) => (
           <a key={href} href={href} onClick={closeMobile}>
             {label}
+          </a>
+        ))}
+        {demoDirectLinks.map(({ label, href }) => (
+          <a
+            key={href}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMobile}
+          >
+            {label} demo
           </a>
         ))}
         <a href="https://app.kaynos.net" onClick={closeMobile}>Log In</a>
