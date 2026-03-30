@@ -1175,6 +1175,96 @@ svg {
   color: var(--accent);
 }
 
+/* ---- LEGAL (privacy, etc.) ---- */
+
+.legal-main {
+  padding-top: 100px;
+  padding-bottom: 80px;
+  min-height: 60vh;
+}
+
+.legal-article {
+  max-width: 720px;
+}
+
+.legal-meta {
+  margin-bottom: 24px;
+}
+
+.legal-back {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.legal-back:hover {
+  color: var(--accent);
+}
+
+.legal-title {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.legal-effective {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 28px;
+}
+
+.legal-lead {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+
+.legal-section {
+  margin-bottom: 36px;
+}
+
+.legal-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.legal-section p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section ul {
+  margin: 12px 0 0 1.25rem;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.legal-section li {
+  margin-bottom: 10px;
+}
+
+.legal-section li:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ---- ANIMATIONS ---- */
 
 @keyframes fadeInUp {

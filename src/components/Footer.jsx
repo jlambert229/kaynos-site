@@ -4,7 +4,7 @@ import KaynosLogo from './KaynosLogo';
 const footerLinks = [
   { label: 'Instructor demo', href: 'https://demo.kaynos.net', external: true },
   { label: 'Student demo', href: 'https://student.kaynos.net', external: true },
-  { label: 'Privacy Policy', href: 'https://app.kaynos.net/privacy', external: true },
+  { label: 'Privacy Policy', href: '/privacy', external: false },
   { label: 'Terms of Service', href: 'https://app.kaynos.net/terms', external: true },
   { label: 'Support', href: 'mailto:support@kaynos.net', external: false },
   { label: 'Help Center', href: 'https://docs.kaynos.net', external: true },
