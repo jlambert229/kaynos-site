@@ -1,41 +1,41 @@
-import { Upload, MessageSquare, Users, BarChart3, Tag, Shield } from 'lucide-react';
+import { Upload, MessageSquare, Users, BarChart3, Tag, Shield } from "lucide-react";
 
 const features = [
   {
     icon: Upload,
-    title: 'Video uploads',
+    title: "Easy video uploads",
     description:
-      'Drag-and-drop uploads up to 5 GB. Large files are chunked and uploaded in parallel for speed and reliability.',
+      "Drag and drop your training footage right from your browser. Handles big files without breaking a sweat.",
   },
   {
     icon: MessageSquare,
-    title: 'Timestamped notes',
+    title: "Coach notes on the timeline",
     description:
-      'Annotate exact moments in training footage. Instructors leave coaching cues, students flag questions for their next lesson.',
+      "Pin notes to the exact moment in the video. Your students see exactly what you saw and what to work on.",
   },
   {
     icon: Users,
-    title: 'Multi-role access',
+    title: "Everyone gets their own view",
     description:
-      'Admins manage the school. Instructors create content. Students review their private sessions and shared classes.',
+      "Coaches manage sessions and classes. Students see only what is assigned to them, plus shared material.",
   },
   {
     icon: BarChart3,
-    title: 'Progress tracking',
+    title: "See who is watching",
     description:
-      'See who has reviewed their footage, where they left off, and which sessions are still unwatched.',
+      "Know which students have reviewed their footage and which ones still need a nudge.",
   },
   {
     icon: Tag,
-    title: 'Tags and filtering',
+    title: "Stay organized",
     description:
-      'Organize sessions by technique, format, or level. Find any training footage in seconds.',
+      "Tag sessions by technique, class type, or anything that makes sense for your school. Find stuff fast.",
   },
   {
     icon: Shield,
-    title: 'Private and secure',
+    title: "Private by default",
     description:
-      'Each school is fully isolated. Videos use temporary URLs that expire. All data encrypted in transit.',
+      "Your school's footage stays yours. Each account is completely separate, and videos are never public.",
   },
 ];
 
@@ -45,10 +45,9 @@ export default function Features() {
       <div className="container">
         <div className="section-header">
           <span className="section-label">Features</span>
-          <h2 className="section-title">Everything your school needs</h2>
+          <h2 className="section-title">Everything you need, nothing you don't</h2>
           <p className="section-subtitle">
-            From video upload to student progress tracking - built specifically for
-            martial arts instruction.
+            Video review tools that actually make sense for a martial arts school.
           </p>
         </div>
 

@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: 'What martial arts does Kaynos work for?',
+    question: "Is this just for BJJ?",
     answer:
-      'Kaynos is built with BJJ in mind, but works for any discipline that benefits from video review \u2014 wrestling, judo, MMA, Muay Thai, and more.',
+      "Kaynos was built with BJJ in mind, but it works great for wrestling, judo, MMA, Muay Thai, or really any sport where watching film helps you improve.",
   },
   {
-    question: 'Do I need to install anything?',
+    question: "Do my students need to download an app?",
     answer:
-      'No. Kaynos runs entirely in your browser. Students and instructors just need a web browser on any device.',
+      "Nope. Everything runs in the browser. Students just log in from their phone or computer.",
   },
   {
-    question: 'How many people can use my account?',
+    question: "How many people can use it?",
     answer:
-      'There is no limit. Add as many instructors and students as your school needs.',
+      "As many as you want. There's no limit on students or instructors.",
   },
   {
     question: "Can students see each other's private sessions?",
     answer:
-      'No. Private sessions are only visible to the assigned student, the instructor, and school admins. Classes are shared with everyone.',
+      "No. Private sessions are only visible to the student, the instructor, and school admins. Shared classes are visible to everyone.",
   },
   {
-    question: 'What happens after the free trial?',
+    question: "What happens after the trial?",
     answer:
-      'Your plan continues at $49/month. You can cancel anytime from your account or by contacting support. No long-term contracts.',
+      "It continues at $49/month. You can cancel anytime from your account. No contracts, no cancellation fees.",
   },
   {
-    question: 'How do I get my videos into Kaynos?',
+    question: "What video formats work?",
     answer:
-      'Upload directly from your browser \u2014 drag and drop, or browse your files. We support MP4, MOV, WebM, and MKV up to 5 GB per video. You can also link Vimeo videos.',
+      "MP4, MOV, WebM, and MKV. Files up to 5 GB. You can also link Vimeo videos if you already host there.",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function FAQ() {
       <div className="container">
         <div className="section-header">
           <span className="section-label">FAQ</span>
-          <h2 className="section-title">Common questions</h2>
+          <h2 className="section-title">Questions we get a lot</h2>
         </div>
 
         <div className="faq-list">
@@ -55,7 +55,7 @@ export default function FAQ() {
               <button className="faq-question" onClick={() => toggle(index)}>
                 <span>{faq.question}</span>
                 <ChevronDown
-                  className={`faq-chevron${openIndex === index ? ' open' : ''}`}
+                  className={`faq-chevron${openIndex === index ? " open" : ""}`}
                   size={20}
                 />
               </button>

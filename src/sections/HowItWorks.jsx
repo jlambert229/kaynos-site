@@ -2,21 +2,21 @@ export default function HowItWorks() {
   const steps = [
     {
       number: 1,
-      title: "Record your training",
+      title: "Film your session",
       description:
-        "Film your sessions on any device. Phone, GoPro, or gym camera: MP4, MOV, and more.",
+        "Use your phone, a GoPro, or whatever camera you have at the gym. Any common video format works.",
     },
     {
       number: 2,
-      title: "Upload and annotate",
+      title: "Upload and add notes",
       description:
-        "Drag and drop your video. Add timestamped notes at key moments. Tag by technique or format.",
+        "Drop the video into Kaynos and leave notes at the moments that matter. Tag it however you like.",
     },
     {
       number: 3,
-      title: "Students review on their time",
+      title: "Students watch and learn",
       description:
-        "Students watch, add their own notes, and track their progress. All from their browser.",
+        "Your students log in, watch their footage, and add their own notes. No app to download, just a browser.",
     },
   ];
 
@@ -25,10 +25,10 @@ export default function HowItWorks() {
       <div className="container">
         <div className="section-header">
           <div className="section-label">How It Works</div>
-          <h2 className="section-title">Up and running in minutes</h2>
+          <h2 className="section-title">Three steps. That's it.</h2>
           <p className="section-subtitle">
-            No complex setup. No app to install. Just upload, annotate, and
-            share with your students.
+            No complicated setup. No training manual. If you can upload a
+            video to YouTube, you can use Kaynos.
           </p>
         </div>
         <div className="steps">

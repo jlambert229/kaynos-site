@@ -4,22 +4,22 @@ const values = [
   {
     title: "We train too",
     detail:
-      "Kaynos was born on the mats, not in a boardroom. We are jiu jitsu practitioners who got tired of losing coaching insights between classes.",
+      "Kaynos came from our own frustration. Great coaching moments kept disappearing after class, and nothing out there solved the problem without being a pain to use.",
   },
   {
-    title: "Coach-first design",
+    title: "Made for coaches",
     detail:
-      "Every feature starts with one question: does this make coaching easier? If it does not help an instructor or student on the mat, it does not ship.",
+      "Every feature starts with a simple question: does this actually help on the mat? If the answer is no, we don't build it.",
   },
   {
-    title: "No bloat, no gimmicks",
+    title: "No fluff",
     detail:
-      "We skipped the social-media features, the leaderboard drama, and the AI buzzwords. Kaynos does video review and does it well.",
+      "No social feeds, no leaderboards, no AI hype. Just video review that works. We'd rather do one thing well than ten things halfway.",
   },
   {
-    title: "Small-school friendly",
+    title: "Works for any size school",
     detail:
-      "You should not need 200 students to afford proper video tools. One flat price, unlimited students, no per-seat surprises.",
+      "You shouldn't need a huge academy to afford decent video tools. One price, unlimited students, no surprises on the bill.",
   },
 ];
 
@@ -33,11 +33,9 @@ export default function Story() {
             Built by grapplers, for grapplers
           </h2>
           <p className="section-subtitle">
-            We built Kaynos because nothing else solved the problem we kept
-            running into: great coaching moments disappear the second class
-            ends. Film review fixes that, but the tools out there were either
-            overbuilt enterprise software or clunky shared drives. So we made
-            exactly what we wished existed.
+            We kept losing the best coaching moments the second class ended.
+            Google Drive links and group chats weren't cutting it. So we built
+            the tool we wished we had.
           </p>
         </div>
 
@@ -54,9 +52,9 @@ export default function Story() {
         </div>
 
         <p className="story-closer">
-          Kaynos is independent, self-funded, and run by people who still pull
-          guard on weeknights. If you have feedback, you are talking to the
-          people who build it.
+          Kaynos is independent, self-funded, and run by people who still
+          roll on weeknights. Got feedback? You're talking to the people
+          who build it.
         </p>
       </div>
     </section>

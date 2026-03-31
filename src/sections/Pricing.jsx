@@ -1,14 +1,14 @@
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from "lucide-react";
 
 const includedFeatures = [
-  'Unlimited students and instructors',
-  'Unlimited sessions and classes',
-  'Up to 100 video uploads',
-  '50 GB video storage',
-  'Timestamped notes and tags',
-  'Progress tracking dashboard',
-  'Email notifications',
-  'Priority support',
+  "Unlimited students and instructors",
+  "Unlimited sessions and classes",
+  "Up to 100 video uploads",
+  "50 GB video storage",
+  "Timestamped coach notes",
+  "Progress tracking",
+  "Email notifications",
+  "Priority support",
 ];
 
 export default function Pricing() {
@@ -17,9 +17,9 @@ export default function Pricing() {
       <div className="container">
         <div className="section-header">
           <span className="section-label">Pricing</span>
-          <h2 className="section-title">Simple, transparent pricing</h2>
+          <h2 className="section-title">One plan. No surprises.</h2>
           <p className="section-subtitle">
-            One plan. Everything included. No per-seat fees.
+            Everything included. No per-student fees. No hidden costs.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export default function Pricing() {
           <span className="pricing-badge">14-day free trial</span>
 
           <div className="pricing-amount">$49</div>
-          <div className="pricing-period">per month, billed monthly</div>
+          <div className="pricing-period">per month</div>
 
           <ul className="pricing-features">
             {includedFeatures.map((feature) => (
