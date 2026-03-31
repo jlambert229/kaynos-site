@@ -26,10 +26,14 @@ export function createChatTransport() {
           messages: messages.map(({ role, content }) => ({ role, content })),
         }),
       });
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        throw new Error(`Support chat request failed (${res.status})`);
+        const hint =
+          typeof data?.error === "string"
+            ? data.error
+            : `Support chat request failed (${res.status})`;
+        throw new Error(hint);
       }
-      const data = await res.json();
       const content =
         typeof data?.content === "string"
           ? data.content
@@ -52,7 +56,7 @@ export function createChatTransport() {
         "",
         preview ? `Your message: "${preview}"` : "(No message text.)",
         "",
-        "Wire a Netlify Function or other backend to that env var to return real answers.",
+        "Set VITE_SUPPORT_CHAT_API_URL=/api/support-chat and configure OPENAI_API_KEY (or Anthropic) on Netlify for live answers.",
       ].join("\n"),
     };
   };
