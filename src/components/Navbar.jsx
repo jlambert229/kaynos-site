@@ -7,7 +7,11 @@ const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "Demos", href: "#demos" },
-  { label: "Getting started", href: "/getting-started", route: true },
+  {
+    label: "Getting started",
+    href: "https://docs.kaynos.net#setup",
+    external: true,
+  },
   {
     label: "Help Center",
     href: "https://docs.kaynos.net",
