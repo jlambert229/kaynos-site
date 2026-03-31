@@ -7,24 +7,33 @@ import GettingStartedPage from "./pages/getting-started/GettingStartedPage";
 import { SupportChatProvider } from "./support/SupportChatContext";
 import SupportChatWidget from "./support/SupportChatWidget";
 
+/** Routes + chrome (used inside any router: Browser or Memory for prerender). */
+export function AppRoutes() {
+  return (
+    <>
+      <SupportChatWidget />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/data-use" element={<DataUsePolicy />} />
+        <Route path="/getting-started" element={<GettingStartedLayout />}>
+          <Route index element={<GettingStartedPage />} />
+        </Route>
+        <Route path="/docs" element={<Navigate to="/getting-started" replace />} />
+        <Route
+          path="/docs/getting-started"
+          element={<Navigate to="/getting-started" replace />}
+        />
+      </Routes>
+    </>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <SupportChatProvider>
-        <SupportChatWidget />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/data-use" element={<DataUsePolicy />} />
-          <Route path="/getting-started" element={<GettingStartedLayout />}>
-            <Route index element={<GettingStartedPage />} />
-          </Route>
-          <Route path="/docs" element={<Navigate to="/getting-started" replace />} />
-          <Route
-            path="/docs/getting-started"
-            element={<Navigate to="/getting-started" replace />}
-          />
-        </Routes>
+        <AppRoutes />
       </SupportChatProvider>
     </BrowserRouter>
   );
