@@ -7,6 +7,12 @@ const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "Demos", href: "#demos" },
+  { label: "Docs", href: "/docs", route: true },
+  {
+    label: "Help Center",
+    href: "https://docs.kaynos.net",
+    external: true,
+  },
 ];
 
 function scrollToHash(hash) {
@@ -56,16 +62,32 @@ export default function Navbar() {
         </Link>
 
         <div className="navbar-links">
-          {navLinks.map(({ label, href }) => (
-            <a
-              key={href}
-              href={pathname === "/" ? href : `/${href}`}
-              className="navbar-link"
-              onClick={(e) => handleSectionClick(e, href)}
-            >
-              {label}
-            </a>
-          ))}
+          {navLinks.map(({ label, href, route, external }) =>
+            external ? (
+              <a
+                key={href}
+                href={href}
+                className="navbar-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {label}
+              </a>
+            ) : route ? (
+              <Link key={href} to={href} className="navbar-link">
+                {label}
+              </Link>
+            ) : (
+              <a
+                key={href}
+                href={pathname === "/" ? href : `/${href}`}
+                className="navbar-link"
+                onClick={(e) => handleSectionClick(e, href)}
+              >
+                {label}
+              </a>
+            )
+          )}
         </div>
 
         <div className="navbar-cta">
@@ -90,18 +112,34 @@ export default function Navbar() {
         <button className="mobile-close" onClick={closeMobile} aria-label="Close menu">
           <X size={24} />
         </button>
-        {navLinks.map(({ label, href }) => (
-          <a
-            key={href}
-            href={pathname === "/" ? href : `/${href}`}
-            onClick={(e) => {
-              handleSectionClick(e, href);
-              closeMobile();
-            }}
-          >
-            {label}
-          </a>
-        ))}
+        {navLinks.map(({ label, href, route, external }) =>
+          external ? (
+            <a
+              key={href}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMobile}
+            >
+              {label}
+            </a>
+          ) : route ? (
+            <Link key={href} to={href} onClick={closeMobile}>
+              {label}
+            </Link>
+          ) : (
+            <a
+              key={href}
+              href={pathname === "/" ? href : `/${href}`}
+              onClick={(e) => {
+                handleSectionClick(e, href);
+                closeMobile();
+              }}
+            >
+              {label}
+            </a>
+          )
+        )}
         <a href="https://app.kaynos.net" onClick={closeMobile}>Log In</a>
         <a href="https://app.kaynos.net/signup" className="btn btn-primary" onClick={closeMobile}>
           Start Free Trial
