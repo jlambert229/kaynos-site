@@ -288,20 +288,35 @@ svg {
   border: none;
   color: var(--text-primary);
   cursor: pointer;
-  padding: 8px;
+  padding: 12px;
+  min-width: 48px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.mobile-toggle:hover {
+  background: var(--bg-secondary);
 }
 
 .mobile-menu {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(5, 5, 8, 0.95);
+  background: rgba(5, 5, 8, 0.97);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 999;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 8px;
+  padding: 80px 32px 48px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu.open {
@@ -310,20 +325,53 @@ svg {
 
 .mobile-menu a {
   color: var(--text-primary);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
   text-decoration: none;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.mobile-menu a:not(.btn):hover {
+  background: var(--bg-secondary);
+}
+
+.mobile-menu .btn {
+  margin-top: 16px;
+  width: 100%;
+  max-width: 320px;
+  font-size: 16px;
+  padding: 16px 28px;
+  justify-content: center;
 }
 
 .mobile-close {
   position: absolute;
-  top: 20px;
-  right: 24px;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
   color: var(--text-primary);
   cursor: pointer;
-  padding: 8px;
+  padding: 12px;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.mobile-close:hover {
+  background: var(--bg-secondary);
 }
 
 @media (max-width: 768px) {
@@ -334,7 +382,11 @@ svg {
   }
 
   .mobile-toggle {
-    display: block;
+    display: flex;
+  }
+
+  .navbar-inner {
+    padding: 0 16px;
   }
 }
 
@@ -508,8 +560,32 @@ svg {
     gap: 48px;
   }
 
+  .hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .hero-proof {
+    justify-content: center;
+  }
+
+  .hero-demo-links {
+    justify-content: center;
+  }
+
   .hero-mockup {
     justify-content: center;
+    width: 100%;
+  }
+
+  .hero-mockup-img {
+    max-width: 100%;
   }
 
   .hero {
@@ -1139,8 +1215,20 @@ svg {
 @media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
     text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+
+  .footer-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .footer-bottom {
@@ -1149,7 +1237,62 @@ svg {
   }
 
   .section {
-    padding: 80px 0;
+    padding: 64px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero-description {
+    font-size: 17px;
+    margin-bottom: 28px;
+  }
+
+  .hero-title {
+    margin-bottom: 18px;
+  }
+
+  .hero-badge {
+    margin-bottom: 20px;
+  }
+
+  .hero-logo-lockup {
+    margin-bottom: 20px;
+  }
+
+  .hero-proof {
+    margin-top: 32px;
+  }
+
+  .pricing-card {
+    padding: 32px 24px;
+  }
+
+  .pricing-amount {
+    font-size: 44px;
+  }
+
+  .btn-lg {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -1664,12 +1807,14 @@ svg {
 }
 
 @keyframes supportChatPulse {
+
   0%,
   80%,
   100% {
     opacity: 0.35;
     transform: scale(1);
   }
+
   40% {
     opacity: 1;
     transform: scale(1.15);
@@ -1717,6 +1862,165 @@ svg {
   align-items: center;
   justify-content: center;
   min-height: 44px;
+}
+
+/* ---- MOBILE: MOCKUP & SMALL SCREENS ---- */
+
+@media (max-width: 640px) {
+  .mockup-sidebar {
+    flex-direction: column;
+  }
+
+  .mockup-nav {
+    width: 100%;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+  }
+
+  .mockup-nav-item {
+    white-space: nowrap;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .mockup-stat-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .mockup-stat {
+    padding: 10px;
+  }
+
+  .mockup-stat-value {
+    font-size: 18px;
+  }
+
+  .mockup-body {
+    padding: 12px;
+    min-height: auto;
+  }
+
+  .mockup-session {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .mockup-session-thumb {
+    width: 36px;
+    height: 24px;
+  }
+
+  .mockup-session-title {
+    font-size: 12px;
+  }
+
+  .mockup-session-meta {
+    font-size: 10px;
+  }
+
+  .mockup-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  .navbar {
+    height: 64px;
+  }
+
+  .hero {
+    padding-top: 64px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-demo-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .pricing-card {
+    padding: 24px 16px;
+  }
+
+  .pricing-amount {
+    font-size: 40px;
+  }
+
+  .feature-card {
+    padding: 24px;
+  }
+
+  .story-card {
+    padding: 20px;
+  }
+
+  .testimonial-card {
+    padding: 24px;
+  }
+
+  .demo-card {
+    padding: 20px;
+  }
+
+  .cta-section {
+    padding: 64px 0;
+  }
+
+  .legal-main,
+  .getting-started-main {
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+
+  .faq-question {
+    font-size: 15px;
+    padding: 16px 0;
+  }
+
+  .footer {
+    padding: 32px 0 24px;
+  }
+
+  .support-chat-root {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-proof-item {
+    font-size: 13px;
+  }
+
+  .pricing-features li {
+    font-size: 14px;
+    gap: 10px;
+    padding: 10px 0;
+  }
 }
 
 /* ---- ANIMATIONS ---- */
