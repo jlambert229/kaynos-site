@@ -109,7 +109,7 @@ export default function Hero() {
             </div>
             <div className="hero-badge">Built by grapplers, for grapplers</div>
             <h1 className="hero-title">
-              Your students keep training{" "}
+              Keep your students training{" "}
               <span className="accent">between classes.</span>
             </h1>
             <p className="hero-description">
