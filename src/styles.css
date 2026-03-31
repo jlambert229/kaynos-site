@@ -1374,6 +1374,16 @@ svg {
     gap: 56px;
     align-items: start;
   }
+
+  .docs-layout.docs-layout--single {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 720px;
+    margin-inline: auto;
+  }
+}
+
+.docs-layout--single {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .docs-sidebar {
