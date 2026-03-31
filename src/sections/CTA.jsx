@@ -7,7 +7,7 @@ export default function CTA() {
       <div className="container">
         <h2 className="cta-title">Ready to level up your school?</h2>
         <p className="cta-subtitle">
-          Try it free for 14 days. No credit card, no commitment.
+          Try it free for 14 days. Cancel anytime.
         </p>
         <div className="btn-group" style={{ justifyContent: "center" }}>
           <a href="https://app.kaynos.net/signup" className="btn btn-primary btn-lg">

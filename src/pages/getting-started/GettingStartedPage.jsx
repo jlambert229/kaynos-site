@@ -20,8 +20,8 @@ export default function GettingStartedPage() {
             <strong>Open an account.</strong>{" "}
             <a href="https://app.kaynos.net/signup" target="_blank" rel="noopener noreferrer">
               Start your free trial
-            </a>{" "}
-            (no card). Sign in anytime at app.kaynos.net.
+            </a>
+            . Sign in anytime at app.kaynos.net.
           </li>
           <li>
             <strong>Upload one video.</strong> Create a session or class, drag in a file from

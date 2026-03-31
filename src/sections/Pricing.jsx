@@ -45,9 +45,7 @@ export default function Pricing() {
             Start Your Free Trial
           </a>
 
-          <p className="pricing-note">
-            No credit card required. Cancel anytime.
-          </p>
+          <p className="pricing-note">Cancel anytime.</p>
         </div>
       </div>
     </section>
