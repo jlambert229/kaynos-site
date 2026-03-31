@@ -1,19 +1,16 @@
-import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import Seo from "../../components/Seo";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 export default function GettingStartedLayout() {
-  useEffect(() => {
-    const prev = document.title;
-    document.title = "Getting started | Kaynos";
-    return () => {
-      document.title = prev;
-    };
-  }, []);
-
   return (
     <>
+      <Seo
+        title="Getting started"
+        description="Start using Kaynos for your school: create an account, upload class footage, add coach notes on the timeline, and invite students to review sessions at app.kaynos.net."
+        path="/getting-started"
+      />
       <Navbar />
       <main className="getting-started-main">
         <div className="container">

@@ -1,21 +1,18 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const effectiveDate = "March 31, 2026";
 
 export default function DataUsePolicy() {
-  useEffect(() => {
-    const prev = document.title;
-    document.title = "Data Use Policy | Kaynos";
-    return () => {
-      document.title = prev;
-    };
-  }, []);
-
   return (
     <>
+      <Seo
+        title="Data Use Policy"
+        description="Kaynos Data Use Policy: how training videos, coach and student content, and school account data are processed, retained, and used on our platform."
+        path="/data-use"
+      />
       <Navbar />
       <main className="legal-main">
         <article className="container legal-article">

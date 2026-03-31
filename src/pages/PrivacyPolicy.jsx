@@ -1,21 +1,18 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const effectiveDate = "March 30, 2026";
 
 export default function PrivacyPolicy() {
-  useEffect(() => {
-    const prev = document.title;
-    document.title = "Privacy Policy | Kaynos";
-    return () => {
-      document.title = prev;
-    };
-  }, []);
-
   return (
     <>
+      <Seo
+        title="Privacy Policy"
+        description="Kaynos Privacy Policy (United States): how we collect, use, disclose, and protect personal information when schools use our martial arts video review platform."
+        path="/privacy"
+      />
       <Navbar />
       <main className="legal-main">
         <article className="container legal-article">

@@ -1,3 +1,5 @@
+import { SeoHome } from "../components/Seo";
+import { homeJsonLd } from "../seo/homeJsonLd";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../sections/Hero";
@@ -13,6 +15,7 @@ import CTA from "../sections/CTA";
 export default function Home() {
   return (
     <>
+      <SeoHome jsonLd={homeJsonLd} />
       <Navbar />
       <main>
         <Hero />

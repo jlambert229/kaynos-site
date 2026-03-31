@@ -1,0 +1,5 @@
+# https://www.kaynos.net
+User-agent: *
+Allow: /
+
+Sitemap: https://www.kaynos.net/sitemap.xml
