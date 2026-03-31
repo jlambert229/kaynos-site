@@ -4,7 +4,7 @@ const demos = [
   {
     title: "Instructor view",
     description:
-      "See what it looks like to manage sessions, classes, and students. Poke around with sample data.",
+      "Manage students, upload videos, leave timestamped notes, organize with tags, and see who's been watching. Includes the admin panel and usage dashboard.",
     href: "https://demo.kaynos.net",
     icon: GraduationCap,
     cta: "Try the instructor demo",
@@ -12,7 +12,7 @@ const demos = [
   {
     title: "Student view",
     description:
-      "See what your students see: their assigned sessions, the class library, and video review with notes.",
+      "Watch assigned sessions, browse shared classes, add your own notes alongside coach feedback, and pick up right where you left off.",
     href: "https://student.kaynos.net",
     icon: User,
     cta: "Try the student demo",

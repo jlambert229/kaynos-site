@@ -20,12 +20,12 @@ const faqs = [
   {
     question: "Can students see each other's private sessions?",
     answer:
-      "No. Private sessions are only visible to the student, the instructor, and school admins. Shared classes are visible to everyone.",
+      "No. Private sessions are only visible to the assigned student, the instructor, and school admins. Classes are separate and visible to everyone at the school, great for group drills and technique breakdowns.",
   },
   {
     question: "What happens after the trial?",
     answer:
-      "It continues at $49/month. You can cancel anytime from your account. No contracts, no cancellation fees.",
+      "It continues at $49/month or $490/year if you pick the annual plan. You can cancel anytime from your account. No contracts, no cancellation fees.",
   },
   {
     question: "What video formats work?",

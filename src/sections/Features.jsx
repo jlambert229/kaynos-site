@@ -1,35 +1,47 @@
-import { Upload, MessageSquare, Users, BarChart3, Tag, Shield } from "lucide-react";
+import { Upload, MessageSquare, Users, BarChart3, Tag, Shield, Play, Settings } from "lucide-react";
 
 const features = [
   {
     icon: Upload,
     title: "Easy video uploads",
     description:
-      "Drag and drop your training footage right from your browser. Handles big files without breaking a sweat.",
+      "Drag and drop your training footage right from your browser. Handles big files, and you can link Vimeo videos too.",
   },
   {
     icon: MessageSquare,
     title: "Coach notes on the timeline",
     description:
-      "Pin notes to the exact moment in the video. Your students see exactly what you saw and what to work on.",
+      "Pin notes to the exact moment in the video. Students add their own notes too, and everyone can search and filter them.",
   },
   {
     icon: Users,
-    title: "Everyone gets their own view",
+    title: "Private sessions and shared classes",
     description:
-      "Coaches manage sessions and classes. Students see only what is assigned to them, plus shared material.",
+      "One-on-one sessions stay between coach and student. School-wide classes go to everyone. Each person sees exactly what they should.",
   },
   {
-    icon: BarChart3,
-    title: "See who is watching",
+    icon: Play,
+    title: "Resume where you left off",
     description:
-      "Know which students have reviewed their footage and which ones still need a nudge.",
+      "Students pick up right where they stopped. Coaches see who has watched, who hasn't, and which videos are still pending.",
   },
   {
     icon: Tag,
     title: "Stay organized",
     description:
       "Tag sessions by technique, class type, or anything that makes sense for your school. Find stuff fast.",
+  },
+  {
+    icon: Settings,
+    title: "School admin tools",
+    description:
+      "Manage your roster, reset passwords, export to CSV, and get automated usage reports delivered to your inbox.",
+  },
+  {
+    icon: BarChart3,
+    title: "Usage and progress tracking",
+    description:
+      "See video and storage usage at a glance. Track which students are reviewing footage and staying on top of their training.",
   },
   {
     icon: Shield,

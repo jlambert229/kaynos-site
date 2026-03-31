@@ -13,24 +13,25 @@ function DashboardMockup() {
     { value: "12", label: "Students" },
     { value: "34", label: "Sessions" },
     { value: "8", label: "Classes" },
+    { value: "97", label: "Notes" },
   ];
 
   const sessions = [
     {
       title: "Sparring - Advanced",
-      meta: "Mar 24 · 12 min",
+      meta: "Mar 24 · 12 min · 3 notes",
       badge: "Watched",
       pending: false,
     },
     {
       title: "Fundamentals Drill",
-      meta: "Mar 22 · 8 min",
+      meta: "Mar 22 · 8 min · 1 note",
       badge: "New",
       pending: true,
     },
     {
       title: "Competition Prep",
-      meta: "Mar 20 · 15 min",
+      meta: "Mar 20 · 15 min · 5 notes",
       badge: "Watched",
       pending: false,
     },
@@ -91,6 +92,7 @@ function DashboardMockup() {
 export default function Hero() {
   const proofItems = [
     "14-day free trial",
+    "Not charged until trial ends",
     "Cancel anytime",
   ];
 
