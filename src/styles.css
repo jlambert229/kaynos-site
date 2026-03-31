@@ -193,7 +193,7 @@ svg {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 32px;
 }
 
 .navbar-brand {
@@ -263,6 +263,7 @@ svg {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: auto;
 }
 
 .navbar-cta .btn {
