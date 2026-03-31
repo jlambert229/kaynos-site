@@ -1,5 +1,13 @@
 import { Helmet } from "react-helmet-async";
-import { SITE_URL, SEO_DEFAULT_DESCRIPTION, SEO_DEFAULT_TITLE } from "../seo/constants";
+import {
+  SITE_URL,
+  SEO_DEFAULT_DESCRIPTION,
+  SEO_DEFAULT_TITLE,
+  OG_SHARE_URL,
+  OG_SHARE_ALT,
+  OG_SHARE_WIDTH,
+  OG_SHARE_HEIGHT,
+} from "../seo/constants";
 
 /**
  * Per-route SEO: title, description, canonical, Open Graph, Twitter.
@@ -27,10 +35,16 @@ export default function Seo({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
+      <meta property="og:image" content={OG_SHARE_URL} />
+      <meta property="og:image:width" content={String(OG_SHARE_WIDTH)} />
+      <meta property="og:image:height" content={String(OG_SHARE_HEIGHT)} />
+      <meta property="og:image:alt" content={OG_SHARE_ALT} />
 
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={OG_SHARE_URL} />
+      <meta name="twitter:image:alt" content={OG_SHARE_ALT} />
 
       {jsonLd ? (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -54,10 +68,16 @@ export function SeoHome({ jsonLd }) {
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={SEO_DEFAULT_TITLE} />
       <meta property="og:description" content={SEO_DEFAULT_DESCRIPTION} />
+      <meta property="og:image" content={OG_SHARE_URL} />
+      <meta property="og:image:width" content={String(OG_SHARE_WIDTH)} />
+      <meta property="og:image:height" content={String(OG_SHARE_HEIGHT)} />
+      <meta property="og:image:alt" content={OG_SHARE_ALT} />
 
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={SEO_DEFAULT_TITLE} />
       <meta name="twitter:description" content={SEO_DEFAULT_DESCRIPTION} />
+      <meta name="twitter:image" content={OG_SHARE_URL} />
+      <meta name="twitter:image:alt" content={OG_SHARE_ALT} />
 
       {jsonLd ? (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
