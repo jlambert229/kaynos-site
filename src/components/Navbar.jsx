@@ -5,16 +5,8 @@ import KaynosLogo from "./KaynosLogo";
 
 const navLinks = [
   { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Our Story", href: "#story" },
-  { label: "Demos", href: "#demos" },
   { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-];
-
-const demoDirectLinks = [
-  { label: "Instructor", href: "https://demo.kaynos.net" },
-  { label: "Student", href: "https://student.kaynos.net" },
+  { label: "Demos", href: "#demos" },
 ];
 
 function scrollToHash(hash) {
@@ -74,21 +66,6 @@ export default function Navbar() {
               {label}
             </a>
           ))}
-          <span className="navbar-demo-pipe" aria-hidden>
-            |
-          </span>
-          {demoDirectLinks.map(({ label, href }) => (
-            <a
-              key={href}
-              href={href}
-              className="navbar-link navbar-link--demo"
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`Open ${label.toLowerCase()} demo in a new tab`}
-            >
-              {label}
-            </a>
-          ))}
         </div>
 
         <div className="navbar-cta">
@@ -123,17 +100,6 @@ export default function Navbar() {
             }}
           >
             {label}
-          </a>
-        ))}
-        {demoDirectLinks.map(({ label, href }) => (
-          <a
-            key={href}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={closeMobile}
-          >
-            {label} demo
           </a>
         ))}
         <a href="https://app.kaynos.net" onClick={closeMobile}>Log In</a>
