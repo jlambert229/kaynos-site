@@ -1355,77 +1355,20 @@ svg {
   text-underline-offset: 2px;
 }
 
-/* ---- DOCS ---- */
+/* ---- GETTING STARTED (marketing) ---- */
 
-.docs-main {
+.getting-started-main {
   padding-top: 100px;
   padding-bottom: 80px;
   min-height: 60vh;
 }
 
-.docs-layout {
-  display: grid;
-  gap: 40px;
-}
-
-@media (min-width: 900px) {
-  .docs-layout {
-    grid-template-columns: 220px minmax(0, 1fr);
-    gap: 56px;
-    align-items: start;
-  }
-
-  .docs-layout.docs-layout--single {
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 720px;
-    margin-inline: auto;
-  }
-}
-
-.docs-layout--single {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.docs-sidebar {
-  position: sticky;
-  top: 96px;
-}
-
-.docs-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 16px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-.docs-nav-link {
-  display: block;
-  padding: 10px 12px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  border-radius: var(--radius-sm);
-  transition: background 0.15s ease, color 0.15s ease;
-}
-
-.docs-nav-link:hover {
-  color: var(--text-primary);
-  background: var(--bg-secondary);
-}
-
-.docs-nav-link--active {
-  color: var(--accent);
-  background: var(--accent-soft);
-}
-
-.docs-article {
+.getting-started-article {
   max-width: 720px;
+  margin-inline: auto;
 }
 
-.docs-kicker {
+.getting-started-kicker {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1434,7 +1377,7 @@ svg {
   margin-bottom: 12px;
 }
 
-.docs-title {
+.getting-started-title {
   font-size: clamp(28px, 4vw, 36px);
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -1442,36 +1385,36 @@ svg {
   margin-bottom: 16px;
 }
 
-.docs-lead {
+.getting-started-lead {
   font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: 36px;
 }
 
-.docs-section {
+.getting-started-section {
   margin-bottom: 32px;
 }
 
-.docs-heading {
+.getting-started-heading {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 12px;
   letter-spacing: -0.02em;
 }
 
-.docs-body {
+.getting-started-body {
   font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 12px;
 }
 
-.docs-body:last-child {
+.getting-started-body:last-child {
   margin-bottom: 0;
 }
 
-.docs-list {
+.getting-started-list {
   margin: 0;
   padding-left: 1.25rem;
   font-size: 15px;
@@ -1479,16 +1422,16 @@ svg {
   line-height: 1.7;
 }
 
-.docs-list li {
+.getting-started-list li {
   margin-bottom: 8px;
 }
 
-.docs-inline-link {
+.getting-started-inline-link {
   font-weight: 600;
   color: var(--accent);
 }
 
-.docs-inline-link:hover {
+.getting-started-inline-link:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
