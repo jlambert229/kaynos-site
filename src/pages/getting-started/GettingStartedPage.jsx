@@ -4,83 +4,66 @@ export default function GettingStartedPage() {
   return (
     <>
       <p className="getting-started-kicker">Getting started</p>
-      <h1 className="getting-started-title">Start using Kaynos today</h1>
+      <h1 className="getting-started-title">Get going in a few minutes</h1>
       <p className="getting-started-lead">
-        Kaynos is video review for your school: upload class footage, leave coach notes on the
-        timeline, and give students a library they can study in the browser. Follow the steps
-        below from a free trial to your first students watching their sessions.
+        Sign up, upload one clip, leave a note, invite a student. Everything runs in the browser at{" "}
+        <a href="https://app.kaynos.net" target="_blank" rel="noopener noreferrer">
+          app.kaynos.net
+        </a>
+        .
       </p>
 
       <section className="getting-started-section">
-        <h2 className="getting-started-heading">1. Open your account</h2>
-        <p className="getting-started-body">
-          Start a free trial from the{" "}
-          <Link to="/" className="getting-started-inline-link">
-            home page
-          </Link>
-          , then sign in any time at{" "}
-          <a href="https://app.kaynos.net" target="_blank" rel="noopener noreferrer">
-            app.kaynos.net
-          </a>
-          . No credit card is required for the trial.
-        </p>
+        <h2 className="getting-started-heading">Right now</h2>
+        <ol className="getting-started-list">
+          <li>
+            <strong>Open an account.</strong>{" "}
+            <a href="https://app.kaynos.net/signup" target="_blank" rel="noopener noreferrer">
+              Start your free trial
+            </a>{" "}
+            (no card). Sign in anytime at app.kaynos.net.
+          </li>
+          <li>
+            <strong>Upload one video.</strong> Create a session or class, drag in a file from
+            your phone or computer, wait for processing to finish.
+          </li>
+          <li>
+            <strong>Mark the teaching moment.</strong> Scrub to a timestamp and add a short coach
+            note so your student sees it in context.
+          </li>
+          <li>
+            <strong>Invite someone.</strong> From Admin or Students, send an invite so they can log
+            in and watch assigned footage.
+          </li>
+          <li>
+            <strong>Have them watch.</strong> They use the same site in a browser, no app install.
+            You can see who has opened their videos when you are ready to follow up.
+          </li>
+        </ol>
       </section>
 
       <section className="getting-started-section">
-        <h2 className="getting-started-heading">2. Upload your first session</h2>
+        <h2 className="getting-started-heading">More detail</h2>
         <p className="getting-started-body">
-          Film with whatever you already use at the gym (phone, action cam, etc.), then drag the
-          file into Kaynos from your browser. Common formats work; large files are fine.
-        </p>
-        <p className="getting-started-body">
-          Tie the clip to the right class or session so students and coaches see it in the right
-          place.
-        </p>
-      </section>
-
-      <section className="getting-started-section">
-        <h2 className="getting-started-heading">3. Add coach notes on the timeline</h2>
-        <p className="getting-started-body">
-          Scrub to the moment that matters and pin a note. Students see your feedback in context,
-          not as a wall of text. Tag by technique, class type, or whatever keeps your school
-          organized.
-        </p>
-      </section>
-
-      <section className="getting-started-section">
-        <h2 className="getting-started-heading">4. Invite your team</h2>
-        <p className="getting-started-body">
-          Add instructors and staff so they can manage sessions and classes. Students only see
-          what you assign them, plus shared class material, so private coaching stays private.
-        </p>
-      </section>
-
-      <section className="getting-started-section">
-        <h2 className="getting-started-heading">5. Get students watching</h2>
-        <p className="getting-started-body">
-          Students log in on the web (no app install). They open their assigned videos, rewatch
-          details they missed live, and add their own notes. Check who has watched so you know who
-          still needs a nudge.
-        </p>
-      </section>
-
-      <section className="getting-started-section">
-        <h2 className="getting-started-heading">Stuck or need more detail?</h2>
-        <p className="getting-started-body">
-          Use the support chat on this site, browse the{" "}
+          Step-by-step screenshots, troubleshooting, and roles live in the{" "}
           <a
-            href="https://docs.kaynos.net"
+            href="https://docs.kaynos.net#setup"
             target="_blank"
             rel="noopener noreferrer"
             className="getting-started-inline-link"
           >
             Help Center
           </a>
-          , or email{" "}
+          . On this site, use the chat widget or email{" "}
           <a href="mailto:support@kaynos.net" className="getting-started-inline-link">
             support@kaynos.net
           </a>
           .
+        </p>
+        <p className="getting-started-body">
+          <Link to="/" className="getting-started-inline-link">
+            ← Back to home
+          </Link>
         </p>
       </section>
     </>

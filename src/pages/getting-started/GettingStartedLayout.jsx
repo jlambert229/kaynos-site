@@ -8,7 +8,7 @@ export default function GettingStartedLayout() {
     <>
       <Seo
         title="Getting started"
-        description="Start using Kaynos for your school: create an account, upload class footage, add coach notes on the timeline, and invite students to review sessions at app.kaynos.net."
+        description="Sign up, upload a video, add coach notes, invite your team. Quick checklist for Kaynos at app.kaynos.net; full guides in the Help Center."
         path="/getting-started"
       />
       <Navbar />
