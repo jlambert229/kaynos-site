@@ -4,21 +4,21 @@ const testimonials = [
   {
     initial: "M",
     name: "Marcus Rivera",
-    role: "Head Instructor, Apex BJJ",
+    role: "Head Coach, Apex Training",
     quote:
-      "Video review changed everything for us. Being able to break down a roll and leave notes at the exact right moment means students show up already knowing what to work on. Huge time saver.",
+      "Video review changed everything for us. Being able to break down a session and leave notes at the exact right moment means clients show up already knowing what to work on. Huge time saver.",
   },
   {
     initial: "S",
     name: "Sarah Chen",
-    role: "Owner, Pacific Martial Arts",
+    role: "Owner, Pacific Coaching",
     quote:
       "Our students are picking things up way faster now. They watch their footage between classes, catch stuff they missed live, and come back with way better questions. It just works.",
   },
   {
     initial: "J",
     name: "James Okafor",
-    role: "Coach, Ironside Wrestling",
+    role: "Coach, Ironside Athletics",
     quote:
       "I was worried my older coaches wouldn't want to learn another app, but Kaynos is so simple it wasn't even an issue. Upload, tag, share. Done.",
   },
@@ -29,7 +29,7 @@ export default function Testimonials() {
     <section id="testimonials" className="section">
       <div className="container">
         <div className="section-header">
-          <span className="section-label">From the mat</span>
+          <span className="section-label">From our users</span>
           <h2 className="section-title">Coaches are into it</h2>
         </div>
 

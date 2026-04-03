@@ -2,14 +2,14 @@ import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 
 const includedFeatures = [
-  "Unlimited students and instructors",
+  "Unlimited clients and instructors",
   "Unlimited sessions and classes",
   "Up to 100 video uploads",
   "50 GB video storage",
   "6 months video retention",
   "Timestamped coach notes",
   "Progress tracking",
-  "School admin panel",
+  "Admin panel",
   "Email notifications",
   "Priority support",
 ];

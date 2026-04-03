@@ -9,7 +9,7 @@ const values = [
   {
     title: "Made for coaches",
     detail:
-      "Every feature starts with a simple question: does this actually help on the mat? If the answer is no, we don't build it.",
+      "Every feature starts with a simple question: does this actually help in the session? If the answer is no, we don't build it.",
   },
   {
     title: "No fluff",
@@ -17,9 +17,9 @@ const values = [
       "No social feeds, no leaderboards, no AI hype. Just video review that works. We'd rather do one thing well than ten things halfway.",
   },
   {
-    title: "Works for any size school",
+    title: "Works for any size practice",
     detail:
-      "You shouldn't need a huge academy to afford decent video tools. One price, unlimited students, no surprises on the bill.",
+      "You shouldn't need a big operation to afford decent video tools. One price, unlimited clients, no surprises on the bill.",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function Story() {
         <div className="section-header">
           <span className="section-label">Our Story</span>
           <h2 className="section-title">
-            Built by grapplers, for grapplers
+            Built by coaches, for coaches
           </h2>
           <p className="section-subtitle">
             We kept losing the best coaching moments the second class ended.
@@ -53,7 +53,7 @@ export default function Story() {
 
         <p className="story-closer">
           Kaynos is independent, self-funded, and run by people who still
-          roll on weeknights. Got feedback? You're talking to the people
+          coach on weeknights. Got feedback? You're talking to the people
           who build it.
         </p>
       </div>

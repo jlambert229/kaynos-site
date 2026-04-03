@@ -3,9 +3,9 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "Is this just for BJJ?",
+    question: "What types of coaching does this work for?",
     answer:
-      "Kaynos was built with BJJ in mind, but it works great for wrestling, judo, MMA, Muay Thai, or really any sport where watching film helps you improve.",
+      "Kaynos works for any coaching practice where reviewing video helps clients improve. Personal training, sports coaching, music lessons, dance instruction, or any skill-based teaching.",
   },
   {
     question: "Do my students need to download an app?",
@@ -20,7 +20,7 @@ const faqs = [
   {
     question: "Can students see each other's private sessions?",
     answer:
-      "No. Private sessions are only visible to the assigned student, the instructor, and school admins. Classes are separate and visible to everyone at the school, great for group drills and technique breakdowns.",
+      "No. Private sessions are only visible to the assigned client, the instructor, and admins. Classes are visible to everyone in your account, great for group content and shared recordings.",
   },
   {
     question: "What happens after the trial?",

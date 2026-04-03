@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
     <>
       <Seo
         title="Privacy Policy"
-        description="Kaynos Privacy Policy (United States): how we collect, use, disclose, and protect personal information when schools use our martial arts video review platform."
+        description="Kaynos Privacy Policy (United States): how we collect, use, disclose, and protect personal information when you use our video review and training platform."
         path="/privacy"
       />
       <Navbar />

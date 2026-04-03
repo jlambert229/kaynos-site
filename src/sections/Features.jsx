@@ -29,7 +29,7 @@ const features = [
     icon: Tag,
     title: "Stay organized",
     description:
-      "Tag sessions by technique, class type, or anything that makes sense for your school. Find stuff fast.",
+      "Tag sessions by topic, type, or anything that makes sense for your practice. Find stuff fast.",
   },
   {
     icon: Settings,
@@ -59,7 +59,7 @@ export default function Features() {
           <span className="section-label">Features</span>
           <h2 className="section-title">Everything you need, nothing you don't</h2>
           <p className="section-subtitle">
-            Video review tools that actually make sense for a martial arts school.
+            Video review tools built for private coaching and training.
           </p>
         </div>
 

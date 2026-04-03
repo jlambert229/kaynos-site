@@ -18,19 +18,19 @@ function DashboardMockup() {
 
   const sessions = [
     {
-      title: "Sparring - Advanced",
+      title: "Private Session Review",
       meta: "Mar 24 · 12 min · 3 notes",
       badge: "Watched",
       pending: false,
     },
     {
-      title: "Fundamentals Drill",
+      title: "Group Workshop",
       meta: "Mar 22 · 8 min · 1 note",
       badge: "New",
       pending: true,
     },
     {
-      title: "Competition Prep",
+      title: "Progress Check-In",
       meta: "Mar 20 · 15 min · 5 notes",
       badge: "Watched",
       pending: false,
@@ -108,14 +108,14 @@ export default function Hero() {
             <div className="hero-logo-lockup">
               <KaynosLogo size="hero" />
             </div>
-            <div className="hero-badge">Built by grapplers, for grapplers</div>
+            <div className="hero-badge">Built for coaches</div>
             <h1 className="hero-title">
-              Keep your students training{" "}
-              <span className="accent">between classes.</span>
+              Keep your clients improving{" "}
+              <span className="accent">between sessions.</span>
             </h1>
             <p className="hero-description">
-              Film your rolls, drop in some coach notes, and give every student
-              their own video library to study on their own time. Simple as that.
+              Record your sessions, add timestamped notes, and give every client
+              their own video library to review on their own time. Simple as that.
             </p>
             <div className="btn-group">
               <a
