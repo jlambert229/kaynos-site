@@ -4,7 +4,7 @@ export default function HowItWorks() {
       number: 1,
       title: "Film your session",
       description:
-        "Use your phone, a GoPro, or whatever camera you have at the gym. Any common video format works.",
+        "Use your phone, a GoPro, or whatever camera you have on-site. Any common video format works.",
     },
     {
       number: 2,

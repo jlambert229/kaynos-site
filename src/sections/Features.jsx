@@ -33,7 +33,7 @@ const features = [
   },
   {
     icon: Settings,
-    title: "School admin tools",
+    title: "Account admin tools",
     description:
       "Manage your roster, reset passwords, export to CSV, and get automated usage reports delivered to your inbox.",
   },
@@ -47,7 +47,7 @@ const features = [
     icon: Shield,
     title: "Private by default",
     description:
-      "Your school's footage stays yours. Each account is completely separate, and videos are never public.",
+      "Your footage stays yours. Each account is completely separate, and videos are never public.",
   },
 ];
 

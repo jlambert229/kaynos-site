@@ -5,7 +5,7 @@ export default function CTA() {
     <section className="cta-section">
       <div className="cta-glow" />
       <div className="container">
-        <h2 className="cta-title">Ready to level up your school?</h2>
+        <h2 className="cta-title">Ready to level up your coaching?</h2>
         <p className="cta-subtitle">
           Try it free for 14 days. Cancel anytime.
         </p>

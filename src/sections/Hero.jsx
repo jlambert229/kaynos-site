@@ -147,7 +147,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Student
+                Client
               </a>
             </div>
             <div className="hero-proof">

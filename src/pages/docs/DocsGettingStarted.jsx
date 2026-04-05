@@ -24,7 +24,7 @@ export default function DocsGettingStarted() {
       <section className="docs-section">
         <h2 className="docs-heading">2. Next steps (placeholder)</h2>
         <p className="docs-body">
-          Document your tenant setup, roles, and the first session your schools should create.
+          Document your tenant setup, roles, and the first session your accounts should create.
           Shorter pages with screenshots tend to work better than one giant wall of text.
         </p>
       </section>

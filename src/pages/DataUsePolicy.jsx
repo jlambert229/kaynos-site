@@ -28,7 +28,7 @@ export default function DataUsePolicy() {
             This Data Use Policy explains how Kaynos (&quot;we,&quot; &quot;us,&quot; or
             &quot;our&quot;) uses information in connection with the Kaynos platform and
             related services (for example, the web application at app.kaynos.net and
-            school-specific workflows you enable). It is intended to follow common
+            account-specific workflows you enable). It is intended to follow common
             transparency practices for software-as-a-service providers, including purpose
             limitation, data minimization, and clear boundaries around customer content. This
             page is not legal advice. For how we collect and share personal information on
@@ -39,10 +39,10 @@ export default function DataUsePolicy() {
           <section className="legal-section">
             <h2>1. Scope</h2>
             <p>
-              This policy applies to data processed when you or your school use Kaynos
+              This policy applies to data processed when you or your organization use Kaynos
               products and services. It complements (and does not replace) our{" "}
               <Link to="/privacy">Privacy Policy</Link>, applicable agreements such as our
-              Terms of Service, and any school-specific arrangements.
+              Terms of Service, and any account-specific arrangements.
             </p>
           </section>
 
@@ -51,8 +51,8 @@ export default function DataUsePolicy() {
             <p>Depending on how you use Kaynos, we may process:</p>
             <ul>
               <li>
-                <strong>Account and school data.</strong> Such as names, email addresses,
-                roles, school membership, billing relationship with us, and settings you
+                <strong>Account data.</strong> Such as names, email addresses,
+                roles, account membership, billing relationship with us, and settings you
                 configure.
               </li>
               <li>
@@ -91,7 +91,7 @@ export default function DataUsePolicy() {
                 <strong>Reliability and improvement.</strong> Monitoring performance,
                 diagnosing errors, planning capacity, and developing product improvements.
                 Where we use aggregated or de-identified data, we use it at a level that
-                does not reasonably identify an individual or school.
+                does not reasonably identify an individual or account.
               </li>
               <li>
                 <strong>Customer support.</strong> Responding to requests, reproducing
@@ -132,7 +132,7 @@ export default function DataUsePolicy() {
             <h2>5. Customer content and automated processing</h2>
             <p>
               Your videos, notes, and related materials are yours (subject to your agreements
-              with your school and applicable law). We process customer content to provide the
+              with your organization and applicable law). We process customer content to provide the
               features you use, including storage, transcoding or streaming where applicable,
               search within your account, backups, and disaster recovery.
             </p>
@@ -168,7 +168,7 @@ export default function DataUsePolicy() {
           <section className="legal-section">
             <h2>8. Retention</h2>
             <p>
-              We retain information for as long as your account or school relationship is
+              We retain information for as long as your account relationship is
               active, as needed to provide the service, and as required by law, dispute
               resolution, or enforceable agreements. When data is deleted, it may persist in
               encrypted backups for a limited period before being overwritten.
