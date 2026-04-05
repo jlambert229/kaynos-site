@@ -2,8 +2,8 @@ import React from "react";
 import KaynosLogo from "./KaynosLogo";
 
 const footerLinks = [
-  { label: "Instructor demo", href: "https://demo.kaynos.net", external: true },
-  { label: "Student demo", href: "https://student.kaynos.net", external: true },
+  { label: "Coach demo", href: "https://demo.kaynos.net", external: true },
+  { label: "Client demo", href: "https://student.kaynos.net", external: true },
   {
     label: "Getting started",
     href: "https://docs.kaynos.net#setup",

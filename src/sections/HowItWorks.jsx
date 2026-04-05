@@ -14,9 +14,9 @@ export default function HowItWorks() {
     },
     {
       number: 3,
-      title: "Students watch and learn",
+      title: "Clients watch and learn",
       description:
-        "Your students log in, watch their footage, and add their own notes. No app to download, just a browser.",
+        "Your clients log in, watch their footage, and add their own notes. No app to download, just a browser.",
     },
   ];
 

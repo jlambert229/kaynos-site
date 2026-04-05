@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 
 const includedFeatures = [
-  "Unlimited clients and instructors",
+  "Unlimited clients and coaches",
   "Unlimited sessions and classes",
   "Up to 100 video uploads",
   "50 GB video storage",
@@ -30,7 +30,7 @@ export default function Pricing() {
           <span className="section-label">Pricing</span>
           <h2 className="section-title">One plan. No surprises.</h2>
           <p className="section-subtitle">
-            Everything included. No per-student fees. No hidden costs.
+            Everything included. No per-client fees. No hidden costs.
           </p>
         </div>
 

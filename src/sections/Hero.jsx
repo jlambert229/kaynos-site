@@ -4,13 +4,13 @@ import KaynosLogo from "../components/KaynosLogo";
 function DashboardMockup() {
   const navItems = [
     { label: "Dashboard", active: true },
-    { label: "Students", active: false },
+    { label: "Clients", active: false },
     { label: "Sessions", active: false },
     { label: "Classes", active: false },
   ];
 
   const stats = [
-    { value: "12", label: "Students" },
+    { value: "12", label: "Clients" },
     { value: "34", label: "Sessions" },
     { value: "8", label: "Classes" },
     { value: "97", label: "Notes" },
@@ -114,7 +114,7 @@ export default function Hero() {
               <span className="accent">between sessions.</span>
             </h1>
             <p className="hero-description">
-              Record your sessions, add timestamped notes, and give every client
+              Record your sessions, drop in some notes, and give every client
               their own video library to review on their own time. Simple as that.
             </p>
             <div className="btn-group">
@@ -136,7 +136,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Instructor
+                Coach
               </a>
               <span className="hero-demo-sep" aria-hidden>
                 ·

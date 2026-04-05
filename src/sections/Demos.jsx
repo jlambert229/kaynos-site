@@ -2,20 +2,20 @@ import { ExternalLink, GraduationCap, User } from "lucide-react";
 
 const demos = [
   {
-    title: "Instructor view",
+    title: "Coach view",
     description:
-      "Manage students, upload videos, leave timestamped notes, organize with tags, and see who's been watching. Includes the admin panel and usage dashboard.",
+      "Manage clients, upload videos, leave timestamped notes, organize with tags, and see who's been watching. Includes the admin panel and usage dashboard.",
     href: "https://demo.kaynos.net",
     icon: GraduationCap,
-    cta: "Try the instructor demo",
+    cta: "Try the coach demo",
   },
   {
-    title: "Student view",
+    title: "Client view",
     description:
       "Watch assigned sessions, browse shared classes, add your own notes alongside coach feedback, and pick up right where you left off.",
     href: "https://student.kaynos.net",
     icon: User,
-    cta: "Try the student demo",
+    cta: "Try the client demo",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function Demos() {
         </div>
 
         <p className="demos-note">
-          You can switch between instructor and student views from inside either demo.
+          You can switch between coach and client views from inside either demo.
         </p>
       </div>
     </section>

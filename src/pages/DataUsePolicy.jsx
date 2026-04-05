@@ -10,7 +10,7 @@ export default function DataUsePolicy() {
     <>
       <Seo
         title="Data Use Policy"
-        description="Kaynos Data Use Policy: how training videos, coach and student content, and school account data are processed, retained, and used on our platform."
+        description="Kaynos Data Use Policy: how training videos, coach and client content, and account data are processed, retained, and used on our platform."
         path="/data-use"
       />
       <Navbar />

@@ -6,7 +6,7 @@ export default function GettingStartedPage() {
       <p className="getting-started-kicker">Getting started</p>
       <h1 className="getting-started-title">Get going in a few minutes</h1>
       <p className="getting-started-lead">
-        Sign up, upload one clip, leave a note, invite a student. Everything runs in the browser at{" "}
+        Sign up, upload one clip, leave a note, invite a client. Everything runs in the browser at{" "}
         <a href="https://app.kaynos.net" target="_blank" rel="noopener noreferrer">
           app.kaynos.net
         </a>
@@ -29,10 +29,10 @@ export default function GettingStartedPage() {
           </li>
           <li>
             <strong>Mark the teaching moment.</strong> Scrub to a timestamp and add a short coach
-            note so your student sees it in context.
+            note so your client sees it in context.
           </li>
           <li>
-            <strong>Invite someone.</strong> From Admin or Students, send an invite so they can log
+            <strong>Invite someone.</strong> From the Admin panel, send an invite so they can log
             in and watch assigned footage.
           </li>
           <li>

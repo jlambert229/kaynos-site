@@ -37,7 +37,7 @@ function extractLeadingHeadMarkup(rootHtml) {
     return false;
   };
 
-  while (tryStrip()) {}
+  while (tryStrip()) { }
 
   const withoutTitle = fragments.filter((f) => !/^<title\b/i.test(f));
   return { innerHtml: rest, plainTitle, headMarkup: withoutTitle };

@@ -5,22 +5,22 @@ const faqs = [
   {
     question: "What types of coaching does this work for?",
     answer:
-      "Kaynos works for any coaching practice where reviewing video helps clients improve. Personal training, sports coaching, music lessons, dance instruction, or any skill-based teaching.",
+      "Kaynos works for any type of coaching where reviewing video helps people improve. Personal training, sports, movement, technique work - if you teach it, Kaynos fits.",
   },
   {
-    question: "Do my students need to download an app?",
+    question: "Do my clients need to download an app?",
     answer:
-      "Nope. Everything runs in the browser. Students just log in from their phone or computer.",
+      "Nope. Everything runs in the browser. Clients just log in from their phone or computer.",
   },
   {
     question: "How many people can use it?",
     answer:
-      "As many as you want. There's no limit on students or instructors.",
+      "As many as you want. There's no limit on clients or coaches.",
   },
   {
-    question: "Can students see each other's private sessions?",
+    question: "Can clients see each other's private sessions?",
     answer:
-      "No. Private sessions are only visible to the assigned client, the instructor, and admins. Classes are visible to everyone in your account, great for group content and shared recordings.",
+      "No. Private sessions are only visible to the assigned client, the coach, and admins. Classes are visible to everyone in your account, great for group content and shared recordings.",
   },
   {
     question: "What happens after the trial?",

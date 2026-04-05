@@ -11,19 +11,19 @@ const features = [
     icon: MessageSquare,
     title: "Coach notes on the timeline",
     description:
-      "Pin notes to the exact moment in the video. Students add their own notes too, and everyone can search and filter them.",
+      "Pin notes to the exact moment in the video. Clients add their own notes too, and everyone can search and filter them.",
   },
   {
     icon: Users,
     title: "Private sessions and shared classes",
     description:
-      "One-on-one sessions stay between coach and student. School-wide classes go to everyone. Each person sees exactly what they should.",
+      "One-on-one sessions stay between coach and client. Shared classes go to everyone. Each person sees exactly what they should.",
   },
   {
     icon: Play,
     title: "Resume where you left off",
     description:
-      "Students pick up right where they stopped. Coaches see who has watched, who hasn't, and which videos are still pending.",
+      "Clients pick up right where they stopped. Coaches see who has watched, who hasn't, and which videos are still pending.",
   },
   {
     icon: Tag,
@@ -41,7 +41,7 @@ const features = [
     icon: BarChart3,
     title: "Usage and progress tracking",
     description:
-      "See video and storage usage at a glance. Track which students are reviewing footage and staying on top of their training.",
+      "See video and storage usage at a glance. Track which clients are reviewing footage and staying on top of their training.",
   },
   {
     icon: Shield,
@@ -59,7 +59,7 @@ export default function Features() {
           <span className="section-label">Features</span>
           <h2 className="section-title">Everything you need, nothing you don't</h2>
           <p className="section-subtitle">
-            Video review tools built for private coaching and training.
+            Video review tools that actually make sense for coaches.
           </p>
         </div>
 

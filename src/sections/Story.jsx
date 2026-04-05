@@ -9,7 +9,7 @@ const values = [
   {
     title: "Made for coaches",
     detail:
-      "Every feature starts with a simple question: does this actually help in the session? If the answer is no, we don't build it.",
+      "Every feature starts with a simple question: does this actually help a coach? If the answer is no, we don't build it.",
   },
   {
     title: "No fluff",
@@ -52,8 +52,8 @@ export default function Story() {
         </div>
 
         <p className="story-closer">
-          Kaynos is independent, self-funded, and run by people who still
-          coach on weeknights. Got feedback? You're talking to the people
+          Kaynos is independent, self-funded, and built by people who
+          actually use it. Got feedback? You're talking to the people
           who build it.
         </p>
       </div>
