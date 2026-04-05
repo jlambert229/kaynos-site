@@ -2,7 +2,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import netlify from "@netlify/vite-plugin";
 import { vitePrerenderPlugin } from "vite-prerender-plugin";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -41,7 +40,6 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    netlify(),
     vitePrerenderPlugin({
       renderTarget: "#root",
       prerenderScript: path.resolve(__dirname, "src/prerender.jsx"),
