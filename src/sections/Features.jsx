@@ -55,7 +55,7 @@ export default function Features() {
   return (
     <section id="features" className="section">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" data-reveal>
           <span className="section-label">Features</span>
           <h2 className="section-title">Everything you need, nothing you don't</h2>
           <p className="section-subtitle">
@@ -64,10 +64,10 @@ export default function Features() {
         </div>
 
         <div className="features-grid">
-          {features.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="feature-card">
+          {features.map(({ icon: Icon, title, description }, i) => (
+            <div key={title} className="feature-card" data-reveal style={{ transitionDelay: `${i * 0.07}s` }}>
               <div className="feature-icon">
-                <Icon />
+                <Icon size={22} strokeWidth={1.75} />
               </div>
               <h3 className="feature-title">{title}</h3>
               <p className="feature-description">{description}</p>

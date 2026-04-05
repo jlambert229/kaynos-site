@@ -27,7 +27,7 @@ export default function Story() {
   return (
     <section id="story" className="section section--alt">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" data-reveal>
           <span className="section-label">Our Story</span>
           <h2 className="section-title">
             Built by coaches, for coaches
@@ -40,8 +40,8 @@ export default function Story() {
         </div>
 
         <div className="story-grid">
-          {values.map(({ title, detail }) => (
-            <div key={title} className="story-card">
+          {values.map(({ title, detail }, i) => (
+            <div key={title} className="story-card" data-reveal style={{ transitionDelay: `${i * 0.08}s` }}>
               <div className="story-icon">
                 <Heart size={20} />
               </div>
@@ -51,7 +51,7 @@ export default function Story() {
           ))}
         </div>
 
-        <p className="story-closer">
+        <p className="story-closer" data-reveal>
           Kaynos is independent, self-funded, and built by people who
           actually use it. Got feedback? You're talking to the people
           who build it.

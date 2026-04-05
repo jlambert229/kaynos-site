@@ -23,7 +23,7 @@ export default function Demos() {
   return (
     <section id="demos" className="section section--alt demos-section">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" data-reveal>
           <span className="section-label">Live demos</span>
           <h2 className="section-title">See it for yourself</h2>
           <p className="section-subtitle">
@@ -32,13 +32,15 @@ export default function Demos() {
         </div>
 
         <div className="demos-grid">
-          {demos.map((d) => {
+          {demos.map((d, i) => {
             const Icon = d.icon;
             return (
               <a
                 key={d.href}
                 href={d.href}
                 className="demo-card"
+                data-reveal
+                style={{ transitionDelay: `${i * 0.1}s` }}
                 target="_blank"
                 rel="noopener noreferrer"
               >

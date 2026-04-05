@@ -28,14 +28,14 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="section">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" data-reveal>
           <span className="section-label">From our users</span>
           <h2 className="section-title">Coaches are into it</h2>
         </div>
 
         <div className="testimonials-grid">
-          {testimonials.map((t) => (
-            <div key={t.name} className="testimonial-card">
+          {testimonials.map((t, i) => (
+            <div key={t.name} className="testimonial-card" data-reveal style={{ transitionDelay: `${i * 0.1}s` }}>
               <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
               <div className="testimonial-author">
                 <div className="testimonial-avatar">{t.initial}</div>
