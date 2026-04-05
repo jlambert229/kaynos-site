@@ -1,19 +1,31 @@
-import React from "react";
 import KaynosLogo from "./KaynosLogo";
 
-const footerLinks = [
-  { label: "Coach demo", href: "https://demo.kaynos.net", external: true },
-  { label: "Client demo", href: "https://student.kaynos.net", external: true },
+const columns = [
   {
-    label: "Getting started",
-    href: "https://docs.kaynos.net#setup",
-    external: true,
+    title: "Product",
+    links: [
+      { label: "Features", href: "#features" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "Coach Demo", href: "https://demo.kaynos.net", external: true },
+      { label: "Client Demo", href: "https://student.kaynos.net", external: true },
+    ],
   },
-  { label: "Help Center", href: "https://docs.kaynos.net", external: true },
-  { label: "Privacy Policy", href: "/privacy", external: false },
-  { label: "Data Use Policy", href: "/data-use", external: false },
-  { label: "Terms of Service", href: "https://app.kaynos.net/terms", external: true },
-  { label: "Support", href: "mailto:support@kaynos.net", external: false },
+  {
+    title: "Resources",
+    links: [
+      { label: "Getting Started", href: "https://docs.kaynos.net#setup", external: true },
+      { label: "Help Center", href: "https://docs.kaynos.net", external: true },
+      { label: "Support", href: "mailto:support@kaynos.net" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Data Use Policy", href: "/data-use" },
+      { label: "Terms of Service", href: "https://app.kaynos.net/terms", external: true },
+    ],
+  },
 ];
 
 const socials = [
@@ -51,22 +63,33 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container footer-inner">
-        <div className="footer-brand">
-          <KaynosLogo size="md" />
-          <span className="footer-brand-text">kaynos</span>
-        </div>
+      <div className="container">
+        <div className="footer-grid">
+          <div className="footer-brand-col">
+            <div className="footer-brand">
+              <KaynosLogo size="md" />
+              <span>kaynos</span>
+            </div>
+            <p className="footer-tagline">
+              Async video review for coaches. Help your clients improve between sessions.
+            </p>
+          </div>
 
-        <div className="footer-links">
-          {footerLinks.map(({ label, href, external }) => (
-            <a
-              key={label}
-              href={href}
-              className="footer-link"
-              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            >
-              {label}
-            </a>
+          {columns.map((col) => (
+            <div key={col.title}>
+              <div className="footer-col-title">{col.title}</div>
+              <div className="footer-col-links">
+                {col.links.map(({ label, href, external }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 

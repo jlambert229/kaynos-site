@@ -1,17 +1,26 @@
-import { Upload, MessageSquare, Users, BarChart3, Tag, Shield, Play, Settings } from "lucide-react";
+import {
+  Upload,
+  MessageSquare,
+  Users,
+  BarChart3,
+  Tag,
+  Shield,
+  Play,
+  Settings,
+} from "lucide-react";
 
-const features = [
+const primary = [
   {
     icon: Upload,
     title: "Easy video uploads",
     description:
-      "Drag and drop your training footage right from your browser. Handles big files, and you can link Vimeo videos too.",
+      "Drag and drop training footage from your browser. Handles big files, and you can link Vimeo videos too.",
   },
   {
     icon: MessageSquare,
-    title: "Coach notes on the timeline",
+    title: "Timestamped coaching notes",
     description:
-      "Pin notes to the exact moment in the video. Clients add their own notes too, and everyone can search and filter them.",
+      "Pin notes to exact moments in the video. Clients add their own notes too. Search and filter everything.",
   },
   {
     icon: Users,
@@ -25,29 +34,28 @@ const features = [
     description:
       "Clients pick up right where they stopped. Coaches see who has watched, who hasn't, and which videos are still pending.",
   },
+];
+
+const secondary = [
   {
     icon: Tag,
-    title: "Stay organized",
-    description:
-      "Tag sessions by topic, type, or anything that makes sense for your practice. Find stuff fast.",
+    title: "Organized by tags",
+    description: "Tag sessions by topic, type, or anything that makes sense for your practice.",
   },
   {
     icon: Settings,
-    title: "Account admin tools",
-    description:
-      "Manage your roster, reset passwords, export to CSV, and get automated usage reports delivered to your inbox.",
+    title: "Admin tools",
+    description: "Manage rosters, reset passwords, export CSV, get automated usage reports.",
   },
   {
     icon: BarChart3,
-    title: "Usage and progress tracking",
-    description:
-      "See video and storage usage at a glance. Track which clients are reviewing footage and staying on top of their training.",
+    title: "Usage tracking",
+    description: "See video and storage usage at a glance. Track who's reviewing footage.",
   },
   {
     icon: Shield,
     title: "Private by default",
-    description:
-      "Your footage stays yours. Each account is completely separate, and videos are never public.",
+    description: "Your footage stays yours. Each account is separate, videos are never public.",
   },
 ];
 
@@ -57,20 +65,34 @@ export default function Features() {
       <div className="container">
         <div className="section-header">
           <span className="section-label">Features</span>
-          <h2 className="section-title">Everything you need, nothing you don't</h2>
+          <h2 className="section-title">
+            Everything you need, nothing you don't
+          </h2>
           <p className="section-subtitle">
             Video review tools that actually make sense for coaches.
           </p>
         </div>
 
-        <div className="features-grid">
-          {features.map(({ icon: Icon, title, description }) => (
+        <div className="features-grid-primary">
+          {primary.map(({ icon: Icon, title, description }) => (
             <div key={title} className="feature-card">
               <div className="feature-icon">
-                <Icon />
+                <Icon size={22} />
               </div>
-              <h3 className="feature-title">{title}</h3>
-              <p className="feature-description">{description}</p>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="features-grid-secondary">
+          {secondary.map(({ icon: Icon, title, description }) => (
+            <div key={title} className="feature-card">
+              <div className="feature-icon">
+                <Icon size={18} />
+              </div>
+              <h3>{title}</h3>
+              <p>{description}</p>
             </div>
           ))}
         </div>

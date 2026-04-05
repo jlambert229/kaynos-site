@@ -1,4 +1,4 @@
-import { CheckCircle2, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import KaynosLogo from "../components/KaynosLogo";
 
 function DashboardMockup() {
@@ -19,19 +19,19 @@ function DashboardMockup() {
   const sessions = [
     {
       title: "Private Session Review",
-      meta: "Mar 24 · 12 min · 3 notes",
+      meta: "Mar 24 \u00b7 12 min \u00b7 3 notes",
       badge: "Watched",
       pending: false,
     },
     {
       title: "Group Workshop",
-      meta: "Mar 22 · 8 min · 1 note",
+      meta: "Mar 22 \u00b7 8 min \u00b7 1 note",
       badge: "New",
       pending: true,
     },
     {
       title: "Progress Check-In",
-      meta: "Mar 20 · 15 min · 5 notes",
+      meta: "Mar 20 \u00b7 15 min \u00b7 5 notes",
       badge: "Watched",
       pending: false,
     },
@@ -69,7 +69,7 @@ function DashboardMockup() {
             {sessions.map((session) => (
               <div key={session.title} className="mockup-session">
                 <div className="mockup-session-thumb">
-                  <Play size={14} color="var(--text-tertiary)" />
+                  <Play size={12} color="var(--text-tertiary)" />
                 </div>
                 <div className="mockup-session-info">
                   <div className="mockup-session-title">{session.title}</div>
@@ -90,79 +90,40 @@ function DashboardMockup() {
 }
 
 export default function Hero() {
-  const proofItems = [
-    "14-day free trial",
-    "Not charged until trial ends",
-    "Cancel anytime",
-  ];
-
   return (
     <section id="hero" className="hero">
       <div className="hero-bg">
         <div className="hero-glow hero-glow--blue" />
-        <div className="hero-glow hero-glow--red" />
+        <div className="hero-glow hero-glow--warm" />
       </div>
       <div className="container">
-        <div className="hero-inner">
-          <div className="hero-content">
-            <div className="hero-logo-lockup">
-              <KaynosLogo size="hero" />
-            </div>
-            <div className="hero-badge">Built for coaches</div>
-            <h1 className="hero-title">
-              Keep your clients improving{" "}
-              <span className="accent">between sessions.</span>
-            </h1>
-            <p className="hero-description">
-              Record your sessions, drop in some notes, and give every client
-              their own video library to review on their own time. Simple as that.
-            </p>
-            <div className="btn-group">
-              <a
-                href="https://app.kaynos.net/signup"
-                className="btn btn-primary btn-lg"
-              >
-                Start Free Trial
-              </a>
-              <a href="#how-it-works" className="btn btn-secondary btn-lg">
-                See How It Works
-              </a>
-            </div>
-            <div className="hero-demo-links">
-              <span className="hero-demo-links-label">Live demos</span>
-              <a
-                href="https://demo.kaynos.net"
-                className="hero-demo-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Coach
-              </a>
-              <span className="hero-demo-sep" aria-hidden>
-                ·
-              </span>
-              <a
-                href="https://student.kaynos.net"
-                className="hero-demo-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Client
-              </a>
-            </div>
-            <div className="hero-proof">
-              {proofItems.map((item) => (
-                <div key={item} className="hero-proof-item">
-                  <CheckCircle2 size={16} />
-                  {item}
-                </div>
-              ))}
-            </div>
+        <div className="hero-content">
+          <div className="hero-logo-lockup" style={{ marginBottom: 32 }}>
+            <KaynosLogo size="hero" />
           </div>
-          <div className="hero-mockup">
-            <div className="hero-mockup-img">
-              <DashboardMockup />
-            </div>
+          <h1 className="hero-title">
+            Keep your clients improving{" "}
+            <span className="accent">between sessions.</span>
+          </h1>
+          <p className="hero-description">
+            Record it, review it, leave notes at the moments that matter.
+            Your clients show up sharper because they actually study between sessions.
+          </p>
+          <div className="hero-cta-row">
+            <a
+              href="https://app.kaynos.net/signup"
+              className="btn btn-primary btn-lg"
+            >
+              Start Free Trial
+            </a>
+          </div>
+          <p className="hero-proof-line">
+            14-day free trial. No credit card required.
+          </p>
+        </div>
+        <div className="hero-mockup">
+          <div className="hero-mockup-img">
+            <DashboardMockup />
           </div>
         </div>
       </div>

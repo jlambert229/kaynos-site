@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 
-const includedFeatures = [
-  "Unlimited clients and coaches",
-  "Unlimited sessions and classes",
-  "Up to 100 video uploads",
-  "50 GB video storage",
-  "6 months video retention",
+const features = [
+  "Unlimited clients & coaches",
+  "Unlimited sessions & classes",
+  "100 video uploads",
+  "50 GB storage",
+  "6-month video retention",
   "Timestamped coach notes",
   "Progress tracking",
   "Admin panel",
@@ -15,8 +15,8 @@ const includedFeatures = [
 ];
 
 const plans = {
-  monthly: { amount: "$49", period: "per month", label: "Monthly" },
-  annual: { amount: "$490", period: "per year", label: "Annual", save: "Save 17%" },
+  monthly: { amount: "$49", equiv: null, period: "per month", billedNote: null },
+  annual: { amount: "$41", equiv: "$490/yr", period: "per month", billedNote: "billed annually" },
 };
 
 export default function Pricing() {
@@ -24,18 +24,18 @@ export default function Pricing() {
   const plan = plans[interval];
 
   return (
-    <section id="pricing" className="section section--alt">
+    <section id="pricing" className="section">
       <div className="container">
         <div className="section-header">
           <span className="section-label">Pricing</span>
-          <h2 className="section-title">One plan. No surprises.</h2>
+          <h2 className="section-title">One plan. Everything included.</h2>
           <p className="section-subtitle">
-            Everything included. No per-client fees. No hidden costs.
+            No per-client fees. No feature gates. No surprises on the bill.
           </p>
         </div>
 
         <div className="pricing-card">
-          <span className="pricing-badge">14-day free trial</span>
+          <div className="pricing-card-glow" />
 
           <div className="pricing-toggle">
             <button
@@ -49,17 +49,26 @@ export default function Pricing() {
               onClick={() => setInterval("annual")}
             >
               Annual
-              <span className="pricing-save-tag">Save 17%</span>
+              <span className="pricing-save-tag">-17%</span>
             </button>
           </div>
 
-          <div className="pricing-amount">{plan.amount}</div>
-          <div className="pricing-period">{plan.period}</div>
+          <div className="pricing-price-block">
+            <div className="pricing-amount">{plan.amount}</div>
+            <div className="pricing-period-col">
+              <span className="pricing-period">{plan.period}</span>
+              {plan.billedNote && (
+                <span className="pricing-billed">{plan.billedNote}</span>
+              )}
+            </div>
+          </div>
+
+          <div className="pricing-divider" />
 
           <ul className="pricing-features">
-            {includedFeatures.map((feature) => (
+            {features.map((feature) => (
               <li key={feature}>
-                <CheckCircle2 size={18} className="check" />
+                <Check size={16} className="check" strokeWidth={2.5} />
                 <span>{feature}</span>
               </li>
             ))}
@@ -69,11 +78,12 @@ export default function Pricing() {
             href="https://app.kaynos.net/signup"
             className="btn btn-primary btn-lg"
           >
-            Start Your Free Trial
+            <Sparkles size={18} />
+            Start Free Trial
           </a>
 
           <p className="pricing-note">
-            You won't be charged until your trial ends. Cancel anytime.
+            14 days free. No credit card required. Cancel anytime.
           </p>
         </div>
       </div>
