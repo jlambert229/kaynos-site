@@ -23,7 +23,7 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="section section--alt">
       <div className="container">
-        <div className="section-header" data-reveal>
+        <div className="section-header">
           <div className="section-label">How It Works</div>
           <h2 className="section-title">Three steps. That's it.</h2>
           <p className="section-subtitle">
@@ -33,7 +33,7 @@ export default function HowItWorks() {
         </div>
         <div className="steps">
           {steps.map((step) => (
-            <div key={step.number} className="step" data-reveal style={{ transitionDelay: `${(step.number - 1) * 0.15}s` }}>
+            <div key={step.number} className="step">
               <div className="step-number">{step.number}</div>
               <h3>{step.title}</h3>
               <p>{step.description}</p>

@@ -26,7 +26,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="section section--alt">
       <div className="container">
-        <div className="section-header" data-reveal>
+        <div className="section-header">
           <span className="section-label">Pricing</span>
           <h2 className="section-title">One plan. No surprises.</h2>
           <p className="section-subtitle">
@@ -34,7 +34,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="pricing-card" data-reveal="scale">
+        <div className="pricing-card">
           <span className="pricing-badge">14-day free trial</span>
 
           <div className="pricing-toggle">
