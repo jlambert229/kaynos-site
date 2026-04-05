@@ -7,16 +7,6 @@ const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "Demos", href: "#demos" },
-  {
-    label: "Getting started",
-    href: "https://docs.kaynos.net#setup",
-    external: true,
-  },
-  {
-    label: "Help Center",
-    href: "https://docs.kaynos.net",
-    external: true,
-  },
 ];
 
 function scrollToHash(hash) {
@@ -71,7 +61,7 @@ export default function Navbar() {
         </Link>
 
         <div className="navbar-links">
-          {navLinks.map(({ label, href, route, external }) =>
+          {navLinks.map(({ label, href, external }) =>
             external ? (
               <a
                 key={href}
@@ -82,10 +72,6 @@ export default function Navbar() {
               >
                 {label}
               </a>
-            ) : route ? (
-              <Link key={href} to={href} className="navbar-link">
-                {label}
-              </Link>
             ) : (
               <a
                 key={href}
@@ -121,7 +107,7 @@ export default function Navbar() {
         <button className="mobile-close" onClick={closeMobile} aria-label="Close menu">
           <X size={24} />
         </button>
-        {navLinks.map(({ label, href, route, external }) =>
+        {navLinks.map(({ label, href, external }) =>
           external ? (
             <a
               key={href}
@@ -132,10 +118,6 @@ export default function Navbar() {
             >
               {label}
             </a>
-          ) : route ? (
-            <Link key={href} to={href} onClick={closeMobile}>
-              {label}
-            </Link>
           ) : (
             <a
               key={href}
