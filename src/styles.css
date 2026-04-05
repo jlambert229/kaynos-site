@@ -83,13 +83,14 @@ svg {
 /* ---- LAYOUT ---- */
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(16px, 4vw, 32px);
 }
 
 .section {
-  padding: 120px 0;
+  padding: clamp(64px, 10vw, 140px) 0;
   position: relative;
 }
 
@@ -227,7 +228,7 @@ svg {
 .navbar-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(16px, 4vw, 32px);
   height: 100%;
   display: flex;
   align-items: center;
@@ -600,7 +601,7 @@ svg {
 .hero-inner {
   display: flex;
   align-items: center;
-  gap: 64px;
+  gap: clamp(40px, 5vw, 80px);
 }
 
 @media (max-width: 960px) {
@@ -647,7 +648,7 @@ svg {
 @media (max-width: 768px) {
   .hero-proof {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
   }
 }
@@ -1197,6 +1198,12 @@ svg {
 
 @media (max-width: 960px) {
   .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials-grid {
     grid-template-columns: 1fr;
     max-width: 520px;
     margin: 0 auto;
@@ -1389,20 +1396,12 @@ svg {
     gap: 16px;
   }
 
-  .section {
-    padding: 64px 0;
-  }
-
   .section-header {
     margin-bottom: 40px;
   }
 
   .section-subtitle {
     font-size: 16px;
-  }
-
-  .container {
-    padding: 0 20px;
   }
 
   .hero-description {
@@ -2015,6 +2014,260 @@ svg {
   align-items: center;
   justify-content: center;
   min-height: 44px;
+}
+
+/* ---- ULTRAWIDE & LARGE SCREENS ---- */
+
+@media (min-width: 1440px) {
+  .container,
+  .navbar-inner {
+    max-width: 1320px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .story-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero-inner {
+    gap: 80px;
+  }
+
+  .hero-mockup-img {
+    max-width: 620px;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 4.5vw, 72px);
+  }
+
+  .hero-description {
+    font-size: 21px;
+    max-width: 600px;
+  }
+
+  .features-grid,
+  .demos-grid,
+  .testimonials-grid,
+  .story-grid {
+    gap: 28px;
+  }
+
+  .demos-grid {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container,
+  .navbar-inner {
+    max-width: 1540px;
+    padding: 0 48px;
+  }
+
+  .hero-inner {
+    gap: 100px;
+  }
+
+  .hero-mockup-img {
+    max-width: 720px;
+  }
+
+  .hero-title {
+    font-size: clamp(56px, 4vw, 80px);
+  }
+
+  .hero-description {
+    font-size: 22px;
+    max-width: 640px;
+  }
+
+  .section-title {
+    font-size: clamp(36px, 3.5vw, 56px);
+  }
+
+  .section-subtitle {
+    font-size: 20px;
+    max-width: 700px;
+  }
+
+  .hero-glow--blue {
+    width: 900px;
+    height: 900px;
+  }
+
+  .hero-glow--red {
+    width: 700px;
+    height: 700px;
+  }
+
+  .feature-card {
+    padding: 36px;
+  }
+
+  .features-grid,
+  .demos-grid,
+  .testimonials-grid,
+  .story-grid {
+    gap: 32px;
+  }
+
+  .demos-grid {
+    max-width: 1080px;
+  }
+
+  .pricing-card {
+    max-width: 540px;
+    padding: 56px;
+  }
+
+  .cta-title {
+    font-size: clamp(36px, 3.5vw, 52px);
+  }
+
+  .cta-subtitle {
+    font-size: 20px;
+  }
+
+  .cta-section .cta-glow {
+    width: 1200px;
+    height: 600px;
+  }
+
+  .hero-proof {
+    gap: 32px;
+    font-size: 15px;
+  }
+
+  .btn-lg {
+    padding: 18px 40px;
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .container,
+  .navbar-inner {
+    max-width: 1800px;
+    padding: 0 64px;
+  }
+
+  .hero-inner {
+    gap: 120px;
+  }
+
+  .hero-mockup-img {
+    max-width: 840px;
+  }
+
+  .hero-title {
+    font-size: 84px;
+  }
+
+  .hero-description {
+    font-size: 24px;
+    max-width: 720px;
+  }
+
+  .section-title {
+    font-size: 60px;
+  }
+
+  .section-subtitle {
+    font-size: 22px;
+    max-width: 800px;
+  }
+
+  .hero-glow--blue {
+    width: 1200px;
+    height: 1200px;
+    filter: blur(160px);
+  }
+
+  .hero-glow--red {
+    width: 900px;
+    height: 900px;
+    filter: blur(140px);
+  }
+
+  .feature-card {
+    padding: 40px;
+  }
+
+  .feature-card h3 {
+    font-size: 20px;
+  }
+
+  .feature-card p {
+    font-size: 16px;
+  }
+
+  .testimonial-card {
+    padding: 40px;
+  }
+
+  .testimonial-quote {
+    font-size: 16px;
+  }
+
+  .demo-card {
+    padding: 36px 36px 32px;
+  }
+
+  .step-number {
+    width: 76px;
+    height: 76px;
+    font-size: 28px;
+  }
+
+  .step h3 {
+    font-size: 20px;
+  }
+
+  .step p {
+    font-size: 16px;
+  }
+
+  .pricing-card {
+    max-width: 600px;
+    padding: 64px;
+  }
+
+  .pricing-amount {
+    font-size: 64px;
+  }
+
+  .navbar {
+    height: 96px;
+  }
+
+  .navbar-brand {
+    font-size: 24px;
+  }
+
+  .navbar-links a {
+    font-size: 16px;
+  }
+
+  .navbar-cta .btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .footer {
+    padding: 64px 0 40px;
+  }
+
+  .footer-brand {
+    font-size: 18px;
+  }
+
+  .footer-links a {
+    font-size: 16px;
+  }
 }
 
 /* ---- MOBILE: MOCKUP & SMALL SCREENS ---- */
