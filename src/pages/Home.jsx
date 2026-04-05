@@ -1,5 +1,8 @@
+import { Helmet } from "react-helmet-async";
 import { SeoHome } from "../components/Seo";
 import { homeJsonLd } from "../seo/homeJsonLd";
+import { faqJsonLd } from "../seo/faqJsonLd";
+import { pricingJsonLd } from "../seo/pricingJsonLd";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../sections/Hero";
@@ -16,6 +19,10 @@ export default function Home() {
   return (
     <>
       <SeoHome jsonLd={homeJsonLd} />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(pricingJsonLd)}</script>
+      </Helmet>
       <Navbar />
       <main>
         <Hero />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const faqs = [
+export const faqs = [
   {
     question: "What types of coaching does this work for?",
     answer:
