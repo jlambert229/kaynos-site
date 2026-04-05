@@ -1,39 +1,30 @@
 import React from "react";
 
-/** Dark bar with red end segment (original marketing logo). `nav` / `hero` scale `lg` proportions for layout. */
 const sizeMap = {
-  sm: { width: 30, height: 4, redWidth: 4, tailWidth: 6 },
-  md: { width: 30, height: 4, redWidth: 4, tailWidth: 6 },
-  lg: { width: 48, height: 6, redWidth: 6, tailWidth: 10 },
-  nav: { width: 56, height: 7, redWidth: 7, tailWidth: 12 },
-  hero: { width: 120, height: 15, redWidth: 15, tailWidth: 25 },
+  sm: 20,
+  md: 24,
+  lg: 32,
+  nav: 28,
+  hero: 72,
 };
 
 export default function KaynosLogo({ size = "md" }) {
-  const { width, height, redWidth, tailWidth } = sizeMap[size] || sizeMap.md;
-  const redX = width - tailWidth - redWidth;
+  const h = sizeMap[size] || sizeMap.md;
+  const w = Math.round(h * (185 / 191));
 
   return (
     <svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
+      width={w}
+      height={h}
+      viewBox="0 0 185 191"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-label="Kaynos logo"
       className={`kaynos-logo kaynos-logo--${size}`}
     >
-      <rect
-        x="0"
-        y="0"
-        width={width}
-        height={height}
-        rx="1"
-        fill="#1a1a1a"
-        stroke="rgba(255,255,255,0.15)"
-        strokeWidth="0.5"
-      />
-      <rect x={redX} y="0" width={redWidth} height={height} fill="#c62828" />
+      <path d="M 64 151 L 102 189 L 178 190 L 102 114 Z" fill="#2184f3" fillRule="evenodd" />
+      <path d="M 184 1 L 116 1 L 1 115 L 0 185 Z" fill="#2184f3" fillRule="evenodd" />
+      <path d="M 58 0 L 3 0 L 0 3 L 0 91 L 57 34 Z" fill="#2184f3" fillRule="evenodd" />
     </svg>
   );
 }
