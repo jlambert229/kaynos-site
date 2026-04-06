@@ -79,7 +79,7 @@ export default function Pricing() {
             className="btn btn-primary btn-lg"
           >
             <Sparkles size={18} />
-            Start Free Trial
+            Try It Free
           </a>
 
           <p className="pricing-note">

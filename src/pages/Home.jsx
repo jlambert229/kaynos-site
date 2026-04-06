@@ -28,11 +28,11 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <SocialProofBar />
-        <Demos />
         <Features />
         <HowItWorks />
-        <Story />
+        <Demos />
         <Testimonials />
+        <Story />
         <Pricing />
         <FAQ />
         <CTA />
