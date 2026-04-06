@@ -119,7 +119,7 @@ export default function Hero() {
             </a>
           </div>
           <p className="hero-proof-line">
-            14-day free trial. Your first 3 clients are on us. No credit card required.
+            14-day free trial. Your first 3 clients are on us.
           </p>
         </div>
         <div className="hero-mockup">

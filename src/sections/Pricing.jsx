@@ -116,7 +116,7 @@ export default function Pricing() {
             </a>
 
             <p className="pricing-note">
-              14 days free. No credit card required.
+              14-day free trial included.
             </p>
           </div>
 
