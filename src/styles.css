@@ -95,6 +95,8 @@ img, svg {
 
 .section--alt {
   background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .section-label {
@@ -312,7 +314,7 @@ img, svg {
 }
 
 .mobile-menu {
-  display: none;
+  display: flex;
   position: fixed;
   inset: 0;
   background: rgba(10, 10, 15, 0.97);
@@ -326,10 +328,14 @@ img, svg {
   padding: 80px 32px 48px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .mobile-menu.open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-menu a {
@@ -506,11 +512,12 @@ img, svg {
   background: #12121a;
   overflow: hidden;
   transform: rotateX(2deg);
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .hero-mockup-img:hover {
-  transform: rotateX(0deg);
+  transform: rotateX(0deg) scale(1.005);
+  box-shadow: 0 48px 140px rgba(0, 0, 0, 0.65), 0 0 80px rgba(41, 151, 255, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {
