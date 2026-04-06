@@ -93,6 +93,14 @@ export default function SupportChatWidget() {
           ) : null}
 
           <div className="support-chat-messages" role="log" aria-live="polite" aria-relevant="additions">
+            {messages.length === 0 && !pending ? (
+              <div className="support-chat-bubble support-chat-bubble--assistant">
+                <span className="support-chat-bubble-meta">{ui.assistantName}</span>
+                <div className="support-chat-bubble-text">
+                  Hi! Ask me anything about Kaynos - features, pricing, how to get started, or anything else.
+                </div>
+              </div>
+            ) : null}
             {messages.map((m) => (
               <div
                 key={m.id}

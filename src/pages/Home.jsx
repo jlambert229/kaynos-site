@@ -25,14 +25,14 @@ export default function Home() {
         <script type="application/ld+json">{JSON.stringify(pricingJsonLd)}</script>
       </Helmet>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <SocialProofBar />
-        <Demos />
         <Features />
         <HowItWorks />
-        <Story />
+        <Demos />
         <Testimonials />
+        <Story />
         <Pricing />
         <FAQ />
         <CTA />

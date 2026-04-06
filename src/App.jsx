@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DataUsePolicy from "./pages/DataUsePolicy";
 import GettingStartedLayout from "./pages/getting-started/GettingStartedLayout";
@@ -24,6 +25,7 @@ export function AppRoutes() {
           path="/docs/getting-started"
           element={<Navigate to="/getting-started" replace />}
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

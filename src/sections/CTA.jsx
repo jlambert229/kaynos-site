@@ -9,7 +9,7 @@ export default function CTA() {
         </p>
         <div className="btn-group" style={{ justifyContent: "center" }}>
           <a href="https://app.kaynos.net/signup" className="btn btn-primary btn-lg">
-            Start Free Trial
+            Get Started Free
           </a>
         </div>
       </div>
