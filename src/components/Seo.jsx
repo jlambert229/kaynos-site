@@ -18,6 +18,7 @@ export default function Seo({
   description = SEO_DEFAULT_DESCRIPTION,
   path,
   jsonLd,
+  noIndex = false,
 }) {
   const normalizedPath = path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
   const canonicalUrl = `${SITE_URL}${normalizedPath || "/"}`;
@@ -28,6 +29,7 @@ export default function Seo({
       <title>{pageTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
+      {noIndex ? <meta name="robots" content="noindex, follow" /> : null}
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Kaynos" />

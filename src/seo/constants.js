@@ -6,8 +6,10 @@ export const SEO_DEFAULT_DESCRIPTION =
 
 export const SEO_DEFAULT_TITLE = "Kaynos | Private video training for coaches";
 
-/** Open Graph / Twitter card (1200x630 PNG in public/). */
-export const OG_SHARE_PATH = "/og-share.png";
+// TODO: Convert og-share.svg to PNG for best social platform compatibility
+// (Twitter/X and some messengers prefer PNG over SVG for OG images).
+/** Open Graph / Twitter card (1200x630 in public/). */
+export const OG_SHARE_PATH = "/og-share.svg";
 export const OG_SHARE_URL = `${SITE_URL}${OG_SHARE_PATH}`;
 export const OG_SHARE_ALT =
   "Kaynos: private video training for coaches";
