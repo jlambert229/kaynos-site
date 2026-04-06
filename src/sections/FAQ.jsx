@@ -47,22 +47,32 @@ export default function FAQ() {
         </div>
 
         <div className="faq-list">
-          {faqs.map((faq, index) => (
-            <div key={index} className="faq-item">
-              <button className="faq-question" onClick={() => toggle(index)}>
-                <span>{faq.question}</span>
-                <ChevronDown
-                  className={`faq-chevron${openIndex === index ? " open" : ""}`}
-                  size={20}
-                />
-              </button>
-              {openIndex === index && (
-                <div className="faq-answer">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div key={index} className="faq-item">
+                <button
+                  className="faq-question"
+                  onClick={() => toggle(index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDown
+                    className={`faq-chevron${isOpen ? " open" : ""}`}
+                    size={20}
+                  />
+                </button>
+                <div
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  className={`faq-answer${isOpen ? " faq-answer--open" : ""}`}
+                >
                   <p>{faq.answer}</p>
                 </div>
-              )}
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -12,7 +12,7 @@ export default function GettingStartedLayout() {
         path="/getting-started"
       />
       <Navbar />
-      <main className="getting-started-main">
+      <main id="main-content" className="getting-started-main">
         <div className="container">
           <article className="getting-started-article">
             <Outlet />
