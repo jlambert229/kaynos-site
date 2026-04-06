@@ -3,6 +3,21 @@ import { ChevronDown } from "lucide-react";
 
 export const faqs = [
   {
+    question: "How does the client credit work?",
+    answer:
+      "For every active client on a paid plan, you earn $10/month in recurring credit toward your coach bill. Your first 3 clients per coach are free. Once you have 5 paid clients, that's $50/month in credits, which covers your entire $49 coach plan. Annual plans get $120/year credit per client, applied when your account renews.",
+  },
+  {
+    question: "What do clients pay?",
+    answer:
+      "Clients pay $49/month (or $41/month billed annually at $488/year). You send them a signup link specific to your account. The first 3 clients per coach are completely free.",
+  },
+  {
+    question: "Can my cost really go to $0?",
+    answer:
+      "Yes. There's no floor. With 5 paid clients you're earning $50/month in credits against your $49 coach plan. The more clients you enroll, the less you pay.",
+  },
+  {
     question: "What types of coaching does this work for?",
     answer:
       "Kaynos works for any type of coaching where reviewing video helps people improve. Personal training, sports, movement, technique work - if you teach it, Kaynos fits.",
@@ -10,12 +25,7 @@ export const faqs = [
   {
     question: "Do my clients need to download an app?",
     answer:
-      "Nope. Everything runs in the browser. Clients just log in from their phone or computer.",
-  },
-  {
-    question: "How many people can use it?",
-    answer:
-      "As many as you want. There's no limit on clients or coaches.",
+      "Nope. Everything runs in the browser. Clients just log in from their phone or computer using the link you send them.",
   },
   {
     question: "Can clients see each other's private sessions?",
@@ -25,7 +35,7 @@ export const faqs = [
   {
     question: "What happens after the trial?",
     answer:
-      "It continues at $49/month or $490/year if you pick the annual plan. You can cancel anytime from your account. No contracts, no cancellation fees.",
+      "Coach plans continue at $49/month (or $488/year). Client plans are the same. Your client credits are applied automatically. Cancel anytime from your account. No contracts, no cancellation fees.",
   },
   {
     question: "What video formats work?",

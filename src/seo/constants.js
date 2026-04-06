@@ -2,9 +2,9 @@
 export const SITE_URL = "https://www.kaynos.net";
 
 export const SEO_DEFAULT_DESCRIPTION =
-  "Kaynos is private video training for coaches. Upload session footage, add timestamped notes, and track client progress in one place.";
+  "Kaynos is video review for coaches. Your clients get better feedback tools, and every active client lowers your monthly cost.";
 
-export const SEO_DEFAULT_TITLE = "Kaynos | Private video training for coaches";
+export const SEO_DEFAULT_TITLE = "Kaynos | Video review for coaches. Clients lower your cost.";
 
 // TODO: Convert og-share.svg to PNG for best social platform compatibility
 // (Twitter/X and some messengers prefer PNG over SVG for OG images).

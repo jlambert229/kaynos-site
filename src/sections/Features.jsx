@@ -5,7 +5,7 @@ import {
   BarChart3,
   Tag,
   Shield,
-  Play,
+  TrendingDown,
   Settings,
 } from "lucide-react";
 
@@ -23,16 +23,16 @@ const primary = [
       "Pin notes to exact moments in the video. Clients add their own notes too. Search and filter everything.",
   },
   {
+    icon: TrendingDown,
+    title: "Clients lower your cost",
+    description:
+      "Every active client on a paid plan earns you $10/month in credit. Enroll enough and the platform pays for itself.",
+  },
+  {
     icon: Users,
     title: "Private sessions and shared classes",
     description:
       "One-on-one sessions stay between coach and client. Shared classes go to everyone. Each person sees exactly what they should.",
-  },
-  {
-    icon: Play,
-    title: "Resume where you left off",
-    description:
-      "Clients pick up right where they stopped. Coaches see who has watched, who hasn't, and which videos are still pending.",
   },
 ];
 
@@ -45,12 +45,12 @@ const secondary = [
   {
     icon: Settings,
     title: "Admin tools",
-    description: "Manage rosters, reset passwords, export CSV, get automated usage reports.",
+    description: "Manage rosters, send invite links, export CSV, get automated usage reports.",
   },
   {
     icon: BarChart3,
     title: "Usage tracking",
-    description: "See video and storage usage at a glance. Track who's reviewing footage.",
+    description: "See video and storage usage at a glance. Track who's reviewing footage and earning you credits.",
   },
   {
     icon: Shield,
@@ -66,10 +66,10 @@ export default function Features() {
         <div className="section-header">
           <span className="section-label">Features</span>
           <h2 className="section-title">
-            Everything you need, nothing you don't
+            Better tools for your clients. Better economics for you.
           </h2>
           <p className="section-subtitle">
-            Video review tools that actually make sense for coaches.
+            Give your clients real feedback tools, and get rewarded for every one who signs up.
           </p>
         </div>
 

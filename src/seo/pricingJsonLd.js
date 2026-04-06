@@ -1,12 +1,11 @@
 import { SITE_URL } from "./constants";
 
-/** Product + Offer JSON-LD for pricing rich results. */
 export const pricingJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
   name: "Kaynos",
   description:
-    "Private video training platform for coaches. Upload session footage, add timestamped notes, and track client progress.",
+    "Video review platform for coaches. Clients get feedback tools, and every active client lowers your monthly cost by $10.",
   brand: {
     "@type": "Brand",
     name: "Kaynos",
@@ -14,25 +13,47 @@ export const pricingJsonLd = {
   offers: [
     {
       "@type": "Offer",
-      name: "Monthly",
+      name: "Coach Monthly",
       price: "49.00",
       priceCurrency: "USD",
       priceValidUntil: "2027-12-31",
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/`,
       description:
-        "Full access. Unlimited clients and coaches, 100 video uploads, 50 GB storage. 14-day free trial.",
+        "Coach plan. First 3 clients free. $10/mo credit per paid client. 100 video uploads, 50 GB storage. 14-day free trial.",
     },
     {
       "@type": "Offer",
-      name: "Annual",
-      price: "490.00",
+      name: "Coach Annual",
+      price: "488.00",
       priceCurrency: "USD",
       priceValidUntil: "2027-12-31",
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/`,
       description:
-        "Full access billed annually (save 17%). Unlimited clients and coaches, 100 video uploads, 50 GB storage. 14-day free trial.",
+        "Coach plan billed annually (save 17%). First 3 clients free. $120/yr credit per paid client. 14-day free trial.",
+    },
+    {
+      "@type": "Offer",
+      name: "Client Monthly",
+      price: "49.00",
+      priceCurrency: "USD",
+      priceValidUntil: "2027-12-31",
+      availability: "https://schema.org/InStock",
+      url: `${SITE_URL}/`,
+      description:
+        "Client plan. Watch sessions, add notes, track progress. First 3 clients per coach are free.",
+    },
+    {
+      "@type": "Offer",
+      name: "Client Annual",
+      price: "488.00",
+      priceCurrency: "USD",
+      priceValidUntil: "2027-12-31",
+      availability: "https://schema.org/InStock",
+      url: `${SITE_URL}/`,
+      description:
+        "Client plan billed annually (save 17%). Watch sessions, add notes, track progress.",
     },
   ],
 };

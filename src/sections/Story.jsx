@@ -21,9 +21,9 @@ const values = [
   },
   {
     icon: Users,
-    title: "Works for any size practice",
+    title: "Pricing that rewards growth",
     detail:
-      "You shouldn't need a big operation to afford decent video tools. One price, unlimited clients, no surprises on the bill.",
+      "Most platforms charge you more as you grow. Kaynos does the opposite. Every client you enroll lowers your cost. Grow your practice, shrink your bill.",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function Story() {
         </div>
 
         <p className="story-pullquote">
-          &ldquo;We kept losing the best coaching moments the second class ended. Google Drive links and group chats weren't cutting it. So we built the tool we wished we had.&rdquo;
+          &ldquo;We kept losing the best coaching moments the second class ended. Google Drive links and group chats weren't cutting it. So we built the tool we wished we had - and priced it so coaches actually benefit from growing.&rdquo;
         </p>
 
         <div className="story-grid">

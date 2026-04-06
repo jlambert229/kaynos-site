@@ -4,7 +4,7 @@ const demos = [
   {
     title: "Coach view",
     description:
-      "Upload videos, leave timestamped notes, manage clients, organize with tags, and track who's watching. Full admin panel and usage dashboard included.",
+      "Upload videos, leave timestamped notes, manage clients, organize with tags, and track who's watching. See your credits add up as clients enroll.",
     href: "https://demo.kaynos.net",
     icon: GraduationCap,
     cta: "Try the coach demo",

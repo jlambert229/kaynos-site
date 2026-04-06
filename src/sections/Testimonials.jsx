@@ -15,7 +15,7 @@ const featured = {
   name: "Marcus Rivera",
   role: "Head Coach, Apex Training",
   quote:
-    "Video review changed everything for us. Being able to break down a session and leave notes at the exact right moment means people show up already knowing what to work on. Huge time saver.",
+    "The pricing model is genius. My clients get real video feedback tools, and with 6 of them on paid plans I'm not paying a dime for the platform. It basically sells itself.",
 };
 
 const supporting = [

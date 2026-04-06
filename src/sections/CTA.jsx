@@ -3,9 +3,9 @@ export default function CTA() {
     <section className="cta-section">
       <div className="cta-glow" />
       <div className="container" style={{ position: "relative" }}>
-        <h2 className="cta-title">Ready to level up your coaching?</h2>
+        <h2 className="cta-title">5 clients and your platform is free.</h2>
         <p className="cta-subtitle">
-          Try it free for 14 days. No credit card required.
+          Start your 14-day trial. First 3 clients included. No credit card required.
         </p>
         <div className="btn-group" style={{ justifyContent: "center" }}>
           <a href="https://app.kaynos.net/signup" className="btn btn-primary btn-lg">

@@ -20,7 +20,7 @@ const steps = [
     icon: Eye,
     title: "Clients watch and learn",
     description:
-      "Your clients log in, watch their footage, and add their own notes. No app needed, just a browser.",
+      "Send your clients a signup link. They watch their footage, add notes, and you earn $10/mo credit for each one.",
   },
 ];
 

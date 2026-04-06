@@ -12,7 +12,7 @@ function DashboardMockup() {
   const stats = [
     { value: "12", label: "Clients" },
     { value: "34", label: "Sessions" },
-    { value: "8", label: "Classes" },
+    { value: "$90", label: "Credits" },
     { value: "97", label: "Notes" },
   ];
 
@@ -102,12 +102,12 @@ export default function Hero() {
             <KaynosLogo size="hero" />
           </div>
           <h1 className="hero-title">
-            Keep your clients improving{" "}
-            <span className="accent">between sessions.</span>
+            Better feedback tools.{" "}
+            <span className="accent">Lower cost per client.</span>
           </h1>
           <p className="hero-description">
-            Record it, review it, leave notes at the moments that matter.
-            Your clients show up sharper because they actually study between sessions.
+            Your clients get video review, timestamped notes, and progress tracking.
+            Every active client lowers your monthly cost. Enroll enough and the platform pays for itself.
           </p>
           <div className="hero-cta-row">
             <a
@@ -118,7 +118,7 @@ export default function Hero() {
             </a>
           </div>
           <p className="hero-proof-line">
-            14-day free trial. No credit card required.
+            14-day free trial. First 3 clients free. No credit card required.
           </p>
         </div>
         <div className="hero-mockup">
