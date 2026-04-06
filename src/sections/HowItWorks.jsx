@@ -41,7 +41,9 @@ export default function HowItWorks() {
             const Icon = step.icon;
             return (
               <div key={step.number} className="step">
-                <div className="step-number">{step.number}</div>
+                <div className="step-number">
+                  <Icon size={28} strokeWidth={1.5} />
+                </div>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
               </div>
