@@ -31,12 +31,20 @@ const clientPlans = {
   annual: { amount: "$41", period: "per month", billedNote: "billed annually at $488" },
 };
 
-const creditExamples = [
-  { clients: 3, credit: "$0", cost: "$49", note: "First 3 are free" },
-  { clients: 5, credit: "$20", cost: "$29", note: "2 paid clients" },
-  { clients: 8, credit: "$50", cost: "$0", note: "Platform is free" },
-  { clients: 12, credit: "$90", cost: "$0", note: "Still free" },
-];
+const creditExamples = {
+  monthly: [
+    { clients: 3, paid: 0, credit: "$0", cost: "$49", note: "First 3 included free" },
+    { clients: 5, paid: 2, credit: "$20", cost: "$29", note: "" },
+    { clients: 8, paid: 5, credit: "$50", cost: "$0", note: "Platform is free" },
+    { clients: 12, paid: 9, credit: "$90", cost: "$0", note: "Still $0" },
+  ],
+  annual: [
+    { clients: 3, paid: 0, credit: "$0", cost: "$488", note: "First 3 included free" },
+    { clients: 5, paid: 2, credit: "$240", cost: "$248", note: "" },
+    { clients: 8, paid: 5, credit: "$600", cost: "$0", note: "Platform is free" },
+    { clients: 12, paid: 9, credit: "$1,080", cost: "$0", note: "Still $0" },
+  ],
+};
 
 export default function Pricing() {
   const [interval, setInterval] = useState("monthly");
@@ -49,15 +57,15 @@ export default function Pricing() {
         <div className="section-header">
           <span className="section-label">Pricing</span>
           <h2 className="section-title">
-            The more clients you enroll, the less you pay.
+            Grow your practice, shrink your bill.
           </h2>
           <p className="section-subtitle">
-            Each active client lowers your monthly cost by $10/month.
-            Enroll enough clients and the platform pays for itself.
+            Every paid client earns you $10/month in credit. Your first 3 clients are free.
+            Sign up enough and your platform cost drops to $0.
           </p>
         </div>
 
-        <div className="pricing-toggle" style={{ display: "flex", justifyContent: "center", marginBottom: 48 }}>
+        <div className="pricing-toggle-wrapper">
           <button
             className={`pricing-toggle-btn${interval === "monthly" ? " active" : ""}`}
             onClick={() => setInterval("monthly")}
@@ -137,7 +145,7 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <p className="pricing-note" style={{ marginTop: "auto" }}>
+            <p className="pricing-note pricing-note--push">
               Coach sends a signup link. First 3 clients per coach are free.
             </p>
           </div>
@@ -149,21 +157,26 @@ export default function Pricing() {
             How coach credits work
           </h3>
           <p className="pricing-credit-desc">
-            For every active client on a paid plan, you earn $10/month in recurring credit
-            toward your platform bill{interval === "annual" ? " ($120/year per client)" : ""}.
+            For every paid client beyond your first 3, you earn{" "}
+            {interval === "annual" ? "$120/year" : "$10/month"} in recurring
+            credit toward your coach bill.
           </p>
           <div className="pricing-credit-table">
             <div className="pricing-credit-header">
-              <span>Active clients</span>
+              <span>Total clients</span>
+              <span>Paid clients</span>
               <span>Your credit</span>
               <span>You pay</span>
             </div>
-            {creditExamples.map((row) => (
+            {creditExamples[interval].map((row) => (
               <div key={row.clients} className="pricing-credit-row">
-                <span>{row.clients} clients</span>
-                <span className="pricing-credit-amount">{row.credit}/mo</span>
+                <span>{row.clients}</span>
+                <span>{row.paid}</span>
+                <span className="pricing-credit-amount">
+                  {row.credit}/{interval === "annual" ? "yr" : "mo"}
+                </span>
                 <span className={row.cost === "$0" ? "pricing-credit-free" : ""}>
-                  {row.cost}/mo
+                  {row.cost}/{interval === "annual" ? "yr" : "mo"}
                   {row.cost === "$0" && <span className="pricing-credit-badge">Free</span>}
                 </span>
               </div>

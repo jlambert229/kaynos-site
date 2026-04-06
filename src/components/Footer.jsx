@@ -7,7 +7,7 @@ const columns = [
       { label: "Features", href: "#features" },
       { label: "Pricing", href: "#pricing" },
       { label: "Coach Demo", href: "https://demo.kaynos.net", external: true },
-      { label: "Client Demo", href: "https://student.kaynos.net", external: true },
+      { label: "Client Demo", href: "https://client.kaynos.net", external: true },
     ],
   },
   {
@@ -71,7 +71,7 @@ export default function Footer() {
               <span>kaynos</span>
             </div>
             <p className="footer-tagline">
-              Async video review for coaches. Help your clients improve between sessions.
+              Keep your clients improving between sessions.
             </p>
           </div>
 

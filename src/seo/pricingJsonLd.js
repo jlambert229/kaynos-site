@@ -5,7 +5,7 @@ export const pricingJsonLd = {
   "@type": "Product",
   name: "Kaynos",
   description:
-    "Video review platform for coaches. Clients get feedback tools, and every active client lowers your monthly cost by $10.",
+    "Video review platform for coaches. Every paid client earns you $10/month in credit toward your bill. First 3 clients free.",
   brand: {
     "@type": "Brand",
     name: "Kaynos",
@@ -20,7 +20,7 @@ export const pricingJsonLd = {
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/`,
       description:
-        "Coach plan. First 3 clients free. $10/mo credit per paid client. 100 video uploads, 50 GB storage. 14-day free trial.",
+        "Coach plan. First 3 clients free, then $10/mo credit per paid client. 100 video uploads, 50 GB storage. 14-day free trial.",
     },
     {
       "@type": "Offer",

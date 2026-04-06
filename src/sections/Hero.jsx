@@ -106,8 +106,9 @@ export default function Hero() {
             <span className="accent">Lower cost per client.</span>
           </h1>
           <p className="hero-description">
-            Your clients get video review, timestamped notes, and progress tracking.
-            Every active client lowers your monthly cost. Enroll enough and the platform pays for itself.
+            Your clients get video review, timestamped notes, and progress
+            tracking. Every paid client earns you $10/month in credit toward
+            your bill.
           </p>
           <div className="hero-cta-row">
             <a
@@ -118,7 +119,7 @@ export default function Hero() {
             </a>
           </div>
           <p className="hero-proof-line">
-            14-day free trial. First 3 clients free. No credit card required.
+            14-day free trial. Your first 3 clients are on us. No credit card required.
           </p>
         </div>
         <div className="hero-mockup">

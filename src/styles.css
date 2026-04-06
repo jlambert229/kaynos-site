@@ -1069,9 +1069,19 @@ img, svg {
   overflow: hidden;
 }
 
+.pricing-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.pricing-note--push {
+  margin-top: auto;
+}
+
 .pricing-credit-header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 14px 20px;
   font-size: 12px;
   font-weight: 600;
@@ -1084,7 +1094,7 @@ img, svg {
 
 .pricing-credit-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 14px 20px;
   font-size: 14px;
   color: var(--text-secondary);

@@ -18,9 +18,9 @@ const steps = [
   {
     number: 3,
     icon: Eye,
-    title: "Clients watch and learn",
+    title: "Clients watch and improve",
     description:
-      "Send your clients a signup link. They watch their footage, add notes, and you earn $10/mo credit for each one.",
+      "Send a signup link. Clients watch their footage, add their own notes, and pick things up between sessions.",
   },
 ];
 

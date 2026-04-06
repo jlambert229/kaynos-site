@@ -15,7 +15,7 @@ const featured = {
   name: "Marcus Rivera",
   role: "Head Coach, Apex Training",
   quote:
-    "The pricing model is genius. My clients get real video feedback tools, and with 6 of them on paid plans I'm not paying a dime for the platform. It basically sells itself.",
+    "My clients get real video feedback tools, and once I had 5 of them on paid plans my bill went to zero. I've never used a platform where growing my practice actually saved me money.",
 };
 
 const supporting = [

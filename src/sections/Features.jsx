@@ -26,7 +26,7 @@ const primary = [
     icon: TrendingDown,
     title: "Clients lower your cost",
     description:
-      "Every active client on a paid plan earns you $10/month in credit. Enroll enough and the platform pays for itself.",
+      "Each paid client earns you $10/month in credit toward your coach bill. Five paid clients and your platform cost drops to $0.",
   },
   {
     icon: Users,
@@ -50,7 +50,7 @@ const secondary = [
   {
     icon: BarChart3,
     title: "Usage tracking",
-    description: "See video and storage usage at a glance. Track who's reviewing footage and earning you credits.",
+    description: "See video and storage usage at a glance. Know which clients are watching and when.",
   },
   {
     icon: Shield,
@@ -69,7 +69,8 @@ export default function Features() {
             Better tools for your clients. Better economics for you.
           </h2>
           <p className="section-subtitle">
-            Give your clients real feedback tools, and get rewarded for every one who signs up.
+            Video review, timestamped notes, and progress tracking for your
+            clients. Credits that lower your bill for every one who signs up.
           </p>
         </div>
 
