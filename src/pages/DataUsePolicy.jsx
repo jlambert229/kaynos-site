@@ -14,7 +14,7 @@ export default function DataUsePolicy() {
         path="/data-use"
       />
       <Navbar />
-      <main className="legal-main">
+      <main id="main-content" className="legal-main">
         <article className="container legal-article">
           <p className="legal-meta">
             <Link to="/" className="legal-back">

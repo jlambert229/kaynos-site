@@ -37,6 +37,32 @@ export default function Navbar() {
 
   const closeMobile = () => setMobileOpen(false);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const menu = document.querySelector('.mobile-menu.open');
+    if (!menu) return;
+    const focusable = menu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const trap = (e) => {
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+    const onEsc = (e) => { if (e.key === 'Escape') closeMobile(); };
+    menu.addEventListener('keydown', trap);
+    window.addEventListener('keydown', onEsc);
+    first.focus();
+    return () => {
+      menu.removeEventListener('keydown', trap);
+      window.removeEventListener('keydown', onEsc);
+    };
+  }, [mobileOpen]);
+
   const handleSectionClick = useCallback(
     (e, hash) => {
       e.preventDefault();
@@ -54,6 +80,7 @@ export default function Navbar() {
 
   return (
     <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
+      <a href="#main-content" className="skip-to-content">Skip to content</a>
       <div className="navbar-inner">
         <Link to="/" className="navbar-brand">
           <KaynosLogo size="nav" />

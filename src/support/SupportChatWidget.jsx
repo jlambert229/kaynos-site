@@ -39,6 +39,27 @@ export default function SupportChatWidget() {
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, setIsOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const panel = panelRef.current;
+    if (!panel) return;
+    const getFocusable = () => panel.querySelectorAll('button, textarea, a, [tabindex]:not([tabindex="-1"])');
+    const trap = (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = getFocusable();
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+    panel.addEventListener('keydown', trap);
+    return () => panel.removeEventListener('keydown', trap);
+  }, [isOpen]);
+
   if (!ui.enabled) return null;
 
   function handleSubmit(e) {
