@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a0f"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#grad)" opacity="0.5"/>
+  <defs>
+    <radialGradient id="grad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2997ff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <text x="600" y="260" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif" font-size="72" font-weight="700" fill="#f5f5f7" letter-spacing="-3">kaynos</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif" font-size="28" fill="#a1a1aa" font-weight="400">Private video training for coaches</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif" font-size="18" fill="#2997ff" font-weight="500">www.kaynos.net</text>
+</svg>

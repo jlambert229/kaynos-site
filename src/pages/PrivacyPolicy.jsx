@@ -12,6 +12,7 @@ export default function PrivacyPolicy() {
         title="Privacy Policy"
         description="Kaynos Privacy Policy (United States): how we collect, use, disclose, and protect personal information when you use our video review and training platform."
         path="/privacy"
+        noIndex
       />
       <Navbar />
       <main className="legal-main">
