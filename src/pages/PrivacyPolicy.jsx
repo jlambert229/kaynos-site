@@ -3,7 +3,7 @@ import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const effectiveDate = "March 30, 2026";
+const effectiveDate = "April 7, 2026";
 
 export default function PrivacyPolicy() {
   return (
@@ -28,20 +28,23 @@ export default function PrivacyPolicy() {
           <p className="legal-lead">
             This Privacy Policy describes how Kaynos (&quot;we,&quot; &quot;us,&quot; or
             &quot;our&quot;) collects, uses, and shares personal information when you visit
-            our public marketing website at kaynos.net (including subdomains that display
-            this policy) from the United States. It is intended to meet common expectations
-            under U.S. state privacy laws, including the California Consumer Privacy Act
-            (CCPA) as amended by the California Privacy Rights Act (CPRA). This page does
-            not constitute legal advice.
+            our public marketing website at kaynos.net from the United States. It is
+            intended to meet common expectations under U.S. state privacy laws, including
+            the California Consumer Privacy Act (CCPA) as amended by the California Privacy
+            Rights Act (CPRA). This page does not constitute legal advice.
           </p>
 
           <section className="legal-section">
             <h2>1. Scope</h2>
             <p>
               This policy applies to information collected through this marketing site. If you
-              use other Kaynos products or services (for example, our web application), those
-              experiences may be governed by separate notices or terms. When in doubt, check
-              the policy linked from the product you are using.
+              use the Kaynos web application (app.kaynos.net), that experience is governed by
+              our{" "}
+              <Link to="/data-use">Data Use Policy</Link> and our{" "}
+              <a href="https://app.kaynos.net/terms" target="_blank" rel="noopener noreferrer">
+                Terms of Service
+              </a>. When you click through from this marketing site to the application, the
+              applicable policy is the one linked from the product you are using.
             </p>
           </section>
 
@@ -80,7 +83,7 @@ export default function PrivacyPolicy() {
               </li>
               <li>
                 <strong>Automatically</strong> when you load pages or interact with the site,
-                using cookies, pixels, or similar technologies and server logs.
+                through server logs and, where applicable, cookies or similar technologies.
               </li>
               <li>
                 <strong>From service providers</strong> that help us operate, secure, or
@@ -134,9 +137,11 @@ export default function PrivacyPolicy() {
           <section className="legal-section">
             <h2>6. Cookies and similar technologies</h2>
             <p>
-              We use cookies and similar technologies to remember preferences, understand how
-              the site is used, and support security. You can control cookies through your
-              browser settings. Disabling cookies may affect how the site functions.
+              This marketing site does not currently set first-party cookies. Our hosting
+              provider (Netlify) may set strictly necessary cookies for content delivery and
+              security. If we add analytics or preference cookies in the future, we will
+              update this section and provide any required notice or consent mechanism. You
+              can control cookies at any time through your browser settings.
             </p>
           </section>
 
@@ -201,10 +206,14 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="legal-section">
-            <h2>11. Do Not Track</h2>
+            <h2>11. Do Not Track and Global Privacy Control</h2>
             <p>
-              There is no uniform industry standard for &quot;Do Not Track&quot; browser
-              signals. We do not respond to all such signals in a standardized way.
+              We do not currently respond to &quot;Do Not Track&quot; browser signals because
+              there is no uniform industry standard for them. We do honor Global Privacy
+              Control (GPC) signals as an opt-out of the sale or sharing of personal
+              information where required by applicable state law, including the CPRA. If your
+              browser or extension sends a GPC signal, we treat it as a valid opt-out request
+              for that browser.
             </p>
           </section>
 
