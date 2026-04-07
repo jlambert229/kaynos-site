@@ -6,7 +6,6 @@ import { pricingJsonLd } from "../seo/pricingJsonLd";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../sections/Hero";
-import SocialProofBar from "../sections/SocialProofBar";
 import Demos from "../sections/Demos";
 import Features from "../sections/Features";
 import HowItWorks from "../sections/HowItWorks";
@@ -27,7 +26,6 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <SocialProofBar />
         <Features />
         <HowItWorks />
         <Demos />

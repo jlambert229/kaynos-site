@@ -102,13 +102,13 @@ export default function Hero() {
             <KaynosLogo size="hero" />
           </div>
           <h1 className="hero-title">
-            Better feedback tools.{" "}
-            <span className="accent">Lower cost per client.</span>
+            Your clients fund your platform.{" "}
+            <span className="accent">5 paying clients and your bill is $0.</span>
           </h1>
           <p className="hero-description">
-            Your clients get video review, timestamped notes, and progress
-            tracking. Every paid client earns you $10/month in credit toward
-            your bill.
+            Each paid client earns you $10/month in credit toward your coach
+            plan. Your first 3 clients are free. After that, the math does
+            the rest.
           </p>
           <div className="hero-cta-row">
             <a
