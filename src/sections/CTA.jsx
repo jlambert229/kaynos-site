@@ -2,13 +2,13 @@ export default function CTA() {
   return (
     <section className="cta-section">
       <div className="cta-glow" />
-      <div className="container" style={{ position: "relative" }}>
+      <div className="container cta-container">
         <h2 className="cta-title">Your clients pay for the platform.</h2>
         <p className="cta-subtitle">
           Start your 14-day trial. First 3 clients free, then $10/month credit
           for each one after.
         </p>
-        <div className="btn-group" style={{ justifyContent: "center" }}>
+        <div className="btn-group cta-actions">
           <a href="https://app.kaynos.net/signup" className="btn btn-primary btn-lg">
             Get Started Free
           </a>
