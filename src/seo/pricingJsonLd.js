@@ -14,7 +14,7 @@ export const pricingJsonLd = {
     {
       "@type": "Offer",
       name: "Coach Monthly",
-      price: "49.00",
+      price: "50.00",
       priceCurrency: "USD",
       priceValidUntil: "2027-12-31",
       availability: "https://schema.org/InStock",
@@ -25,7 +25,7 @@ export const pricingJsonLd = {
     {
       "@type": "Offer",
       name: "Coach Annual",
-      price: "488.00",
+      price: "498.00",
       priceCurrency: "USD",
       priceValidUntil: "2027-12-31",
       availability: "https://schema.org/InStock",
@@ -36,7 +36,7 @@ export const pricingJsonLd = {
     {
       "@type": "Offer",
       name: "Client Monthly",
-      price: "49.00",
+      price: "50.00",
       priceCurrency: "USD",
       priceValidUntil: "2027-12-31",
       availability: "https://schema.org/InStock",
@@ -47,7 +47,7 @@ export const pricingJsonLd = {
     {
       "@type": "Offer",
       name: "Client Annual",
-      price: "488.00",
+      price: "498.00",
       priceCurrency: "USD",
       priceValidUntil: "2027-12-31",
       availability: "https://schema.org/InStock",

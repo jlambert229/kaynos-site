@@ -22,25 +22,25 @@ const clientFeatures = [
 ];
 
 const coachPlans = {
-  monthly: { amount: "$49", period: "per month", billedNote: null },
-  annual: { amount: "$41", period: "per month", billedNote: "billed annually at $488" },
+  monthly: { amount: "$50", period: "per month", billedNote: null },
+  annual: { amount: "$41.50", period: "per month", billedNote: "billed annually at $498" },
 };
 
 const clientPlans = {
-  monthly: { amount: "$49", period: "per month", billedNote: null },
-  annual: { amount: "$41", period: "per month", billedNote: "billed annually at $488" },
+  monthly: { amount: "$50", period: "per month", billedNote: null },
+  annual: { amount: "$41.50", period: "per month", billedNote: "billed annually at $498" },
 };
 
 const creditExamples = {
   monthly: [
-    { clients: 3, paid: 0, credit: "$0", cost: "$49", note: "First 3 included free" },
-    { clients: 5, paid: 2, credit: "$20", cost: "$29", note: "" },
+    { clients: 3, paid: 0, credit: "$0", cost: "$50", note: "First 3 included free" },
+    { clients: 5, paid: 2, credit: "$20", cost: "$30", note: "" },
     { clients: 8, paid: 5, credit: "$50", cost: "$0", note: "Platform is free" },
     { clients: 12, paid: 9, credit: "$90", cost: "$0", note: "Still $0" },
   ],
   annual: [
-    { clients: 3, paid: 0, credit: "$0", cost: "$488", note: "First 3 included free" },
-    { clients: 5, paid: 2, credit: "$240", cost: "$248", note: "" },
+    { clients: 3, paid: 0, credit: "$0", cost: "$498", note: "First 3 included free" },
+    { clients: 5, paid: 2, credit: "$240", cost: "$258", note: "" },
     { clients: 8, paid: 5, credit: "$600", cost: "$0", note: "Platform is free" },
     { clients: 12, paid: 9, credit: "$1,080", cost: "$0", note: "Still $0" },
   ],
