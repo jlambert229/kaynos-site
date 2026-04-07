@@ -99,6 +99,10 @@ img, svg {
   border-bottom: 1px solid var(--border);
 }
 
+.section--alt + .section--alt {
+  border-top: none;
+}
+
 .section-label {
   display: inline-block;
   font-size: 12px;
@@ -447,6 +451,10 @@ img, svg {
   animation: glowWarm 8s ease-in-out infinite 2s;
 }
 
+.hero-logo-lockup {
+  margin-bottom: 32px;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -542,7 +550,7 @@ img, svg {
 /* ---- SOCIAL PROOF BAR ---- */
 
 .social-proof-bar {
-  padding: 48px 0;
+  padding: 48px clamp(20px, 4vw, 40px);
   text-align: center;
   border-bottom: 1px solid var(--border);
 }
@@ -556,7 +564,7 @@ img, svg {
 .social-proof-categories {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: clamp(16px, 3vw, 32px);
   margin-top: 20px;
   flex-wrap: wrap;
 }
@@ -671,7 +679,7 @@ img, svg {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 }
 
 .features-grid-secondary {
@@ -845,7 +853,7 @@ img, svg {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: 32px;
+  padding: 36px;
   transition: border-color 0.3s;
 }
 
@@ -913,12 +921,12 @@ img, svg {
 .testimonial-featured::before {
   content: "\201C";
   position: absolute;
-  top: 20px;
-  left: 24px;
+  top: 28px;
+  left: 28px;
   font-size: 80px;
   line-height: 1;
   color: var(--accent);
-  opacity: 0.08;
+  opacity: 0.06;
   font-family: Georgia, serif;
   pointer-events: none;
 }
@@ -1133,11 +1141,19 @@ img, svg {
   .pricing-two-col {
     grid-template-columns: 1fr;
   }
+  .pricing-credit-header,
+  .pricing-credit-row {
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: 12px;
+    padding: 12px 14px;
+  }
+  .pricing-credit-header span:nth-child(2),
+  .pricing-credit-row span:nth-child(2) {
+    display: none;
+  }
 }
 
 .pricing-card {
-  max-width: 480px;
-  margin: 0 auto;
   background: var(--bg-elevated);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-xl);
@@ -1401,6 +1417,14 @@ img, svg {
   position: relative;
 }
 
+.cta-container {
+  position: relative;
+}
+
+.cta-actions {
+  justify-content: center;
+}
+
 /* ---- FOOTER ---- */
 
 .footer {
@@ -1477,6 +1501,11 @@ img, svg {
   transition: color 0.15s;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
 }
 
 .footer-social:hover {

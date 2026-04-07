@@ -98,7 +98,7 @@ export default function Hero() {
       </div>
       <div className="container">
         <div className="hero-content">
-          <div className="hero-logo-lockup" style={{ marginBottom: 32 }}>
+          <div className="hero-logo-lockup">
             <KaynosLogo size="hero" />
           </div>
           <h1 className="hero-title">
