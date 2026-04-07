@@ -33,27 +33,5 @@ export const pricingJsonLd = {
       description:
         "Coach plan billed annually (save 17%). First 3 clients free. $120/yr credit per paid client. 14-day free trial.",
     },
-    {
-      "@type": "Offer",
-      name: "Client Monthly",
-      price: "50.00",
-      priceCurrency: "USD",
-      priceValidUntil: "2027-12-31",
-      availability: "https://schema.org/InStock",
-      url: `${SITE_URL}/`,
-      description:
-        "Client plan. Watch sessions, add notes, track progress. First 3 clients per coach are free.",
-    },
-    {
-      "@type": "Offer",
-      name: "Client Annual",
-      price: "498.00",
-      priceCurrency: "USD",
-      priceValidUntil: "2027-12-31",
-      availability: "https://schema.org/InStock",
-      url: `${SITE_URL}/`,
-      description:
-        "Client plan billed annually (save 17%). Watch sessions, add notes, track progress.",
-    },
   ],
 };

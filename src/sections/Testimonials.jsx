@@ -1,79 +1,26 @@
-import { Star } from "lucide-react";
-
-function Stars({ count = 5 }) {
-  return (
-    <div className="testimonial-stars">
-      {Array.from({ length: count }, (_, i) => (
-        <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
-      ))}
-    </div>
-  );
-}
-
-const featured = {
-  initial: "M",
-  name: "Marcus Rivera",
-  role: "Head Coach, Apex Training",
-  quote:
-    "My clients get real video feedback tools, and once I had 5 of them on paid plans my bill went to zero. I've never used a platform where growing my practice actually saved me money.",
-};
-
-const supporting = [
-  {
-    initial: "S",
-    name: "Sarah Chen",
-    role: "Owner, Pacific Coaching",
-    quote:
-      "Our clients are picking things up way faster now. They watch their footage between sessions, catch stuff they missed live, and come back with way better questions.",
-  },
-  {
-    initial: "J",
-    name: "James Okafor",
-    role: "Coach, Ironside Athletics",
-    quote:
-      "I was worried my older coaches wouldn't want to learn another app, but Kaynos is so simple it wasn't even an issue. Upload, tag, share. Done.",
-  },
-];
+import { Sparkles } from "lucide-react";
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="section section--alt">
+    <section id="early-access" className="section section--alt">
       <div className="container">
-        <div className="section-header">
-          <span className="section-label">From our users</span>
-          <h2 className="section-title">Coaches are into it</h2>
-        </div>
-
-        <div className="testimonials-layout">
-          <div className="testimonial-featured">
-            <Stars />
-            <p className="testimonial-quote">
-              &ldquo;{featured.quote}&rdquo;
-            </p>
-            <div className="testimonial-author">
-              <div className="testimonial-avatar">{featured.initial}</div>
-              <div>
-                <div className="testimonial-name">{featured.name}</div>
-                <div className="testimonial-role">{featured.role}</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="testimonial-supporting">
-            {supporting.map((t) => (
-              <div key={t.name} className="testimonial-card">
-                <Stars />
-                <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">{t.initial}</div>
-                  <div>
-                    <div className="testimonial-name">{t.name}</div>
-                    <div className="testimonial-role">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="early-access">
+          <span className="section-label">Early Access</span>
+          <h2 className="section-title">
+            We are onboarding coaches now.
+          </h2>
+          <p className="early-access-desc">
+            Be one of the first to try Kaynos and shape what we build next.
+            Early access coaches get a direct line to the team and input on
+            every feature we ship.
+          </p>
+          <a
+            href="https://app.kaynos.net/signup"
+            className="btn btn-primary btn-lg"
+          >
+            <Sparkles size={18} />
+            Request Early Access
+          </a>
         </div>
       </div>
     </section>

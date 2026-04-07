@@ -12,21 +12,16 @@ const coachFeatures = [
   "Priority support",
 ];
 
-const clientFeatures = [
+const clientPerks = [
   "Watch assigned sessions",
   "Browse shared classes",
-  "Add your own notes",
-  "Resume where you left off",
+  "Add their own notes",
+  "Resume where they left off",
   "Progress tracking",
   "Works in any browser",
 ];
 
 const coachPlans = {
-  monthly: { amount: "$50", period: "per month", billedNote: null },
-  annual: { amount: "$41.50", period: "per month", billedNote: "billed annually at $498" },
-};
-
-const clientPlans = {
   monthly: { amount: "$50", period: "per month", billedNote: null },
   annual: { amount: "$41.50", period: "per month", billedNote: "billed annually at $498" },
 };
@@ -49,7 +44,6 @@ const creditExamples = {
 export default function Pricing() {
   const [interval, setInterval] = useState("monthly");
   const coachPlan = coachPlans[interval];
-  const clientPlan = clientPlans[interval];
 
   return (
     <section id="pricing" className="section">
@@ -81,10 +75,10 @@ export default function Pricing() {
           </button>
         </div>
 
-        <div className="pricing-two-col">
+        <div className="pricing-single">
           <div className="pricing-card">
             <div className="pricing-card-glow" />
-            <span className="pricing-card-label">Coach</span>
+            <span className="pricing-card-label">Coach Plan</span>
 
             <div className="pricing-price-block">
               <div className="pricing-amount">{coachPlan.amount}</div>
@@ -119,36 +113,22 @@ export default function Pricing() {
               14-day free trial included.
             </p>
           </div>
+        </div>
 
-          <div className="pricing-card pricing-card--client">
-            <div className="pricing-card-glow" />
-            <span className="pricing-card-label">Client</span>
-
-            <div className="pricing-price-block">
-              <div className="pricing-amount">{clientPlan.amount}</div>
-              <div className="pricing-period-col">
-                <span className="pricing-period">{clientPlan.period}</span>
-                {clientPlan.billedNote && (
-                  <span className="pricing-billed">{clientPlan.billedNote}</span>
-                )}
-              </div>
-            </div>
-
-            <div className="pricing-divider" />
-
-            <ul className="pricing-features pricing-features--single">
-              {clientFeatures.map((feature) => (
-                <li key={feature}>
-                  <Check size={16} className="check" strokeWidth={2.5} />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="pricing-note pricing-note--push">
-              Coach sends a signup link. First 3 clients per coach are free.
-            </p>
-          </div>
+        <div className="pricing-client-perks">
+          <h3 className="pricing-client-perks-title">What your clients get</h3>
+          <p className="pricing-client-perks-desc">
+            You send each client a signup link. They get their own account with
+            everything they need to review sessions and track progress.
+          </p>
+          <ul className="pricing-client-perks-list">
+            {clientPerks.map((perk) => (
+              <li key={perk}>
+                <Check size={16} className="check" strokeWidth={2.5} />
+                <span>{perk}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="pricing-credit-section">

@@ -2,7 +2,7 @@
 export const SITE_URL = "https://www.kaynos.net";
 
 export const SEO_DEFAULT_DESCRIPTION =
-  "Kaynos is video review for coaches. Keep your clients improving between sessions.";
+  "Kaynos is video review for coaches. Your clients fund your platform - 5 paying clients and your bill is $0.";
 
 export const SEO_DEFAULT_TITLE = "Kaynos | Keep your clients improving between sessions.";
 
