@@ -3,7 +3,7 @@ import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const effectiveDate = "March 31, 2026";
+const effectiveDate = "April 7, 2026";
 
 export default function DataUsePolicy() {
   return (
@@ -42,8 +42,10 @@ export default function DataUsePolicy() {
             <p>
               This policy applies to data processed when you or your organization use Kaynos
               products and services. It complements (and does not replace) our{" "}
-              <Link to="/privacy">Privacy Policy</Link>, applicable agreements such as our
-              Terms of Service, and any account-specific arrangements.
+              <Link to="/privacy">Privacy Policy</Link>, our{" "}
+              <a href="https://app.kaynos.net/terms" target="_blank" rel="noopener noreferrer">
+                Terms of Service
+              </a>, and any account-specific arrangements.
             </p>
           </section>
 
@@ -133,9 +135,11 @@ export default function DataUsePolicy() {
             <h2>5. Customer content and automated processing</h2>
             <p>
               Your videos, notes, and related materials are yours (subject to your agreements
-              with your organization and applicable law). We process customer content to provide the
-              features you use, including storage, transcoding or streaming where applicable,
-              search within your account, backups, and disaster recovery.
+              with your organization and applicable law). By uploading content, you grant us a
+              limited license to process it solely to provide the features you use, including
+              storage, transcoding or streaming where applicable, search within your account,
+              backups, and disaster recovery. This license ends when you delete the content or
+              close your account, subject to the retention periods described below.
             </p>
             <p>
               We do not use customer content or personal information you provide through the
@@ -149,10 +153,10 @@ export default function DataUsePolicy() {
           <section className="legal-section">
             <h2>6. Subprocessors and service providers</h2>
             <p>
-              We use qualified vendors (for example, hosting, storage, content delivery,
-              email, analytics, security, and payment processing) to run Kaynos. They may
-              process data only as instructed by us and subject to contractual safeguards
-              appropriate to the service they provide.
+              We use third-party service providers (for example, hosting, storage, content
+              delivery, email, analytics, security, and payment processing) to operate Kaynos.
+              These providers process data only as instructed by us and subject to contractual
+              safeguards appropriate to the service they provide.
             </p>
           </section>
 
@@ -172,7 +176,7 @@ export default function DataUsePolicy() {
               We retain information for as long as your account relationship is
               active, as needed to provide the service, and as required by law, dispute
               resolution, or enforceable agreements. When data is deleted, it may persist in
-              encrypted backups for a limited period before being overwritten.
+              encrypted backups for up to 90 days before being overwritten.
             </p>
           </section>
 
