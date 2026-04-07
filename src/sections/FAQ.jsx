@@ -5,17 +5,17 @@ export const faqs = [
   {
     question: "How does the client credit work?",
     answer:
-      "Your first 3 clients are free. After that, every paid client earns you $10/month in recurring credit toward your coach bill. With 8 total clients (5 of them paid), that's $50/month in credits against your $50 coach plan. Annual plans earn $120/year per paid client, applied when your account renews.",
+      "Your first 3 clients are free. After that, every paid client earns you $10/month in recurring credit toward your coach bill. With 8 total clients (5 of them paid), that's $50/month in credits against your $49 coach plan. Annual plans earn $120/year per paid client, applied when your account renews.",
   },
   {
     question: "What do clients pay?",
     answer:
-      "Clients pay $50/month via a signup link you send them. Your first 3 clients per coach are completely free. Annual billing saves them 17%.",
+      "Clients pay $49/month via a signup link you send them. Your first 3 clients per coach are completely free. Annual billing saves them 17%.",
   },
   {
     question: "Can my cost really go to $0?",
     answer:
-      "Yes. There is no floor on your coach bill. Once you have 5 paid clients (8 total, since your first 3 are free), your $50/month in credits covers the $50 coach plan entirely.",
+      "Yes. There is no floor on your coach bill. Once you have 5 paid clients (8 total, since your first 3 are free), your $50/month in credits covers the $49 coach plan entirely.",
   },
   {
     question: "What types of coaching does this work for?",
@@ -35,7 +35,7 @@ export const faqs = [
   {
     question: "What happens after the trial?",
     answer:
-      "Your coach plan continues at $50/month (or $498/year). Credits from paid clients are applied automatically each billing cycle. Cancel anytime from your account. No contracts, no cancellation fees.",
+      "Your coach plan continues at $49/month (or $488/year). Credits from paid clients are applied automatically each billing cycle. Cancel anytime from your account. No contracts, no cancellation fees.",
   },
   {
     question: "What video formats work?",
