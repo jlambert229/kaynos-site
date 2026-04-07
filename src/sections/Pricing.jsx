@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Check, Sparkles, TrendingDown } from "lucide-react";
+import CtaButton from "../components/CtaButton";
 
 const coachFeatures = [
   "First 3 clients free",
@@ -22,20 +23,20 @@ const clientPerks = [
 ];
 
 const coachPlans = {
-  monthly: { amount: "$50", period: "per month", billedNote: null },
-  annual: { amount: "$41.50", period: "per month", billedNote: "billed annually at $498" },
+  monthly: { amount: "$49", period: "per month", billedNote: null },
+  annual: { amount: "$40.67", period: "per month", billedNote: "billed annually at $488" },
 };
 
 const creditExamples = {
   monthly: [
-    { clients: 3, paid: 0, credit: "$0", cost: "$50", note: "First 3 included free" },
-    { clients: 5, paid: 2, credit: "$20", cost: "$30", note: "" },
+    { clients: 3, paid: 0, credit: "$0", cost: "$49", note: "First 3 included free" },
+    { clients: 5, paid: 2, credit: "$20", cost: "$29", note: "" },
     { clients: 8, paid: 5, credit: "$50", cost: "$0", note: "Platform is free" },
     { clients: 12, paid: 9, credit: "$90", cost: "$0", note: "Still $0" },
   ],
   annual: [
-    { clients: 3, paid: 0, credit: "$0", cost: "$498", note: "First 3 included free" },
-    { clients: 5, paid: 2, credit: "$240", cost: "$258", note: "" },
+    { clients: 3, paid: 0, credit: "$0", cost: "$488", note: "First 3 included free" },
+    { clients: 5, paid: 2, credit: "$240", cost: "$248", note: "" },
     { clients: 8, paid: 5, credit: "$600", cost: "$0", note: "Platform is free" },
     { clients: 12, paid: 9, credit: "$1,080", cost: "$0", note: "Still $0" },
   ],
@@ -77,7 +78,6 @@ export default function Pricing() {
 
         <div className="pricing-single">
           <div className="pricing-card">
-            <div className="pricing-card-glow" />
             <span className="pricing-card-label">Coach Plan</span>
 
             <div className="pricing-price-block">
@@ -101,13 +101,10 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <a
-              href="https://app.kaynos.net/signup"
-              className="btn btn-primary btn-lg"
-            >
+            <CtaButton>
               <Sparkles size={18} />
               Start Free Trial
-            </a>
+            </CtaButton>
 
             <p className="pricing-note">
               14-day free trial included.
@@ -136,6 +133,10 @@ export default function Pricing() {
             <TrendingDown size={20} />
             How coach credits work
           </h3>
+          <p className="pricing-credit-desc">
+            Clients pay $49/mo via the signup link you send them. You earn
+            $10/mo of that back as credit toward your bill.
+          </p>
           <p className="pricing-credit-desc">
             For every paid client beyond your first 3, you earn{" "}
             {interval === "annual" ? "$120/year" : "$10/month"} in recurring

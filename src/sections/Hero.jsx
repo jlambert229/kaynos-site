@@ -1,5 +1,6 @@
 import { Play } from "lucide-react";
 import KaynosLogo from "../components/KaynosLogo";
+import CtaButton from "../components/CtaButton";
 
 function DashboardMockup() {
   const navItems = [
@@ -92,10 +93,7 @@ function DashboardMockup() {
 export default function Hero() {
   return (
     <section id="hero" className="hero">
-      <div className="hero-bg">
-        <div className="hero-glow hero-glow--blue" />
-        <div className="hero-glow hero-glow--warm" />
-      </div>
+      <div className="hero-bg" />
       <div className="container">
         <div className="hero-content">
           <div className="hero-logo-lockup">
@@ -111,17 +109,15 @@ export default function Hero() {
             the rest.
           </p>
           <div className="hero-cta-row">
-            <a
-              href="https://app.kaynos.net/signup"
-              className="btn btn-primary btn-lg"
-            >
-              Start Free Trial
-            </a>
+            <CtaButton>Start Free Trial</CtaButton>
           </div>
           <p className="hero-proof-line">
             14-day free trial. Your first 3 clients are on us.
           </p>
         </div>
+        {/* TODO: Replace with real product screenshot.
+            Recommended: 1200x800 @2x PNG or 8-second WebM loop showing the
+            timestamped-notes interaction. Place at /assets/hero-product.png */}
         <div className="hero-mockup">
           <div className="hero-mockup-img">
             <DashboardMockup />

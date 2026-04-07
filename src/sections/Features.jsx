@@ -74,6 +74,9 @@ export default function Features() {
           </p>
         </div>
 
+        {/* TODO: Replace lucide icons with custom-drawn icons for these four
+            primary features (upload, notes, credit, lock). Keep lucide for
+            secondary features and FAQ chevrons. */}
         <div className="features-grid-primary">
           {primary.map(({ icon: Icon, title, description }) => (
             <div key={title} className="feature-card">

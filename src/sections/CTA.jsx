@@ -1,7 +1,8 @@
+import CtaButton from "../components/CtaButton";
+
 export default function CTA() {
   return (
     <section className="cta-section">
-      <div className="cta-glow" />
       <div className="container cta-container">
         <h2 className="cta-title">Your clients pay for the platform.</h2>
         <p className="cta-subtitle">
@@ -9,9 +10,7 @@ export default function CTA() {
           for each one after.
         </p>
         <div className="btn-group cta-actions">
-          <a href="https://app.kaynos.net/signup" className="btn btn-primary btn-lg">
-            Get Started Free
-          </a>
+          <CtaButton>Start Free Trial</CtaButton>
         </div>
       </div>
     </section>
