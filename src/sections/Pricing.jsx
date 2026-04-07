@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Check, Sparkles, TrendingDown } from "lucide-react";
+import CtaButton from "../components/CtaButton";
 
 const coachFeatures = [
   "First 3 clients free",
@@ -77,7 +78,6 @@ export default function Pricing() {
 
         <div className="pricing-single">
           <div className="pricing-card">
-            <div className="pricing-card-glow" />
             <span className="pricing-card-label">Coach Plan</span>
 
             <div className="pricing-price-block">
@@ -101,13 +101,10 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <a
-              href="https://app.kaynos.net/signup"
-              className="btn btn-primary btn-lg"
-            >
+            <CtaButton>
               <Sparkles size={18} />
               Start Free Trial
-            </a>
+            </CtaButton>
 
             <p className="pricing-note">
               14-day free trial included.
@@ -136,6 +133,10 @@ export default function Pricing() {
             <TrendingDown size={20} />
             How coach credits work
           </h3>
+          <p className="pricing-credit-desc">
+            Clients pay $50/mo via the signup link you send them. You earn
+            $10/mo of that back as credit toward your bill.
+          </p>
           <p className="pricing-credit-desc">
             For every paid client beyond your first 3, you earn{" "}
             {interval === "annual" ? "$120/year" : "$10/month"} in recurring
