@@ -104,6 +104,9 @@ export default function Comparison() {
             ))}
           </div>
         </div>
+        <p className="cmp-calc-link">
+          <a href="#calculator">See your actual cost with the calculator →</a>
+        </p>
       </div>
     </section>
   );
