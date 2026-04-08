@@ -7,12 +7,14 @@ import GettingStartedLayout from "./pages/getting-started/GettingStartedLayout";
 import GettingStartedPage from "./pages/getting-started/GettingStartedPage";
 import { SupportChatProvider } from "./support/SupportChatContext";
 import SupportChatWidget from "./support/SupportChatWidget";
+import BackToTop from "./components/BackToTop";
 
 /** Routes + chrome (used inside any router: Browser or Memory for prerender). */
 export function AppRoutes() {
   return (
     <>
       <SupportChatWidget />
+      <BackToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

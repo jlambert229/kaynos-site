@@ -1,3 +1,4 @@
+import { useCallback, useRef } from "react";
 import { Play } from "lucide-react";
 import KaynosLogo from "../components/KaynosLogo";
 import CtaButton from "../components/CtaButton";
@@ -91,6 +92,22 @@ function DashboardMockup() {
 }
 
 export default function Hero() {
+  const mockupRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    const el = mockupRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    el.style.transform = `perspective(1200px) rotateY(${x * 4}deg) rotateX(${-y * 3}deg)`;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const el = mockupRef.current;
+    if (el) el.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg)";
+  }, []);
+
   return (
     <section id="hero" className="hero">
       <div className="hero-bg" />
@@ -118,7 +135,12 @@ export default function Hero() {
         {/* TODO: Replace with real product screenshot.
             Recommended: 1200x800 @2x PNG or 8-second WebM loop showing the
             timestamped-notes interaction. Place at /assets/hero-product.png */}
-        <div className="hero-mockup">
+        <div
+          className="hero-mockup"
+          ref={mockupRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
           <div className="hero-mockup-img">
             <DashboardMockup />
           </div>

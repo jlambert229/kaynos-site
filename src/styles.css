@@ -234,7 +234,9 @@ svg {
 }
 
 .navbar.scrolled {
-  background: var(--bg-base);
+  background: rgba(5, 5, 8, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border-hairline);
 }
 
@@ -493,7 +495,17 @@ svg {
 }
 
 .hero-title .accent {
-  color: var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, #60b4ff 50%, var(--accent) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .hero-description {
@@ -524,6 +536,8 @@ svg {
   max-width: 900px;
   margin: 64px auto 0;
   perspective: 1200px;
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 
 .hero-mockup-img {
@@ -2508,6 +2522,74 @@ svg {
 
   .footer {
     padding: 72px 0 48px;
+  }
+}
+
+/* ---- PRICING POPULAR BADGE ---- */
+
+.pricing-popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent), #60b4ff);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(41, 151, 255, 0.3);
+}
+
+/* ---- BACK TO TOP ---- */
+
+.back-to-top {
+  position: fixed;
+  bottom: 88px;
+  right: 20px;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease, background 0.15s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--accent-dim);
+}
+
+.back-to-top:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+@media (max-width: 480px) {
+  .back-to-top {
+    bottom: 76px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
   }
 }
 

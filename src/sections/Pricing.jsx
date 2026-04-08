@@ -80,6 +80,7 @@ export default function Pricing() {
 
         <div className="pricing-single">
           <div className="pricing-card">
+            <span className="pricing-popular-badge">Most Popular</span>
             <span className="pricing-card-label">Coach Plan</span>
 
             <div className="pricing-price-block">
