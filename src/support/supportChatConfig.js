@@ -1,12 +1,17 @@
 /** @type {import('./createChatTransport.js').SupportChatUiConfig} */
 export const supportChatUiConfig = {
-  /** Set false to hide the widget (e.g. feature flag later). */
   enabled: true,
-  launcherLabel: "Open support chat",
-  panelTitle: "Support",
-  assistantName: "Kaynos Support",
+  launcherLabel: "Chat with us",
+  panelTitle: "Kaynos",
+  assistantName: "Kaynos",
   welcomeMessage:
-    "Ask a question about Kaynos. For account-specific help, you can also email support@kaynos.net.",
-  inputPlaceholder: "Type your message…",
+    "Hey! I can help you learn about Kaynos — pricing, features, how the credit system works, or anything else. What are you curious about?",
+  inputPlaceholder: "Ask about pricing, features…",
   sendLabel: "Send",
+  quickReplies: [
+    "How does pricing work?",
+    "What do clients get?",
+    "Can I try a demo?",
+    "How do credits work?",
+  ],
 };

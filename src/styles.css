@@ -2219,6 +2219,38 @@ svg {
   min-height: 44px;
 }
 
+.support-chat-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 4px 0 8px;
+}
+
+.support-chat-chip {
+  display: inline-block;
+  padding: 7px 14px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(41, 151, 255, 0.2);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.support-chat-chip:hover {
+  background: rgba(41, 151, 255, 0.15);
+  border-color: var(--accent-dim);
+}
+
+.support-chat-chip:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--accent);
+}
+
 /* ---- RESPONSIVE: SMALL SCREENS ---- */
 
 @media (max-width: 640px) {
