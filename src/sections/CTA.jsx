@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import CtaButton from "../components/CtaButton";
 import useScrollReveal from "../hooks/useScrollReveal";
 
@@ -14,6 +15,14 @@ export default function CTA() {
         </p>
         <div className="btn-group cta-actions">
           <CtaButton>Start Free Trial</CtaButton>
+          <a
+            href="https://demo.kaynos.net"
+            className="btn btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Try the Demo <ExternalLink size={14} />
+          </a>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
-import { Sparkles, Quote } from "lucide-react";
+import { Sparkles, Quote, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import CtaButton from "../components/CtaButton";
 
 const quotes = [
@@ -45,7 +46,10 @@ export default function Testimonials() {
           <p className="early-access-desc">
             Kaynos is new and we're shipping fast. Every coach who signs up
             right now gets a direct line to the team and real input on what
-            we build next.
+            we build next.{" "}
+            <Link to="/changelog" className="early-access-link">
+              See what's new <ArrowRight size={14} />
+            </Link>
           </p>
           <CtaButton>
             <Sparkles size={18} />

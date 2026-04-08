@@ -1,4 +1,5 @@
-import { Zap, Users, Target, Heart } from "lucide-react";
+import { Zap, Users, Target, Heart, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import useScrollReveal from "../hooks/useScrollReveal";
 
 const values = [
@@ -60,8 +61,10 @@ export default function Story() {
 
         <p className="story-closer">
           Kaynos is independent, self-funded, and built by people who
-          actually use it. Got feedback? You're talking to the people
-          who build it.
+          actually use it. Got feedback?{" "}
+          <Link to="/contact" className="story-closer-link">
+            Talk to us directly <ArrowRight size={14} />
+          </Link>
         </p>
       </div>
     </section>

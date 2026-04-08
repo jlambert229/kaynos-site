@@ -7,6 +7,7 @@ import {
   Shield,
   TrendingDown,
   Settings,
+  ArrowRight,
 } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
@@ -16,24 +17,28 @@ const primary = [
     title: "Easy video uploads",
     description:
       "Drag and drop training footage from your browser. Handles big files, and you can link Vimeo videos too.",
+    link: { label: "Try the coach demo", href: "https://demo.kaynos.net", external: true },
   },
   {
     icon: MessageSquare,
     title: "Timestamped coaching notes",
     description:
       "Pin notes to exact moments in the video. Clients add their own notes too. Search and filter everything.",
+    link: { label: "See it in action", href: "https://demo.kaynos.net", external: true },
   },
   {
     icon: TrendingDown,
     title: "Clients lower your cost",
     description:
       "Each paid client earns you $10/month in credit toward your coach bill. Five paid clients and your platform cost drops to $0.",
+    link: { label: "Try the calculator", href: "#calculator" },
   },
   {
     icon: Users,
     title: "Private sessions and shared classes",
     description:
       "One-on-one sessions stay between coach and client. Shared classes go to everyone. Each person sees exactly what they should.",
+    link: { label: "See the client view", href: "https://client.kaynos.net", external: true },
   },
 ];
 
@@ -78,17 +83,23 @@ export default function Features() {
           </p>
         </div>
 
-        {/* TODO: Replace lucide icons with custom-drawn icons for these four
-            primary features (upload, notes, credit, lock). Keep lucide for
-            secondary features and FAQ chevrons. */}
         <div ref={gridRef} className="reveal features-grid-primary">
-          {primary.map(({ icon: Icon, title, description }) => (
+          {primary.map(({ icon: Icon, title, description, link }) => (
             <div key={title} className="feature-card">
               <div className="feature-icon">
                 <Icon size={22} />
               </div>
               <h3>{title}</h3>
               <p>{description}</p>
+              {link && (
+                <a
+                  className="feature-link"
+                  href={link.href}
+                  {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                >
+                  {link.label} <ArrowRight size={14} />
+                </a>
+              )}
             </div>
           ))}
         </div>

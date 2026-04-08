@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "Demos", href: "#demos" },
+  { label: "Contact", href: "/contact", page: true },
 ];
 
 function scrollToHash(hash) {
@@ -88,7 +89,7 @@ export default function Navbar() {
         </Link>
 
         <div className="navbar-links">
-          {navLinks.map(({ label, href, external }) =>
+          {navLinks.map(({ label, href, external, page }) =>
             external ? (
               <a
                 key={href}
@@ -99,6 +100,14 @@ export default function Navbar() {
               >
                 {label}
               </a>
+            ) : page ? (
+              <Link
+                key={href}
+                to={href}
+                className="navbar-link"
+              >
+                {label}
+              </Link>
             ) : (
               <a
                 key={href}
@@ -134,7 +143,7 @@ export default function Navbar() {
         <button className="mobile-close" onClick={closeMobile} aria-label="Close menu">
           <X size={24} />
         </button>
-        {navLinks.map(({ label, href, external }) =>
+        {navLinks.map(({ label, href, external, page }) =>
           external ? (
             <a
               key={href}
@@ -145,6 +154,14 @@ export default function Navbar() {
             >
               {label}
             </a>
+          ) : page ? (
+            <Link
+              key={href}
+              to={href}
+              onClick={closeMobile}
+            >
+              {label}
+            </Link>
           ) : (
             <a
               key={href}
