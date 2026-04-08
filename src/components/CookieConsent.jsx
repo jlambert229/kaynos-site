@@ -24,7 +24,7 @@ export default function CookieConsent() {
         We use cookies to improve your experience. By continuing to browse, you agree to our{" "}
         <a href="/privacy">Privacy Policy</a>.
       </p>
-      <button className="btn btn-primary cookie-accept" onClick={accept}>
+      <button type="button" className="btn btn-primary cookie-accept" onClick={accept}>
         Got it
       </button>
     </div>

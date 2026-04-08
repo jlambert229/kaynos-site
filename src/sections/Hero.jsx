@@ -14,11 +14,7 @@ export default function Hero() {
             Stop losing your best coaching moments.
           </h1>
           <p className="hero-description">
-            Kaynos is video review for coaches. Upload session footage, leave
-            timestamped notes, and give clients something to study between
-            sessions. Your first 3 clients are free, and every paid client
-            after that earns you $10/month in credit — so at 5 paid clients,
-            the platform costs you nothing.
+            Upload training videos. Leave notes at specific moments. Share them with your clients so they can review between sessions. Your first 3 clients are free — after that, each paid client knocks $10/month off your bill.
           </p>
           <div className="hero-cta-row">
             <CtaButton>Try It Free</CtaButton>

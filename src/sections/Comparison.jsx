@@ -29,8 +29,7 @@ export default function Comparison() {
           <span className="section-label">Compare</span>
           <h2 className="section-title">How Kaynos stacks up</h2>
           <p className="section-subtitle">
-            Most coaches cobble together Google Drive, Vimeo links, and group
-            chats. Here's what a purpose-built tool gives you.
+            Most coaches juggle Google Drive, Vimeo links, and group chats. Here's how a dedicated tool compares.
           </p>
         </div>
 

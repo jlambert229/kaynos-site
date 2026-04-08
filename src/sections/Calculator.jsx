@@ -20,7 +20,7 @@ export default function Calculator() {
           <span className="section-label">Calculator</span>
           <h2 className="section-title">See what you'd actually pay</h2>
           <p className="section-subtitle">
-            Drag the slider to see how your cost drops as you add clients.
+            Move the slider. Watch your bill shrink.
           </p>
         </div>
 

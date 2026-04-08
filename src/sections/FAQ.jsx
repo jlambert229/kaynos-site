@@ -5,25 +5,25 @@ import useScrollReveal from "../hooks/useScrollReveal";
 export const faqs = [
   {
     question: "How does the client credit work?",
-    answer: "Your first 3 clients are free. After that, every paid client earns you $10/month in recurring credit toward your coach bill. With 8 total clients (5 of them paid), that's $50/month in credits against your $49 coach plan. Annual plans earn $120/year per paid client, applied when your account renews.",
+    answer: "Your first 3 clients are free. After that, each paid client earns you $10/month in credit toward your bill. At 8 total clients (5 paid), your credits cover the full $49/month. Annual plans earn $120/year per paid client instead.",
     linkText: "Try the calculator",
     linkHref: "#calculator",
   },
   {
     question: "What do clients pay?",
-    answer: "Clients pay $49/month via a signup link you send them. Your first 3 clients per coach are completely free. Annual billing saves them 17%.",
+    answer: "Clients pay $49/month through a signup link you send them. Your first 3 clients are free. Annual billing saves 17%.",
     linkText: "See pricing details",
     linkHref: "#pricing",
   },
   {
     question: "Can my cost really go to $0?",
-    answer: "Yes. There is no floor on your coach bill. Once you have 5 paid clients (8 total, since your first 3 are free), your $50/month in credits covers the $49 coach plan entirely.",
+    answer: "Yes. At 5 paid clients (8 total, since your first 3 are free), your $50/month in credits covers the $49 coach plan.",
     linkText: "See the math",
     linkHref: "#calculator",
   },
   {
     question: "What types of coaching does this work for?",
-    answer: "Kaynos works for any type of coaching where reviewing video helps people improve. Personal training, sports, movement, technique work - if you teach it, Kaynos fits.",
+    answer: "Any coaching where reviewing video helps. Personal training, martial arts, music lessons, sports technique — if you film it, Kaynos works.",
     linkText: "See use cases",
     linkHref: "#use-cases",
   },
