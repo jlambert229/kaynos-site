@@ -28,7 +28,8 @@ export default function Hero() {
             </a>
           </div>
           <p className="hero-proof-line">
-            14-day trial. No credit card.
+            14-day trial. No credit card.{" "}
+            <a href="#calculator" className="hero-calc-link">See what you'd pay →</a>
           </p>
         </div>
       </div>

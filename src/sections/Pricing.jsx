@@ -111,7 +111,8 @@ export default function Pricing() {
             </CtaButton>
 
             <p className="pricing-note">
-              14-day free trial included.
+              14-day free trial included.{" "}
+              <a href="#comparison">See how we compare →</a>
             </p>
           </div>
         </div>
@@ -140,6 +141,9 @@ export default function Pricing() {
           <p className="pricing-credit-desc">
             Your first 3 clients use Kaynos free. Starting with client 4, each one pays $49/month — and you get $10/month (or $120/year on annual plans) credited back toward your coach bill.
           </p>
+          <a href="#calculator" className="pricing-calc-link">
+            Try the interactive calculator →
+          </a>
           <div className="pricing-credit-table">
             <div className="pricing-credit-header">
               <span>Total clients</span>
