@@ -1,4 +1,5 @@
-import { Video, PenLine, Eye } from "lucide-react";
+import { Video, PenLine, Eye, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import useScrollReveal from "../hooks/useScrollReveal";
 
 const steps = [
@@ -53,6 +54,11 @@ export default function HowItWorks() {
               </div>
             );
           })}
+        </div>
+        <div className="how-it-works-cta">
+          <Link to="/getting-started" className="how-it-works-link">
+            Read the full setup guide <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>
