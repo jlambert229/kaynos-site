@@ -1,4 +1,5 @@
 import { Zap, Users, Target, Heart } from "lucide-react";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const values = [
   {
@@ -28,10 +29,13 @@ const values = [
 ];
 
 export default function Story() {
+  const headerRef = useScrollReveal();
+  const gridRef = useScrollReveal();
+
   return (
     <section id="story" className="section">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Why Kaynos</span>
           <h2 className="section-title">
             Built by coaches, for coaches
@@ -42,7 +46,7 @@ export default function Story() {
           &ldquo;We kept losing the best coaching moments the second class ended. Google Drive links and group chats weren't cutting it. So we built the tool we wished we had.&rdquo;
         </p>
 
-        <div className="story-grid">
+        <div ref={gridRef} className="reveal story-grid">
           {values.map(({ icon: Icon, title, detail }) => (
             <div key={title} className="story-card">
               <div className="story-icon">
