@@ -5,7 +5,7 @@ const demos = [
   {
     title: "Coach view",
     description:
-      "Upload videos, leave timestamped notes, manage clients, organize with tags, and see who's watching what.",
+      "Upload videos, add timestamped notes, manage clients, and track who's watching.",
     href: "https://demo.kaynos.net",
     icon: Briefcase,
     cta: "Try the coach demo",
@@ -13,7 +13,7 @@ const demos = [
   {
     title: "Client view",
     description:
-      "Watch assigned sessions, browse shared classes, add your own notes alongside coach feedback, and resume right where you left off.",
+      "Watch your assigned sessions, browse shared classes, and add your own notes.",
     href: "https://client.kaynos.net",
     icon: User,
     cta: "Try the client demo",
@@ -61,7 +61,7 @@ export default function Demos() {
         </div>
 
         <p className="demos-note">
-          Both demos use sample data. Switch between views from inside either one.
+          Both demos use sample data. You can switch between coach and client views from inside.
         </p>
       </div>
     </section>

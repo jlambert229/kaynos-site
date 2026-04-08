@@ -131,6 +131,7 @@ export default function Navbar() {
         </div>
 
         <button
+          type="button"
           className="mobile-toggle"
           onClick={() => setMobileOpen((prev) => !prev)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -140,7 +141,7 @@ export default function Navbar() {
       </div>
 
       <div className={`mobile-menu${mobileOpen ? " open" : ""}`}>
-        <button className="mobile-close" onClick={closeMobile} aria-label="Close menu">
+        <button type="button" className="mobile-close" onClick={closeMobile} aria-label="Close menu">
           <X size={24} />
         </button>
         {navLinks.map(({ label, href, external, page }) =>

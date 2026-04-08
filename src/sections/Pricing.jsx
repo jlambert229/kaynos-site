@@ -54,22 +54,23 @@ export default function Pricing() {
         <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Pricing</span>
           <h2 className="section-title">
-            Grow your practice, shrink your bill.
+            Simple pricing. Gets cheaper as you grow.
           </h2>
           <p className="section-subtitle">
-            Every paid client earns you $10/month in credit. Your first 3 clients are free.
-            Sign up enough and your platform cost drops to $0.
+            $49/month for coaches. Your first 3 clients are free. Every paid client after that takes $10/month off your bill. At 5 paid clients, it costs you nothing.
           </p>
         </div>
 
         <div className="pricing-toggle-wrapper">
           <button
+            type="button"
             className={`pricing-toggle-btn${interval === "monthly" ? " active" : ""}`}
             onClick={() => setInterval("monthly")}
           >
             Monthly
           </button>
           <button
+            type="button"
             className={`pricing-toggle-btn${interval === "annual" ? " active" : ""}`}
             onClick={() => setInterval("annual")}
           >
@@ -137,13 +138,7 @@ export default function Pricing() {
             How coach credits work
           </h3>
           <p className="pricing-credit-desc">
-            Clients pay $49/mo via the signup link you send them. You earn
-            $10/mo of that back as credit toward your bill.
-          </p>
-          <p className="pricing-credit-desc">
-            For every paid client beyond your first 3, you earn{" "}
-            {interval === "annual" ? "$120/year" : "$10/month"} in recurring
-            credit toward your coach bill.
+            Your first 3 clients use Kaynos free. Starting with client 4, each one pays $49/month — and you get $10/month (or $120/year on annual plans) credited back toward your coach bill.
           </p>
           <div className="pricing-credit-table">
             <div className="pricing-credit-header">

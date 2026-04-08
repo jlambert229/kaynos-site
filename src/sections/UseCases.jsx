@@ -72,7 +72,7 @@ export default function UseCases() {
           <span className="section-label">Use Cases</span>
           <h2 className="section-title">Built for how you coach</h2>
           <p className="section-subtitle">
-            Whether you teach takedowns or tempo, Kaynos adapts to your workflow.
+            Pick your coaching style. The tools are the same — the examples change.
           </p>
         </div>
 

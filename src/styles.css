@@ -538,6 +538,10 @@ svg {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--border-strong);
 }
 
+.demo-card:active {
+  transform: translateY(-2px);
+}
+
 .demo-card-icon {
   width: 52px;
   height: 52px;
@@ -623,6 +627,10 @@ svg {
   border-color: var(--border-strong);
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--border-strong);
+}
+
+.feature-card:active {
+  transform: translateY(-2px);
 }
 
 .feature-icon {
@@ -1160,13 +1168,15 @@ svg {
   width: 100%;
   padding: 12px 12px 12px 40px;
   font-family: var(--font);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-primary);
   background: var(--bg-card);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .faq-search:focus {
@@ -1637,8 +1647,8 @@ svg {
 .support-chat-root {
   position: fixed;
   z-index: 2000;
-  right: 20px;
-  bottom: 20px;
+  right: calc(20px + env(safe-area-inset-right, 0px));
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
 }
 
 .support-chat-launcher {
@@ -1832,12 +1842,14 @@ svg {
   resize: none;
   padding: 10px 12px;
   font-family: var(--font);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-primary);
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   line-height: 1.4;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .support-chat-input:focus {
@@ -1919,6 +1931,10 @@ svg {
     padding-top: 80px;
   }
 
+  .hero-title {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+
   .pricing-card {
     padding: 32px 20px;
   }
@@ -1969,8 +1985,8 @@ svg {
   }
 
   .support-chat-root {
-    right: 12px;
-    bottom: 12px;
+    right: calc(12px + env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
   }
 
   .btn-lg {
@@ -2112,7 +2128,7 @@ svg {
 
 .back-to-top {
   position: fixed;
-  bottom: 88px;
+  bottom: calc(88px + env(safe-area-inset-bottom, 0px));
   right: 20px;
   z-index: 900;
   width: 44px;
@@ -2150,7 +2166,7 @@ svg {
 
 @media (max-width: 480px) {
   .back-to-top {
-    bottom: 76px;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
     right: 12px;
     width: 40px;
     height: 40px;
@@ -2342,13 +2358,15 @@ svg {
   width: 100%;
   padding: 12px 14px;
   font-family: var(--font);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-primary);
   background: var(--bg);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .contact-input:focus {
@@ -2520,13 +2538,15 @@ svg {
   flex: 1;
   padding: 12px 14px;
   font-family: var(--font);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-primary);
   background: var(--bg-card);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .newsletter-input:focus {
@@ -2558,7 +2578,7 @@ svg {
   margin-bottom: 16px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .newsletter-form {
     flex-direction: column;
   }
@@ -2965,6 +2985,7 @@ svg {
   background: var(--bg-elevated);
   border-top: 1px solid var(--border-strong);
   padding: 16px clamp(20px, 4vw, 40px);
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   display: flex;
   align-items: center;
   justify-content: center;

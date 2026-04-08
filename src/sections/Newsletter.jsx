@@ -24,7 +24,7 @@ export default function Newsletter() {
               </div>
               <h3 className="newsletter-title">Not ready to start a trial?</h3>
               <p className="newsletter-desc">
-                Get coaching tips and product updates. No spam, unsubscribe anytime.
+                Product updates and the occasional coaching tip. Unsubscribe anytime.
               </p>
               <form className="newsletter-form" onSubmit={handleSubmit}>
                 <input
@@ -40,7 +40,7 @@ export default function Newsletter() {
                   Subscribe
                 </button>
               </form>
-              <p className="newsletter-note">Join 100+ coaches getting updates.</p>
+              <p className="newsletter-note">We send about one email a month.</p>
             </>
           ) : (
             <div className="newsletter-success">
