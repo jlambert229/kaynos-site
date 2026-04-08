@@ -1,7 +1,13 @@
 import { useState } from "react";
-import { Calculator as CalcIcon, TrendingDown } from "lucide-react";
+import { TrendingDown } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { COACH_MONTHLY_PRICE, CLIENT_CREDIT_MONTHLY, FREE_CLIENTS } from "../config/pricing";
+
+const competitors = [
+  { name: "CoachNow", price: 50, note: "PRO plan, app required" },
+  { name: "OnForm", price: 30, note: "Coach plan, iOS only" },
+  { name: "Sprongo", price: 49, note: "Small Team (20 members)" },
+];
 
 export default function Calculator() {
   const [clients, setClients] = useState(5);
@@ -11,7 +17,11 @@ export default function Calculator() {
   const paidClients = Math.max(0, clients - FREE_CLIENTS);
   const credit = paidClients * CLIENT_CREDIT_MONTHLY;
   const cost = Math.max(0, COACH_MONTHLY_PRICE - credit);
-  const savings = Math.min(credit, COACH_MONTHLY_PRICE);
+
+  const maxPrice = Math.max(
+    COACH_MONTHLY_PRICE,
+    ...competitors.map((c) => c.price)
+  );
 
   return (
     <section id="calculator" className="section">
@@ -20,7 +30,7 @@ export default function Calculator() {
           <span className="section-label">Calculator</span>
           <h2 className="section-title">See what you'd actually pay</h2>
           <p className="section-subtitle">
-            Move the slider. Watch your bill shrink.
+            Move the slider. Watch your bill shrink — then see how it compares.
           </p>
         </div>
 
@@ -74,7 +84,58 @@ export default function Calculator() {
             </div>
           )}
         </div>
+
+        {/* Competitor comparison */}
+        <div className="calc-compare">
+          <h3 className="calc-compare-title">
+            Same {clients} clients, different platforms
+          </h3>
+          <div className="calc-compare-bars">
+            <CompareBar
+              name="Kaynos"
+              price={cost}
+              maxPrice={maxPrice}
+              isKaynos
+              note={cost === 0 ? "Free with credits" : `After $${credit} credit`}
+            />
+            {competitors.map((c) => (
+              <CompareBar
+                key={c.name}
+                name={c.name}
+                price={c.price}
+                maxPrice={maxPrice}
+                note={c.note}
+              />
+            ))}
+          </div>
+          <p className="calc-compare-footnote">
+            Competitor prices based on publicly listed plans as of early 2026. Kaynos
+            price reflects credits from {paidClients} paid client{paidClients !== 1 ? "s" : ""}.
+          </p>
+        </div>
       </div>
     </section>
+  );
+}
+
+function CompareBar({ name, price, maxPrice, isKaynos, note }) {
+  const pct = maxPrice > 0 ? Math.max((price / maxPrice) * 100, price > 0 ? 4 : 0) : 0;
+
+  return (
+    <div className={`calc-bar-row${isKaynos ? " calc-bar-kaynos" : ""}`}>
+      <div className="calc-bar-label">
+        <span className="calc-bar-name">{name}</span>
+        <span className="calc-bar-note">{note}</span>
+      </div>
+      <div className="calc-bar-track">
+        <div
+          className={`calc-bar-fill${isKaynos ? " calc-bar-fill-kaynos" : ""}`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <span className={`calc-bar-price${isKaynos ? " calc-bar-price-kaynos" : ""}`}>
+        {price === 0 ? "$0" : `$${price}/mo`}
+      </span>
+    </div>
   );
 }
