@@ -19,6 +19,29 @@ export default function SupportChatWidget() {
   } = useSupportChat();
 
   const [draft, setDraft] = useState("");
+  const [showDot, setShowDot] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isOpen) setShowDot(true);
+    }, 10000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) setShowDot(false);
+  }, [isOpen]);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "/" && !isOpen && document.activeElement?.tagName !== "INPUT" && document.activeElement?.tagName !== "TEXTAREA") {
+        e.preventDefault();
+        setIsOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen, setIsOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -81,6 +104,7 @@ export default function SupportChatWidget() {
           aria-label={ui.launcherLabel}
         >
           <MessageCircle size={26} strokeWidth={2} aria-hidden />
+            {showDot && <span className="chat-dot" />}
         </button>
       ) : (
         <div

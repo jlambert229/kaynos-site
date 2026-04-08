@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { useState, useMemo } from "react";
+import { ChevronDown, Search } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
 export const faqs = [
@@ -47,9 +47,20 @@ export const faqs = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [search, setSearch] = useState("");
   const toggle = (index) => setOpenIndex(openIndex === index ? null : index);
   const headerRef = useScrollReveal();
   const listRef = useScrollReveal();
+
+  const filtered = useMemo(() => {
+    if (!search.trim()) return faqs;
+    const q = search.toLowerCase();
+    return faqs.filter(
+      (f) =>
+        f.question.toLowerCase().includes(q) ||
+        f.answer.toLowerCase().includes(q)
+    );
+  }, [search]);
 
   return (
     <section id="faq" className="section section--alt">
@@ -60,32 +71,54 @@ export default function FAQ() {
         </div>
 
         <div ref={listRef} className="reveal faq-list">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div key={index} className="faq-item">
-                <button
-                  className="faq-question"
-                  onClick={() => toggle(index)}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${index}`}
-                >
-                  <span>{faq.question}</span>
-                  <ChevronDown
-                    className={`faq-chevron${isOpen ? " open" : ""}`}
-                    size={20}
-                  />
-                </button>
-                <div
-                  id={`faq-answer-${index}`}
-                  role="region"
-                  className={`faq-answer${isOpen ? " faq-answer--open" : ""}`}
-                >
-                  <p>{faq.answer}</p>
+          <div className="faq-search-wrap">
+            <Search size={16} className="faq-search-icon" aria-hidden="true" />
+            <input
+              type="text"
+              className="faq-search"
+              placeholder="Search questions…"
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setOpenIndex(null);
+              }}
+              aria-label="Filter frequently asked questions"
+            />
+          </div>
+
+          {filtered.length === 0 ? (
+            <p className="faq-no-results">
+              No matching questions. Try a different search or{" "}
+              <a href="mailto:support@kaynos.net">email us</a>.
+            </p>
+          ) : (
+            filtered.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div key={faq.question} className="faq-item">
+                  <button
+                    className="faq-question"
+                    onClick={() => toggle(index)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
+                  >
+                    <span>{faq.question}</span>
+                    <ChevronDown
+                      className={`faq-chevron${isOpen ? " open" : ""}`}
+                      size={20}
+                    />
+                  </button>
+                  <div
+                    id={`faq-answer-${index}`}
+                    role="region"
+                    className={`faq-answer${isOpen ? " faq-answer--open" : ""}`}
+                  >
+                    <p>{faq.answer}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </div>
     </section>
