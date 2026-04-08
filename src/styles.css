@@ -2986,6 +2986,119 @@ svg {
   font-weight: 500;
 }
 
+/* ---- CALCULATOR: COMPETITOR COMPARISON ---- */
+
+.calc-compare {
+  max-width: 560px;
+  margin: 40px auto 0;
+}
+
+.calc-compare-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.calc-compare-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.calc-bar-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 70px;
+  gap: 12px;
+  align-items: center;
+}
+
+.calc-bar-label {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.calc-bar-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calc-bar-kaynos .calc-bar-name {
+  color: var(--accent);
+}
+
+.calc-bar-note {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calc-bar-track {
+  height: 24px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+}
+
+.calc-bar-fill {
+  height: 100%;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  transition: width 0.4s ease;
+}
+
+.calc-bar-fill-kaynos {
+  background: var(--accent);
+}
+
+.calc-bar-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-feature-settings: "tnum" 1;
+  text-align: right;
+}
+
+.calc-bar-price-kaynos {
+  color: var(--accent);
+}
+
+.calc-compare-footnote {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .calc-bar-row {
+    grid-template-columns: 90px 1fr 60px;
+    gap: 8px;
+  }
+
+  .calc-bar-name {
+    font-size: 13px;
+  }
+
+  .calc-bar-price {
+    font-size: 14px;
+  }
+
+  .calc-bar-track {
+    height: 20px;
+  }
+}
+
 @media (max-width: 480px) {
   .calc-card {
     padding: 32px 20px;
