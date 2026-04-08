@@ -16,7 +16,7 @@ export default function SocialProofBar() {
       <div className="social-proof-categories">
         {categories.map(({ icon: Icon, label }) => (
           <span key={label} className="social-proof-cat">
-            <Icon size={16} />
+            <Icon size={16} aria-hidden="true" />
             {label}
           </span>
         ))}

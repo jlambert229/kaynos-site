@@ -30,8 +30,8 @@ export default function CtaButton({ children, className = "btn btn-primary btn-l
     >
       {loading ? (
         <>
-          <Loader2 size={18} className="cta-spinner" />
-          Processing&hellip;
+          <Loader2 size={18} className="cta-spinner" aria-hidden="true" />
+          <span aria-live="polite">Processing&hellip;</span>
         </>
       ) : (
         children
