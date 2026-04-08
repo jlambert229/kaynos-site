@@ -11,22 +11,14 @@ import Accessibility from "./pages/Accessibility";
 import { SupportChatProvider } from "./support/SupportChatContext";
 import SupportChatWidget from "./support/SupportChatWidget";
 import BackToTop from "./components/BackToTop";
-import ScrollProgress from "./components/ScrollProgress";
-import StickyCta from "./components/StickyCta";
-import ExitIntent from "./components/ExitIntent";
 import CookieConsent from "./components/CookieConsent";
-import SocialProofToast from "./components/SocialProofToast";
 
 /** Routes + chrome (used inside any router: Browser or Memory for prerender). */
 export function AppRoutes() {
   return (
     <>
-      <ScrollProgress />
       <SupportChatWidget />
       <BackToTop />
-      <StickyCta />
-      <ExitIntent />
-      <SocialProofToast />
       <CookieConsent />
       <Routes>
         <Route path="/" element={<Home />} />

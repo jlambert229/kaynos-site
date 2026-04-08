@@ -2,66 +2,35 @@ import {
   Upload,
   MessageSquare,
   Users,
-  BarChart3,
-  Tag,
   Shield,
-  TrendingDown,
-  Settings,
   ArrowRight,
 } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
-const primary = [
+const features = [
   {
     icon: Upload,
-    title: "Easy video uploads",
+    title: "Upload footage from anywhere",
     description:
-      "Drag and drop training footage from your browser. Handles big files, and you can link Vimeo videos too.",
-    link: { label: "Try the coach demo", href: "https://demo.kaynos.net", external: true },
+      "Drag a video into your browser — phone clips, GoPro files, whatever you have. Big files are fine. You can link Vimeo videos too if you already host there.",
   },
   {
     icon: MessageSquare,
-    title: "Timestamped coaching notes",
+    title: "Leave notes at the exact right moment",
     description:
-      "Pin notes to exact moments in the video. Clients add their own notes too. Search and filter everything.",
-    link: { label: "See it in action", href: "https://demo.kaynos.net", external: true },
-  },
-  {
-    icon: TrendingDown,
-    title: "Clients lower your cost",
-    description:
-      "Each paid client earns you $10/month in credit toward your coach bill. Five paid clients and your platform cost drops to $0.",
-    link: { label: "Try the calculator", href: "#calculator" },
+      "Pin a note to 0:34 where their elbow drops, or 2:15 where the tempo drifts. Clients see your notes synced to the video and can add their own.",
   },
   {
     icon: Users,
     title: "Private sessions and shared classes",
     description:
-      "One-on-one sessions stay between coach and client. Shared classes go to everyone. Each person sees exactly what they should.",
-    link: { label: "See the client view", href: "https://client.kaynos.net", external: true },
-  },
-];
-
-const secondary = [
-  {
-    icon: Tag,
-    title: "Organized by tags",
-    description: "Tag sessions by topic, type, or anything that makes sense for your practice.",
-  },
-  {
-    icon: Settings,
-    title: "Admin tools",
-    description: "Manage rosters, send invite links, export CSV, get automated usage reports.",
-  },
-  {
-    icon: BarChart3,
-    title: "Usage tracking",
-    description: "See video and storage usage at a glance. Know which clients are watching and when.",
+      "One-on-one reviews stay between you and your client. Shared classes go to the whole group. Everyone sees exactly what's meant for them.",
   },
   {
     icon: Shield,
-    title: "Private by default",
-    description: "Your footage stays yours. Each account is separate, videos are never public.",
+    title: "Your footage stays private",
+    description:
+      "Videos are never public. Each account is isolated. No one sees your clients' footage except you and them.",
   },
 ];
 
@@ -73,47 +42,34 @@ export default function Features() {
     <section id="features" className="section">
       <div className="container">
         <div ref={headerRef} className="reveal section-header">
-          <span className="section-label">Features</span>
-          <h2 className="section-title">
-            Better tools for your clients. Better economics for you.
-          </h2>
+          <h2 className="section-title">What you get</h2>
           <p className="section-subtitle">
-            Video review, timestamped notes, and progress tracking for your
-            clients. Credits that lower your bill for every one who signs up.
+            The short version: upload video, leave timestamped notes, share with
+            clients. Here's what that actually looks like.
           </p>
         </div>
 
         <div ref={gridRef} className="reveal features-grid-primary">
-          {primary.map(({ icon: Icon, title, description, link }) => (
+          {features.map(({ icon: Icon, title, description }) => (
             <div key={title} className="feature-card">
               <div className="feature-icon">
                 <Icon size={22} />
               </div>
               <h3>{title}</h3>
               <p>{description}</p>
-              {link && (
-                <a
-                  className="feature-link"
-                  href={link.href}
-                  {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                >
-                  {link.label} <ArrowRight size={14} />
-                </a>
-              )}
             </div>
           ))}
         </div>
 
-        <div className="features-grid-secondary">
-          {secondary.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="feature-card">
-              <div className="feature-icon">
-                <Icon size={18} />
-              </div>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </div>
-          ))}
+        <div className="features-bottom-link">
+          <a
+            href="https://demo.kaynos.net"
+            className="feature-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Try the demo — no signup needed <ArrowRight size={14} />
+          </a>
         </div>
       </div>
     </section>

@@ -1,113 +1,7 @@
-import { useCallback, useRef } from "react";
-import { Play } from "lucide-react";
 import KaynosLogo from "../components/KaynosLogo";
 import CtaButton from "../components/CtaButton";
 
-function DashboardMockup() {
-  const navItems = [
-    { label: "Dashboard", active: true },
-    { label: "Clients", active: false },
-    { label: "Sessions", active: false },
-    { label: "Classes", active: false },
-  ];
-
-  const stats = [
-    { value: "12", label: "Clients" },
-    { value: "34", label: "Sessions" },
-    { value: "$90", label: "Credits" },
-    { value: "97", label: "Notes" },
-  ];
-
-  const sessions = [
-    {
-      title: "Private Session Review",
-      meta: "Mar 24 \u00b7 12 min \u00b7 3 notes",
-      badge: "Watched",
-      pending: false,
-    },
-    {
-      title: "Group Workshop",
-      meta: "Mar 22 \u00b7 8 min \u00b7 1 note",
-      badge: "New",
-      pending: true,
-    },
-    {
-      title: "Progress Check-In",
-      meta: "Mar 20 \u00b7 15 min \u00b7 5 notes",
-      badge: "Watched",
-      pending: false,
-    },
-  ];
-
-  return (
-    <div className="mockup-window">
-      <div className="mockup-titlebar">
-        <div className="mockup-dot mockup-dot--red" />
-        <div className="mockup-dot mockup-dot--yellow" />
-        <div className="mockup-dot mockup-dot--green" />
-        <div className="mockup-url">app.kaynos.net</div>
-      </div>
-      <div className="mockup-body">
-        <div className="mockup-sidebar">
-          <div className="mockup-nav">
-            {navItems.map((item) => (
-              <div
-                key={item.label}
-                className={`mockup-nav-item${item.active ? " active" : ""}`}
-              >
-                {item.label}
-              </div>
-            ))}
-          </div>
-          <div className="mockup-content">
-            <div className="mockup-stat-row">
-              {stats.map((stat) => (
-                <div key={stat.label} className="mockup-stat">
-                  <div className="mockup-stat-value">{stat.value}</div>
-                  <div className="mockup-stat-label">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-            {sessions.map((session) => (
-              <div key={session.title} className="mockup-session">
-                <div className="mockup-session-thumb">
-                  <Play size={12} color="var(--text-tertiary)" />
-                </div>
-                <div className="mockup-session-info">
-                  <div className="mockup-session-title">{session.title}</div>
-                  <div className="mockup-session-meta">{session.meta}</div>
-                </div>
-                <span
-                  className={`mockup-badge${session.pending ? " mockup-badge--pending" : ""}`}
-                >
-                  {session.badge}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Hero() {
-  const mockupRef = useRef(null);
-
-  const handleMouseMove = useCallback((e) => {
-    const el = mockupRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    el.style.transform = `perspective(1200px) rotateY(${x * 4}deg) rotateX(${-y * 3}deg)`;
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    const el = mockupRef.current;
-    if (el) el.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg)";
-  }, []);
-
   return (
     <section id="hero" className="hero">
       <div className="hero-bg" />
@@ -117,33 +11,29 @@ export default function Hero() {
             <KaynosLogo size="hero" />
           </div>
           <h1 className="hero-title">
-            Your clients fund your platform.{" "}
-            <span className="accent">5 paying clients and your bill is $0.</span>
+            Stop losing your best coaching moments.
           </h1>
           <p className="hero-description">
-            Each paid client earns you $10/month in credit toward your coach
-            plan. Your first 3 clients are free. After that, the math does
-            the rest.
+            Kaynos is video review for coaches. Upload session footage, leave
+            timestamped notes, and give clients something to study between
+            sessions. Your first 3 clients are free, and every paid client
+            after that earns you $10/month in credit — so at 5 paid clients,
+            the platform costs you nothing.
           </p>
           <div className="hero-cta-row">
-            <CtaButton>Start Free Trial</CtaButton>
+            <CtaButton>Try It Free</CtaButton>
+            <a
+              href="https://demo.kaynos.net"
+              className="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              See a Demo
+            </a>
           </div>
           <p className="hero-proof-line">
-            14-day free trial. Your first 3 clients are on us.
+            14-day trial. No credit card.
           </p>
-        </div>
-        {/* TODO: Replace with real product screenshot.
-            Recommended: 1200x800 @2x PNG or 8-second WebM loop showing the
-            timestamped-notes interaction. Place at /assets/hero-product.png */}
-        <div
-          className="hero-mockup"
-          ref={mockupRef}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="hero-mockup-img">
-            <DashboardMockup />
-          </div>
         </div>
       </div>
     </section>

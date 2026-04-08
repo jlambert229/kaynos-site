@@ -9,8 +9,6 @@ import Footer from "../components/Footer";
 
 // Eager imports (above-fold)
 import Hero from "../sections/Hero";
-import SocialProofBar from "../sections/SocialProofBar";
-import StatsBar from "../sections/StatsBar";
 import Features from "../sections/Features";
 
 // Lazy load below-fold sections
@@ -37,8 +35,6 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <SocialProofBar />
-        <StatsBar />
         <Features />
         <Suspense fallback={null}>
           <Comparison />

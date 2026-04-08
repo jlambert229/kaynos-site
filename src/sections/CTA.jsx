@@ -1,4 +1,3 @@
-import { ExternalLink } from "lucide-react";
 import CtaButton from "../components/CtaButton";
 import useScrollReveal from "../hooks/useScrollReveal";
 
@@ -8,22 +7,12 @@ export default function CTA() {
   return (
     <section className="cta-section">
       <div ref={revealRef} className="reveal container cta-container">
-        <h2 className="cta-title">Your clients pay for the platform.</h2>
+        <h2 className="cta-title">Give it a shot.</h2>
         <p className="cta-subtitle">
-          Start your 14-day trial. First 3 clients free, then $10/month credit
-          for each one after.
+          14-day free trial. First 3 clients are free. Every paid client
+          after that earns you $10/month in credit toward your bill.
         </p>
-        <div className="btn-group cta-actions">
-          <CtaButton>Start Free Trial</CtaButton>
-          <a
-            href="https://demo.kaynos.net"
-            className="btn btn-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Try the Demo <ExternalLink size={14} />
-          </a>
-        </div>
+        <CtaButton>Start Free Trial</CtaButton>
       </div>
     </section>
   );
