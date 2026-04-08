@@ -17,8 +17,17 @@
     "react-router-dom": "^7.13.2"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.2.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.4.0",
+    "jsdom": "^29.0.2",
     "vite": "^8.0.3",
-    "vite-prerender-plugin": "^0.5.13"
+    "vite-prerender-plugin": "^0.5.13",
+    "vitest": "^4.1.3"
   }
 }
