@@ -1,15 +1,54 @@
 import { Check, X, Minus } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
+const competitors = [
+  { key: "kaynos", label: "Kaynos", sub: "$49/mo" },
+  { key: "coachnow", label: "CoachNow", sub: "$50/mo" },
+  { key: "onform", label: "OnForm", sub: "$30/mo" },
+  { key: "diy", label: "Drive + Vimeo", sub: "Free" },
+];
+
 const features = [
-  { name: "Timestamped video notes", kaynos: true, drive: false, teachable: false, diy: false },
-  { name: "Client-specific sessions", kaynos: true, drive: false, teachable: true, diy: false },
-  { name: "Shared group classes", kaynos: true, drive: "partial", teachable: true, diy: false },
-  { name: "No app download needed", kaynos: true, drive: true, teachable: true, diy: true },
-  { name: "Built for coaching", kaynos: true, drive: false, teachable: false, diy: false },
-  { name: "Revenue sharing credits", kaynos: true, drive: false, teachable: false, diy: false },
-  { name: "Usage & watch tracking", kaynos: true, drive: false, teachable: true, diy: false },
-  { name: "Under $49/mo (or free)", kaynos: true, drive: true, teachable: false, diy: true },
+  {
+    name: "Works in the browser",
+    detail: "No app install for coaches or clients",
+    kaynos: true, coachnow: false, onform: false, diy: true,
+  },
+  {
+    name: "Timestamped video notes",
+    detail: "Pin feedback to exact moments",
+    kaynos: true, coachnow: true, onform: true, diy: false,
+  },
+  {
+    name: "Clients use it free",
+    detail: "No cost passed to your clients",
+    kaynos: true, coachnow: true, onform: true, diy: true,
+  },
+  {
+    name: "Private sessions + group classes",
+    detail: "1-on-1 and shared content in one place",
+    kaynos: true, coachnow: true, onform: false, diy: false,
+  },
+  {
+    name: "Single flat price, all features",
+    detail: "No tiers or feature gating",
+    kaynos: true, coachnow: false, onform: false, diy: true,
+  },
+  {
+    name: "Credits that lower your bill",
+    detail: "Each paid client reduces your cost",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
+  {
+    name: "Works for any coaching style",
+    detail: "Fitness, martial arts, music, dance, etc.",
+    kaynos: true, coachnow: true, onform: "partial", diy: true,
+  },
+  {
+    name: "Watch tracking",
+    detail: "See who's viewed their sessions",
+    kaynos: true, coachnow: true, onform: false, diy: false,
+  },
 ];
 
 function Cell({ value }) {
@@ -29,7 +68,7 @@ export default function Comparison() {
           <span className="section-label">Compare</span>
           <h2 className="section-title">How Kaynos stacks up</h2>
           <p className="section-subtitle">
-            Most coaches juggle Google Drive, Vimeo links, and group chats. Here's how a dedicated tool compares.
+            Side-by-side with the tools coaches actually use and consider.
           </p>
         </div>
 
@@ -37,18 +76,30 @@ export default function Comparison() {
           <div className="cmp-table">
             <div className="cmp-header">
               <div className="cmp-feature-col" />
-              <div className="cmp-col cmp-col-kaynos">Kaynos</div>
-              <div className="cmp-col">Drive + Vimeo</div>
-              <div className="cmp-col">Teachable / Kajabi</div>
-              <div className="cmp-col">DIY / Email</div>
+              {competitors.map((c) => (
+                <div
+                  key={c.key}
+                  className={`cmp-col${c.key === "kaynos" ? " cmp-col-kaynos" : ""}`}
+                >
+                  <span className="cmp-col-name">{c.label}</span>
+                  <span className="cmp-col-price">{c.sub}</span>
+                </div>
+              ))}
             </div>
             {features.map((f) => (
               <div key={f.name} className="cmp-row">
-                <div className="cmp-feature-col">{f.name}</div>
-                <div className="cmp-col cmp-col-kaynos"><Cell value={f.kaynos} /></div>
-                <div className="cmp-col"><Cell value={f.drive} /></div>
-                <div className="cmp-col"><Cell value={f.teachable} /></div>
-                <div className="cmp-col"><Cell value={f.diy} /></div>
+                <div className="cmp-feature-col">
+                  <span className="cmp-feature-name">{f.name}</span>
+                  <span className="cmp-feature-detail">{f.detail}</span>
+                </div>
+                {competitors.map((c) => (
+                  <div
+                    key={c.key}
+                    className={`cmp-col${c.key === "kaynos" ? " cmp-col-kaynos" : ""}`}
+                  >
+                    <Cell value={f[c.key]} />
+                  </div>
+                ))}
               </div>
             ))}
           </div>

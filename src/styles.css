@@ -2608,12 +2608,29 @@ svg {
   grid-template-columns: 1.8fr repeat(4, 1fr);
   gap: 0;
   padding: 16px 0;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.cmp-header .cmp-col {
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cmp-col-name {
   font-size: 13px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.cmp-col-kaynos .cmp-col-name {
+  color: var(--accent);
+}
+
+.cmp-col-price {
+  font-size: 12px;
+  font-weight: 400;
   color: var(--text-tertiary);
-  border-bottom: 1px solid var(--border-strong);
 }
 
 .cmp-row {
@@ -2636,9 +2653,21 @@ svg {
 }
 
 .cmp-feature-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 16px;
+}
+
+.cmp-feature-name {
   font-weight: 500;
   color: var(--text-primary);
-  padding-right: 16px;
+}
+
+.cmp-feature-detail {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 400;
 }
 
 .cmp-col {
