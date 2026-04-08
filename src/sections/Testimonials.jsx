@@ -1,59 +1,32 @@
-import { Sparkles, Quote, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CtaButton from "../components/CtaButton";
-
-const quotes = [
-  {
-    text: "We kept losing the best coaching moments the second class ended. Kaynos fixed that overnight.",
-    name: "J. Lambert",
-    role: "Founder & Coach",
-  },
-  {
-    text: "I wanted something my clients could actually use without a tutorial. This is it.",
-    name: "Early Access Coach",
-    role: "Personal Training",
-  },
-];
 
 export default function Testimonials() {
   return (
     <section id="early-access" className="section section--alt">
       <div className="container">
         <div className="early-access">
-          <span className="section-label">Early Access</span>
-          <h2 className="section-title">
-            Built and shipped by people who train.
-          </h2>
-
-          <div className="testimonial-cards">
-            {quotes.map((q) => (
-              <div key={q.name} className="testimonial-card">
-                <Quote size={24} className="testimonial-quote-icon" />
-                <p className="testimonial-text">{q.text}</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">
-                    {q.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="testimonial-name">{q.name}</div>
-                    <div className="testimonial-role">{q.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <h2 className="section-title">We're early and we know it</h2>
+          <div className="early-access-body">
+            <p>
+              Kaynos launched recently. We don't have hundreds of testimonials
+              or a wall of logos yet. What we do have is a product we use
+              ourselves every week and a small group of coaches who've been
+              testing it with real clients.
+            </p>
+            <p>
+              If you sign up now, you get a direct line to the team. We read
+              every message and we ship fast — check the{" "}
+              <Link to="/changelog" className="early-access-link">
+                changelog <ArrowRight size={14} />
+              </Link>{" "}
+              if you want proof.
+            </p>
           </div>
-
-          <p className="early-access-desc">
-            Kaynos is new and we're shipping fast. Every coach who signs up
-            right now gets a direct line to the team and real input on what
-            we build next.{" "}
-            <Link to="/changelog" className="early-access-link">
-              See what's new <ArrowRight size={14} />
-            </Link>
-          </p>
           <CtaButton>
             <Sparkles size={18} />
-            Start Free Trial
+            Join Early Access
           </CtaButton>
         </div>
       </div>
