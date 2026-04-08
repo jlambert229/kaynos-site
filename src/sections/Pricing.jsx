@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, Sparkles, TrendingDown } from "lucide-react";
 import CtaButton from "../components/CtaButton";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const coachFeatures = [
   "First 3 clients free",
@@ -45,11 +46,12 @@ const creditExamples = {
 export default function Pricing() {
   const [interval, setInterval] = useState("monthly");
   const coachPlan = coachPlans[interval];
+  const headerRef = useScrollReveal();
 
   return (
     <section id="pricing" className="section">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Pricing</span>
           <h2 className="section-title">
             Grow your practice, shrink your bill.

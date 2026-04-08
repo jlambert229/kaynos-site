@@ -8,6 +8,7 @@ import {
   TrendingDown,
   Settings,
 } from "lucide-react";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const primary = [
   {
@@ -60,10 +61,13 @@ const secondary = [
 ];
 
 export default function Features() {
+  const headerRef = useScrollReveal();
+  const gridRef = useScrollReveal();
+
   return (
     <section id="features" className="section">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Features</span>
           <h2 className="section-title">
             Better tools for your clients. Better economics for you.
@@ -77,7 +81,7 @@ export default function Features() {
         {/* TODO: Replace lucide icons with custom-drawn icons for these four
             primary features (upload, notes, credit, lock). Keep lucide for
             secondary features and FAQ chevrons. */}
-        <div className="features-grid-primary">
+        <div ref={gridRef} className="reveal features-grid-primary">
           {primary.map(({ icon: Icon, title, description }) => (
             <div key={title} className="feature-card">
               <div className="feature-icon">

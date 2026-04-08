@@ -1,4 +1,5 @@
 import { Video, PenLine, Eye } from "lucide-react";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const steps = [
   {
@@ -25,10 +26,13 @@ const steps = [
 ];
 
 export default function HowItWorks() {
+  const headerRef = useScrollReveal();
+  const stepsRef = useScrollReveal();
+
   return (
     <section id="how-it-works" className="section section--alt">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className="reveal section-header">
           <span className="section-label">How it works</span>
           <h2 className="section-title">Three steps. That's it.</h2>
           <p className="section-subtitle">
@@ -36,7 +40,7 @@ export default function HowItWorks() {
             YouTube, you can use Kaynos.
           </p>
         </div>
-        <div className="steps">
+        <div ref={stepsRef} className="reveal steps">
           {steps.map((step) => {
             const Icon = step.icon;
             return (

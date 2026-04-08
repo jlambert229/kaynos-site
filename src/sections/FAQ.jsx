@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 export const faqs = [
   {
@@ -47,16 +48,18 @@ export const faqs = [
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
   const toggle = (index) => setOpenIndex(openIndex === index ? null : index);
+  const headerRef = useScrollReveal();
+  const listRef = useScrollReveal();
 
   return (
     <section id="faq" className="section section--alt">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className="reveal section-header">
           <span className="section-label">FAQ</span>
           <h2 className="section-title">Questions we get a lot</h2>
         </div>
 
-        <div className="faq-list">
+        <div ref={listRef} className="reveal faq-list">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (

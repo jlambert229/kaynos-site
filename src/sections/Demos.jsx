@@ -1,4 +1,5 @@
 import { ExternalLink, Briefcase, User } from "lucide-react";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const demos = [
   {
@@ -20,10 +21,13 @@ const demos = [
 ];
 
 export default function Demos() {
+  const headerRef = useScrollReveal();
+  const gridRef = useScrollReveal();
+
   return (
     <section id="demos" className="section section--alt demos-section">
       <div className="container">
-        <div className="section-header">
+        <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Live demos</span>
           <h2 className="section-title">See it for yourself</h2>
           <p className="section-subtitle">
@@ -31,7 +35,7 @@ export default function Demos() {
           </p>
         </div>
 
-        <div className="demos-grid">
+        <div ref={gridRef} className="reveal demos-grid">
           {demos.map((d) => {
             const Icon = d.icon;
             return (
