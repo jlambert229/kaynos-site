@@ -13,9 +13,10 @@ const columns = [
   {
     title: "Resources",
     links: [
-      { label: "Getting Started", href: "https://docs.kaynos.net#setup", external: true },
+      { label: "Getting Started", href: "/getting-started" },
+      { label: "Changelog", href: "/changelog" },
+      { label: "Contact", href: "/contact" },
       { label: "Help Center", href: "https://docs.kaynos.net", external: true },
-      { label: "Support", href: "mailto:support@kaynos.net" },
     ],
   },
   {
@@ -23,6 +24,7 @@ const columns = [
     links: [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Data Use Policy", href: "/data-use" },
+      { label: "Accessibility", href: "/accessibility" },
       { label: "Terms of Service", href: "https://app.kaynos.net/terms", external: true },
     ],
   },

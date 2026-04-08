@@ -1,0 +1,16 @@
+{
+  "name": "Kaynos",
+  "short_name": "Kaynos",
+  "description": "Private video training platform for coaches and trainers",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050508",
+  "theme_color": "#050508",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

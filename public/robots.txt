@@ -1,5 +1,5 @@
-# https://www.kaynos.net
 User-agent: *
 Allow: /
+Disallow: /api/
 
 Sitemap: https://www.kaynos.net/sitemap.xml

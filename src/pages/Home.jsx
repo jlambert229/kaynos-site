@@ -23,6 +23,7 @@ const Story = lazy(() => import("../sections/Story"));
 const Pricing = lazy(() => import("../sections/Pricing"));
 const Calculator = lazy(() => import("../sections/Calculator"));
 const FAQ = lazy(() => import("../sections/FAQ"));
+const Newsletter = lazy(() => import("../sections/Newsletter"));
 const CTA = lazy(() => import("../sections/CTA"));
 
 export default function Home() {
@@ -49,6 +50,7 @@ export default function Home() {
           <Pricing />
           <Calculator />
           <FAQ />
+          <Newsletter />
           <CTA />
         </Suspense>
       </main>
