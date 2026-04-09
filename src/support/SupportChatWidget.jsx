@@ -22,11 +22,12 @@ export default function SupportChatWidget() {
   const [showDot, setShowDot] = useState(false);
 
   useEffect(() => {
+    if (isOpen) return;
     const timer = setTimeout(() => {
-      if (!isOpen) setShowDot(true);
+      setShowDot(true);
     }, 10000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) setShowDot(false);

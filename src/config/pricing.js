@@ -4,45 +4,27 @@
  * ─────────────────────────────────────────────────────────────────── */
 
 /** Monthly coach plan price */
-export const COACH_MONTHLY_PRICE = 49;
+export const COACH_MONTHLY_PRICE = 50;
 
-/** Annual coach plan price (total) */
-export const COACH_ANNUAL_PRICE = 488;
+/** Number of client seats included in the coach plan at no extra cost */
+export const FREE_SEATS = 3;
 
-/** Annual coach plan price per month (rounded display) */
-export const COACH_ANNUAL_PER_MONTH = "40.67";
-
-/** Annual discount percentage */
-export const ANNUAL_DISCOUNT_PCT = 17;
-
-/** Credit earned per paid client per month */
-export const CLIENT_CREDIT_MONTHLY = 10;
-
-/** Credit earned per paid client per year */
-export const CLIENT_CREDIT_ANNUAL = 120;
-
-/** What clients pay per month */
-export const CLIENT_PRICE_MONTHLY = 49;
-
-/** Number of free clients included */
-export const FREE_CLIENTS = 3;
-
-/** Number of paid clients needed to reach $0 cost */
-export const ZERO_COST_PAID_CLIENTS = 5;
-
-/** Total clients when cost reaches $0 (free + paid) */
-export const ZERO_COST_TOTAL_CLIENTS = FREE_CLIENTS + ZERO_COST_PAID_CLIENTS;
+/** Price per additional active client seat per month */
+export const SEAT_PRICE = 5;
 
 /** Free trial duration in days */
 export const TRIAL_DAYS = 14;
+
+/** Calculate total monthly cost for a given number of clients */
+export function calcMonthlyCost(clients) {
+  const extraSeats = Math.max(0, clients - FREE_SEATS);
+  return COACH_MONTHLY_PRICE + extraSeats * SEAT_PRICE;
+}
 
 /* ── Formatted strings (convenience) ──────────────────────────────── */
 
 export const FMT = {
   coachMonthly: `$${COACH_MONTHLY_PRICE}`,
-  coachAnnual: `$${COACH_ANNUAL_PRICE}`,
-  coachAnnualPerMonth: `$${COACH_ANNUAL_PER_MONTH}`,
-  clientCreditMonthly: `$${CLIENT_CREDIT_MONTHLY}`,
-  clientCreditAnnual: `$${CLIENT_CREDIT_ANNUAL}`,
-  clientPriceMonthly: `$${CLIENT_PRICE_MONTHLY}`,
+  seatPrice: `$${SEAT_PRICE}`,
+  freeSeats: `${FREE_SEATS}`,
 };

@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 const entries = [
   {
@@ -36,6 +37,7 @@ const entries = [
 export default function Changelog() {
   return (
     <>
+      <Seo title="Changelog" description="See what's new in Kaynos. Latest features, improvements, and updates to the coaching platform." path="/changelog" />
       <Navbar />
       <main className="changelog-main container">
         <div className="changelog-content">

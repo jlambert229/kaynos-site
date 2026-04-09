@@ -12,7 +12,6 @@ export default function DataUsePolicy() {
         title="Data Use Policy"
         description="Kaynos Data Use Policy: how training videos, coach and client content, and account data are processed, retained, and used on our platform."
         path="/data-use"
-        noIndex
       />
       <Navbar />
       <main id="main-content" className="legal-main">

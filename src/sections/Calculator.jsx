@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { TrendingDown } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
-import { COACH_MONTHLY_PRICE, CLIENT_CREDIT_MONTHLY, FREE_CLIENTS } from "../config/pricing";
+import { COACH_MONTHLY_PRICE, FREE_SEATS, SEAT_PRICE, calcMonthlyCost } from "../config/pricing";
 
 const competitors = [
   { name: "CoachNow", price: 50, note: "PRO plan, app required" },
@@ -14,12 +13,11 @@ export default function Calculator() {
   const headerRef = useScrollReveal();
   const calcRef = useScrollReveal();
 
-  const paidClients = Math.max(0, clients - FREE_CLIENTS);
-  const credit = paidClients * CLIENT_CREDIT_MONTHLY;
-  const cost = Math.max(0, COACH_MONTHLY_PRICE - credit);
+  const cost = calcMonthlyCost(clients);
+  const extraSeats = Math.max(0, clients - FREE_SEATS);
 
   const maxPrice = Math.max(
-    COACH_MONTHLY_PRICE,
+    cost,
     ...competitors.map((c) => c.price)
   );
 
@@ -30,14 +28,16 @@ export default function Calculator() {
           <span className="section-label">Calculator</span>
           <h2 className="section-title">See what you'd actually pay</h2>
           <p className="section-subtitle">
-            Move the slider. Watch your bill shrink — then see how it compares.
+            Move the slider. $50/mo base includes 3 client seats. Each
+            additional active seat is $5/mo. Your clients always use Kaynos
+            for free.
           </p>
         </div>
 
         <div ref={calcRef} className="reveal calc-card">
           <div className="calc-slider-row">
             <label className="calc-slider-label" htmlFor="client-slider">
-              Total clients
+              Active clients
             </label>
             <output className="calc-slider-value">{clients}</output>
           </div>
@@ -45,44 +45,36 @@ export default function Calculator() {
             id="client-slider"
             type="range"
             min={1}
-            max={15}
+            max={50}
             value={clients}
             onChange={(e) => setClients(Number(e.target.value))}
             className="calc-slider"
           />
           <div className="calc-slider-range">
             <span>1</span>
-            <span>15</span>
+            <span>50</span>
           </div>
 
           <div className="calc-results">
             <div className="calc-result-item">
-              <span className="calc-result-label">Free clients</span>
-              <span className="calc-result-value">{Math.min(clients, FREE_CLIENTS)}</span>
+              <span className="calc-result-label">Active clients</span>
+              <span className="calc-result-value">{clients}</span>
             </div>
             <div className="calc-result-item">
-              <span className="calc-result-label">Paid clients</span>
-              <span className="calc-result-value">{paidClients}</span>
+              <span className="calc-result-label">Included seats</span>
+              <span className="calc-result-value">{Math.min(clients, FREE_SEATS)}</span>
             </div>
             <div className="calc-result-item">
-              <span className="calc-result-label">Monthly credit</span>
-              <span className="calc-result-value calc-result-green">${credit}</span>
+              <span className="calc-result-label">Extra seats</span>
+              <span className="calc-result-value">{extraSeats} x ${SEAT_PRICE}</span>
             </div>
             <div className="calc-result-item calc-result-highlight">
               <span className="calc-result-label">You pay</span>
-              <span className={`calc-result-value calc-result-big ${cost === 0 ? "calc-result-green" : ""}`}>
+              <span className="calc-result-value calc-result-big">
                 ${cost}/mo
-                {cost === 0 && <span className="calc-free-badge">Free!</span>}
               </span>
             </div>
           </div>
-
-          {cost === 0 && (
-            <div className="calc-zero-banner">
-              <TrendingDown size={18} />
-              Your {paidClients} paid clients cover your entire ${COACH_MONTHLY_PRICE}/mo bill.
-            </div>
-          )}
         </div>
 
         {/* Competitor comparison */}
@@ -96,7 +88,7 @@ export default function Calculator() {
               price={cost}
               maxPrice={maxPrice}
               isKaynos
-              note={cost === 0 ? "Free with credits" : `After $${credit} credit`}
+              note={`$${COACH_MONTHLY_PRICE} base + ${extraSeats} extra seat${extraSeats !== 1 ? "s" : ""}`}
             />
             {competitors.map((c) => (
               <CompareBar
@@ -109,8 +101,9 @@ export default function Calculator() {
             ))}
           </div>
           <p className="calc-compare-footnote">
-            Competitor prices based on publicly listed plans as of early 2026. Kaynos
-            price reflects credits from {paidClients} paid client{paidClients !== 1 ? "s" : ""}.
+            Competitor prices based on publicly listed plans as of early 2026.
+            Kaynos price reflects {clients} active client{clients !== 1 ? "s" : ""} ($50/mo base + $5/mo per extra seat beyond 3).
+            Clients use Kaynos for free.
           </p>
         </div>
       </div>

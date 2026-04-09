@@ -14,10 +14,12 @@ export default function Hero() {
             Stop losing your best coaching moments.
           </h1>
           <p className="hero-description">
-            Upload training videos. Leave notes at specific moments. Share them with your clients so they can review between sessions. Your first 3 clients are free — after that, each paid client knocks $10/month off your bill.
+            Upload training videos. Leave notes at specific moments. Share them
+            privately with your clients so they can review between sessions.
+            $50/mo. First 3 clients included. $5 per extra client.
           </p>
           <div className="hero-cta-row">
-            <CtaButton>Try It Free</CtaButton>
+            <CtaButton>Start Trial</CtaButton>
             <a
               href="https://demo.kaynos.net"
               className="btn btn-secondary"
@@ -28,8 +30,8 @@ export default function Hero() {
             </a>
           </div>
           <p className="hero-proof-line">
-            14-day trial. No credit card.{" "}
-            <a href="#calculator" className="hero-calc-link">See what you'd pay →</a>
+            14-day trial. Card on file.{" "}
+            <a href="#pricing" className="hero-calc-link">See pricing &rarr;</a>
           </p>
         </div>
       </div>

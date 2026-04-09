@@ -5,6 +5,11 @@ export default function useScrollReveal(options = {}) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      el.classList.add("revealed");
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

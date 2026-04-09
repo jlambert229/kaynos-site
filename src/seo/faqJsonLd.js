@@ -1,4 +1,4 @@
-import { faqs } from "../sections/FAQ";
+import { faqs } from "../data/faqs";
 
 /** FAQPage JSON-LD for Google rich results. */
 export const faqJsonLd = {

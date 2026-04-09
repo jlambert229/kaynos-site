@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Send, Mail, MessageCircle } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -17,6 +18,7 @@ export default function Contact() {
 
   return (
     <>
+      <Seo title="Contact" description="Get in touch with the Kaynos team. Questions, feedback, partnerships — we'd love to hear from you." path="/contact" />
       <Navbar />
       <main className="contact-main container">
         <div className="contact-content">
@@ -80,8 +82,9 @@ export default function Contact() {
                 />
               </div>
               <button type="submit" className="btn btn-primary btn-lg contact-submit">
-                <Send size={18} /> Send Message
+                <Send size={18} /> Send via Email
               </button>
+              <p className="contact-form-note">Opens your default email client with your message pre-filled.</p>
             </form>
           ) : (
             <div className="contact-success">

@@ -11,7 +11,7 @@ import Accessibility from "./pages/Accessibility";
 import { SupportChatProvider } from "./support/SupportChatContext";
 import SupportChatWidget from "./support/SupportChatWidget";
 import BackToTop from "./components/BackToTop";
-import CookieConsent from "./components/CookieConsent";
+
 
 /** Routes + chrome (used inside any router: Browser or Memory for prerender). */
 export function AppRoutes() {
@@ -19,7 +19,7 @@ export function AppRoutes() {
     <>
       <SupportChatWidget />
       <BackToTop />
-      <CookieConsent />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

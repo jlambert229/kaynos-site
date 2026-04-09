@@ -34,7 +34,7 @@
   --radius-sm: 8px;
   --radius-lg: 16px;
   --radius-xl: 24px;
-  --font: "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font: "Inter Variable", "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
   color-scheme: dark;
 }
 
@@ -816,6 +816,19 @@ svg {
   margin: 0 auto 48px;
 }
 
+.pricing-dual {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: 860px;
+  margin: 0 auto 48px;
+}
+
+.pricing-dual .pricing-card {
+  flex: 1;
+  max-width: 400px;
+}
+
 .pricing-card-label {
   display: inline-block;
   font-size: 13px;
@@ -1422,6 +1435,18 @@ svg {
 .footer-copyright {
   color: var(--text-tertiary);
   font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .pricing-dual {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-dual .pricing-card {
+    max-width: 480px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
