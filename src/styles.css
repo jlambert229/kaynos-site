@@ -480,8 +480,8 @@ svg {
 }
 
 .hero-proof-line {
-  font-size: 14px;
-  color: var(--text-tertiary);
+  font-size: 15px;
+  color: var(--text-secondary);
   margin-bottom: 0;
 }
 
@@ -492,20 +492,26 @@ svg {
 }
 
 .hero-student-line {
-  margin-top: 16px;
-  font-size: 14px;
-  color: var(--text-tertiary);
+  margin-top: 28px;
+  font-size: 15px;
+  color: var(--text-secondary);
   text-align: center;
+  padding: 14px 24px;
+  background: rgba(41, 151, 255, 0.06);
+  border: 1px solid rgba(41, 151, 255, 0.15);
+  border-radius: var(--radius);
+  display: inline-block;
 }
 
 .hero-student-link {
-  color: var(--text-secondary);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .hero-student-link:hover {
-  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 
