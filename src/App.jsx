@@ -8,8 +8,6 @@ import GettingStartedPage from "./pages/getting-started/GettingStartedPage";
 import Contact from "./pages/Contact";
 import Changelog from "./pages/Changelog";
 import Accessibility from "./pages/Accessibility";
-import { SupportChatProvider } from "./support/SupportChatContext";
-import SupportChatWidget from "./support/SupportChatWidget";
 import BackToTop from "./components/BackToTop";
 
 
@@ -17,7 +15,6 @@ import BackToTop from "./components/BackToTop";
 export function AppRoutes() {
   return (
     <>
-      <SupportChatWidget />
       <BackToTop />
 
       <Routes>
@@ -44,9 +41,7 @@ export function AppRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <SupportChatProvider>
-        <AppRoutes />
-      </SupportChatProvider>
+      <AppRoutes />
     </BrowserRouter>
   );
 }

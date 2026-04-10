@@ -2,7 +2,7 @@ import { renderToString } from "react-dom/server";
 import { MemoryRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AppRoutes } from "./App.jsx";
-import { SupportChatProvider } from "./support/SupportChatContext";
+
 
 /**
  * React 19 renders Helmet `<title>`, `<meta>`, and `<link>` at the start of the
@@ -51,9 +51,7 @@ export async function prerender(data) {
   const raw = renderToString(
     <HelmetProvider>
       <MemoryRouter initialEntries={[url]} initialIndex={0}>
-        <SupportChatProvider>
-          <AppRoutes />
-        </SupportChatProvider>
+        <AppRoutes />
       </MemoryRouter>
     </HelmetProvider>,
   );
