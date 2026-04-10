@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { Send, Mail, MessageCircle } from "lucide-react";
+import { Send, Mail } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
@@ -7,12 +7,10 @@ import Seo from "../components/Seo";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const MAX_NAME = 200;
 const MAX_MESSAGE = 500;
-const COOLDOWN_MS = 3000;
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-  const [cooldown, setCooldown] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [errors, setErrors] = useState({});
   const honeypotRef = useRef(null);
 
@@ -27,19 +25,27 @@ export default function Contact() {
     return errs;
   }, [form]);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Honeypot check — bots fill hidden fields, humans don't
     if (honeypotRef.current && honeypotRef.current.value) return;
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
-    setCooldown(true);
-    const subject = encodeURIComponent(`Contact from ${form.name.slice(0, MAX_NAME)}`);
-    const body = encodeURIComponent(form.message.slice(0, MAX_MESSAGE));
-    window.location.href = `mailto:support@kaynos.net?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    setTimeout(() => setCooldown(false), COOLDOWN_MS);
+    setStatus("sending");
+    try {
+      const body = new URLSearchParams({
+        "form-name": "contact",
+        name: form.name.slice(0, MAX_NAME),
+        email: form.email,
+        message: form.message.slice(0, MAX_MESSAGE),
+        website: "",
+      });
+      const res = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body });
+      if (!res.ok) throw new Error(res.statusText);
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -61,17 +67,13 @@ export default function Contact() {
               <p>For anything — questions, feedback, partnerships.</p>
               <a href="mailto:support@kaynos.net" className="contact-link">support@kaynos.net</a>
             </div>
-            <div className="contact-card">
-              <MessageCircle size={20} className="contact-card-icon" />
-              <h3>Live chat</h3>
-              <p>Click the chat bubble on any page for instant answers.</p>
-              <span className="contact-link">Available now</span>
-            </div>
           </div>
 
-          {!submitted ? (
-            <form className="contact-form" onSubmit={handleSubmit}>
+          {status !== "sent" ? (
+            <form className="contact-form" name="contact" data-netlify="true" netlify-honeypot="website" onSubmit={handleSubmit}>
+              <input type="hidden" name="form-name" value="contact" />
               <h3 className="contact-form-title">Send a message</h3>
+              {status === "error" && <p className="contact-error contact-form-error">Something went wrong. Please try again or email us directly.</p>}
               {/* Honeypot — hidden from humans, bots will fill it */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
                 <label htmlFor="contact-website">Website</label>
@@ -118,15 +120,14 @@ export default function Contact() {
                 />
                 {errors.message && <span className="contact-error">{errors.message}</span>}
               </div>
-              <button type="submit" className="btn btn-primary btn-lg contact-submit" disabled={cooldown}>
-                <Send size={18} /> {cooldown ? "Sending\u2026" : "Send via Email"}
+              <button type="submit" className="btn btn-primary btn-lg contact-submit" disabled={status === "sending"}>
+                <Send size={18} /> {status === "sending" ? "Sending\u2026" : "Send Message"}
               </button>
-              <p className="contact-form-note">Opens your default email client with your message pre-filled.</p>
             </form>
           ) : (
             <div className="contact-success">
-              <h3>Thanks for reaching out!</h3>
-              <p>Your email client should have opened with the message. If not, email us directly at <a href="mailto:support@kaynos.net">support@kaynos.net</a>.</p>
+              <h3>Message sent.</h3>
+              <p>We'll get back to you within a day. You can also reach us at <a href="mailto:support@kaynos.net">support@kaynos.net</a>.</p>
             </div>
           )}
         </div>

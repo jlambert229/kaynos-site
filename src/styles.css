@@ -2264,6 +2264,14 @@ svg {
   margin-top: 4px;
 }
 
+.contact-form-error {
+  font-size: 14px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: rgba(231, 76, 60, 0.08);
+  border-radius: var(--radius-sm);
+}
+
 .contact-success {
   text-align: center;
   padding: 48px 24px;
