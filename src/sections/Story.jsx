@@ -27,6 +27,12 @@ export default function Story() {
               notes, share.
             </p>
             <p>
+              I built it for BJJ, but coaches in every discipline have the same
+              problem - footage scattered across text threads, feedback
+              disconnected from video. It works the same whether you're coaching
+              a guard pass or a piano recital.
+            </p>
+            <p>
               Kaynos is independent and self-funded. I use it myself. If
               something's broken or missing, I want to hear about it.
             </p>

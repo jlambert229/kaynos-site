@@ -2771,6 +2771,28 @@ svg {
   text-underline-offset: 3px;
 }
 
+.cmp-switching {
+  text-align: center;
+  margin-top: 48px;
+  padding: 36px 24px;
+  background: var(--surface-alt, rgba(255, 255, 255, 0.04));
+  border-radius: 12px;
+}
+
+.cmp-switching-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cmp-switching-text {
+  max-width: 520px;
+  margin: 0 auto 20px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
 @media (max-width: 640px) {
   .cmp-header,
   .cmp-row {

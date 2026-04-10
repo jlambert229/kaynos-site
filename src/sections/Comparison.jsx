@@ -1,6 +1,7 @@
 import { Check, X, Minus } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { comparisonColumns, comparisonFeatures } from "../data/competitors";
+import { URLS } from "../config/urls";
 
 function Cell({ value }) {
   if (value === true) return <Check size={18} className="cmp-check" aria-label="Yes" />;
@@ -65,6 +66,15 @@ export default function Comparison() {
         <p className="cmp-calc-link">
           <a href="#pricing">See pricing details &rarr;</a>
         </p>
+
+        <div className="cmp-switching">
+          <h3 className="cmp-switching-title">Switching from another platform?</h3>
+          <p className="cmp-switching-text">
+            If you're on CoachNow, OnForm, or a DIY stack and thinking about switching,
+            we can help. Reach out and we'll walk you through the transition.
+          </p>
+          <a href={URLS.support} className="btn btn-secondary">Talk to us</a>
+        </div>
       </div>
     </section>
   );

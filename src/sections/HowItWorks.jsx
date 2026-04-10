@@ -12,8 +12,10 @@ export default function HowItWorks() {
           <h2 className="section-title">How it works</h2>
           <div className="prose-steps">
             <p>
-              <strong>Film your session</strong> with whatever you already
-              use - phone, GoPro, tripod camera. Any common video format works.
+              <strong>Film your session</strong> - or have your client film
+              theirs. Phone, GoPro, tripod - whatever you already use. Works
+              the same whether you're in the room or reviewing remotely. Any
+              common video format works.
             </p>
             <p>
               <strong>Upload and add notes.</strong> Drop the video into Kaynos
