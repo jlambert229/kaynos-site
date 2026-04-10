@@ -18,6 +18,7 @@ const routes = [
   "/contact",
   "/changelog",
   "/accessibility",
+  "/for/coaches",
 ];
 
 const today = new Date().toISOString().split("T")[0];
