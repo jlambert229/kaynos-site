@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { URLS } from "../config/urls";
 
 export default function Security() {
   return (
@@ -76,10 +77,10 @@ export default function Security() {
           <section className="security-section">
             <h2>Contact</h2>
             <p className="security-contact">
-              Security questions: <a href="mailto:security@kaynos.net">security@kaynos.net</a>
+              Security questions: <a href={URLS.security}>security@kaynos.net</a>
             </p>
             <p className="security-contact">
-              Vulnerability reports: <a href="mailto:security@kaynos.net">security@kaynos.net</a>
+              Vulnerability reports: <a href={URLS.security}>security@kaynos.net</a>
             </p>
           </section>
         </div>

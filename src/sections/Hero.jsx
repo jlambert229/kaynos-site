@@ -1,6 +1,7 @@
 import KaynosLogo from "../components/KaynosLogo";
 import CtaButton from "../components/CtaButton";
 import { PRICING_COPY } from "../config/pricing";
+import { URLS } from "../config/urls";
 
 export default function Hero() {
   return (
@@ -23,7 +24,7 @@ export default function Hero() {
           <div className="hero-cta-row">
             <CtaButton>Start Trial</CtaButton>
             <a
-              href="https://demo.kaynos.net"
+              href={URLS.demoCoach}
               className="btn btn-secondary"
               target="_blank"
               rel="noopener noreferrer"
@@ -37,7 +38,7 @@ export default function Hero() {
           </p>
           <p className="hero-student-line">
             Are you a student?{" "}
-            <a href="https://app.kaynos.net" className="hero-student-link">
+            <a href={URLS.login} className="hero-student-link">
               Your coach uses Kaynos — you use it free. Log in &rarr;
             </a>
           </p>

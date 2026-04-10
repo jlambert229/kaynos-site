@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { URLS } from "../config/urls";
 
 const effectiveDate = "April 7, 2026";
 
@@ -40,7 +41,7 @@ export default function PrivacyPolicy() {
               use the Kaynos web application (app.kaynos.net), that experience is governed by
               our{" "}
               <Link to="/data-use">Data Use Policy</Link> and our{" "}
-              <a href="https://app.kaynos.net/terms" target="_blank" rel="noopener noreferrer">
+              <a href={URLS.terms} target="_blank" rel="noopener noreferrer">
                 Terms of Service
               </a>. When you click through from this marketing site to the application, the
               applicable policy is the one linked from the product you are using.
@@ -194,7 +195,7 @@ export default function PrivacyPolicy() {
             </p>
             <p>
               <strong>How to submit a request:</strong> Email{" "}
-              <a href="mailto:support@kaynos.net">support@kaynos.net</a> with the subject line
+              <a href={URLS.support}>support@kaynos.net</a> with the subject line
               &quot;Privacy Request&quot; and describe your request. We may need information
               to verify your identity before processing it.
             </p>
@@ -229,7 +230,7 @@ export default function PrivacyPolicy() {
             <h2>13. Contact</h2>
             <p>
               Questions about this Privacy Policy:{" "}
-              <a href="mailto:support@kaynos.net">support@kaynos.net</a>
+              <a href={URLS.support}>support@kaynos.net</a>
             </p>
           </section>
         </article>

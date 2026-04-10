@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { URLS } from "../config/urls";
 
 export default function ForStudents() {
   return (
@@ -92,7 +93,7 @@ export default function ForStudents() {
 
           <div className="students-cta">
             <a
-              href="https://app.kaynos.net"
+              href={URLS.login}
               className="btn btn-primary btn-lg"
             >
               Log In

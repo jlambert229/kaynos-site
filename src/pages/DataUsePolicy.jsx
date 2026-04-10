@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { URLS } from "../config/urls";
 
 const effectiveDate = "April 7, 2026";
 
@@ -42,7 +43,7 @@ export default function DataUsePolicy() {
               This policy applies to data processed when you or your organization use Kaynos
               products and services. It complements (and does not replace) our{" "}
               <Link to="/privacy">Privacy Policy</Link>, our{" "}
-              <a href="https://app.kaynos.net/terms" target="_blank" rel="noopener noreferrer">
+              <a href={URLS.terms} target="_blank" rel="noopener noreferrer">
                 Terms of Service
               </a>, and any account-specific arrangements.
             </p>
@@ -192,7 +193,7 @@ export default function DataUsePolicy() {
             <h2>10. Contact</h2>
             <p>
               Questions about this Data Use Policy:{" "}
-              <a href="mailto:support@kaynos.net">support@kaynos.net</a>
+              <a href={URLS.support}>support@kaynos.net</a>
             </p>
           </section>
         </article>

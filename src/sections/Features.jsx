@@ -8,6 +8,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { URLS } from "../config/urls";
 
 const features = [
   {
@@ -77,7 +78,7 @@ export default function Features() {
 
         <div className="features-bottom-link">
           <a
-            href="https://demo.kaynos.net"
+            href={URLS.demoCoach}
             className="feature-link"
             target="_blank"
             rel="noopener noreferrer"

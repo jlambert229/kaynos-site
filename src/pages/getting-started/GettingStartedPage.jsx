@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { URLS } from "../../config/urls";
 
 export default function GettingStartedPage() {
   return (
@@ -7,7 +8,7 @@ export default function GettingStartedPage() {
       <h1 className="getting-started-title">Get going in a few minutes</h1>
       <p className="getting-started-lead">
         Sign up, upload one clip, leave a note, invite a client. Everything runs in the browser at{" "}
-        <a href="https://app.kaynos.net" target="_blank" rel="noopener noreferrer">
+        <a href={URLS.app} target="_blank" rel="noopener noreferrer">
           app.kaynos.net
         </a>
         .
@@ -18,7 +19,7 @@ export default function GettingStartedPage() {
         <ol className="getting-started-list">
           <li>
             <strong>Open an account.</strong>{" "}
-            <a href="https://app.kaynos.net/signup" target="_blank" rel="noopener noreferrer">
+            <a href={URLS.signup} target="_blank" rel="noopener noreferrer">
               Start your free trial
             </a>
             . Sign in anytime at app.kaynos.net.
@@ -47,7 +48,7 @@ export default function GettingStartedPage() {
         <p className="getting-started-body">
           Step-by-step screenshots, troubleshooting, and roles live in the{" "}
           <a
-            href="https://docs.kaynos.net#setup"
+            href={`${URLS.helpCenter}#setup`}
             target="_blank"
             rel="noopener noreferrer"
             className="getting-started-inline-link"
@@ -55,7 +56,7 @@ export default function GettingStartedPage() {
             Help Center
           </a>
           . You can also email{" "}
-          <a href="mailto:support@kaynos.net" className="getting-started-inline-link">
+          <a href={URLS.support} className="getting-started-inline-link">
             support@kaynos.net
           </a>
           .

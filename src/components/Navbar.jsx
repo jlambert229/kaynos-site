@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import KaynosLogo from "./KaynosLogo";
+import { URLS } from "../config/urls";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -132,10 +133,10 @@ export default function Navbar() {
         </div>
 
         <div className="navbar-cta">
-          <a href="https://app.kaynos.net" className="nav-login">
+          <a href={URLS.login} className="nav-login">
             Log In
           </a>
-          <a href="https://app.kaynos.net/signup" className="btn btn-primary">
+          <a href={URLS.signup} className="btn btn-primary">
             Start Free Trial
           </a>
         </div>
@@ -186,8 +187,8 @@ export default function Navbar() {
             </a>
           )
         )}
-        <a href="https://app.kaynos.net" onClick={closeMobile}>Log In</a>
-        <a href="https://app.kaynos.net/signup" className="btn btn-primary" onClick={closeMobile}>
+        <a href={URLS.login} onClick={closeMobile}>Log In</a>
+        <a href={URLS.signup} className="btn btn-primary" onClick={closeMobile}>
           Start Free Trial
         </a>
       </div>

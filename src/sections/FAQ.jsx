@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { ChevronDown, Search } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { faqs } from "../data/faqs";
+import { URLS } from "../config/urls";
 
 export default function FAQ() {
   const [openQuestion, setOpenQuestion] = useState(null);
@@ -47,7 +48,7 @@ export default function FAQ() {
           {filtered.length === 0 ? (
             <p className="faq-no-results">
               No matching questions. Try a different search or{" "}
-              <a href="mailto:support@kaynos.net">email us</a>.
+              <a href={URLS.support}>email us</a>.
             </p>
           ) : (
             filtered.map((faq, index) => {

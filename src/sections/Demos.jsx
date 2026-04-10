@@ -1,12 +1,13 @@
 import { ExternalLink, Briefcase, User } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { URLS } from "../config/urls";
 
 const demos = [
   {
     title: "Coach view",
     description:
       "Upload videos, add timestamped notes, manage clients, and track who's watching.",
-    href: "https://demo.kaynos.net",
+    href: URLS.demoCoach,
     icon: Briefcase,
     cta: "Try the coach demo",
   },
@@ -14,7 +15,7 @@ const demos = [
     title: "Client view",
     description:
       "Watch your assigned sessions, browse shared classes, and add your own notes.",
-    href: "https://student.kaynos.net",
+    href: URLS.demoStudent,
     icon: User,
     cta: "Try the client demo",
   },

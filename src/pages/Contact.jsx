@@ -3,6 +3,7 @@ import { Send, Mail } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { URLS } from "../config/urls";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const MAX_NAME = 200;
@@ -65,7 +66,7 @@ export default function Contact() {
               <Mail size={20} className="contact-card-icon" />
               <h3>Email us</h3>
               <p>For anything — questions, feedback, partnerships.</p>
-              <a href="mailto:support@kaynos.net" className="contact-link">support@kaynos.net</a>
+              <a href={URLS.support} className="contact-link">support@kaynos.net</a>
             </div>
           </div>
 
@@ -127,7 +128,7 @@ export default function Contact() {
           ) : (
             <div className="contact-success">
               <h3>Message sent.</h3>
-              <p>We'll get back to you within a day. You can also reach us at <a href="mailto:support@kaynos.net">support@kaynos.net</a>.</p>
+              <p>We'll get back to you within a day. You can also reach us at <a href={URLS.support}>support@kaynos.net</a>.</p>
             </div>
           )}
         </div>

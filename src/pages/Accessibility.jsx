@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { URLS } from "../config/urls";
 
 export default function Accessibility() {
   return (
@@ -39,7 +40,7 @@ export default function Accessibility() {
 
           <div className="legal-section">
             <h2>Feedback</h2>
-            <p>If you encounter any accessibility barriers or have suggestions for improvement, please contact us at <a href="mailto:support@kaynos.net">support@kaynos.net</a>. We take all feedback seriously and will work to resolve issues promptly.</p>
+            <p>If you encounter any accessibility barriers or have suggestions for improvement, please contact us at <a href={URLS.support}>support@kaynos.net</a>. We take all feedback seriously and will work to resolve issues promptly.</p>
           </div>
         </article>
       </main>

@@ -9,6 +9,7 @@ import {
   calcMonthlyCost,
 } from "../config/pricing";
 import { calculatorCompetitors } from "../data/competitors";
+import { URLS } from "../config/urls";
 
 function formatVerifiedDate(isoMonth) {
   const [year, month] = isoMonth.split("-").map(Number);
@@ -120,7 +121,7 @@ export default function Calculator() {
         <div className="calc-multi-coach-note">
           <p>
             Running multiple coaches? Each coach gets their own Kaynos account.{" "}
-            <a href="mailto:support@kaynos.net?subject=Team%20pricing%20inquiry">
+            <a href={`${URLS.support}?subject=Team%20pricing%20inquiry`}>
               Contact us to discuss team pricing.
             </a>
           </p>

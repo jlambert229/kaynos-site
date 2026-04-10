@@ -1,4 +1,5 @@
 import { FMT, FREE_SEATS, SEAT_PRICE, COACH_MONTHLY_PRICE, calcMonthlyCost } from "../config/pricing";
+import { URLS } from "../config/urls";
 
 export const faqs = [
   {
@@ -29,7 +30,7 @@ export const faqs = [
     question: "Do my clients need to download an app?",
     answer: "No. Everything runs in the browser. Clients just log in from their phone or computer using the link you send them.",
     linkText: "Try the client demo",
-    linkHref: "https://student.kaynos.net",
+    linkHref: URLS.demoStudent,
     external: true,
   },
   {
@@ -40,14 +41,14 @@ export const faqs = [
     question: "What happens after the trial?",
     answer: `Your coach plan continues at ${FMT.coachMonthlySlash}. The first ${FREE_SEATS} client seats stay included. Any additional active seats are billed at ${FMT.seatPriceSlash} each. Cancel anytime. No contracts, no cancellation fees.`,
     linkText: "Start trial",
-    linkHref: "https://app.kaynos.net/signup",
+    linkHref: URLS.signup,
     external: true,
   },
   {
     question: "What video formats work?",
     answer: "MP4, MOV, WebM, and MKV. Files up to 5 GB. You can also link Vimeo videos if you already host there.",
     linkText: "Try the coach demo",
-    linkHref: "https://demo.kaynos.net",
+    linkHref: URLS.demoCoach,
     external: true,
   },
 ];

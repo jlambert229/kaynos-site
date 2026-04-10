@@ -1,4 +1,5 @@
 import KaynosLogo from "./KaynosLogo";
+import { URLS } from "../config/urls";
 
 const columns = [
   {
@@ -6,8 +7,8 @@ const columns = [
     links: [
       { label: "Features", href: "#features" },
       { label: "Pricing", href: "#pricing" },
-      { label: "Coach Demo", href: "https://demo.kaynos.net", external: true },
-      { label: "Client Demo", href: "https://student.kaynos.net", external: true },
+      { label: "Coach Demo", href: URLS.demoCoach, external: true },
+      { label: "Client Demo", href: URLS.demoStudent, external: true },
     ],
   },
   {
@@ -16,7 +17,7 @@ const columns = [
       { label: "Getting Started", href: "/getting-started" },
       { label: "Changelog", href: "/changelog" },
       { label: "Contact", href: "/contact" },
-      { label: "Help Center", href: "https://docs.kaynos.net", external: true },
+      { label: "Help Center", href: URLS.helpCenter, external: true },
     ],
   },
   {
@@ -25,7 +26,7 @@ const columns = [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Data Use Policy", href: "/data-use" },
       { label: "Accessibility", href: "/accessibility" },
-      { label: "Terms of Service", href: "https://app.kaynos.net/terms", external: true },
+      { label: "Terms of Service", href: URLS.terms, external: true },
     ],
   },
 ];

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, CheckCircle } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { URLS } from "../config/urls";
 
 export default function Newsletter() {
   const revealRef = useScrollReveal();
@@ -71,7 +72,7 @@ export default function Newsletter() {
           )}
 
           {status === "error" && (
-            <p className="newsletter-error">Something went wrong. Please try again or email support@kaynos.net.</p>
+            <p className="newsletter-error">Something went wrong. Please try again or email <a href={URLS.support}>support@kaynos.net</a>.</p>
           )}
 
           <p className="newsletter-note">We send about one email a month. Unsubscribe anytime.</p>
