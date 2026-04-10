@@ -54,7 +54,7 @@ export default function GettingStartedPage() {
           >
             Help Center
           </a>
-          . On this site, use the chat widget or email{" "}
+          . You can also email{" "}
           <a href="mailto:support@kaynos.net" className="getting-started-inline-link">
             support@kaynos.net
           </a>
