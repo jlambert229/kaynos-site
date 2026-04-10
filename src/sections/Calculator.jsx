@@ -3,10 +3,21 @@ import useScrollReveal from "../hooks/useScrollReveal";
 import { COACH_MONTHLY_PRICE, FREE_SEATS, SEAT_PRICE, calcMonthlyCost } from "../config/pricing";
 
 const competitors = [
-  { name: "CoachNow", price: 50, note: "PRO plan, app required" },
-  { name: "OnForm", price: 30, note: "Coach plan, iOS only" },
-  { name: "Sprongo", price: 49, note: "Small Team (20 members)" },
+  { name: "CoachNow", price: 50, note: "PRO plan, app required", verified: "2026-03" },
+  { name: "OnForm", price: 30, note: "Coach plan, iOS only", verified: "2026-03" },
+  { name: "Sprongo", price: 49, note: "Small Team (20 members)", verified: "2026-03" },
 ];
+
+function formatVerifiedDate(isoMonth) {
+  const [year, month] = isoMonth.split("-").map(Number);
+  const date = new Date(year, month - 1);
+  return date.toLocaleString("en-US", { month: "long", year: "numeric" });
+}
+
+function latestVerifiedLabel(comps) {
+  const latest = comps.reduce((a, b) => (a.verified > b.verified ? a : b));
+  return formatVerifiedDate(latest.verified);
+}
 
 export default function Calculator() {
   const [clients, setClients] = useState(5);
@@ -101,7 +112,7 @@ export default function Calculator() {
             ))}
           </div>
           <p className="calc-compare-footnote">
-            Competitor prices based on publicly listed plans as of early 2026.
+            Competitor prices based on publicly listed plans. Last verified: {latestVerifiedLabel(competitors)}.
             Kaynos price reflects {clients} active client{clients !== 1 ? "s" : ""} ($50/mo base + $5/mo per extra seat beyond 3).
             Clients use Kaynos for free.
           </p>
