@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Dumbbell, Swords, Music, GraduationCap } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
@@ -61,9 +61,40 @@ export default function UseCases() {
   const [active, setActive] = useState("fitness");
   const headerRef = useScrollReveal();
   const contentRef = useScrollReveal();
+  const tabRefs = useRef({});
 
   const current = cases.find((c) => c.id === active);
   const Icon = current.icon;
+
+  const handleKeyDown = useCallback(
+    (e) => {
+      const currentIndex = cases.findIndex((c) => c.id === active);
+      let nextIndex = currentIndex;
+
+      switch (e.key) {
+        case "ArrowRight":
+          nextIndex = (currentIndex + 1) % cases.length;
+          break;
+        case "ArrowLeft":
+          nextIndex = (currentIndex - 1 + cases.length) % cases.length;
+          break;
+        case "Home":
+          nextIndex = 0;
+          break;
+        case "End":
+          nextIndex = cases.length - 1;
+          break;
+        default:
+          return;
+      }
+
+      e.preventDefault();
+      const nextId = cases[nextIndex].id;
+      setActive(nextId);
+      tabRefs.current[nextId]?.focus();
+    },
+    [active],
+  );
 
   return (
     <section id="use-cases" className="section">
@@ -77,16 +108,22 @@ export default function UseCases() {
         </div>
 
         <div ref={contentRef} className="reveal">
-          <div className="uc-tabs" role="tablist">
+          <div className="uc-tabs" role="tablist" aria-label="Use cases">
             {cases.map((c) => {
               const TabIcon = c.icon;
+              const isActive = active === c.id;
               return (
                 <button
                   key={c.id}
+                  ref={(el) => { tabRefs.current[c.id] = el; }}
+                  id={`uc-tab-${c.id}`}
                   role="tab"
-                  aria-selected={active === c.id}
-                  className={`uc-tab ${active === c.id ? "uc-tab-active" : ""}`}
+                  aria-selected={isActive}
+                  aria-controls={`uc-panel-${c.id}`}
+                  tabIndex={isActive ? 0 : -1}
+                  className={`uc-tab ${isActive ? "uc-tab-active" : ""}`}
                   onClick={() => setActive(c.id)}
+                  onKeyDown={handleKeyDown}
                 >
                   <TabIcon size={18} aria-hidden="true" />
                   <span>{c.label}</span>
@@ -95,7 +132,14 @@ export default function UseCases() {
             })}
           </div>
 
-          <div className="uc-panel" key={active} role="tabpanel">
+          <div
+            className="uc-panel"
+            key={active}
+            id={`uc-panel-${active}`}
+            role="tabpanel"
+            aria-labelledby={`uc-tab-${active}`}
+            tabIndex={0}
+          >
             <div className="uc-panel-icon">
               <Icon size={28} aria-hidden="true" />
             </div>
