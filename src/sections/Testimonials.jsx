@@ -4,7 +4,7 @@ import CtaButton from "../components/CtaButton";
 
 export default function Testimonials() {
   return (
-    <section id="early-access" className="section section--alt">
+    <section id="testimonials" className="section section--alt">
       <div className="container">
         <div className="early-access">
           <h2 className="section-title">We're early and we know it</h2>
