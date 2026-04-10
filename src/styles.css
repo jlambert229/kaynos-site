@@ -2167,6 +2167,18 @@ svg {
   justify-content: center;
 }
 
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-error {
+  display: block;
+  font-size: 13px;
+  color: var(--red, #e74c3c);
+  margin-top: 4px;
+}
+
 .contact-success {
   text-align: center;
   padding: 48px 24px;
@@ -2346,6 +2358,12 @@ svg {
 .newsletter-note {
   font-size: 13px;
   color: var(--text-tertiary);
+}
+
+.newsletter-error {
+  font-size: 13px;
+  color: var(--red, #e74c3c);
+  margin-top: 6px;
 }
 
 .newsletter-success {
