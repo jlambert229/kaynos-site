@@ -15,8 +15,9 @@ export default function Hero() {
             Stop losing your best coaching moments.
           </h1>
           <p className="hero-description">
-            Upload training videos. Leave notes at specific moments. Share them
-            privately with your clients so they can review between sessions.
+            Upload training videos. Dictate notes at exact moments — or let AI
+            flag the key timestamps for you. Share privately with your clients so
+            they can review between sessions.
             {" "}{PRICING_COPY.heroLine}
           </p>
           <div className="hero-cta-row">
@@ -33,6 +34,12 @@ export default function Hero() {
           <p className="hero-proof-line">
             {PRICING_COPY.trialNote}{" "}
             <a href="#pricing" className="hero-calc-link">See pricing &rarr;</a>
+          </p>
+          <p className="hero-student-line">
+            Are you a student?{" "}
+            <a href="https://app.kaynos.net" className="hero-student-link">
+              Your coach uses Kaynos — you use it free. Log in &rarr;
+            </a>
           </p>
         </div>
       </div>
