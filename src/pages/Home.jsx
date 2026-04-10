@@ -46,10 +46,10 @@ export default function Home() {
         </Suspense>
         <Suspense fallback={null}>
           <UseCases />
-          <Testimonials />
+          <Story />
         </Suspense>
         <Suspense fallback={null}>
-          <Story />
+          <Testimonials />
         </Suspense>
         <Suspense fallback={null}>
           <Pricing />

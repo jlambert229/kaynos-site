@@ -58,8 +58,8 @@ export default function Features() {
         <div ref={headerRef} className="reveal section-header">
           <h2 className="section-title">What you get</h2>
           <p className="section-subtitle">
-            The short version: upload video, leave timestamped notes, share with
-            clients. Here's what that actually looks like.
+            Upload video, leave timestamped notes, share with clients. Here's
+            what that means day to day.
           </p>
         </div>
 

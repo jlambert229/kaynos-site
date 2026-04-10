@@ -20,7 +20,8 @@ export default function Comparison() {
           <span className="section-label">Compare</span>
           <h2 className="section-title">How Kaynos stacks up</h2>
           <p className="section-subtitle">
-            Side-by-side with the tools coaches actually use and consider.
+            Feature-by-feature against CoachNow, OnForm, and the DIY stack
+            you're probably using now.
           </p>
         </div>
 

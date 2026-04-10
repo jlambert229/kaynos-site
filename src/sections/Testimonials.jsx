@@ -1,29 +1,14 @@
-import { Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CtaButton from "../components/CtaButton";
-import { stats, quotes } from "../data/testimonials";
+import { quotes } from "../data/testimonials";
 
 export default function Testimonials() {
   return (
     <section id="testimonials" className="section section--alt">
       <div className="container">
         <div className="early-access">
-          <h2 className="section-title">Real numbers, real coaches</h2>
-
-          <div className="stats-bar">
-            <div className="stats-item">
-              <span className="stats-number">{stats.coaches}</span>
-              <span className="stats-label">coaches</span>
-            </div>
-            <div className="stats-item">
-              <span className="stats-number">{stats.sessionsReviewed}</span>
-              <span className="stats-label">sessions reviewed</span>
-            </div>
-            <div className="stats-item">
-              <span className="stats-number">{stats.hoursOfVideo}</span>
-              <span className="stats-label">hours of video</span>
-            </div>
-          </div>
+          <h2 className="section-title">What early adopters say</h2>
 
           {quotes.length > 0 && (
             <div className="testimonial-cards">
@@ -43,19 +28,14 @@ export default function Testimonials() {
 
           <div className="early-access-body">
             <p>
-              We launched recently. These numbers are real — not projected, not
-              rounded up. We earn trust by shipping fast and listening. Check
-              the{" "}
+              These coaches shaped the product alongside us. If you want that
+              kind of access, now&rsquo;s the time.{" "}
               <Link to="/changelog" className="early-access-link">
-                changelog <ArrowRight size={14} />
-              </Link>{" "}
-              if you want proof.
+                See what we&rsquo;ve shipped <ArrowRight size={14} />
+              </Link>
             </p>
           </div>
-          <CtaButton>
-            <Sparkles size={18} />
-            Want to try it? Join Early Access
-          </CtaButton>
+          <CtaButton>Start Trial</CtaButton>
         </div>
       </div>
     </section>
