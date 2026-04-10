@@ -9,7 +9,7 @@ import { AppRoutes } from "./App.jsx";
  * root HTML string. Move them into the document head via vite-prerender-plugin.
  * @param {string} rootHtml
  */
-function extractLeadingHeadMarkup(rootHtml) {
+export function extractLeadingHeadMarkup(rootHtml) {
   let rest = rootHtml.trimStart();
   const fragments = [];
   let plainTitle = "";

@@ -43,7 +43,7 @@ export default defineConfig({
     vitePrerenderPlugin({
       renderTarget: "#root",
       prerenderScript: path.resolve(__dirname, "src/prerender.jsx"),
-      additionalPrerenderRoutes: ["/privacy", "/data-use", "/getting-started", "/contact", "/changelog", "/accessibility"],
+      additionalPrerenderRoutes: ["/privacy", "/data-use", "/getting-started", "/contact", "/changelog", "/accessibility", "/for/students", "/security"],
     }),
     stripPrerenderModulePreload(),
   ],

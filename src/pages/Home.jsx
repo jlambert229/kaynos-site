@@ -37,13 +37,25 @@ export default function Home() {
         <Features />
         <Suspense fallback={null}>
           <Comparison />
+        </Suspense>
+        <Suspense fallback={null}>
           <HowItWorks />
+        </Suspense>
+        <Suspense fallback={null}>
           <Demos />
+        </Suspense>
+        <Suspense fallback={null}>
           <UseCases />
           <Testimonials />
+        </Suspense>
+        <Suspense fallback={null}>
           <Story />
+        </Suspense>
+        <Suspense fallback={null}>
           <Pricing />
           <FAQ />
+        </Suspense>
+        <Suspense fallback={null}>
           <Newsletter />
           <CTA />
         </Suspense>

@@ -27,7 +27,16 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -37,7 +46,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const closeMobile = () => setMobileOpen(false);
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -63,7 +72,7 @@ export default function Navbar() {
       menu.removeEventListener('keydown', trap);
       window.removeEventListener('keydown', onEsc);
     };
-  }, [mobileOpen]);
+  }, [mobileOpen, closeMobile]);
 
   const handleSectionClick = useCallback(
     (e, hash) => {

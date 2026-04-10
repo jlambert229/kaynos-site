@@ -30,6 +30,7 @@ const columns = [
   },
 ];
 
+// TODO: Verify social media URLs point to live Kaynos accounts (KAY-162)
 const socials = [
   {
     label: "Instagram",

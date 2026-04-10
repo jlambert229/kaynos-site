@@ -1,5 +1,6 @@
 import KaynosLogo from "../components/KaynosLogo";
 import CtaButton from "../components/CtaButton";
+import { PRICING_COPY } from "../config/pricing";
 
 export default function Hero() {
   return (
@@ -14,9 +15,10 @@ export default function Hero() {
             Stop losing your best coaching moments.
           </h1>
           <p className="hero-description">
-            Upload training videos. Leave notes at specific moments. Share them
-            privately with your clients so they can review between sessions.
-            $50/mo. First 3 clients included. $5 per extra client.
+            Upload training videos. Dictate notes at exact moments — or let AI
+            flag the key timestamps for you. Share privately with your clients so
+            they can review between sessions.
+            {" "}{PRICING_COPY.heroLine}
           </p>
           <div className="hero-cta-row">
             <CtaButton>Start Trial</CtaButton>
@@ -30,8 +32,14 @@ export default function Hero() {
             </a>
           </div>
           <p className="hero-proof-line">
-            14-day trial. Card on file.{" "}
+            {PRICING_COPY.trialNote}{" "}
             <a href="#pricing" className="hero-calc-link">See pricing &rarr;</a>
+          </p>
+          <p className="hero-student-line">
+            Are you a student?{" "}
+            <a href="https://app.kaynos.net" className="hero-student-link">
+              Your coach uses Kaynos — you use it free. Log in &rarr;
+            </a>
           </p>
         </div>
       </div>

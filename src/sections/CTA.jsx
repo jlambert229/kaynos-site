@@ -1,5 +1,6 @@
 import CtaButton from "../components/CtaButton";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { PRICING_COPY } from "../config/pricing";
 
 export default function CTA() {
   const revealRef = useScrollReveal();
@@ -9,7 +10,7 @@ export default function CTA() {
       <div ref={revealRef} className="reveal container cta-container">
         <h2 className="cta-title">Give it a shot.</h2>
         <p className="cta-subtitle">
-          $50/mo. 3 clients included. $5 per extra. 14-day trial.
+          {PRICING_COPY.ctaLine}
         </p>
         <CtaButton>Start Trial</CtaButton>
       </div>

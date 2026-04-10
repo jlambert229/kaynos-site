@@ -1,25 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link2, Check } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
-import { COACH_MONTHLY_PRICE, FREE_SEATS, SEAT_PRICE, calcMonthlyCost } from "../config/pricing";
+import {
+  COACH_MONTHLY_PRICE,
+  FREE_SEATS,
+  SEAT_PRICE,
+  FMT,
+  calcMonthlyCost,
+} from "../config/pricing";
+import { calculatorCompetitors } from "../data/competitors";
 
-const competitors = [
-  { name: "CoachNow", price: 50, note: "PRO plan, app required" },
-  { name: "OnForm", price: 30, note: "Coach plan, iOS only" },
-  { name: "Sprongo", price: 49, note: "Small Team (20 members)" },
-];
+function formatVerifiedDate(isoMonth) {
+  const [year, month] = isoMonth.split("-").map(Number);
+  const date = new Date(year, month - 1);
+  return date.toLocaleString("en-US", { month: "long", year: "numeric" });
+}
+
+function latestVerifiedLabel(comps) {
+  const latest = comps.reduce((a, b) => (a.verified > b.verified ? a : b));
+  return formatVerifiedDate(latest.verified);
+}
+
+function getInitialClients() {
+  if (typeof window === "undefined") return 5;
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = Number(params.get("clients"));
+  return fromUrl >= 1 && fromUrl <= 50 ? fromUrl : 5;
+}
 
 export default function Calculator() {
-  const [clients, setClients] = useState(5);
+  const [clients, setClients] = useState(getInitialClients);
+  const [copied, setCopied] = useState(false);
   const headerRef = useScrollReveal();
   const calcRef = useScrollReveal();
 
   const cost = calcMonthlyCost(clients);
+  const annualCost = cost * 12;
   const extraSeats = Math.max(0, clients - FREE_SEATS);
 
   const maxPrice = Math.max(
     cost,
-    ...competitors.map((c) => c.price)
+    ...calculatorCompetitors.map((c) => c.price)
   );
+
+  function handleShare() {
+    const url = new URL(window.location.href);
+    url.searchParams.set("clients", clients);
+    navigator.clipboard.writeText(url.toString()).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
 
   return (
     <section id="calculator" className="section">
@@ -28,9 +59,8 @@ export default function Calculator() {
           <span className="section-label">Calculator</span>
           <h2 className="section-title">See what you'd actually pay</h2>
           <p className="section-subtitle">
-            Move the slider. $50/mo base includes 3 client seats. Each
-            additional active seat is $5/mo. Your clients always use Kaynos
-            for free.
+            Move the slider. {PRICING_COPY.creditDesc.charAt(0).toLowerCase() + PRICING_COPY.creditDesc.slice(1)}{" "}
+            Your clients always use Kaynos for free.
           </p>
         </div>
 
@@ -66,15 +96,34 @@ export default function Calculator() {
             </div>
             <div className="calc-result-item">
               <span className="calc-result-label">Extra seats</span>
-              <span className="calc-result-value">{extraSeats} x ${SEAT_PRICE}</span>
+              <span className="calc-result-value">{extraSeats} x {FMT.seatPrice}</span>
             </div>
             <div className="calc-result-item calc-result-highlight">
               <span className="calc-result-label">You pay</span>
               <span className="calc-result-value calc-result-big">
                 ${cost}/mo
               </span>
+              <span className="calc-result-annual">That's ${annualCost}/year</span>
             </div>
           </div>
+
+          <button
+            type="button"
+            className="calc-share-btn"
+            onClick={handleShare}
+          >
+            {copied ? <Check size={14} /> : <Link2 size={14} />}
+            {copied ? "Link copied!" : "Share this estimate"}
+          </button>
+        </div>
+
+        <div className="calc-multi-coach-note">
+          <p>
+            Running multiple coaches? Each coach gets their own Kaynos account.{" "}
+            <a href="mailto:support@kaynos.net?subject=Team%20pricing%20inquiry">
+              Contact us to discuss team pricing.
+            </a>
+          </p>
         </div>
 
         {/* Competitor comparison */}
@@ -88,9 +137,9 @@ export default function Calculator() {
               price={cost}
               maxPrice={maxPrice}
               isKaynos
-              note={`$${COACH_MONTHLY_PRICE} base + ${extraSeats} extra seat${extraSeats !== 1 ? "s" : ""}`}
+              note={`${FMT.coachMonthly} base + ${extraSeats} extra seat${extraSeats !== 1 ? "s" : ""}`}
             />
-            {competitors.map((c) => (
+            {calculatorCompetitors.map((c) => (
               <CompareBar
                 key={c.name}
                 name={c.name}
@@ -101,8 +150,8 @@ export default function Calculator() {
             ))}
           </div>
           <p className="calc-compare-footnote">
-            Competitor prices based on publicly listed plans as of early 2026.
-            Kaynos price reflects {clients} active client{clients !== 1 ? "s" : ""} ($50/mo base + $5/mo per extra seat beyond 3).
+            Competitor prices based on publicly listed plans. Last verified: {latestVerifiedLabel(calculatorCompetitors)}.
+            Kaynos price reflects {clients} active client{clients !== 1 ? "s" : ""} ({FMT.coachMonthlySlash} base + {FMT.seatPriceSlash} per extra seat beyond {FREE_SEATS}).
             Clients use Kaynos for free.
           </p>
         </div>

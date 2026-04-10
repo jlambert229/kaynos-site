@@ -1,7 +1,9 @@
+import { FMT, FREE_SEATS, SEAT_PRICE, COACH_MONTHLY_PRICE, calcMonthlyCost } from "../config/pricing";
+
 export const faqs = [
   {
     question: "How does pricing work?",
-    answer: "Coaches pay $50/mo. The first 3 client seats are included. Each additional active client seat is $5/mo. Your bill adjusts monthly based on how many clients are active. For example, 10 clients costs $85/mo ($50 base + 7 extra seats at $5 each).",
+    answer: `Coaches pay ${FMT.coachMonthlySlash}. The first ${FREE_SEATS} client seats are included. Each additional active client seat is ${FMT.seatPriceSlash}. Your bill adjusts monthly based on how many clients are active. For example, 10 clients costs $${calcMonthlyCost(10)}/mo (${FMT.coachMonthly} base + ${10 - FREE_SEATS} extra seats at ${FMT.seatPrice} each).`,
     linkText: "See pricing",
     linkHref: "#pricing",
   },
@@ -13,7 +15,7 @@ export const faqs = [
   },
   {
     question: "What counts as an active seat?",
-    answer: "An active seat is a client who has logged in or accessed content during the current billing period. If a client is inactive for a full billing cycle, they don't count toward your seat total. Your first 3 active seats are always included in the $50/mo base price.",
+    answer: `An active seat is a client who has logged in or accessed content during the current billing period. If a client is inactive for a full billing cycle, they don't count toward your seat total. Your first ${FREE_SEATS} active seats are always included in the ${FMT.coachMonthlySlash} base price.`,
     linkText: "See pricing",
     linkHref: "#pricing",
   },
@@ -36,7 +38,7 @@ export const faqs = [
   },
   {
     question: "What happens after the trial?",
-    answer: "Your coach plan continues at $50/mo. The first 3 client seats stay included. Any additional active seats are billed at $5/mo each. Cancel anytime. No contracts, no cancellation fees.",
+    answer: `Your coach plan continues at ${FMT.coachMonthlySlash}. The first ${FREE_SEATS} client seats stay included. Any additional active seats are billed at ${FMT.seatPriceSlash} each. Cancel anytime. No contracts, no cancellation fees.`,
     linkText: "Start trial",
     linkHref: "https://app.kaynos.net/signup",
     external: true,

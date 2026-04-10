@@ -55,35 +55,17 @@ export default function Seo({
   );
 }
 
-/** Home page uses marketing title without duplicate "| Kaynos" suffix. */
+/**
+ * @deprecated Use the default Seo export with path="/" instead.
+ * Kept temporarily for backward-compat; delegates to the main component.
+ */
 export function SeoHome({ jsonLd }) {
-  const canonicalUrl = `${SITE_URL}/`;
   return (
-    <Helmet prioritizeSeoTags>
-      <title>{SEO_DEFAULT_TITLE}</title>
-      <meta name="description" content={SEO_DEFAULT_DESCRIPTION} />
-      <link rel="canonical" href={canonicalUrl} />
-
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Kaynos" />
-      <meta property="og:locale" content="en_US" />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:title" content={SEO_DEFAULT_TITLE} />
-      <meta property="og:description" content={SEO_DEFAULT_DESCRIPTION} />
-      <meta property="og:image" content={OG_SHARE_URL} />
-      <meta property="og:image:width" content={String(OG_SHARE_WIDTH)} />
-      <meta property="og:image:height" content={String(OG_SHARE_HEIGHT)} />
-      <meta property="og:image:alt" content={OG_SHARE_ALT} />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={SEO_DEFAULT_TITLE} />
-      <meta name="twitter:description" content={SEO_DEFAULT_DESCRIPTION} />
-      <meta name="twitter:image" content={OG_SHARE_URL} />
-      <meta name="twitter:image:alt" content={OG_SHARE_ALT} />
-
-      {jsonLd ? (
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      ) : null}
-    </Helmet>
+    <Seo
+      title={SEO_DEFAULT_TITLE}
+      description={SEO_DEFAULT_DESCRIPTION}
+      path="/"
+      jsonLd={jsonLd}
+    />
   );
 }

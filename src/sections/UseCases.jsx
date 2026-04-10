@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Dumbbell, Swords, Music, GraduationCap } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
@@ -14,6 +14,7 @@ const cases = [
       "Film a set, pin a note at the exact rep where form breaks",
       "Share mobility drills as a class so everyone can access them",
       "Track which clients are actually watching their sessions",
+      "AI flags reps where form breaks down — jump straight to the moments that matter",
     ],
   },
   {
@@ -27,6 +28,7 @@ const cases = [
       "Annotate a roll at the exact moment a sweep opens up",
       "Post comp footage as a shared class for the whole gym",
       "Private session reviews that only the student can see",
+      "Dictate corrections hands-free while demonstrating the fix. AI highlights the key scrambles from a 60-minute class",
     ],
   },
   {
@@ -40,6 +42,7 @@ const cases = [
       "Pin a note at 2:34 — 'watch your left hand position here'",
       "Upload recital recordings for group review",
       "Students add their own practice notes alongside yours",
+      "Voice-annotate a student's recital while listening — no typing interrupts the flow",
     ],
   },
   {
@@ -53,6 +56,7 @@ const cases = [
       "Side-by-side review of a swing before and after adjustments",
       "Tag sessions by skill level so students find what they need",
       "Track progress over weeks with a timeline of session notes",
+      "Pose overlay shows skeletal alignment frame by frame. AI spots the three moments worth discussing",
     ],
   },
 ];
@@ -61,9 +65,40 @@ export default function UseCases() {
   const [active, setActive] = useState("fitness");
   const headerRef = useScrollReveal();
   const contentRef = useScrollReveal();
+  const tabRefs = useRef({});
 
   const current = cases.find((c) => c.id === active);
   const Icon = current.icon;
+
+  const handleKeyDown = useCallback(
+    (e) => {
+      const currentIndex = cases.findIndex((c) => c.id === active);
+      let nextIndex = currentIndex;
+
+      switch (e.key) {
+        case "ArrowRight":
+          nextIndex = (currentIndex + 1) % cases.length;
+          break;
+        case "ArrowLeft":
+          nextIndex = (currentIndex - 1 + cases.length) % cases.length;
+          break;
+        case "Home":
+          nextIndex = 0;
+          break;
+        case "End":
+          nextIndex = cases.length - 1;
+          break;
+        default:
+          return;
+      }
+
+      e.preventDefault();
+      const nextId = cases[nextIndex].id;
+      setActive(nextId);
+      tabRefs.current[nextId]?.focus();
+    },
+    [active],
+  );
 
   return (
     <section id="use-cases" className="section">
@@ -77,16 +112,22 @@ export default function UseCases() {
         </div>
 
         <div ref={contentRef} className="reveal">
-          <div className="uc-tabs" role="tablist">
+          <div className="uc-tabs" role="tablist" aria-label="Use cases">
             {cases.map((c) => {
               const TabIcon = c.icon;
+              const isActive = active === c.id;
               return (
                 <button
                   key={c.id}
+                  ref={(el) => { tabRefs.current[c.id] = el; }}
+                  id={`uc-tab-${c.id}`}
                   role="tab"
-                  aria-selected={active === c.id}
-                  className={`uc-tab ${active === c.id ? "uc-tab-active" : ""}`}
+                  aria-selected={isActive}
+                  aria-controls={`uc-panel-${c.id}`}
+                  tabIndex={isActive ? 0 : -1}
+                  className={`uc-tab ${isActive ? "uc-tab-active" : ""}`}
                   onClick={() => setActive(c.id)}
+                  onKeyDown={handleKeyDown}
                 >
                   <TabIcon size={18} aria-hidden="true" />
                   <span>{c.label}</span>
@@ -95,7 +136,14 @@ export default function UseCases() {
             })}
           </div>
 
-          <div className="uc-panel" key={active} role="tabpanel">
+          <div
+            className="uc-panel"
+            key={active}
+            id={`uc-panel-${active}`}
+            role="tabpanel"
+            aria-labelledby={`uc-tab-${active}`}
+            tabIndex={0}
+          >
             <div className="uc-panel-icon">
               <Icon size={28} aria-hidden="true" />
             </div>
