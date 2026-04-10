@@ -14,7 +14,10 @@ export default function BackToTop() {
     <button
       type="button"
       className={`back-to-top ${visible ? "visible" : ""}`}
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => {
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+      }}
       aria-label="Back to top"
     >
       <ChevronUp size={20} />

@@ -19,7 +19,6 @@ const UseCases = lazy(() => import("../sections/UseCases"));
 const Testimonials = lazy(() => import("../sections/Testimonials"));
 const Story = lazy(() => import("../sections/Story"));
 const Pricing = lazy(() => import("../sections/Pricing"));
-const Calculator = lazy(() => import("../sections/Calculator"));
 const FAQ = lazy(() => import("../sections/FAQ"));
 const Newsletter = lazy(() => import("../sections/Newsletter"));
 const CTA = lazy(() => import("../sections/CTA"));
@@ -44,7 +43,6 @@ export default function Home() {
           <Testimonials />
           <Story />
           <Pricing />
-          <Calculator />
           <FAQ />
           <Newsletter />
           <CTA />

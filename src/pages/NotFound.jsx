@@ -14,7 +14,7 @@ const suggestions = [
 export default function NotFound() {
   return (
     <>
-      <Seo title="Page Not Found" description="This page doesn't exist." path="/404" />
+      <Seo title="Page Not Found" description="This page doesn't exist." path="/" noIndex />
       <Navbar />
       <main id="main-content" className="not-found-main">
         <div className="container">

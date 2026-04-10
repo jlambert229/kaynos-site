@@ -7,7 +7,7 @@ const columns = [
       { label: "Features", href: "#features" },
       { label: "Pricing", href: "#pricing" },
       { label: "Coach Demo", href: "https://demo.kaynos.net", external: true },
-      { label: "Client Demo", href: "https://client.kaynos.net", external: true },
+      { label: "Client Demo", href: "https://student.kaynos.net", external: true },
     ],
   },
   {

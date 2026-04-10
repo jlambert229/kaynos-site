@@ -14,7 +14,7 @@ const demos = [
     title: "Client view",
     description:
       "Watch your assigned sessions, browse shared classes, and add your own notes.",
-    href: "https://client.kaynos.net",
+    href: "https://student.kaynos.net",
     icon: User,
     cta: "Try the client demo",
   },

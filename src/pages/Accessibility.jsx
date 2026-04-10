@@ -1,9 +1,11 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 export default function Accessibility() {
   return (
     <>
+      <Seo title="Accessibility Statement" description="Kaynos is committed to making our website and platform accessible to everyone. Learn about our WCAG 2.1 Level AA commitment." path="/accessibility" />
       <Navbar />
       <main className="legal-main container">
         <article className="legal-article">

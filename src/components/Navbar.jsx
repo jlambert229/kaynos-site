@@ -13,7 +13,8 @@ const navLinks = [
 function scrollToHash(hash) {
   const el = document.querySelector(hash);
   if (el) {
-    el.scrollIntoView({ behavior: "smooth" });
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
     return true;
   }
   return false;

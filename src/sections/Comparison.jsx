@@ -2,7 +2,7 @@ import { Check, X, Minus } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
 const competitors = [
-  { key: "kaynos", label: "Kaynos", sub: "$49/mo" },
+  { key: "kaynos", label: "Kaynos", sub: "$50/mo coach" },
   { key: "coachnow", label: "CoachNow", sub: "$50/mo" },
   { key: "onform", label: "OnForm", sub: "$30/mo" },
   { key: "diy", label: "Drive + Vimeo", sub: "Free" },
@@ -21,8 +21,8 @@ const features = [
   },
   {
     name: "Clients use it free",
-    detail: "No cost passed to your clients",
-    kaynos: true, coachnow: true, onform: true, diy: true,
+    detail: "No cost to your clients",
+    kaynos: true, coachnow: false, onform: false, diy: true,
   },
   {
     name: "Private sessions + group classes",
@@ -30,13 +30,13 @@ const features = [
     kaynos: true, coachnow: true, onform: false, diy: false,
   },
   {
-    name: "Single flat price, all features",
-    detail: "No tiers or feature gating",
+    name: "All features, no tiers",
+    detail: "No upgrade gates or feature gating",
     kaynos: true, coachnow: false, onform: false, diy: true,
   },
   {
-    name: "Credits that lower your bill",
-    detail: "Each paid client reduces your cost",
+    name: "Scales by active seats",
+    detail: "$5/mo per extra client beyond 3 included",
     kaynos: true, coachnow: false, onform: false, diy: false,
   },
   {
@@ -54,6 +54,7 @@ const features = [
 function Cell({ value }) {
   if (value === true) return <Check size={18} className="cmp-check" aria-label="Yes" />;
   if (value === false) return <X size={18} className="cmp-x" aria-label="No" />;
+  if (typeof value === "string") return <span className="cmp-text">{value}</span>;
   return <Minus size={18} className="cmp-partial" aria-label="Partial" />;
 }
 
@@ -73,39 +74,44 @@ export default function Comparison() {
         </div>
 
         <div ref={tableRef} className="reveal cmp-table-wrap">
-          <div className="cmp-table">
-            <div className="cmp-header">
-              <div className="cmp-feature-col" />
-              {competitors.map((c) => (
-                <div
-                  key={c.key}
-                  className={`cmp-col${c.key === "kaynos" ? " cmp-col-kaynos" : ""}`}
-                >
-                  <span className="cmp-col-name">{c.label}</span>
-                  <span className="cmp-col-price">{c.sub}</span>
-                </div>
-              ))}
-            </div>
-            {features.map((f) => (
-              <div key={f.name} className="cmp-row">
-                <div className="cmp-feature-col">
-                  <span className="cmp-feature-name">{f.name}</span>
-                  <span className="cmp-feature-detail">{f.detail}</span>
-                </div>
+          <table className="cmp-table" role="grid">
+            <thead>
+              <tr className="cmp-header">
+                <th className="cmp-feature-col" scope="col"><span className="visually-hidden">Feature</span></th>
                 {competitors.map((c) => (
-                  <div
+                  <th
                     key={c.key}
+                    scope="col"
                     className={`cmp-col${c.key === "kaynos" ? " cmp-col-kaynos" : ""}`}
                   >
-                    <Cell value={f[c.key]} />
-                  </div>
+                    <span className="cmp-col-name">{c.label}</span>
+                    <span className="cmp-col-price">{c.sub}</span>
+                  </th>
                 ))}
-              </div>
-            ))}
-          </div>
+              </tr>
+            </thead>
+            <tbody>
+              {features.map((f) => (
+                <tr key={f.name} className="cmp-row">
+                  <th scope="row" className="cmp-feature-col">
+                    <span className="cmp-feature-name">{f.name}</span>
+                    <span className="cmp-feature-detail">{f.detail}</span>
+                  </th>
+                  {competitors.map((c) => (
+                    <td
+                      key={c.key}
+                      className={`cmp-col${c.key === "kaynos" ? " cmp-col-kaynos" : ""}`}
+                    >
+                      <Cell value={f[c.key]} />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         <p className="cmp-calc-link">
-          <a href="#calculator">See your actual cost with the calculator →</a>
+          <a href="#pricing">See pricing details &rarr;</a>
         </p>
       </div>
     </section>
