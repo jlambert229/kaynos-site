@@ -19,8 +19,12 @@ export default function Story() {
             </p>
             <p>
               So I built the tool I wanted. Upload a video, pin notes to the
-              timeline, share it with one client or a whole class. That's it.
-              No social feeds. No AI gimmicks. No complexity you don't need.
+              timeline — or dictate them hands-free — and share it with one
+              client or a whole class. AI can flag the key moments, but you're
+              the coach. No social feeds. No feature bloat. AI is there when you
+              want a hand — voice dictation for notes between classes, video
+              analysis to catch what you missed — but the core is simple: video,
+              notes, share.
             </p>
             <p>
               Kaynos is independent and self-funded. I use it myself. If
