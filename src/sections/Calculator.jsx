@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link2, Check } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import {
   COACH_MONTHLY_PRICE,
@@ -20,18 +21,36 @@ function latestVerifiedLabel(comps) {
   return formatVerifiedDate(latest.verified);
 }
 
+function getInitialClients() {
+  if (typeof window === "undefined") return 5;
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = Number(params.get("clients"));
+  return fromUrl >= 1 && fromUrl <= 50 ? fromUrl : 5;
+}
+
 export default function Calculator() {
-  const [clients, setClients] = useState(5);
+  const [clients, setClients] = useState(getInitialClients);
+  const [copied, setCopied] = useState(false);
   const headerRef = useScrollReveal();
   const calcRef = useScrollReveal();
 
   const cost = calcMonthlyCost(clients);
+  const annualCost = cost * 12;
   const extraSeats = Math.max(0, clients - FREE_SEATS);
 
   const maxPrice = Math.max(
     cost,
     ...calculatorCompetitors.map((c) => c.price)
   );
+
+  function handleShare() {
+    const url = new URL(window.location.href);
+    url.searchParams.set("clients", clients);
+    navigator.clipboard.writeText(url.toString()).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
 
   return (
     <section id="calculator" className="section">
@@ -84,8 +103,27 @@ export default function Calculator() {
               <span className="calc-result-value calc-result-big">
                 ${cost}/mo
               </span>
+              <span className="calc-result-annual">That's ${annualCost}/year</span>
             </div>
           </div>
+
+          <button
+            type="button"
+            className="calc-share-btn"
+            onClick={handleShare}
+          >
+            {copied ? <Check size={14} /> : <Link2 size={14} />}
+            {copied ? "Link copied!" : "Share this estimate"}
+          </button>
+        </div>
+
+        <div className="calc-multi-coach-note">
+          <p>
+            Running multiple coaches? Each coach gets their own Kaynos account.{" "}
+            <a href="mailto:support@kaynos.net?subject=Team%20pricing%20inquiry">
+              Contact us to discuss team pricing.
+            </a>
+          </p>
         </div>
 
         {/* Competitor comparison */}

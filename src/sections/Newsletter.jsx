@@ -1,33 +1,22 @@
-import { useState, useRef } from "react";
-import { Mail } from "lucide-react";
+import { useState } from "react";
+import { Mail, CheckCircle } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const COOLDOWN_MS = 3000;
 
 export default function Newsletter() {
   const revealRef = useScrollReveal();
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [cooldown, setCooldown] = useState(false);
-  const [error, setError] = useState("");
-  const honeypotRef = useRef(null);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Honeypot check
-    if (honeypotRef.current && honeypotRef.current.value) return;
-    if (!email.trim() || !EMAIL_RE.test(email)) {
-      setError("Please enter a valid email address.");
-      return;
+    setStatus("submitting");
+    try {
+      const formData = new FormData(e.target);
+      await fetch("/", { method: "POST", body: formData });
+      setStatus("success");
+    } catch {
+      setStatus("error");
     }
-    setError("");
-    setCooldown(true);
-    const subject = encodeURIComponent("Subscribe to updates");
-    const body = encodeURIComponent(`Please add ${email} to the mailing list.`);
-    window.location.href = `mailto:support@kaynos.net?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    setTimeout(() => setCooldown(false), COOLDOWN_MS);
   }
 
   return (
@@ -39,38 +28,52 @@ export default function Newsletter() {
           </div>
           <h3 className="newsletter-title">Stay in the loop</h3>
           <p className="newsletter-desc">
-            Product updates and the occasional coaching tip. Drop us a line and we'll add you to the list.
+            Product updates and the occasional coaching tip — no spam, ever.
           </p>
-          {!submitted ? (
-            <form onSubmit={handleSubmit}>
-              {/* Honeypot — hidden from humans, bots will fill it */}
-              <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
-                <label htmlFor="nl-company">Company</label>
-                <input id="nl-company" type="text" name="company" tabIndex={-1} autoComplete="off" ref={honeypotRef} />
-              </div>
-              <div className="newsletter-form">
-                <input
-                  type="email"
-                  className="newsletter-input"
-                  placeholder="you@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  maxLength={254}
-                  required
-                  aria-label="Email address"
-                />
-                <button type="submit" className="btn btn-primary newsletter-btn" disabled={cooldown}>
-                  {cooldown ? "Sending\u2026" : "Subscribe"}
-                </button>
-              </div>
-              {error && <p className="newsletter-error">{error}</p>}
-            </form>
+
+          {status === "success" ? (
+            <div className="newsletter-success">
+              <CheckCircle size={32} className="newsletter-success-icon" />
+              <p>You're on the list. We email about once a month.</p>
+            </div>
           ) : (
-            <p className="newsletter-success">
-              Your email client should have opened. If not, email us directly at{" "}
-              <a href="mailto:support@kaynos.net?subject=Subscribe%20to%20updates">support@kaynos.net</a>.
-            </p>
+            <form
+              name="newsletter"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              className="newsletter-form"
+            >
+              <input type="hidden" name="form-name" value="newsletter" />
+              {/* Honeypot field for spam prevention */}
+              <p style={{ display: "none" }}>
+                <label>
+                  Don't fill this out: <input name="bot-field" />
+                </label>
+              </p>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="newsletter-input"
+              />
+              <button
+                type="submit"
+                className="btn btn-primary newsletter-btn"
+                disabled={status === "submitting"}
+              >
+                {status === "submitting" ? "Subscribing\u2026" : "Subscribe"}
+              </button>
+            </form>
           )}
+
+          {status === "error" && (
+            <p className="newsletter-error">Something went wrong. Please try again or email support@kaynos.net.</p>
+          )}
+
           <p className="newsletter-note">We send about one email a month. Unsubscribe anytime.</p>
         </div>
       </div>

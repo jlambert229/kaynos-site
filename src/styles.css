@@ -2446,9 +2446,9 @@ svg {
 }
 
 .newsletter-error {
-  font-size: 13px;
-  color: var(--red, #e74c3c);
-  margin-top: 6px;
+  font-size: 14px;
+  color: var(--red, #ff453a);
+  margin-bottom: 8px;
 }
 
 .newsletter-success {
@@ -2882,6 +2882,58 @@ svg {
   color: var(--green);
   font-size: 14px;
   font-weight: 500;
+}
+
+.calc-result-annual {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.calc-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.calc-share-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.calc-multi-coach-note {
+  max-width: 560px;
+  margin: 24px auto 0;
+  padding: 16px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.calc-multi-coach-note a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.calc-multi-coach-note a:hover {
+  color: var(--accent-hover, var(--accent));
 }
 
 /* ---- CALCULATOR: COMPETITOR COMPARISON ---- */
