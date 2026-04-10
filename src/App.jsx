@@ -8,6 +8,8 @@ import GettingStartedPage from "./pages/getting-started/GettingStartedPage";
 import Contact from "./pages/Contact";
 import Changelog from "./pages/Changelog";
 import Accessibility from "./pages/Accessibility";
+import ForStudents from "./pages/ForStudents";
+import Security from "./pages/Security";
 import BackToTop from "./components/BackToTop";
 
 
@@ -27,6 +29,8 @@ export function AppRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/changelog" element={<Changelog />} />
         <Route path="/accessibility" element={<Accessibility />} />
+        <Route path="/for/students" element={<ForStudents />} />
+        <Route path="/security" element={<Security />} />
         <Route path="/docs" element={<Navigate to="/getting-started" replace />} />
         <Route
           path="/docs/getting-started"
