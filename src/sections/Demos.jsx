@@ -1,4 +1,4 @@
-import { ExternalLink, Briefcase, User } from "lucide-react";
+import { ExternalLink, LayoutDashboard, CirclePlay } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { URLS } from "../config/urls";
 
@@ -8,7 +8,7 @@ const demos = [
     description:
       "Upload videos, add timestamped notes, manage clients, and track who's watching.",
     href: URLS.demoCoach,
-    icon: Briefcase,
+    icon: LayoutDashboard,
     cta: "Try the coach demo",
   },
   {
@@ -16,7 +16,7 @@ const demos = [
     description:
       "Watch your assigned sessions, browse shared classes, and add your own notes.",
     href: URLS.demoStudent,
-    icon: User,
+    icon: CirclePlay,
     cta: "Try the client demo",
   },
 ];

@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { Send, Mail } from "lucide-react";
+import { SendHorizonal, Inbox } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
@@ -63,7 +63,7 @@ export default function Contact() {
 
           <div className="contact-grid">
             <div className="contact-card">
-              <Mail size={20} className="contact-card-icon" />
+              <Inbox size={20} className="contact-card-icon" />
               <h3>Email us</h3>
               <p>For anything - questions, feedback, partnerships.</p>
               <a href={URLS.support} className="contact-link">support@kaynos.net</a>
@@ -122,7 +122,7 @@ export default function Contact() {
                 {errors.message && <span className="contact-error">{errors.message}</span>}
               </div>
               <button type="submit" className="btn btn-primary btn-lg contact-submit" disabled={status === "sending"}>
-                <Send size={18} /> {status === "sending" ? "Sending\u2026" : "Send Message"}
+                <SendHorizonal size={18} /> {status === "sending" ? "Sending\u2026" : "Send Message"}
               </button>
             </form>
           ) : (

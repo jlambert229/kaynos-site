@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, CheckCircle } from "lucide-react";
+import { Inbox, CircleCheck } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { URLS } from "../config/urls";
 
@@ -25,7 +25,7 @@ export default function Newsletter() {
       <div className="container">
         <div ref={revealRef} className="reveal newsletter-card">
           <div className="newsletter-icon">
-            <Mail size={24} />
+            <Inbox size={24} />
           </div>
           <h3 className="newsletter-title">Stay in the loop</h3>
           <p className="newsletter-desc">
@@ -34,7 +34,7 @@ export default function Newsletter() {
 
           {status === "success" ? (
             <div className="newsletter-success">
-              <CheckCircle size={32} className="newsletter-success-icon" />
+              <CircleCheck size={32} className="newsletter-success-icon" />
               <p>You're on the list. We email about once a month.</p>
             </div>
           ) : (

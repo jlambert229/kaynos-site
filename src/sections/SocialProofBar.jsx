@@ -1,10 +1,10 @@
-import { Dumbbell, Music, Swords, GraduationCap } from "lucide-react";
+import { Dumbbell, Music, Swords, Crosshair } from "lucide-react";
 
 const categories = [
   { icon: Dumbbell, label: "Fitness" },
   { icon: Swords, label: "Martial Arts" },
   { icon: Music, label: "Music" },
-  { icon: GraduationCap, label: "Technique Coaching" },
+  { icon: Crosshair, label: "Technique Coaching" },
 ];
 
 export default function SocialProofBar() {

@@ -1,9 +1,9 @@
 import {
-  Upload,
-  MessageSquare,
-  Users,
-  Shield,
-  Mic,
+  CloudUpload,
+  MessageSquareQuote,
+  UserRoundCheck,
+  ShieldCheck,
+  AudioLines,
   Sparkles,
   ArrowRight,
 } from "lucide-react";
@@ -12,31 +12,31 @@ import { URLS } from "../config/urls";
 
 const features = [
   {
-    icon: Upload,
+    icon: CloudUpload,
     title: "Upload footage from anywhere",
     description:
       "Drag a video into your browser - phone clips, GoPro files, whatever you have. Big files are fine. You can link Vimeo videos too if you already host there.",
   },
   {
-    icon: MessageSquare,
+    icon: MessageSquareQuote,
     title: "Leave notes at the exact right moment",
     description:
       "Pin a note to 0:34 where their elbow drops, or 2:15 where the tempo drifts. Clients see your notes synced to the video and can add their own.",
   },
   {
-    icon: Users,
+    icon: UserRoundCheck,
     title: "Private sessions and shared classes",
     description:
       "One-on-one reviews stay between you and your client. Shared classes go to the whole group. Everyone sees exactly what's meant for them.",
   },
   {
-    icon: Shield,
+    icon: ShieldCheck,
     title: "Your footage stays private",
     description:
       "Videos are never public. Each account is isolated. No one sees your clients' footage except you and them.",
   },
   {
-    icon: Mic,
+    icon: AudioLines,
     title: "Dictate notes hands-free",
     description:
       "Talk through what you see while the video plays. Your voice becomes timestamped notes - no typing, no pausing. Review film between classes with your hands free.",

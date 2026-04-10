@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link2, Check } from "lucide-react";
+import { Share2, Check } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import {
   COACH_MONTHLY_PRICE,
@@ -113,7 +113,7 @@ export default function Calculator() {
             className="calc-share-btn"
             onClick={handleShare}
           >
-            {copied ? <Check size={14} /> : <Link2 size={14} />}
+            {copied ? <Check size={14} /> : <Share2 size={14} />}
             {copied ? "Link copied!" : "Share this estimate"}
           </button>
         </div>

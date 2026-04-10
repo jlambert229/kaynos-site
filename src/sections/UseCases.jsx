@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { Dumbbell, Swords, Music, GraduationCap } from "lucide-react";
+import { Dumbbell, Swords, Music, Crosshair } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
 const cases = [
@@ -47,7 +47,7 @@ const cases = [
   },
   {
     id: "technique",
-    icon: GraduationCap,
+    icon: Crosshair,
     label: "Technique",
     title: "Dance, golf, swim & movement coaches",
     description:
