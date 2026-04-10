@@ -14,6 +14,7 @@ const cases = [
       "Film a set, pin a note at the exact rep where form breaks",
       "Share mobility drills as a class so everyone can access them",
       "Track which clients are actually watching their sessions",
+      "AI flags reps where form breaks down — jump straight to the moments that matter",
     ],
   },
   {
@@ -27,6 +28,7 @@ const cases = [
       "Annotate a roll at the exact moment a sweep opens up",
       "Post comp footage as a shared class for the whole gym",
       "Private session reviews that only the student can see",
+      "Dictate corrections hands-free while demonstrating the fix. AI highlights the key scrambles from a 60-minute class",
     ],
   },
   {
@@ -40,6 +42,7 @@ const cases = [
       "Pin a note at 2:34 — 'watch your left hand position here'",
       "Upload recital recordings for group review",
       "Students add their own practice notes alongside yours",
+      "Voice-annotate a student's recital while listening — no typing interrupts the flow",
     ],
   },
   {
@@ -53,6 +56,7 @@ const cases = [
       "Side-by-side review of a swing before and after adjustments",
       "Tag sessions by skill level so students find what they need",
       "Track progress over weeks with a timeline of session notes",
+      "Pose overlay shows skeletal alignment frame by frame. AI spots the three moments worth discussing",
     ],
   },
 ];
