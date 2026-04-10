@@ -1,12 +1,13 @@
 import { useState } from "react";
 import useScrollReveal from "../hooks/useScrollReveal";
-import { COACH_MONTHLY_PRICE, FREE_SEATS, SEAT_PRICE, calcMonthlyCost } from "../config/pricing";
-
-const competitors = [
-  { name: "CoachNow", price: 50, note: "PRO plan, app required", verified: "2026-03" },
-  { name: "OnForm", price: 30, note: "Coach plan, iOS only", verified: "2026-03" },
-  { name: "Sprongo", price: 49, note: "Small Team (20 members)", verified: "2026-03" },
-];
+import {
+  COACH_MONTHLY_PRICE,
+  FREE_SEATS,
+  SEAT_PRICE,
+  FMT,
+  calcMonthlyCost,
+} from "../config/pricing";
+import { calculatorCompetitors } from "../data/competitors";
 
 function formatVerifiedDate(isoMonth) {
   const [year, month] = isoMonth.split("-").map(Number);
@@ -29,7 +30,7 @@ export default function Calculator() {
 
   const maxPrice = Math.max(
     cost,
-    ...competitors.map((c) => c.price)
+    ...calculatorCompetitors.map((c) => c.price)
   );
 
   return (
@@ -39,9 +40,8 @@ export default function Calculator() {
           <span className="section-label">Calculator</span>
           <h2 className="section-title">See what you'd actually pay</h2>
           <p className="section-subtitle">
-            Move the slider. $50/mo base includes 3 client seats. Each
-            additional active seat is $5/mo. Your clients always use Kaynos
-            for free.
+            Move the slider. {PRICING_COPY.creditDesc.charAt(0).toLowerCase() + PRICING_COPY.creditDesc.slice(1)}{" "}
+            Your clients always use Kaynos for free.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function Calculator() {
             </div>
             <div className="calc-result-item">
               <span className="calc-result-label">Extra seats</span>
-              <span className="calc-result-value">{extraSeats} x ${SEAT_PRICE}</span>
+              <span className="calc-result-value">{extraSeats} x {FMT.seatPrice}</span>
             </div>
             <div className="calc-result-item calc-result-highlight">
               <span className="calc-result-label">You pay</span>
@@ -99,9 +99,9 @@ export default function Calculator() {
               price={cost}
               maxPrice={maxPrice}
               isKaynos
-              note={`$${COACH_MONTHLY_PRICE} base + ${extraSeats} extra seat${extraSeats !== 1 ? "s" : ""}`}
+              note={`${FMT.coachMonthly} base + ${extraSeats} extra seat${extraSeats !== 1 ? "s" : ""}`}
             />
-            {competitors.map((c) => (
+            {calculatorCompetitors.map((c) => (
               <CompareBar
                 key={c.name}
                 name={c.name}
@@ -112,8 +112,8 @@ export default function Calculator() {
             ))}
           </div>
           <p className="calc-compare-footnote">
-            Competitor prices based on publicly listed plans. Last verified: {latestVerifiedLabel(competitors)}.
-            Kaynos price reflects {clients} active client{clients !== 1 ? "s" : ""} ($50/mo base + $5/mo per extra seat beyond 3).
+            Competitor prices based on publicly listed plans. Last verified: {latestVerifiedLabel(calculatorCompetitors)}.
+            Kaynos price reflects {clients} active client{clients !== 1 ? "s" : ""} ({FMT.coachMonthlySlash} base + {FMT.seatPriceSlash} per extra seat beyond {FREE_SEATS}).
             Clients use Kaynos for free.
           </p>
         </div>

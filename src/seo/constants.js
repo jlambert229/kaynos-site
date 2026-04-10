@@ -1,8 +1,9 @@
+import { PRICING_COPY } from "../config/pricing";
+
 /** Production site URL (canonical host). See netlify.toml DNS note. */
 export const SITE_URL = "https://www.kaynos.net";
 
-export const SEO_DEFAULT_DESCRIPTION =
-  "Kaynos is private video review for coaches. $50/mo. First 3 clients included. $5 per extra active seat. Clients use it free.";
+export const SEO_DEFAULT_DESCRIPTION = PRICING_COPY.seoDescription;
 
 export const SEO_DEFAULT_TITLE = "Kaynos | Keep your clients improving between sessions.";
 

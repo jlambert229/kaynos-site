@@ -1,27 +1,14 @@
 import { Check, Sparkles } from "lucide-react";
 import CtaButton from "../components/CtaButton";
 import useScrollReveal from "../hooks/useScrollReveal";
-
-const coachFeatures = [
-  "All features included",
-  "First 3 client seats included",
-  "$5/mo per additional active seat",
-  "100 video uploads",
-  "50 GB storage",
-  "6-month video retention",
-  "Timestamped coach notes",
-  "Admin panel & usage reports",
-  "Priority support",
-  "Clients access for free",
-];
-
-const seatExamples = [
-  { clients: 3, cost: "$50", note: "3 seats included" },
-  { clients: 5, cost: "$60", note: "" },
-  { clients: 10, cost: "$85", note: "" },
-  { clients: 20, cost: "$135", note: "" },
-  { clients: 50, cost: "$285", note: "" },
-];
+import {
+  PLAN_NAME,
+  FREE_SEATS,
+  COACH_FEATURES,
+  SEAT_EXAMPLES,
+  FMT,
+  PRICING_COPY,
+} from "../config/pricing";
 
 export default function Pricing() {
   const headerRef = useScrollReveal();
@@ -35,19 +22,16 @@ export default function Pricing() {
             Simple pricing. One plan. No surprises.
           </h2>
           <p className="section-subtitle">
-            Coaches pay $50/mo. First 3 client seats are included. Each
-            additional active seat is $5/mo. Clients never pay anything.
-            Monthly true-up based on active seats.
+            {PRICING_COPY.subtitle}
           </p>
         </div>
 
         <div className="pricing-dual">
           <div className="pricing-card">
-            <span className="pricing-popular-badge">Coach</span>
-            <span className="pricing-card-label">Coach Plan</span>
+            <span className="pricing-card-label">{PLAN_NAME}</span>
 
             <div className="pricing-price-block">
-              <div className="pricing-amount">$50</div>
+              <div className="pricing-amount">{FMT.coachMonthly}</div>
               <div className="pricing-period-col">
                 <span className="pricing-period">per month</span>
               </div>
@@ -56,7 +40,7 @@ export default function Pricing() {
             <div className="pricing-divider" />
 
             <ul className="pricing-features pricing-features--single">
-              {coachFeatures.map((feature) => (
+              {COACH_FEATURES.map((feature) => (
                 <li key={feature}>
                   <Check size={16} className="check" strokeWidth={2.5} />
                   <span>{feature}</span>
@@ -70,7 +54,7 @@ export default function Pricing() {
             </CtaButton>
 
             <p className="pricing-note">
-              14-day trial. Card on file.{" "}
+              {PRICING_COPY.trialNote}{" "}
               <a href="#comparison">See how we compare &rarr;</a>
             </p>
           </div>
@@ -81,9 +65,7 @@ export default function Pricing() {
             What you pay by number of clients
           </h3>
           <p className="pricing-credit-desc">
-            $50/mo base includes 3 client seats. Each additional active seat
-            is $5/mo. Your bill adjusts monthly based on how many clients are
-            active.
+            {PRICING_COPY.creditDesc}
           </p>
           <div className="pricing-credit-table">
             <div className="pricing-credit-header">
@@ -92,11 +74,11 @@ export default function Pricing() {
               <span>You pay</span>
               <span></span>
             </div>
-            {seatExamples.map((row) => (
+            {SEAT_EXAMPLES.map((row) => (
               <div key={row.clients} className="pricing-credit-row">
                 <span>{row.clients}</span>
                 <span className="pricing-credit-amount">
-                  {Math.max(0, row.clients - 3)}
+                  {Math.max(0, row.clients - FREE_SEATS)}
                 </span>
                 <span>
                   {row.cost}/mo
