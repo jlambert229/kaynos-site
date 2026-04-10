@@ -3231,6 +3231,14 @@ svg {
   font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.students-parent-note {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
   margin-bottom: 48px;
 }
 
@@ -3339,6 +3347,13 @@ svg {
   font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.security-intro {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
   margin-bottom: 48px;
 }
 

@@ -19,6 +19,10 @@ export default function ForStudents() {
           <p className="students-lead">
             Here's how it works — it takes about 30 seconds.
           </p>
+          <p className="students-parent-note">
+            Parents: your child's coach invited them to review their session.
+            Here's what that means.
+          </p>
 
           <ol className="students-steps">
             <li className="students-step">
@@ -73,6 +77,15 @@ export default function ForStudents() {
               <p>
                 You only see your own sessions. Nobody else can see your videos
                 or notes.
+              </p>
+            </div>
+            <div className="students-message-card">
+              <h3>Safe for kids</h3>
+              <p>
+                Videos are private — only your coach and you can see your
+                sessions. There are no social features, no public profiles, and
+                no way for strangers to find your content. If you're a parent,
+                your child's footage stays between them and their coach.
               </p>
             </div>
           </div>

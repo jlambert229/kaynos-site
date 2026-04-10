@@ -17,6 +17,13 @@ export default function Security() {
           <h1 className="security-title">Security &amp; Privacy</h1>
           <p className="security-lead">How Kaynos protects your data.</p>
 
+          <p className="security-intro">
+            Kaynos stores coaching videos, timestamped notes, and the
+            conversations between coaches and their clients. We treat that data
+            the way you'd expect — encrypted, isolated per account, and never
+            shared. Below are the specifics for anyone doing due diligence.
+          </p>
+
           <section className="security-section">
             <h2>Infrastructure</h2>
             <ul className="security-list">
