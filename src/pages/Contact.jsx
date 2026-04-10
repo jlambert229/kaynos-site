@@ -51,7 +51,7 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact" description="Get in touch with the Kaynos team. Questions, feedback, partnerships — we'd love to hear from you." path="/contact" />
+      <Seo title="Contact" description="Get in touch with the Kaynos team. Questions, feedback, partnerships - we'd love to hear from you." path="/contact" />
       <Navbar />
       <main className="contact-main container">
         <div className="contact-content">
@@ -65,7 +65,7 @@ export default function Contact() {
             <div className="contact-card">
               <Mail size={20} className="contact-card-icon" />
               <h3>Email us</h3>
-              <p>For anything — questions, feedback, partnerships.</p>
+              <p>For anything - questions, feedback, partnerships.</p>
               <a href={URLS.support} className="contact-link">support@kaynos.net</a>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function Contact() {
               <input type="hidden" name="form-name" value="contact" />
               <h3 className="contact-form-title">Send a message</h3>
               {status === "error" && <p className="contact-error contact-form-error">Something went wrong. Please try again or email us directly.</p>}
-              {/* Honeypot — hidden from humans, bots will fill it */}
+              {/* Honeypot - hidden from humans, bots will fill it */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
                 <label htmlFor="contact-website">Website</label>
                 <input id="contact-website" type="text" name="website" tabIndex={-1} autoComplete="off" ref={honeypotRef} />

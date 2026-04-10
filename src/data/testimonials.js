@@ -9,7 +9,7 @@ export const quotes = [
     name: "Sarah T.",
     discipline: "Swim coaching",
     roster: "12 private clients",
-    text: "My students actually watch their sessions now. Having my notes pinned to the exact moment makes the difference — they don't have to guess what I'm talking about.",
+    text: "My students actually watch their sessions now. Having my notes pinned to the exact moment makes the difference - they don't have to guess what I'm talking about.",
   },
   {
     name: "James R.",

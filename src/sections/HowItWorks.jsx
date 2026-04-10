@@ -13,7 +13,7 @@ export default function HowItWorks() {
           <div className="prose-steps">
             <p>
               <strong>Film your session</strong> with whatever you already
-              use — phone, GoPro, tripod camera. Any common video format works.
+              use - phone, GoPro, tripod camera. Any common video format works.
             </p>
             <p>
               <strong>Upload and add notes.</strong> Drop the video into Kaynos

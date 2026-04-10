@@ -15,7 +15,7 @@ const features = [
     icon: Upload,
     title: "Upload footage from anywhere",
     description:
-      "Drag a video into your browser — phone clips, GoPro files, whatever you have. Big files are fine. You can link Vimeo videos too if you already host there.",
+      "Drag a video into your browser - phone clips, GoPro files, whatever you have. Big files are fine. You can link Vimeo videos too if you already host there.",
   },
   {
     icon: MessageSquare,
@@ -39,13 +39,13 @@ const features = [
     icon: Mic,
     title: "Dictate notes hands-free",
     description:
-      "Talk through what you see while the video plays. Your voice becomes timestamped notes — no typing, no pausing. Review film between classes with your hands free.",
+      "Talk through what you see while the video plays. Your voice becomes timestamped notes - no typing, no pausing. Review film between classes with your hands free.",
   },
   {
     icon: Sparkles,
     title: "AI spots what you might miss",
     description:
-      "One click and AI analyzes your video, flagging 2-3 moments worth reviewing. A starting point, not a replacement — jump to the key timestamps instead of scrubbing through an hour of footage.",
+      "One click and AI analyzes your video, flagging 2-3 moments worth reviewing. A starting point, not a replacement - jump to the key timestamps instead of scrubbing through an hour of footage.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function Features() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Try the demo — no signup needed <ArrowRight size={14} />
+            Try the demo - no signup needed <ArrowRight size={14} />
           </a>
         </div>
       </div>

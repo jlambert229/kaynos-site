@@ -9,7 +9,7 @@ export default function ForStudents() {
     <>
       <Seo
         title="For Students"
-        description="Your coach sent you a session on Kaynos. Here's how it works — watch video, see notes, and reply. Free, no app needed."
+        description="Your coach sent you a session on Kaynos. Here's how it works - watch video, see notes, and reply. Free, no app needed."
         path="/for/students"
       />
       <Navbar />
@@ -18,7 +18,7 @@ export default function ForStudents() {
           <span className="section-label">For Students</span>
           <h1 className="students-title">Your coach sent you a session.</h1>
           <p className="students-lead">
-            Here's how it works — it takes about 30 seconds.
+            Here's how it works - it takes about 30 seconds.
           </p>
           <p className="students-parent-note">
             Parents: your child's coach invited them to review their session.
@@ -41,7 +41,7 @@ export default function ForStudents() {
               <div className="students-step-body">
                 <h3>Watch and see their notes</h3>
                 <p>
-                  Open the video in your browser — no app to install. Your
+                  Open the video in your browser - no app to install. Your
                   coach's notes appear at the exact moments they're talking
                   about.
                 </p>
@@ -83,7 +83,7 @@ export default function ForStudents() {
             <div className="students-message-card">
               <h3>Safe for kids</h3>
               <p>
-                Videos are private — only your coach and you can see your
+                Videos are private - only your coach and you can see your
                 sessions. There are no social features, no public profiles, and
                 no way for strangers to find your content. If you're a parent,
                 your child's footage stays between them and their coach.

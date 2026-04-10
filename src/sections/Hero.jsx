@@ -1,5 +1,6 @@
 import KaynosLogo from "../components/KaynosLogo";
 import CtaButton from "../components/CtaButton";
+import CoachPreview from "../components/CoachPreview";
 import { PRICING_COPY } from "../config/pricing";
 import { URLS } from "../config/urls";
 
@@ -16,7 +17,7 @@ export default function Hero() {
             Stop losing your best coaching moments.
           </h1>
           <p className="hero-description">
-            Upload training videos. Dictate notes at exact moments — or let AI
+            Upload training videos. Dictate notes at exact moments - or let AI
             flag the key timestamps for you. Share privately with your clients so
             they can review between sessions.
             {" "}{PRICING_COPY.heroLine}
@@ -39,10 +40,11 @@ export default function Hero() {
           <p className="hero-student-line">
             Are you a student?{" "}
             <a href={URLS.login} className="hero-student-link">
-              Your coach uses Kaynos — you use it free. Log in &rarr;
+              Your coach uses Kaynos - you use it free. Log in &rarr;
             </a>
           </p>
         </div>
+        <CoachPreview />
       </div>
     </section>
   );

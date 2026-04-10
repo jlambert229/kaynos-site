@@ -29,7 +29,7 @@ export default function Newsletter() {
           </div>
           <h3 className="newsletter-title">Stay in the loop</h3>
           <p className="newsletter-desc">
-            Product updates and coaching workflow tips — about once a month.
+            Product updates and coaching workflow tips - about once a month.
           </p>
 
           {status === "success" ? (

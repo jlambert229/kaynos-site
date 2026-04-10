@@ -21,7 +21,7 @@ export default function Security() {
           <p className="security-intro">
             Kaynos stores coaching videos, timestamped notes, and the
             conversations between coaches and their clients. We treat that data
-            the way you'd expect — encrypted, isolated per account, and never
+            the way you'd expect - encrypted, isolated per account, and never
             shared. Below are the specifics for anyone doing due diligence.
           </p>
 
@@ -48,7 +48,7 @@ export default function Security() {
             <h2>Data Isolation</h2>
             <ul className="security-list">
               <li>Each coaching business is a separate tenant</li>
-              <li>Students only see their own sessions — enforced at the database query level</li>
+              <li>Students only see their own sessions - enforced at the database query level</li>
               <li>Coaches see only their school's data</li>
               <li>No cross-tenant data access</li>
             </ul>

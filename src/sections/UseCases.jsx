@@ -14,7 +14,7 @@ const cases = [
       "Film a set, pin a note at the exact rep where form breaks",
       "Share mobility drills as a class so everyone can access them",
       "Track which clients are actually watching their sessions",
-      "AI flags reps where form breaks down — jump straight to the moments that matter",
+      "AI flags reps where form breaks down - jump straight to the moments that matter",
     ],
   },
   {
@@ -39,10 +39,10 @@ const cases = [
     description:
       "Record lessons, mark the bars that need practice, and let students review at their own pace. Students hear your feedback right at the moment that matters.",
     examples: [
-      "Pin a note at 2:34 — 'watch your left hand position here'",
+      "Pin a note at 2:34 - 'watch your left hand position here'",
       "Upload recital recordings for group review",
       "Students add their own practice notes alongside yours",
-      "Voice-annotate a student's recital while listening — no typing interrupts the flow",
+      "Voice-annotate a student's recital while listening - no typing interrupts the flow",
     ],
   },
   {
@@ -107,7 +107,7 @@ export default function UseCases() {
           <span className="section-label">Use Cases</span>
           <h2 className="section-title">Built for how you coach</h2>
           <p className="section-subtitle">
-            Pick your coaching style. The tools are the same — the examples change.
+            Pick your coaching style. The tools are the same - the examples change.
           </p>
         </div>
 
