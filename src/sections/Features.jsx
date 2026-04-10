@@ -3,6 +3,8 @@ import {
   MessageSquare,
   Users,
   Shield,
+  Mic,
+  Sparkles,
   ArrowRight,
 } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
@@ -31,6 +33,18 @@ const features = [
     title: "Your footage stays private",
     description:
       "Videos are never public. Each account is isolated. No one sees your clients' footage except you and them.",
+  },
+  {
+    icon: Mic,
+    title: "Dictate notes hands-free",
+    description:
+      "Talk through what you see while the video plays. Your voice becomes timestamped notes — no typing, no pausing. Review film between classes with your hands free.",
+  },
+  {
+    icon: Sparkles,
+    title: "AI spots what you might miss",
+    description:
+      "One click and AI analyzes your video, flagging 2-3 moments worth reviewing. A starting point, not a replacement — jump to the key timestamps instead of scrubbing through an hour of footage.",
   },
 ];
 

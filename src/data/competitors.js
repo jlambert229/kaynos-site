@@ -65,4 +65,19 @@ export const comparisonFeatures = [
     detail: "See who's viewed their sessions",
     kaynos: true, coachnow: true, onform: false, diy: false,
   },
+  {
+    name: "Voice-to-note dictation",
+    detail: "Dictate timestamped notes hands-free while watching video",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
+  {
+    name: "AI video analysis",
+    detail: "AI flags key moments for coach review with one click",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
+  {
+    name: "Pose skeleton overlay",
+    detail: "Real-time body position overlay for form analysis",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
 ];
