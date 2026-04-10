@@ -46,7 +46,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const closeMobile = () => setMobileOpen(false);
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -72,7 +72,7 @@ export default function Navbar() {
       menu.removeEventListener('keydown', trap);
       window.removeEventListener('keydown', onEsc);
     };
-  }, [mobileOpen]);
+  }, [mobileOpen, closeMobile]);
 
   const handleSectionClick = useCallback(
     (e, hash) => {
