@@ -127,6 +127,15 @@ export default function Calculator() {
           </p>
         </div>
 
+        <div className="calc-enterprise">
+          <h4 className="calc-enterprise-title">Scaling past 50 clients?</h4>
+          <p className="calc-enterprise-text">
+            At 51+ active clients, you unlock invoicing, a dedicated support channel,
+            and SLA-backed uptime. Same per-seat pricing, no enterprise contract required.
+          </p>
+          <a href={URLS.support} className="calc-enterprise-link">Talk to us about scale</a>
+        </div>
+
         {/* Competitor comparison */}
         <div className="calc-compare">
           <h3 className="calc-compare-title">
