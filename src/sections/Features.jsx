@@ -33,7 +33,7 @@ const features = [
     icon: ShieldCheck,
     title: "Your footage stays private",
     description:
-      "Videos are never public. Each account is isolated. No one sees your clients' footage except you and them.",
+      "Videos are never public. Each account is isolated. No one sees your clients' footage except you and them. For coaches working with minors, there are no social features, no public profiles, and no way for anyone outside the account to discover content.",
   },
   {
     icon: AudioLines,

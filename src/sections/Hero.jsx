@@ -38,7 +38,7 @@ export default function Hero() {
             <a href="#pricing" className="hero-calc-link">See pricing &rarr;</a>
           </p>
           <p className="hero-student-line">
-            Are you a student?{" "}
+            Already invited?{" "}
             <a href={URLS.login} className="hero-student-link">
               Your coach uses Kaynos - you use it free. Log in &rarr;
             </a>
