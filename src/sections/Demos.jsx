@@ -1,29 +1,12 @@
 import { ExternalLink, LayoutDashboard, CirclePlay } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
+import CoachPreview from "../components/CoachPreview";
+import StudentPreview from "../components/StudentPreview";
 import { URLS } from "../config/urls";
-
-const demos = [
-  {
-    title: "Coach view",
-    description:
-      "Upload videos, add timestamped notes, manage clients, and track who's watching.",
-    href: URLS.demoCoach,
-    icon: LayoutDashboard,
-    cta: "Try the coach demo",
-  },
-  {
-    title: "Client view",
-    description:
-      "Watch your assigned sessions, browse shared classes, and add your own notes.",
-    href: URLS.demoStudent,
-    icon: CirclePlay,
-    cta: "Try the client demo",
-  },
-];
 
 export default function Demos() {
   const headerRef = useScrollReveal();
-  const gridRef = useScrollReveal();
+  const previewRef = useScrollReveal();
 
   return (
     <section id="demos" className="section section--alt demos-section">
@@ -36,29 +19,38 @@ export default function Demos() {
           </p>
         </div>
 
-        <div ref={gridRef} className="reveal demos-grid">
-          {demos.map((d) => {
-            const Icon = d.icon;
-            return (
-              <a
-                key={d.href}
-                href={d.href}
-                className="demo-card"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="demo-card-icon">
-                  <Icon size={24} strokeWidth={1.5} aria-hidden />
-                </div>
-                <h3 className="demo-card-title">{d.title}</h3>
-                <p className="demo-card-desc">{d.description}</p>
-                <span className="demo-card-cta">
-                  {d.cta}
-                  <ExternalLink size={16} aria-hidden />
-                </span>
-              </a>
-            );
-          })}
+        <div ref={previewRef} className="reveal demos-previews">
+          <div className="demos-preview-col">
+            <div className="demos-preview-label">
+              <LayoutDashboard size={16} aria-hidden />
+              Coach dashboard
+            </div>
+            <CoachPreview />
+            <a
+              href={URLS.demoCoach}
+              className="demos-preview-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Try the coach demo <ExternalLink size={14} aria-hidden />
+            </a>
+          </div>
+
+          <div className="demos-preview-col">
+            <div className="demos-preview-label">
+              <CirclePlay size={16} aria-hidden />
+              Student dashboard
+            </div>
+            <StudentPreview />
+            <a
+              href={URLS.demoStudent}
+              className="demos-preview-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Try the student demo <ExternalLink size={14} aria-hidden />
+            </a>
+          </div>
         </div>
 
         <p className="demos-note">
