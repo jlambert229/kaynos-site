@@ -19,6 +19,8 @@ const routes = [
   "/changelog",
   "/accessibility",
   "/for/coaches",
+  "/for/students",
+  "/security",
 ];
 
 const today = new Date().toISOString().split("T")[0];

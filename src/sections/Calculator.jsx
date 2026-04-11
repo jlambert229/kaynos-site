@@ -6,6 +6,7 @@ import {
   FREE_SEATS,
   SEAT_PRICE,
   FMT,
+  PRICING_COPY,
   calcMonthlyCost,
 } from "../config/pricing";
 import { calculatorCompetitors } from "../data/competitors";

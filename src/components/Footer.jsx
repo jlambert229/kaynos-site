@@ -7,6 +7,8 @@ const columns = [
     links: [
       { label: "Features", href: "#features" },
       { label: "Pricing", href: "#pricing" },
+      { label: "For Coaches", href: "/for/coaches" },
+      { label: "For Students", href: "/for/students" },
       { label: "Coach Demo", href: URLS.demoCoach, external: true },
       { label: "Client Demo", href: URLS.demoStudent, external: true },
     ],
@@ -17,6 +19,7 @@ const columns = [
       { label: "Getting Started", href: "/getting-started" },
       { label: "Changelog", href: "/changelog" },
       { label: "Contact", href: "/contact" },
+      { label: "Security", href: "/security" },
       { label: "Help Center", href: URLS.helpCenter, external: true },
     ],
   },

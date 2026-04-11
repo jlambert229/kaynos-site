@@ -5,20 +5,26 @@ import Seo from "../components/Seo";
 const entries = [
   {
     date: "April 2026",
-    title: "Interactive ROI calculator & comparison table",
+    title: "AI features, new pages, and site polish",
     items: [
-      "Drag-the-slider calculator showing your real cost as you add clients",
-      "Side-by-side comparison: Kaynos vs Google Drive, Teachable, DIY",
-      "Use case showcase for fitness, martial arts, music, and technique coaching",
+      "Voice dictation and AI video review highlighted across the site",
+      "New /for/coaches and /for/students landing pages",
+      "Security and trust page at /security",
+      "Online coaching use case tab for remote/async coaches",
+      "Enterprise pricing callout for 51+ client accounts",
+      "Comparison table with switching CTA for CoachNow/OnForm users",
+      "Newsletter and contact forms now capture via Netlify Forms",
+      "Pricing calculator with annual cost, share link, and multi-coach note",
     ],
   },
   {
     date: "March 2026",
-    title: "Pricing precision & legal audit",
+    title: "Pricing and legal foundations",
     items: [
-      "Client credit pricing refined to $49/month with $10/mo credit per paid client",
-      "Privacy Policy and Data Use Policy updated for compliance",
-      "Getting Started guide published",
+      "Pricing set at $50/mo base with 3 included seats and $5/mo per extra active client",
+      "Privacy Policy and Data Use Policy published",
+      "Getting Started guide with 5-step quick setup",
+      "Comparison table: Kaynos vs CoachNow, OnForm, and DIY stack",
     ],
   },
   {
@@ -27,7 +33,7 @@ const entries = [
     items: [
       "Video uploads with timestamped coaching notes",
       "Private sessions and shared group classes",
-      "Client signup links with built-in credit system",
+      "Seat-based pricing with active client billing",
       "Admin panel with usage reports and CSV export",
       "Live demos: coach view and client view",
     ],
