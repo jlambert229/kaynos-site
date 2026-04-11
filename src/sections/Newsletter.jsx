@@ -49,48 +49,44 @@ export default function Newsletter() {
               data-netlify="true"
               netlify-honeypot="fax_number"
               onSubmit={handleSubmit}
-              className="newsletter-form"
+              className="newsletter-form-wrap"
             >
               <input type="hidden" name="form-name" value="newsletter" />
-              {/* Honeypot field for spam prevention */}
               <p style={{ display: "none" }}>
                 <label>
                   Don't fill this out: <input name="fax_number" />
                 </label>
               </p>
-              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
-              <input
-                id="newsletter-email"
-                type="email"
-                name="email"
-                required
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="newsletter-input"
-              />
+              <div className="newsletter-input-row">
+                <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="newsletter-input"
+                />
+                <button
+                  type="submit"
+                  className="btn btn-primary newsletter-btn"
+                  disabled={status === "submitting"}
+                >
+                  {status === "submitting" ? "Subscribing\u2026" : "Subscribe"}
+                </button>
+              </div>
               <label className="newsletter-consent">
                 <input type="checkbox" name="consent" required />
-                <span>I agree to receive product updates and coaching tips via email. Unsubscribe anytime.</span>
+                <span>I agree to receive product updates via email. <a href="/privacy">Privacy Policy</a>.</span>
               </label>
-              <p className="newsletter-privacy-link">
-                See our <a href="/privacy">Privacy Policy</a>.
-              </p>
-              <button
-                type="submit"
-                className="btn btn-primary newsletter-btn"
-                disabled={status === "submitting"}
-              >
-                {status === "submitting" ? "Subscribing\u2026" : "Subscribe"}
-              </button>
             </form>
           )}
 
           {status === "error" && (
             <p className="newsletter-error" aria-live="polite">Something went wrong. Please try again or email <a href={URLS.support}>support@kaynos.net</a>.</p>
           )}
-
-          <p className="newsletter-note">We send about one email a month. Unsubscribe anytime.</p>
         </div>
       </div>
     </section>

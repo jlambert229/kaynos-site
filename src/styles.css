@@ -2691,7 +2691,11 @@ svg {
   margin-bottom: 24px;
 }
 
-.newsletter-form {
+.newsletter-form-wrap {
+  margin-bottom: 12px;
+}
+
+.newsletter-input-row {
   display: flex;
   gap: 10px;
   margin-bottom: 12px;
@@ -2727,32 +2731,32 @@ svg {
   white-space: nowrap;
 }
 
-.newsletter-note {
-  font-size: 13px;
-  color: var(--text-tertiary);
-}
-
 .newsletter-consent {
   display: flex;
   align-items: flex-start;
   gap: 8px;
   font-size: 13px;
-  color: var(--text-secondary);
-  margin-top: 8px;
+  color: var(--text-tertiary);
   cursor: pointer;
+  line-height: 1.4;
 }
+
 .newsletter-consent input {
   margin-top: 3px;
   flex-shrink: 0;
 }
 
-.newsletter-privacy-link,
+.newsletter-consent a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+
 .contact-privacy-link {
   font-size: 12px;
   color: var(--text-tertiary);
   margin-top: 8px;
 }
-.newsletter-privacy-link a,
+
 .contact-privacy-link a {
   color: var(--text-secondary);
   text-decoration: underline;
@@ -2774,7 +2778,7 @@ svg {
 }
 
 @media (max-width: 640px) {
-  .newsletter-form {
+  .newsletter-input-row {
     flex-direction: column;
   }
 
