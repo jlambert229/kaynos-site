@@ -12,6 +12,8 @@ import {
 import { calculatorCompetitors } from "../data/competitors";
 import { URLS } from "../config/urls";
 
+const COPY_FEEDBACK_MS = 2000;
+
 function formatVerifiedDate(isoMonth) {
   const [year, month] = isoMonth.split("-").map(Number);
   const date = new Date(year, month - 1);
@@ -50,7 +52,7 @@ export default function Calculator() {
     url.searchParams.set("clients", clients);
     navigator.clipboard.writeText(url.toString()).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), COPY_FEEDBACK_MS);
     });
   }
 
@@ -174,8 +176,13 @@ export default function Calculator() {
   );
 }
 
+function calcBarPercent(price, maxPrice) {
+  if (maxPrice <= 0) return 0;
+  return Math.max((price / maxPrice) * 100, price > 0 ? 4 : 0);
+}
+
 function CompareBar({ name, price, maxPrice, isKaynos, note }) {
-  const pct = maxPrice > 0 ? Math.max((price / maxPrice) * 100, price > 0 ? 4 : 0) : 0;
+  const pct = calcBarPercent(price, maxPrice);
 
   return (
     <div className={`calc-bar-row${isKaynos ? " calc-bar-kaynos" : ""}`}>

@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
-import { SeoHome } from "../components/Seo";
+import Seo from "../components/Seo";
 import { homeJsonLd } from "../seo/homeJsonLd";
 import { faqJsonLd } from "../seo/faqJsonLd";
 import { pricingJsonLd } from "../seo/pricingJsonLd";
@@ -26,7 +26,7 @@ const CTA = lazy(() => import("../sections/CTA"));
 export default function Home() {
   return (
     <>
-      <SeoHome jsonLd={homeJsonLd} />
+      <Seo title="Kaynos | Keep your clients improving between sessions." path="/" jsonLd={homeJsonLd} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(pricingJsonLd)}</script>
