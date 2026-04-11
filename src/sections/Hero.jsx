@@ -20,7 +20,6 @@ export default function Hero() {
             Upload training videos. Dictate notes at exact moments - or let AI
             flag the key timestamps for you. Share privately with your clients so
             they can review between sessions.
-            {" "}{PRICING_COPY.heroLine}
           </p>
           <div className="hero-cta-row">
             <CtaButton>Start 14-Day Trial</CtaButton>
@@ -33,22 +32,14 @@ export default function Hero() {
               See a Demo
             </a>
           </div>
-          <p className="hero-proof-line">
-            {PRICING_COPY.trialNote}{" "}
-            <a href="#pricing" className="hero-calc-link">See pricing &rarr;</a>
+          <p className="hero-meta">
+            {PRICING_COPY.heroLine} &middot; {PRICING_COPY.trialNote}
+            {" "}<a href="#pricing" className="hero-calc-link">See pricing &rarr;</a>
           </p>
-          <p className="hero-student-line">
+          <p className="hero-meta hero-meta--alt">
             Already invited?{" "}
-            <a href={URLS.login} className="hero-student-link">
-              Your coach uses Kaynos - you use it free. Log in &rarr;
-            </a>
+            <a href={URLS.login}>Log in &rarr;</a>
           </p>
-          <div className="hero-preview">
-            <p className="hero-preview-label">See it in action</p>
-            <a href={URLS.demoCoach} target="_blank" rel="noopener noreferrer" className="hero-preview-link">
-              Try the live demo - no signup needed
-            </a>
-          </div>
         </div>
         <CoachPreview />
       </div>

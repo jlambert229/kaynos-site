@@ -494,39 +494,25 @@ svg {
   margin-bottom: 20px;
 }
 
-.hero-proof-line {
-  font-size: 15px;
-  color: var(--text-secondary);
-  margin-bottom: 0;
+.hero-meta {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
 }
 
-.hero-calc-link {
-  color: var(--accent);
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.hero-student-line {
-  margin-top: 28px;
-  font-size: 15px;
-  color: var(--text-secondary);
-  text-align: center;
-  padding: 14px 24px;
-  background: rgba(41, 151, 255, 0.06);
-  border: 1px solid rgba(41, 151, 255, 0.15);
-  border-radius: var(--radius);
-  display: inline-block;
-}
-
-.hero-student-link {
+.hero-meta a {
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
 }
 
-.hero-student-link:hover {
+.hero-meta a:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.hero-meta--alt {
+  margin-top: 8px;
 }
 
 
@@ -3864,34 +3850,6 @@ svg {
   font-weight: 600;
 }
 
-/* ---- HERO PREVIEW ---- */
-
-.hero-preview {
-  margin-top: 20px;
-  text-align: center;
-  padding: 16px 24px;
-  background: rgba(41, 151, 255, 0.04);
-  border: 1px solid rgba(41, 151, 255, 0.12);
-  border-radius: var(--radius);
-  display: inline-block;
-}
-
-.hero-preview-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 4px;
-}
-
-.hero-preview-link {
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.hero-preview-link:hover {
-  text-decoration: underline;
-}
 
 /* ---- PRINT ---- */
 
