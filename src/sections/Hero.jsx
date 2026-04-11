@@ -23,7 +23,7 @@ export default function Hero() {
             {" "}{PRICING_COPY.heroLine}
           </p>
           <div className="hero-cta-row">
-            <CtaButton>Start Trial</CtaButton>
+            <CtaButton>Start 14-Day Trial</CtaButton>
             <a
               href={URLS.demoCoach}
               className="btn btn-secondary"

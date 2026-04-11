@@ -50,7 +50,7 @@ export default function Pricing() {
 
             <CtaButton>
               <Sparkles size={18} />
-              Start Trial
+              Start 14-Day Trial
             </CtaButton>
 
             <p className="pricing-note">

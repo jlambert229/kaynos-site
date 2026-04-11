@@ -9,6 +9,12 @@ import {
   OG_SHARE_HEIGHT,
 } from "../seo/constants";
 
+/** Normalize a route path for canonical URL construction. */
+function normalizePath(path) {
+  if (path === "/") return "";
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
 /**
  * Per-route SEO: title, description, canonical, Open Graph, Twitter.
  * @param {{ title: string; description?: string; path: string; jsonLd?: object }} props
@@ -20,8 +26,7 @@ export default function Seo({
   jsonLd,
   noIndex = false,
 }) {
-  const normalizedPath = path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
-  const canonicalUrl = `${SITE_URL}${normalizedPath || "/"}`;
+  const canonicalUrl = `${SITE_URL}${normalizePath(path) || "/"}`;
   const pageTitle = title.includes("|") ? title : `${title} | Kaynos`;
 
   return (
@@ -52,20 +57,5 @@ export default function Seo({
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       ) : null}
     </Helmet>
-  );
-}
-
-/**
- * @deprecated Use the default Seo export with path="/" instead.
- * Kept temporarily for backward-compat; delegates to the main component.
- */
-export function SeoHome({ jsonLd }) {
-  return (
-    <Seo
-      title={SEO_DEFAULT_TITLE}
-      description={SEO_DEFAULT_DESCRIPTION}
-      path="/"
-      jsonLd={jsonLd}
-    />
   );
 }

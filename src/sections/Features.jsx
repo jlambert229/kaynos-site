@@ -39,13 +39,13 @@ const features = [
     icon: AudioLines,
     title: "Dictate notes hands-free",
     description:
-      "Talk through what you see while the video plays. Your voice becomes timestamped notes - no typing, no pausing. Review film between classes with your hands free.",
+      "Tap the mic button while watching video. Speak your feedback and it becomes a timestamped note - transcribed in real time. Edit it, save it, move to the next moment.",
   },
   {
     icon: Sparkles,
     title: "AI spots what you might miss",
     description:
-      "One click and AI analyzes your video, flagging 2-3 moments worth reviewing. A starting point, not a replacement - jump to the key timestamps instead of scrubbing through an hour of footage.",
+      "One click and AI analyzes your video, flagging the most important moments (typically 2-4, depending on video length) worth reviewing. A starting point, not a replacement - jump to the key timestamps instead of scrubbing through an hour of footage. You can also toggle a pose skeleton overlay to analyze body position frame by frame.",
   },
 ];
 
@@ -59,8 +59,7 @@ export default function Features() {
         <div ref={headerRef} className="reveal section-header">
           <h2 className="section-title">What you get</h2>
           <p className="section-subtitle">
-            Upload video, leave timestamped notes, share with clients. Here's
-            what that means day to day.
+            Upload video, leave timestamped notes, share with clients. Here's what that means day to day.
           </p>
         </div>
 

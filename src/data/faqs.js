@@ -40,7 +40,7 @@ export const faqs = [
   {
     question: "What happens after the trial?",
     answer: `Your coach plan continues at ${FMT.coachMonthlySlash}. The first ${FREE_SEATS} client seats stay included. Any additional active seats are billed at ${FMT.seatPriceSlash} each. Cancel anytime. No contracts, no cancellation fees.`,
-    linkText: "Start trial",
+    linkText: "Start 14-Day Trial",
     linkHref: URLS.signup,
     external: true,
   },
@@ -61,7 +61,11 @@ export const faqs = [
   },
   {
     question: "What does the AI video review do?",
-    answer: "You click one button and AI analyzes your video, flagging 2-3 moments worth reviewing with your client. It gives you timestamped starting points so you don't have to scrub through the whole recording. You decide what to keep, edit, or delete.",
+    answer: "You click one button and AI analyzes your video, flagging the most important moments (typically 2-4, depending on video length) worth reviewing with your client. It gives you timestamped starting points so you don't have to scrub through the whole recording. You decide what to keep, edit, or delete.",
+  },
+  {
+    question: "How long are videos stored?",
+    answer: "Videos are stored for a minimum of 6 months. Active accounts retain videos indefinitely. If your account is canceled, videos are kept for 30 days before deletion.",
   },
   {
     question: "Is my data safe? What about videos of minors?",

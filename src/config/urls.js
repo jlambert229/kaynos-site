@@ -13,4 +13,7 @@ export const URLS = {
   helpCenter: "https://docs.kaynos.net",
   support: "mailto:support@kaynos.net",
   security: "mailto:security@kaynos.net",
+  instagram: "https://instagram.com/kaynos.net",
+  facebook: "https://facebook.com/kaynos.net",
+  twitter: "https://x.com/kaynos_net",
 };

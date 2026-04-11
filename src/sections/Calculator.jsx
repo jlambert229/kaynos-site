@@ -12,6 +12,8 @@ import {
 import { calculatorCompetitors } from "../data/competitors";
 import { URLS } from "../config/urls";
 
+const COPY_FEEDBACK_MS = 2000;
+
 function formatVerifiedDate(isoMonth) {
   const [year, month] = isoMonth.split("-").map(Number);
   const date = new Date(year, month - 1);
@@ -50,7 +52,7 @@ export default function Calculator() {
     url.searchParams.set("clients", clients);
     navigator.clipboard.writeText(url.toString()).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), COPY_FEEDBACK_MS);
     });
   }
 
@@ -61,8 +63,7 @@ export default function Calculator() {
           <span className="section-label">Calculator</span>
           <h2 className="section-title">See what you'd actually pay</h2>
           <p className="section-subtitle">
-            Move the slider. {PRICING_COPY.creditDesc.charAt(0).toLowerCase() + PRICING_COPY.creditDesc.slice(1)}{" "}
-            Your clients always use Kaynos for free.
+            Move the slider. {PRICING_COPY.creditDesc.charAt(0).toLowerCase() + PRICING_COPY.creditDesc.slice(1)}
           </p>
         </div>
 
@@ -160,8 +161,12 @@ export default function Calculator() {
               />
             ))}
           </div>
+          <p className="calc-compare-savings">
+            That's less than most coaches spend on Drive, Loom, and a note-taking app combined.
+          </p>
           <p className="calc-compare-footnote">
             Competitor prices based on publicly listed plans. Last verified: {latestVerifiedLabel(calculatorCompetitors)}.
+            Verify current rates directly with each provider.
             Kaynos price reflects {clients} active client{clients !== 1 ? "s" : ""} ({FMT.coachMonthlySlash} base + {FMT.seatPriceSlash} per extra seat beyond {FREE_SEATS}).
             Clients use Kaynos for free.
           </p>
@@ -171,8 +176,13 @@ export default function Calculator() {
   );
 }
 
+function calcBarPercent(price, maxPrice) {
+  if (maxPrice <= 0) return 0;
+  return Math.max((price / maxPrice) * 100, price > 0 ? 4 : 0);
+}
+
 function CompareBar({ name, price, maxPrice, isKaynos, note }) {
-  const pct = maxPrice > 0 ? Math.max((price / maxPrice) * 100, price > 0 ? 4 : 0) : 0;
+  const pct = calcBarPercent(price, maxPrice);
 
   return (
     <div className={`calc-bar-row${isKaynos ? " calc-bar-kaynos" : ""}`}>

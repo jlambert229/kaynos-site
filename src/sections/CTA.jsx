@@ -1,8 +1,7 @@
 import CtaButton from "../components/CtaButton";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { TRIAL_DAYS, PRICING_COPY } from "../config/pricing";
-
-const DEMO_URL = "https://demo.kaynos.net";
+import { URLS } from "../config/urls";
 
 export default function CTA() {
   const revealRef = useScrollReveal();
@@ -15,9 +14,9 @@ export default function CTA() {
           {TRIAL_DAYS}-day trial. No lock-in. Cancel anytime. Your clients
           always use Kaynos free.
         </p>
-        <div className="cta-actions" style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
-          <CtaButton>Start Trial</CtaButton>
-          <a href={DEMO_URL} className="btn btn-outline btn-lg">
+        <div className="cta-actions">
+          <CtaButton>Start 14-Day Trial</CtaButton>
+          <a href={URLS.demoCoach} className="btn btn-outline btn-lg">
             See a Demo
           </a>
         </div>

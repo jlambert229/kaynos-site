@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -9,7 +10,7 @@ import Contact from "./pages/Contact";
 import Changelog from "./pages/Changelog";
 import Accessibility from "./pages/Accessibility";
 import ForStudents from "./pages/ForStudents";
-import ForCoaches from "./pages/ForCoaches";
+const ForCoaches = lazy(() => import("./pages/ForCoaches"));
 import Security from "./pages/Security";
 import BackToTop from "./components/BackToTop";
 
@@ -31,7 +32,7 @@ export function AppRoutes() {
         <Route path="/changelog" element={<Changelog />} />
         <Route path="/accessibility" element={<Accessibility />} />
         <Route path="/for/students" element={<ForStudents />} />
-        <Route path="/for/coaches" element={<ForCoaches />} />
+        <Route path="/for/coaches" element={<Suspense fallback={null}><ForCoaches /></Suspense>} />
         <Route path="/security" element={<Security />} />
         <Route path="/docs" element={<Navigate to="/getting-started" replace />} />
         <Route

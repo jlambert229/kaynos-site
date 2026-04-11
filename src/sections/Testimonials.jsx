@@ -35,7 +35,7 @@ export default function Testimonials() {
               </Link>
             </p>
           </div>
-          <CtaButton>Start Trial</CtaButton>
+          <CtaButton>Start 14-Day Trial</CtaButton>
         </div>
       </div>
     </section>
