@@ -15,7 +15,7 @@ const features = [
     icon: CloudUpload,
     title: "Upload footage from anywhere",
     description:
-      "Drag a video into your browser - phone clips, GoPro files, whatever you have. Big files are fine. You can link Vimeo videos too if you already host there.",
+      "Film on your phone between sessions and upload right there - no laptop needed. GoPro and camera files work too.",
   },
   {
     icon: MessageSquareQuote,

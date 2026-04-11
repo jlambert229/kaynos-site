@@ -13,9 +13,9 @@ export default function HowItWorks() {
           <div className="prose-steps">
             <p>
               <strong>Film your session</strong> - or have your client film
-              theirs. Phone, GoPro, tripod - whatever you already use. Works
-              the same whether you're in the room or reviewing remotely. Any
-              common video format works.
+              theirs. Your phone is all you need - film between sessions and
+              upload right there. GoPro, tripod, or any camera works too.
+              Same workflow whether you're in the room or reviewing remotely.
             </p>
             <p>
               <strong>Upload and add notes.</strong> Drop the video into Kaynos

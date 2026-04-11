@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { Dumbbell, Swords, Music, Crosshair } from "lucide-react";
+import { Dumbbell, Swords, Music, Crosshair, Globe } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
 const cases = [
@@ -59,6 +59,21 @@ const cases = [
       "Track progress over weeks with a timeline of session notes",
       "Remote clients film at their gym and upload for async review - same workflow, different timezone",
       "Pose overlay shows skeletal alignment frame by frame. AI spots the three moments worth discussing",
+    ],
+  },
+  {
+    id: "online",
+    icon: Globe,
+    label: "Online",
+    title: "Remote & async coaches",
+    description:
+      "Your clients film at their gym, home, or studio and upload for review. You watch on your schedule, leave timestamped notes, and they review when it works for them. No shared timezone required.",
+    examples: [
+      "Client uploads a training video from their home gym - you review overnight",
+      "Timestamped notes replace Loom recordings and Google Doc feedback",
+      "AI flags the key moments across 8 client videos so you focus on what matters",
+      "Voice-dictate corrections while watching - faster than typing for every client",
+      "Replaces Drive + Loom + Trello at a fraction of the cost",
     ],
   },
 ];
