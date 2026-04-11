@@ -61,8 +61,7 @@ export default function Calculator() {
           <span className="section-label">Calculator</span>
           <h2 className="section-title">See what you'd actually pay</h2>
           <p className="section-subtitle">
-            Move the slider. {PRICING_COPY.creditDesc.charAt(0).toLowerCase() + PRICING_COPY.creditDesc.slice(1)}{" "}
-            Your clients always use Kaynos for free.
+            Move the slider. {PRICING_COPY.creditDesc.charAt(0).toLowerCase() + PRICING_COPY.creditDesc.slice(1)}
           </p>
         </div>
 
@@ -160,8 +159,12 @@ export default function Calculator() {
               />
             ))}
           </div>
+          <p className="calc-compare-savings">
+            That's less than most coaches spend on Drive, Loom, and a note-taking app combined.
+          </p>
           <p className="calc-compare-footnote">
             Competitor prices based on publicly listed plans. Last verified: {latestVerifiedLabel(calculatorCompetitors)}.
+            Verify current rates directly with each provider.
             Kaynos price reflects {clients} active client{clients !== 1 ? "s" : ""} ({FMT.coachMonthlySlash} base + {FMT.seatPriceSlash} per extra seat beyond {FREE_SEATS}).
             Clients use Kaynos for free.
           </p>

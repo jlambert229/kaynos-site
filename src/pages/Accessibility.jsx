@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import CtaButton from "../components/CtaButton";
 import { URLS } from "../config/urls";
 
 export default function Accessibility() {
@@ -41,6 +42,11 @@ export default function Accessibility() {
           <div className="legal-section">
             <h2>Feedback</h2>
             <p>If you encounter any accessibility barriers or have suggestions for improvement, please contact us at <a href={URLS.support}>support@kaynos.net</a>. We take all feedback seriously and will work to resolve issues promptly.</p>
+          </div>
+
+          <div className="legal-section legal-cta">
+            <h2>Ready to try it?</h2>
+            <CtaButton>Start 14-Day Trial</CtaButton>
           </div>
         </article>
       </main>

@@ -52,7 +52,7 @@ export const COACH_FEATURES = [
   `${FMT.seatPriceSlash} per additional active seat`,
   `${VIDEO_UPLOADS} video uploads`,
   `${STORAGE_GB} GB storage`,
-  `${VIDEO_RETENTION} video retention`,
+  "Videos stored for at least 6 months",
   "Timestamped coach notes",
   "Admin panel & usage reports",
   "Priority support",

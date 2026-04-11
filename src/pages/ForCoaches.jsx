@@ -22,12 +22,12 @@ export default function ForCoaches() {
             Video review that your clients actually watch.
           </h1>
           <p className="coaches-lead">
-            Upload training footage. Pin notes to exact moments. Share privately.
+            Whether you coach 5 clients or 500 - upload training footage, pin notes to exact moments, and share privately.
             Your clients review on any device&nbsp;- no app required.
           </p>
           <div className="coaches-cta">
             <a href={URLS.signup} className="btn btn-primary btn-lg">
-              Start Trial
+              Start 14-Day Trial
             </a>
             <a href={URLS.demoCoach} className="btn btn-secondary btn-lg">
               See a Demo
@@ -103,7 +103,7 @@ export default function ForCoaches() {
           <div className="coaches-final-cta">
             <h2>Try it free for {FMT.trialDays}&nbsp;days</h2>
             <a href={URLS.signup} className="btn btn-primary btn-lg">
-              Start Trial
+              Start 14-Day Trial
             </a>
           </div>
         </div>

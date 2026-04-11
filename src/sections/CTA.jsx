@@ -16,7 +16,7 @@ export default function CTA() {
           always use Kaynos free.
         </p>
         <div className="cta-actions" style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
-          <CtaButton>Start Trial</CtaButton>
+          <CtaButton>Start 14-Day Trial</CtaButton>
           <a href={DEMO_URL} className="btn btn-outline btn-lg">
             See a Demo
           </a>
