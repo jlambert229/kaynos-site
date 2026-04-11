@@ -69,6 +69,13 @@ export default function Newsletter() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="newsletter-input"
               />
+              <label className="newsletter-consent">
+                <input type="checkbox" name="consent" required />
+                <span>I agree to receive product updates and coaching tips via email. Unsubscribe anytime.</span>
+              </label>
+              <p className="newsletter-privacy-link">
+                See our <a href="/privacy">Privacy Policy</a>.
+              </p>
               <button
                 type="submit"
                 className="btn btn-primary newsletter-btn"
