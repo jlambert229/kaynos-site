@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { SendHorizonal, Inbox } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -11,9 +11,12 @@ const MAX_MESSAGE = 500;
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
   const [errors, setErrors] = useState({});
   const honeypotRef = useRef(null);
+  const cooldownTimer = useRef(null);
+
+  useEffect(() => () => clearTimeout(cooldownTimer.current), []);
 
   const validate = useCallback(() => {
     const errs = {};
@@ -32,18 +35,13 @@ export default function Contact() {
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
-    setStatus("sending");
+    setStatus("submitting");
     try {
-      const body = new URLSearchParams({
-        "form-name": "contact",
-        name: form.name.slice(0, MAX_NAME),
-        email: form.email,
-        message: form.message.slice(0, MAX_MESSAGE),
-        website: "",
-      });
-      const res = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body });
+      const formData = new FormData(e.target);
+      const res = await fetch("/", { method: "POST", body: formData });
       if (!res.ok) throw new Error(res.statusText);
-      setStatus("sent");
+      setStatus("success");
+      cooldownTimer.current = setTimeout(() => setStatus("idle"), 5000);
     } catch {
       setStatus("error");
     }
@@ -64,21 +62,21 @@ export default function Contact() {
           <div className="contact-grid">
             <div className="contact-card">
               <Inbox size={20} className="contact-card-icon" />
-              <h3>Email us</h3>
+              <h2>Email us</h2>
               <p>For anything - questions, feedback, partnerships.</p>
               <a href={URLS.support} className="contact-link">support@kaynos.net</a>
             </div>
           </div>
 
-          {status !== "sent" ? (
-            <form className="contact-form" name="contact" data-netlify="true" netlify-honeypot="website" onSubmit={handleSubmit}>
+          {status !== "success" ? (
+            <form className="contact-form" name="contact" data-netlify="true" netlify-honeypot="phone_ext" onSubmit={handleSubmit}>
               <input type="hidden" name="form-name" value="contact" />
-              <h3 className="contact-form-title">Send a message</h3>
-              {status === "error" && <p className="contact-error contact-form-error">Something went wrong. Please try again or email us directly.</p>}
+              <h2 className="contact-form-title">Send a message</h2>
+              {status === "error" && <div className="contact-error contact-form-error" aria-live="polite">Something went wrong. Please try again or email us directly.</div>}
               {/* Honeypot - hidden from humans, bots will fill it */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
-                <label htmlFor="contact-website">Website</label>
-                <input id="contact-website" type="text" name="website" tabIndex={-1} autoComplete="off" ref={honeypotRef} />
+                <label htmlFor="contact-phone-ext">Phone ext</label>
+                <input id="contact-phone-ext" type="text" name="phone_ext" tabIndex={-1} autoComplete="off" ref={honeypotRef} />
               </div>
               <div className="contact-field">
                 <label htmlFor="contact-name" className="contact-label">Name</label>
@@ -121,13 +119,13 @@ export default function Contact() {
                 />
                 {errors.message && <span className="contact-error">{errors.message}</span>}
               </div>
-              <button type="submit" className="btn btn-primary btn-lg contact-submit" disabled={status === "sending"}>
-                <SendHorizonal size={18} /> {status === "sending" ? "Sending\u2026" : "Send Message"}
+              <button type="submit" className="btn btn-primary btn-lg contact-submit" disabled={status === "submitting"}>
+                <SendHorizonal size={18} /> {status === "submitting" ? "Sending\u2026" : "Send Message"}
               </button>
             </form>
           ) : (
             <div className="contact-success">
-              <h3>Message sent.</h3>
+              <h2>Message sent.</h2>
               <p>We'll get back to you within a day. You can also reach us at <a href={URLS.support}>support@kaynos.net</a>.</p>
             </div>
           )}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Inbox, CircleCheck } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { URLS } from "../config/urls";
@@ -7,14 +7,19 @@ export default function Newsletter() {
   const revealRef = useScrollReveal();
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
   const [email, setEmail] = useState("");
+  const cooldownTimer = useRef(null);
+
+  useEffect(() => () => clearTimeout(cooldownTimer.current), []);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus("submitting");
     try {
       const formData = new FormData(e.target);
-      await fetch("/", { method: "POST", body: formData });
+      const res = await fetch("/", { method: "POST", body: formData });
+      if (!res.ok) throw new Error(res.statusText);
       setStatus("success");
+      cooldownTimer.current = setTimeout(() => setStatus("idle"), 5000);
     } catch {
       setStatus("error");
     }
@@ -42,6 +47,7 @@ export default function Newsletter() {
               name="newsletter"
               method="POST"
               data-netlify="true"
+              netlify-honeypot="fax_number"
               onSubmit={handleSubmit}
               className="newsletter-form"
             >
@@ -49,10 +55,12 @@ export default function Newsletter() {
               {/* Honeypot field for spam prevention */}
               <p style={{ display: "none" }}>
                 <label>
-                  Don't fill this out: <input name="bot-field" />
+                  Don't fill this out: <input name="fax_number" />
                 </label>
               </p>
+              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
               <input
+                id="newsletter-email"
                 type="email"
                 name="email"
                 required
@@ -72,7 +80,7 @@ export default function Newsletter() {
           )}
 
           {status === "error" && (
-            <p className="newsletter-error">Something went wrong. Please try again or email <a href={URLS.support}>support@kaynos.net</a>.</p>
+            <p className="newsletter-error" aria-live="polite">Something went wrong. Please try again or email <a href={URLS.support}>support@kaynos.net</a>.</p>
           )}
 
           <p className="newsletter-note">We send about one email a month. Unsubscribe anytime.</p>
