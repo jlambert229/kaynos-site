@@ -1,3 +1,6 @@
+// KAY-547: Domain references (app.kaynos.net, support@kaynos.net) in this file
+// are prose display text in legal copy, not navigable <a href> URLs.
+// They are intentionally hardcoded strings, not sourced from URLS config.
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";

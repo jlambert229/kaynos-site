@@ -6,6 +6,7 @@ import { faqJsonLd } from "../seo/faqJsonLd";
 import { pricingJsonLd } from "../seo/pricingJsonLd";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 // Eager imports (above-fold)
 import Hero from "../sections/Hero";
@@ -35,30 +36,30 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <Features />
-        <Suspense fallback={null}>
+        <ErrorBoundary><Suspense fallback={null}>
           <Comparison />
-        </Suspense>
-        <Suspense fallback={null}>
+        </Suspense></ErrorBoundary>
+        <ErrorBoundary><Suspense fallback={null}>
           <HowItWorks />
-        </Suspense>
-        <Suspense fallback={null}>
+        </Suspense></ErrorBoundary>
+        <ErrorBoundary><Suspense fallback={null}>
           <Demos />
-        </Suspense>
-        <Suspense fallback={null}>
+        </Suspense></ErrorBoundary>
+        <ErrorBoundary><Suspense fallback={null}>
           <UseCases />
           <Story />
-        </Suspense>
-        <Suspense fallback={null}>
+        </Suspense></ErrorBoundary>
+        <ErrorBoundary><Suspense fallback={null}>
           <Testimonials />
-        </Suspense>
-        <Suspense fallback={null}>
+        </Suspense></ErrorBoundary>
+        <ErrorBoundary><Suspense fallback={null}>
           <Pricing />
           <FAQ />
-        </Suspense>
-        <Suspense fallback={null}>
+        </Suspense></ErrorBoundary>
+        <ErrorBoundary><Suspense fallback={null}>
           <Newsletter />
           <CTA />
-        </Suspense>
+        </Suspense></ErrorBoundary>
       </main>
       <Footer />
     </>

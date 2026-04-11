@@ -79,4 +79,16 @@ export const faqs = [
     linkText: "Contact us about teams",
     linkHref: URLS.support,
   },
+  {
+    question: "Can I organize sessions by topic or technique?",
+    answer: "Yes. Tag sessions with any label - guard, takedowns, recital prep, whatever fits. Use the search palette (Cmd+K or Ctrl+K) to find sessions, clients, or notes across your whole account.",
+  },
+  {
+    question: "Can I see usage reports?",
+    answer: "Yes. The admin panel shows member counts, session stats, storage usage, and expiring videos. Export your roster as CSV or download a full data export as JSON. Optional weekly or monthly email reports.",
+  },
+  {
+    question: "Does Kaynos have dark mode?",
+    answer: "Yes. Choose light, dark, or match your system setting. The app also has keyboard shortcuts: N for new note, H for highlight, Space for play/pause, and Cmd+K for search.",
+  },
 ];

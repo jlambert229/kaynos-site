@@ -1,3 +1,6 @@
+// KAY-547: Domain references (kaynos.net, app.kaynos.net, support@kaynos.net)
+// in this file are prose display text in legal copy, not navigable <a href> URLs.
+// They are intentionally hardcoded strings, not sourced from URLS config.
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";
@@ -113,8 +116,9 @@ export default function PrivacyPolicy() {
             <ul>
               <li>
                 <strong>Service providers</strong> who process data on our behalf under
-                contractual obligations (for example, hosting on Netlify or similar
-                providers, analytics, email delivery, and security tools).
+                contractual obligations (for example, hosting (Netlify), email
+                delivery (via Netlify Forms), content delivery (Netlify CDN). We do
+                not use third-party analytics on this marketing site.
               </li>
               <li>
                 <strong>Legal and safety</strong> when we believe disclosure is required by

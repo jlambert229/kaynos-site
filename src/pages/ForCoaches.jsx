@@ -12,6 +12,7 @@ export default function ForCoaches() {
         title="Video Review for Coaches"
         description="Upload training footage. Pin notes to exact moments. Share privately. Your clients review on any device - no app required."
         path="/for/coaches"
+        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Kaynos for Coaches", url: "https://www.kaynos.net/for/coaches" }}
       />
       <Navbar />
       <main className="coaches-main container">

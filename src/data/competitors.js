@@ -80,4 +80,29 @@ export const comparisonFeatures = [
     detail: "Real-time body position overlay for form analysis",
     kaynos: true, coachnow: false, onform: false, diy: false,
   },
+  {
+    name: "Watch progress tracking",
+    detail: "See which clients watched and how far they got",
+    kaynos: true, coachnow: true, onform: false, diy: false,
+  },
+  {
+    name: "Video resume",
+    detail: "Clients pick up where they left off",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
+  {
+    name: "Threaded replies on notes",
+    detail: "Conversations anchored to video timestamps",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
+  {
+    name: "@mention notifications",
+    detail: "Tag someone and they get an email with a direct link",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
+  {
+    name: "Drawing annotations",
+    detail: "Freehand drawing overlay on video frames",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
 ];
