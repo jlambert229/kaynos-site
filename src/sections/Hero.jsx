@@ -43,6 +43,12 @@ export default function Hero() {
               Your coach uses Kaynos - you use it free. Log in &rarr;
             </a>
           </p>
+          <div className="hero-preview">
+            <p className="hero-preview-label">See it in action</p>
+            <a href={URLS.demoCoach} target="_blank" rel="noopener noreferrer" className="hero-preview-link">
+              Try the live demo - no signup needed
+            </a>
+          </div>
         </div>
         <CoachPreview />
       </div>

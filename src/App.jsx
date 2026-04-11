@@ -12,6 +12,9 @@ import Accessibility from "./pages/Accessibility";
 import ForStudents from "./pages/ForStudents";
 const ForCoaches = lazy(() => import("./pages/ForCoaches"));
 import Security from "./pages/Security";
+import Processors from "./pages/Processors";
+import Terms from "./pages/Terms";
+import About from "./pages/About";
 import BackToTop from "./components/BackToTop";
 
 
@@ -34,6 +37,9 @@ export function AppRoutes() {
         <Route path="/for/students" element={<ForStudents />} />
         <Route path="/for/coaches" element={<Suspense fallback={null}><ForCoaches /></Suspense>} />
         <Route path="/security" element={<Security />} />
+        <Route path="/processors" element={<Processors />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/about" element={<About />} />
         <Route path="/docs" element={<Navigate to="/getting-started" replace />} />
         <Route
           path="/docs/getting-started"

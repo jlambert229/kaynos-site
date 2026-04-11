@@ -20,6 +20,7 @@ const columns = [
       { label: "Changelog", href: "/changelog" },
       { label: "Contact", href: "/contact" },
       { label: "Security", href: "/security" },
+      { label: "About", href: "/about" },
       { label: "Help Center", href: URLS.helpCenter, external: true },
     ],
   },
@@ -29,7 +30,8 @@ const columns = [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Data Use Policy", href: "/data-use" },
       { label: "Accessibility", href: "/accessibility" },
-      { label: "Terms of Service", href: URLS.terms, external: true },
+      { label: "Sub-Processors", href: "/processors" },
+      { label: "Terms of Service", href: "/terms" },
     ],
   },
 ];
