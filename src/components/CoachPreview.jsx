@@ -106,7 +106,7 @@ export default function CoachPreview() {
               <div className="cp-activity">
                 {activity.map((a) => (
                   <div key={a.title} className="cp-act-item">
-                    <div className="cp-act-icon" style={{ background: a.hasVideo ? "rgba(59,125,216,0.12)" : "rgba(255,255,255,0.06)", color: a.hasVideo ? ACCENT : "rgba(255,255,255,0.3)" }}>▶</div>
+                    <div className={`cp-act-icon ${a.hasVideo ? "cp-act-icon--video" : "cp-act-icon--default"}`}>▶</div>
                     <div className="cp-act-body">
                       <div className="cp-act-title">{a.title}</div>
                       <div className="cp-act-meta">{a.student} · {a.time}</div>

@@ -52,9 +52,33 @@ export default function Seo({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={OG_SHARE_URL} />
       <meta name="twitter:image:alt" content={OG_SHARE_ALT} />
+      <meta name="twitter:site" content="@kaynos_net" />
+      <meta name="twitter:creator" content="@kaynos_net" />
 
       {jsonLd ? (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      ) : null}
+      {path && path !== "/" ? (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: SITE_URL,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: title,
+                item: `${SITE_URL}${normalizePath(path)}`,
+              },
+            ],
+          })}
+        </script>
       ) : null}
     </Helmet>
   );

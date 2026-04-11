@@ -1,3 +1,5 @@
+// KAY-547: Domain references (support@kaynos.net) in this file are prose
+// display text in legal copy, not navigable <a href> URLs.
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";

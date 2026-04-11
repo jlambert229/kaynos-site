@@ -11,6 +11,7 @@ export default function ForStudents() {
         title="For Students"
         description="Your coach sent you a session on Kaynos. Here's how it works - watch video, see notes, and reply. Free, no app needed."
         path="/for/students"
+        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Kaynos for Students", url: "https://www.kaynos.net/for/students" }}
       />
       <Navbar />
       <main className="students-main container">

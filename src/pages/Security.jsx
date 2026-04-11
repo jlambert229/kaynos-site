@@ -1,3 +1,5 @@
+// KAY-547: Domain references (security@kaynos.net) in this file are prose
+// display text in legal copy, not navigable <a href> URLs.
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
@@ -11,6 +13,7 @@ export default function Security() {
         title="Security & Privacy"
         description="How Kaynos protects your data. Learn about our infrastructure, authentication, data isolation, and privacy practices."
         path="/security"
+        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Security & Privacy", url: "https://www.kaynos.net/security" }}
       />
       <Navbar />
       <main className="security-main container">
