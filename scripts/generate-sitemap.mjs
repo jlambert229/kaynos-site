@@ -24,6 +24,7 @@ const routes = [
   "/processors",
   "/terms",
   "/about",
+  "/status",
 ];
 
 const today = new Date().toISOString().split("T")[0];

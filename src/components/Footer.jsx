@@ -22,7 +22,7 @@ const columns = [
       { label: "Security", href: "/security" },
       { label: "About", href: "/about" },
       { label: "Help Center", href: URLS.helpCenter, external: true },
-      { label: "System Status", href: URLS.support },
+      { label: "System Status", href: "/status" },
     ],
   },
   {

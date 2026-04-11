@@ -15,6 +15,7 @@ import Security from "./pages/Security";
 import Processors from "./pages/Processors";
 import Terms from "./pages/Terms";
 import About from "./pages/About";
+const Status = lazy(() => import("./pages/Status"));
 import BackToTop from "./components/BackToTop";
 
 
@@ -40,6 +41,7 @@ export function AppRoutes() {
         <Route path="/processors" element={<Processors />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/about" element={<About />} />
+        <Route path="/status" element={<Suspense fallback={null}><Status /></Suspense>} />
         <Route path="/docs" element={<Navigate to="/getting-started" replace />} />
         <Route
           path="/docs/getting-started"
