@@ -88,6 +88,12 @@ export const faqs = [
     answer: "Yes. The admin panel shows member counts, session stats, storage usage, and expiring videos. Export your roster as CSV or download a full data export as JSON. Optional weekly or monthly email reports.",
   },
   {
+    question: "Does Kaynos have scheduling?",
+    answer: "Session scheduling and calendar integration are on our roadmap. Today, coaches create sessions manually and clients are notified by email when new content is available.",
+    linkText: "See what we've shipped",
+    linkHref: "/changelog",
+  },
+  {
     question: "Does Kaynos have dark mode?",
     answer: "Yes. Choose light, dark, or match your system setting. The app also has keyboard shortcuts: N for new note, H for highlight, Space for play/pause, and Cmd+K for search.",
   },

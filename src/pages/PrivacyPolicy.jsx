@@ -7,14 +7,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { URLS } from "../config/urls";
 
-const effectiveDate = "April 7, 2026";
+const effectiveDate = "April 9, 2026";
 
 export default function PrivacyPolicy() {
   return (
     <>
       <Seo
         title="Privacy Policy"
-        description="Kaynos Privacy Policy (United States): how we collect, use, disclose, and protect personal information when you use our video review and training platform."
+        description="Kaynos Privacy Policy: how we collect, use, disclose, and protect personal information when you use our video review and training platform."
         path="/privacy"
       />
       <Navbar />
@@ -25,16 +25,14 @@ export default function PrivacyPolicy() {
               ← Back to home
             </Link>
           </p>
-          <h1 className="legal-title">Privacy Policy (United States)</h1>
+          <h1 className="legal-title">Privacy Policy</h1>
           <p className="legal-effective">Effective date: {effectiveDate}</p>
 
           <p className="legal-lead">
             This Privacy Policy describes how Kaynos (&quot;we,&quot; &quot;us,&quot; or
             &quot;our&quot;) collects, uses, and shares personal information when you visit
-            our public marketing website at kaynos.net from the United States. It is
-            intended to meet common expectations under U.S. state privacy laws, including
-            the California Consumer Privacy Act (CCPA) as amended by the California Privacy
-            Rights Act (CPRA). This page does not constitute legal advice.
+            our marketing website at kaynos.net. It applies to visitors from any jurisdiction.
+            This page does not constitute legal advice.
           </p>
 
           <section className="legal-section">
@@ -48,6 +46,15 @@ export default function PrivacyPolicy() {
                 Terms of Service
               </a>. When you click through from this marketing site to the application, the
               applicable policy is the one linked from the product you are using.
+            </p>
+          </section>
+
+          <section className="legal-section">
+            <h2>1A. Data Controller</h2>
+            <p>
+              Kaynos is the data controller for personal information collected through this
+              site. Contact:{" "}
+              <a href={URLS.support}>support@kaynos.net</a>
             </p>
           </section>
 
@@ -111,14 +118,39 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="legal-section">
+            <h2>4A. Lawful Basis for Processing (EU/EEA)</h2>
+            <p>
+              Where the General Data Protection Regulation (GDPR) applies, we rely on the
+              following lawful bases for processing personal data:
+            </p>
+            <ul>
+              <li>
+                <strong>Contact form submissions:</strong> legitimate interest in responding
+                to inquiries (Art. 6(1)(f)).
+              </li>
+              <li>
+                <strong>Newsletter subscriptions:</strong> consent (you actively subscribe)
+                (Art. 6(1)(a)).
+              </li>
+              <li>
+                <strong>Server logs and analytics:</strong> legitimate interest in site
+                security and performance (Art. 6(1)(f)).
+              </li>
+              <li>
+                <strong>Compliance with law:</strong> legal obligation (Art. 6(1)(c)).
+              </li>
+            </ul>
+          </section>
+
+          <section className="legal-section">
             <h2>5. How we share information</h2>
             <p>We may share personal information with:</p>
             <ul>
               <li>
                 <strong>Service providers</strong> who process data on our behalf under
-                contractual obligations (for example, hosting (Netlify), email
-                delivery (via Netlify Forms), content delivery (Netlify CDN). We do
-                not use third-party analytics on this marketing site.
+                contractual obligations, specifically: hosting and content delivery (Netlify),
+                form processing (Netlify Forms). We do not use third-party analytics on this
+                marketing site.
               </li>
               <li>
                 <strong>Legal and safety</strong> when we believe disclosure is required by
@@ -152,9 +184,23 @@ export default function PrivacyPolicy() {
           <section className="legal-section">
             <h2>7. Retention</h2>
             <p>
-              We retain personal information only as long as needed for the purposes
-              described above, unless a longer period is required or permitted by law (for
-              example, security logs or legal holds).
+              We retain personal information for the following specific periods:
+            </p>
+            <ul>
+              <li>
+                <strong>Contact form submissions:</strong> 12 months.
+              </li>
+              <li>
+                <strong>Newsletter email addresses:</strong> until you unsubscribe, plus 12
+                months for records.
+              </li>
+              <li>
+                <strong>Server logs:</strong> 30 days.
+              </li>
+            </ul>
+            <p>
+              We delete data after these periods unless required by law to retain it longer
+              (for example, security logs or legal holds).
             </p>
           </section>
 
@@ -173,6 +219,11 @@ export default function PrivacyPolicy() {
               This site is not directed to children under 13, and we do not knowingly collect
               personal information from children under 13. If you believe we have collected
               such information, contact us and we will take appropriate steps to delete it.
+            </p>
+            <p>
+              Our product is used by coaches who may work with minors. Coaches are responsible
+              for obtaining parental consent where required by law (e.g., COPPA). The marketing
+              site does not knowingly collect information from children under 13.
             </p>
           </section>
 
@@ -204,8 +255,76 @@ export default function PrivacyPolicy() {
               to verify your identity before processing it.
             </p>
             <p>
+              <strong>Verification process:</strong> We verify your identity by matching the
+              email address in your request against our records. Authorized agents must provide
+              signed written authorization. We respond within 45 days (CCPA) or 30 days (GDPR).
+            </p>
+            <p>
               If we deny your request, you may appeal where required by law by replying to
               our decision email with &quot;Appeal&quot; in the subject line.
+            </p>
+          </section>
+
+          <section className="legal-section">
+            <h2>10A. Your Rights (EU/EEA Residents)</h2>
+            <p>
+              If you are located in the European Union or European Economic Area, the General
+              Data Protection Regulation (GDPR) provides you with the following rights
+              regarding your personal data:
+            </p>
+            <ul>
+              <li>Right of access to your personal data (Art. 15);</li>
+              <li>Right to rectification of inaccurate personal data (Art. 16);</li>
+              <li>Right to erasure of your personal data (Art. 17);</li>
+              <li>Right to restriction of processing (Art. 18);</li>
+              <li>Right to data portability (Art. 20);</li>
+              <li>Right to object to processing (Art. 21);</li>
+              <li>Right to withdraw consent at any time (for example, newsletter subscriptions); and</li>
+              <li>Right to lodge a complaint with a supervisory authority.</li>
+            </ul>
+            <p>
+              To exercise these rights, email{" "}
+              <a href={URLS.support}>support@kaynos.net</a> with the subject line
+              &quot;Privacy Request.&quot; We will respond within 30 days.
+            </p>
+            <p>
+              You may find your local data protection authority through the{" "}
+              <a
+                href="https://edpb.europa.eu/about-edpb/about-edpb/members_en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                European Data Protection Board member directory
+              </a>.
+            </p>
+          </section>
+
+          <section className="legal-section">
+            <h2>10B. International Transfers</h2>
+            <p>
+              Our service providers (Netlify, Backblaze B2, Neon) are based in the United
+              States. We rely on Standard Contractual Clauses (SCCs) under GDPR Article
+              46(2)(c) for transfers of personal data from the EU/EEA.
+            </p>
+          </section>
+
+          <section className="legal-section">
+            <h2>10C. Virginia, Colorado, Connecticut, and Other State Rights</h2>
+            <p>
+              Residents of Virginia (VCDPA), Colorado (CPA), Connecticut (CTDPA), and other
+              states with privacy laws have similar rights to those listed in Section 10
+              above. Contact us at{" "}
+              <a href={URLS.support}>support@kaynos.net</a> to exercise your rights under
+              these laws.
+            </p>
+          </section>
+
+          <section className="legal-section">
+            <h2>10D. Breach Notification</h2>
+            <p>
+              In the event of a personal data breach, we will notify affected individuals and
+              relevant supervisory authorities within 72 hours as required by GDPR Article 33,
+              and within the timeframes required by applicable U.S. state laws.
             </p>
           </section>
 
@@ -213,11 +332,9 @@ export default function PrivacyPolicy() {
             <h2>11. Do Not Track and Global Privacy Control</h2>
             <p>
               We do not currently respond to &quot;Do Not Track&quot; browser signals because
-              there is no uniform industry standard for them. We do honor Global Privacy
-              Control (GPC) signals as an opt-out of the sale or sharing of personal
-              information where required by applicable state law, including the CPRA. If your
-              browser or extension sends a GPC signal, we treat it as a valid opt-out request
-              for that browser.
+              there is no uniform industry standard for them. We do not sell or share personal
+              data for advertising. Because we do not engage in sale or sharing, GPC signals
+              require no action, but we acknowledge and respect them.
             </p>
           </section>
 
@@ -235,6 +352,14 @@ export default function PrivacyPolicy() {
             <p>
               Questions about this Privacy Policy:{" "}
               <a href={URLS.support}>support@kaynos.net</a>
+            </p>
+          </section>
+
+          <section className="legal-section">
+            <h2>14. Privacy request metrics</h2>
+            <p>
+              We do not currently meet the threshold (10 million+ consumer records) requiring
+              annual privacy request metrics disclosure under CCPA.
             </p>
           </section>
         </article>

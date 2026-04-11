@@ -122,6 +122,9 @@ export default function Contact() {
               <button type="submit" className="btn btn-primary btn-lg contact-submit" disabled={status === "submitting"}>
                 <SendHorizonal size={18} /> {status === "submitting" ? "Sending\u2026" : "Send Message"}
               </button>
+              <p className="contact-privacy-link">
+                By submitting, you agree to our <a href="/privacy">Privacy Policy</a>.
+              </p>
             </form>
           ) : (
             <div className="contact-success">

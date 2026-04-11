@@ -91,6 +91,9 @@ export default function Security() {
             <p className="security-contact">
               Vulnerability reports: <a href={URLS.security}>security@kaynos.net</a>
             </p>
+            <p className="security-contact">
+              System status and uptime: We are evaluating status page providers. In the meantime, email <a href={URLS.support}>support@kaynos.net</a> for service inquiries.
+            </p>
           </section>
 
           <section className="security-section security-cta">
