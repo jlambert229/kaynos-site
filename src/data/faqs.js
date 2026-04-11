@@ -51,4 +51,28 @@ export const faqs = [
     linkHref: URLS.demoCoach,
     external: true,
   },
+  {
+    question: "Can I use Kaynos from my phone?",
+    answer: "Yes. Upload videos, add notes, and manage clients right from your phone's browser. No app to install. Most coaches film on their phone and upload directly - the whole workflow works without a laptop.",
+  },
+  {
+    question: "Can my clients upload videos too?",
+    answer: "Yes. Coaches and clients can both upload. This is how remote coaching works - your client films at their gym, uploads it, and you review on your schedule with timestamped notes.",
+  },
+  {
+    question: "What does the AI video review do?",
+    answer: "You click one button and AI analyzes your video, flagging 2-3 moments worth reviewing with your client. It gives you timestamped starting points so you don't have to scrub through the whole recording. You decide what to keep, edit, or delete.",
+  },
+  {
+    question: "Is my data safe? What about videos of minors?",
+    answer: "Each account is fully isolated. Students only see their own sessions. There are no social features, no public profiles, and no way for anyone outside the account to discover content. Videos are encrypted in transit and at rest.",
+    linkText: "See security details",
+    linkHref: "/security",
+  },
+  {
+    question: "Can I have multiple coaches on one account?",
+    answer: `Each coach gets their own Kaynos account at ${FMT.coachMonthlySlash}. If you run a multi-coach gym, each coach manages their own roster independently. At 51+ active clients, you unlock invoicing, dedicated support, and SLA-backed uptime.`,
+    linkText: "Contact us about teams",
+    linkHref: URLS.support,
+  },
 ];
