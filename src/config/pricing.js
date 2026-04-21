@@ -18,10 +18,10 @@ export const SEAT_PRICE = 5;
 /** Free trial duration in days */
 export const TRIAL_DAYS = 14;
 
-/** Video upload limit */
+/** Video upload limit (per month) */
 export const VIDEO_UPLOADS = 100;
 
-/** Storage limit */
+/** Storage limit (total active, oldest videos cycle out after retention period) */
 export const STORAGE_GB = 50;
 
 /** Video retention period */
@@ -50,15 +50,15 @@ export const COACH_FEATURES = [
   "All features included",
   `First ${FREE_SEATS} client seats included`,
   `${FMT.seatPriceSlash} per additional active seat`,
-  `${VIDEO_UPLOADS} video uploads`,
-  `${STORAGE_GB} GB storage`,
-  "Videos stored for at least 6 months",
+  `${VIDEO_UPLOADS} video uploads per month`,
+  `${STORAGE_GB} GB active storage`,
+  "6-month video retention (oldest cycle out)",
   "Timestamped coach notes",
   "Session scheduling & private lesson booking",
   "Automated progress reports",
   "Custom school branding",
   "Admin panel & usage reports",
-  "Priority support",
+  "Direct email support",
   "Clients access for free",
 ];
 

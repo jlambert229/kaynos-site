@@ -19,7 +19,7 @@ export default function Pricing() {
         <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Pricing</span>
           <h2 className="section-title">
-            Simple pricing. One plan. No surprises.
+            Simple pricing. One plan. No hidden fees.
           </h2>
           <p className="section-subtitle">
             {PRICING_COPY.subtitle}

@@ -22,7 +22,7 @@ export const faqs = [
   },
   {
     question: "What types of coaching does this work for?",
-    answer: "Any coaching where reviewing video helps. Personal training, martial arts, music lessons, sports technique. If you film it, Kaynos works.",
+    answer: "Any coaching where reviewing movement on video helps. Personal training, martial arts, dance, golf, swim, gymnastics — any discipline where seeing yourself matters. The AI features (video analysis, pose overlay) are strongest for sports and movement coaching.",
     linkText: "See use cases",
     linkHref: "#use-cases",
   },
@@ -65,7 +65,7 @@ export const faqs = [
   },
   {
     question: "How long are videos stored?",
-    answer: "Videos are stored for a minimum of 6 months. Active accounts retain videos indefinitely. If your account is canceled, videos are kept for 30 days before deletion.",
+    answer: "Videos are retained for at least 6 months. As older videos age past the retention window, they cycle out to free up storage. Active accounts keep recent content indefinitely. If your account is canceled, videos are kept for 30 days before deletion.",
   },
   {
     question: "Is my data safe? What about videos of minors?",

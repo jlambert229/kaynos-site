@@ -43,10 +43,11 @@ export default function About() {
           </section>
 
           <section className="about-section">
-            <h2>The company</h2>
+            <h2>Who's behind it</h2>
             <p className="about-text">
-              Independent and self-funded. Founded in 2026. Based in the United
-              States.
+              One person. Independent and self-funded. I use Kaynos myself —
+              if something's broken or missing, I hear about it fast. Founded
+              in 2026, based in the United States.
             </p>
           </section>
 

@@ -14,8 +14,8 @@ const cases = [
       "Film a set, pin a note at the exact rep where form breaks",
       "Share mobility drills as a class so everyone can access them",
       "Track which clients are actually watching their sessions",
-      "Remote clients film at their gym and upload for async review - same workflow, different timezone",
       "AI flags reps where form breaks down - jump straight to the moments that matter",
+      "Pose overlay shows body alignment frame by frame for technique correction",
     ],
   },
   {
@@ -29,21 +29,8 @@ const cases = [
       "Annotate a roll at the exact moment a sweep opens up",
       "Post comp footage as a shared class for the whole gym",
       "Private session reviews that only the student can see",
-      "Dictate corrections hands-free while demonstrating the fix. AI highlights the key scrambles from a 60-minute class",
-    ],
-  },
-  {
-    id: "music",
-    icon: Music,
-    label: "Music",
-    title: "Instrument & voice teachers",
-    description:
-      "Record lessons, mark the bars that need practice, and let students review at their own pace. Students hear your feedback right at the moment that matters.",
-    examples: [
-      "Pin a note at 2:34 - 'watch your left hand position here'",
-      "Upload recital recordings for group review",
-      "Students add their own practice notes alongside yours",
-      "Voice-annotate a student's recital while listening - no typing interrupts the flow",
+      "Dictate corrections hands-free while demonstrating the fix",
+      "AI highlights the key scrambles from a 60-minute class so you skip the dead time",
     ],
   },
   {
@@ -54,11 +41,11 @@ const cases = [
     description:
       "Any discipline where seeing yourself matters. Upload video, mark the key moments, and give clients a clear path from where they are to where they want to be.",
     examples: [
-      "Side-by-side review of a swing before and after adjustments",
+      "Compare this week's swing to last month's - track what changed in the notes",
       "Tag sessions by skill level so students find what they need",
       "Track progress over weeks with a timeline of session notes",
-      "Remote clients film at their gym and upload for async review - same workflow, different timezone",
-      "Pose overlay shows skeletal alignment frame by frame. AI spots the three moments worth discussing",
+      "Draw directly on video frames to highlight alignment or angle issues",
+      "Pose overlay shows skeletal alignment frame by frame for form analysis",
     ],
   },
   {

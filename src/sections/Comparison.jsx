@@ -71,9 +71,10 @@ export default function Comparison() {
           <h3 className="cmp-switching-title">Switching from another platform?</h3>
           <p className="cmp-switching-text">
             If you're on CoachNow, OnForm, or a DIY stack and thinking about switching,
-            we can help. Your data is yours — we'll walk you through the transition and make sure nothing gets left behind.
+            I'll help you set up your account and get your clients moved over. Your existing
+            videos can be re-uploaded — I'll walk you through it.
           </p>
-          <a href={URLS.support} className="btn btn-secondary">Talk to us</a>
+          <a href={URLS.support} className="btn btn-secondary">Talk to me</a>
         </div>
       </div>
     </section>
