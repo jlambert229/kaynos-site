@@ -49,6 +49,7 @@ const infrastructure = [
 
 function StatusIcon({ status }) {
   if (status === "operational") return <CheckCircle2 size={18} className="status-icon status-icon--ok" />;
+  if (status === "reachable") return <CheckCircle2 size={18} className="status-icon status-icon--ok" />;
   if (status === "degraded") return <AlertTriangle size={18} className="status-icon status-icon--warn" />;
   if (status === "down") return <XCircle size={18} className="status-icon status-icon--down" />;
   return <RefreshCw size={16} className="status-icon status-icon--checking" />;
@@ -56,6 +57,7 @@ function StatusIcon({ status }) {
 
 function statusLabel(status) {
   if (status === "operational") return "Operational";
+  if (status === "reachable") return "Reachable";
   if (status === "degraded") return "Degraded";
   if (status === "down") return "Unreachable";
   return "Checking...";
@@ -75,13 +77,13 @@ export default function Status() {
       try {
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 8000);
-        const res = await fetch(svc.checkUrl, {
+        await fetch(svc.checkUrl, {
           method: "HEAD",
           mode: "no-cors",
           signal: controller.signal,
         });
         clearTimeout(timeout);
-        checks[svc.name] = "operational";
+        checks[svc.name] = "reachable";
       } catch {
         checks[svc.name] = "down";
       }
@@ -94,8 +96,9 @@ export default function Status() {
     checkServices();
   }, []);
 
-  const allOk = Object.values(results).length > 0 && Object.values(results).every(s => s === "operational");
-  const anyDown = Object.values(results).some(s => s === "down");
+  const vals = Object.values(results);
+  const allOk = vals.length > 0 && vals.every(s => s === "operational" || s === "reachable");
+  const anyDown = vals.some(s => s === "down");
 
   return (
     <>
@@ -158,7 +161,7 @@ export default function Status() {
           <section className="status-section">
             <h2 className="status-section-title">Infrastructure</h2>
             <p className="status-section-desc">
-              Underlying providers that power Kaynos. Status reflects provider availability, not direct monitoring.
+              Underlying providers that power Kaynos. Check each provider's status page for current availability.
             </p>
             <div className="status-list">
               {infrastructure.map((infra) => (
@@ -166,17 +169,15 @@ export default function Status() {
                   <div className="status-row-info">
                     <div className="status-row-name">{infra.name}</div>
                     <div className="status-row-desc">
-                      {infra.provider} - {infra.description}
-                      {infra.statusUrl && (
-                        <>
-                          {" "}<a href={infra.statusUrl} target="_blank" rel="noopener noreferrer" className="status-provider-link">Provider status</a>
-                        </>
-                      )}
+                      {infra.provider} &mdash; {infra.description}
                     </div>
                   </div>
-                  <div className="status-row-status status-row-status--operational">
-                    <CheckCircle2 size={18} className="status-icon status-icon--ok" />
-                    <span>Operational</span>
+                  <div className="status-row-status">
+                    {infra.statusUrl && (
+                      <a href={infra.statusUrl} target="_blank" rel="noopener noreferrer" className="status-provider-link">
+                        Provider status &rarr;
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}

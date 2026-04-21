@@ -12,8 +12,8 @@ export default function Testimonials() {
 
           {quotes.length > 0 && (
             <div className="testimonial-cards">
-              {quotes.map((q, i) => (
-                <blockquote key={i} className="testimonial-card">
+              {quotes.map((q) => (
+                <blockquote key={q.name} className="testimonial-card">
                   <p className="testimonial-text">&ldquo;{q.text}&rdquo;</p>
                   <footer className="testimonial-footer">
                     <strong>{q.name}</strong>

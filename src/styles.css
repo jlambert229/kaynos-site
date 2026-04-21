@@ -47,7 +47,36 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
   --font: "Inter Variable", "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
-  color-scheme: dark;
+  color-scheme: dark light;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --bg-base: #f8f8fa;
+    --bg-elevated: #ffffff;
+    --bg-card: #f4f4f6;
+    --bg-secondary: #eeeef0;
+    --bg-tertiary: #e4e4e8;
+    --text-primary: #1a1a1f;
+    --text-secondary: rgba(26, 26, 31, 0.72);
+    --text-tertiary: rgba(26, 26, 31, 0.55);
+    --border: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.14);
+    --border-hairline: rgba(0, 0, 0, 0.06);
+    --border-grid: rgba(0, 0, 0, 0.06);
+    --accent: #2563c4;
+    --accent-hover: #1d4fa8;
+    --accent-soft: rgba(37, 99, 196, 0.08);
+    --accent-dim: rgba(37, 99, 196, 0.25);
+    --warm: #b8860b;
+    --warm-soft: rgba(184, 134, 11, 0.08);
+    --warm-dim: rgba(184, 134, 11, 0.25);
+    --red: #d32f2f;
+    --green: #1b9e4b;
+    --orange: #e68a00;
+    color-scheme: light;
+  }
 }
 
 html {
@@ -180,8 +209,8 @@ svg {
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.20);
+  background: var(--accent-soft);
+  border-color: var(--accent-dim);
 }
 
 .btn-secondary:focus-visible {
@@ -238,6 +267,12 @@ svg {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (prefers-color-scheme: light) {
+  .navbar.scrolled {
+    background: rgba(248, 248, 250, 0.85);
+  }
 }
 
 .navbar-inner {
@@ -542,9 +577,10 @@ svg {
   margin: 48px auto 0;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--border-strong);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
-  background: var(--bg-card);
+  background: #0d0d14;
+  color: #f5f5f7;
 }
 .cp-chrome {
   display: flex;
@@ -3958,6 +3994,32 @@ svg {
 }
 
 /* ---- ABOUT PAGE ---- */
+
+.about-main {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  min-height: 60vh;
+}
+
+.about-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.about-lead {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
 
 .about-section {
   margin-bottom: 40px;

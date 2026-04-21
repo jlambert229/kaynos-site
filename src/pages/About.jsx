@@ -13,11 +13,11 @@ export default function About() {
         jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "About Kaynos", url: "https://www.kaynos.net/about" }}
       />
       <Navbar />
-      <main className="security-main container">
-        <div className="security-content">
+      <main className="about-main container">
+        <div className="about-content">
           <span className="section-label">Company</span>
-          <h1 className="security-title">About Kaynos</h1>
-          <p className="security-lead">
+          <h1 className="about-title">About Kaynos</h1>
+          <p className="about-lead">
             Kaynos is a private video review platform for coaches. Built by a
             coach, for coaches.
           </p>

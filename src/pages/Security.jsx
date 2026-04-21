@@ -92,7 +92,7 @@ export default function Security() {
               Vulnerability reports: <a href={URLS.security}>security@kaynos.net</a>
             </p>
             <p className="security-contact">
-              System status and uptime: We are evaluating status page providers. In the meantime, email <a href={URLS.support}>support@kaynos.net</a> for service inquiries.
+              System status and uptime: <a href="/status">kaynos.net/status</a>
             </p>
           </section>
 

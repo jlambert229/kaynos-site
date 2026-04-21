@@ -89,7 +89,7 @@ export const faqs = [
   },
   {
     question: "Does Kaynos have scheduling?",
-    answer: "Session scheduling and calendar integration are on our roadmap. Today, coaches create sessions manually and clients are notified by email when new content is available.",
+    answer: "Yes. Kaynos has a built-in calendar with session scheduling, conflict checks, ICS export, and email reminders. Instructors set their weekly availability, add one-off exceptions, and clients can request private lessons through a booking flow with approval.",
     linkText: "See what we've shipped",
     linkHref: "/changelog",
   },

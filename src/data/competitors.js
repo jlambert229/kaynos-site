@@ -105,4 +105,14 @@ export const comparisonFeatures = [
     detail: "Freehand drawing overlay on video frames",
     kaynos: true, coachnow: false, onform: false, diy: false,
   },
+  {
+    name: "Session scheduling",
+    detail: "Calendar, availability, booking, ICS export",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
+  {
+    name: "Automated progress reports",
+    detail: "Weekly email with per-student watch rates",
+    kaynos: true, coachnow: false, onform: false, diy: false,
+  },
 ];

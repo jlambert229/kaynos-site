@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
@@ -61,10 +60,11 @@ export default function ForCoaches() {
             <li className="coaches-step">
               <span className="coaches-step-number">3</span>
               <div className="coaches-step-body">
-                <h3>Share</h3>
+                <h3>Share &amp; schedule</h3>
                 <p>
                   Your client gets a link. They watch in their browser, see your
-                  notes, and can reply.
+                  notes, and can reply. Schedule sessions from the built-in
+                  calendar with availability and booking.
                 </p>
               </div>
             </li>
@@ -97,7 +97,7 @@ export default function ForCoaches() {
           <h2 className="coaches-section-heading">Pricing</h2>
           <p className="coaches-pricing-line">{PRICING_COPY.heroLine}</p>
           <p className="coaches-pricing-detail">
-            <Link to="/getting-started">See the full calculator</Link>
+            <a href="/#pricing">See pricing details &rarr;</a>
           </p>
 
           {/* ── Final CTA ── */}
