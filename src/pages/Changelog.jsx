@@ -12,7 +12,6 @@ const entries = [
       "In-app notifications: bell icon with read/unread list alongside email alerts",
       "Coach progress reports: automated weekly email with per-student watch rates",
       "Session scheduling: calendar UI, conflict checks, ICS export, and email reminders",
-      "Pose skeleton overlay for form and movement analysis",
     ],
   },
   {

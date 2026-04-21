@@ -22,7 +22,7 @@ export default function Comparison() {
           <h2 className="section-title">How Kaynos stacks up</h2>
           <p className="section-subtitle">
             Feature-by-feature against CoachNow, OnForm, and the DIY stack
-            you're probably using now.
+            most BJJ gyms use today.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function Comparison() {
           <h3 className="cmp-switching-title">Switching from another platform?</h3>
           <p className="cmp-switching-text">
             If you're on CoachNow, OnForm, or a DIY stack and thinking about switching,
-            I'll help you set up your account and get your clients moved over. Your existing
+            I'll help you set up your account and get your students moved over. Your existing
             videos can be re-uploaded — I'll walk you through it.
           </p>
           <a href={URLS.support} className="btn btn-secondary">Talk to me</a>

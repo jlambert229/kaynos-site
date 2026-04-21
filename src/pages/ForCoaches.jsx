@@ -8,10 +8,10 @@ export default function ForCoaches() {
   return (
     <>
       <Seo
-        title="Video Review for Coaches"
-        description="Upload training footage. Pin notes to exact moments. Share privately. Your clients review on any device - no app required."
+        title="Video Review for BJJ Coaches"
+        description="Upload sparring footage. AI flags the moments worth reviewing. Share privately with your students. $29/mo flat, unlimited students."
         path="/for/coaches"
-        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Kaynos for Coaches", url: "https://www.kaynos.net/for/coaches" }}
+        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Kaynos for BJJ Coaches", url: "https://www.kaynos.net/for/coaches" }}
       />
       <Navbar />
       <main className="coaches-main container">
@@ -19,11 +19,12 @@ export default function ForCoaches() {
           {/* ── Hero ── */}
           <span className="section-label">For Coaches</span>
           <h1 className="coaches-title">
-            Video review that your clients actually watch.
+            Video review that your students actually watch.
           </h1>
           <p className="coaches-lead">
-            Whether you coach 5 clients or 500 - upload training footage, pin notes to exact moments, and share privately.
-            Your clients review on any device&nbsp;- no app required.
+            Whether you coach 5 students or 500 — upload sparring footage,
+            let AI flag the moments worth reviewing, and share privately.
+            Your students review on any device&nbsp;- no app required.
           </p>
           <div className="coaches-cta">
             <a href={URLS.signup} className="btn btn-primary btn-lg">
@@ -42,7 +43,7 @@ export default function ForCoaches() {
               <div className="coaches-step-body">
                 <h3>Film</h3>
                 <p>
-                  Use whatever you already have&nbsp;- phone, GoPro, tripod.
+                  Phone, GoPro, tripod — whatever you already use on the mat.
                   Upload any common format.
                 </p>
               </div>
@@ -50,10 +51,11 @@ export default function ForCoaches() {
             <li className="coaches-step">
               <span className="coaches-step-number">2</span>
               <div className="coaches-step-body">
-                <h3>Annotate</h3>
+                <h3>AI flags the moments</h3>
                 <p>
-                  Pin notes to the timeline, dictate them hands-free, or let AI
-                  flag the key moments.
+                  AI analyzes your roll and places timestamped placeholders at
+                  the key moments. You review each one, edit, keep, or delete.
+                  Or dictate your own notes hands-free.
                 </p>
               </div>
             </li>
@@ -62,34 +64,34 @@ export default function ForCoaches() {
               <div className="coaches-step-body">
                 <h3>Share &amp; schedule</h3>
                 <p>
-                  Your client gets a link. They watch in their browser, see your
-                  notes, and can reply. Schedule sessions from the built-in
-                  calendar with availability and booking.
+                  Your student gets a link. They watch in their browser, see
+                  your notes, and can reply. Schedule privates from the
+                  built-in calendar with availability and booking.
                 </p>
               </div>
             </li>
           </ol>
 
-          {/* ── Coaching styles ── */}
+          {/* ── Built for BJJ ── */}
           <h2 className="coaches-section-heading">
-            Works for any coaching style
+            Built for BJJ &amp; MMA
           </h2>
           <div className="coaches-disciplines">
             <div className="coaches-discipline-card">
-              <h3>Fitness</h3>
-              <p>Form checks, session recaps, technique corrections</p>
+              <h3>Sparring &amp; rolls</h3>
+              <p>AI-assisted breakdown of every roll - sweeps, submissions, scrambles</p>
             </div>
             <div className="coaches-discipline-card">
-              <h3>Martial arts</h3>
-              <p>Sparring breakdowns, drill review, competition prep</p>
+              <h3>Competition prep</h3>
+              <p>Match review, opponent study, comp footage libraries</p>
             </div>
             <div className="coaches-discipline-card">
-              <h3>Music</h3>
-              <p>Lesson recordings, bar-level feedback, recital review</p>
+              <h3>Private lessons</h3>
+              <p>Per-student libraries, built-in scheduling and booking</p>
             </div>
             <div className="coaches-discipline-card">
-              <h3>Movement &amp; technique</h3>
-              <p>Dance, golf, swim&nbsp;- anywhere form matters</p>
+              <h3>Remote coaching</h3>
+              <p>Students film at their gym, upload for async review</p>
             </div>
           </div>
 

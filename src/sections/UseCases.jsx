@@ -1,72 +1,68 @@
 import { useState, useRef, useCallback } from "react";
-import { Dumbbell, Swords, Music, Crosshair, Globe } from "lucide-react";
+import { Swords, Trophy, UserCheck, Globe } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 
 const cases = [
   {
-    id: "fitness",
-    icon: Dumbbell,
-    label: "Fitness",
-    title: "Personal trainers & strength coaches",
-    description:
-      "Record form checks, upload session recaps, and leave timestamped cues your clients can replay before their next workout. No more texting video links that get buried.",
-    examples: [
-      "Film a set, pin a note at the exact rep where form breaks",
-      "Share mobility drills as a class so everyone can access them",
-      "Track which clients are actually watching their sessions",
-      "AI flags reps where form breaks down - jump straight to the moments that matter",
-      "Pose overlay shows body alignment frame by frame for technique correction",
-    ],
-  },
-  {
-    id: "martial-arts",
+    id: "sparring",
     icon: Swords,
-    label: "Martial Arts",
-    title: "BJJ, boxing & MMA coaches",
+    label: "Sparring & Rolls",
+    title: "Daily sparring review",
     description:
-      "Break down sparring rounds, highlight technique details, and give each student a private library of their own footage. Students rewatch between classes and show up sharper.",
+      "Film every roll. Upload after class. AI flags the key moments. Send each student their own session with timestamped coaching notes. They come back sharper because they actually review.",
     examples: [
-      "Annotate a roll at the exact moment a sweep opens up",
-      "Post comp footage as a shared class for the whole gym",
-      "Private session reviews that only the student can see",
-      "Dictate corrections hands-free while demonstrating the fix",
-      "AI highlights the key scrambles from a 60-minute class so you skip the dead time",
+      "Film a 6-minute roll, AI places 3 placeholders at the sweeps and scrambles worth discussing",
+      "Pin a note at the exact moment their guard gets passed",
+      "Dictate corrections hands-free while watching - no typing interrupts the flow",
+      "Track who's watching their sessions and who's not",
     ],
   },
   {
-    id: "technique",
-    icon: Crosshair,
-    label: "Technique",
-    title: "Dance, golf, swim & movement coaches",
+    id: "competition",
+    icon: Trophy,
+    label: "Competition Prep",
+    title: "Comp footage & prep",
     description:
-      "Any discipline where seeing yourself matters. Upload video, mark the key moments, and give clients a clear path from where they are to where they want to be.",
+      "Break down matches. Post comp footage as shared classes for the whole academy. Build private libraries of your students' competition runs so you can see patterns match over match.",
     examples: [
-      "Compare this week's swing to last month's - track what changed in the notes",
-      "Tag sessions by skill level so students find what they need",
-      "Track progress over weeks with a timeline of session notes",
-      "Draw directly on video frames to highlight alignment or angle issues",
-      "Pose overlay shows skeletal alignment frame by frame for form analysis",
+      "Post comp footage as a shared class for the whole gym to study",
+      "Private match review - what worked, what didn't, what to drill this week",
+      "Tag sessions by opponent, division, or tournament",
+      "Review technique trends across 5+ matches to spot what needs work",
     ],
   },
   {
-    id: "online",
+    id: "privates",
+    icon: UserCheck,
+    label: "Private Lessons",
+    title: "Private lesson libraries",
+    description:
+      "Each private student gets their own library of their sessions. They rewatch between privates. You see what they've watched. Built-in scheduling handles the booking.",
+    examples: [
+      "Record a technique detail once, student replays it 20 times before the next private",
+      "Schedule private lessons with built-in availability and booking",
+      "Students request new privates through the booking flow - you approve or decline",
+      "Track which techniques each student has covered over months",
+    ],
+  },
+  {
+    id: "remote",
     icon: Globe,
-    label: "Online",
-    title: "Remote & async coaches",
+    label: "Online / Remote",
+    title: "Remote & async BJJ coaching",
     description:
-      "Your clients film at their gym, home, or studio and upload for review. You watch on your schedule, leave timestamped notes, and they review when it works for them. No shared timezone required.",
+      "Your students film at their home gym or academy and upload for review. You watch on your schedule, leave timestamped notes, and they review when they can. No shared timezone required.",
     examples: [
-      "Client uploads a training video from their home gym - you review overnight",
-      "Timestamped notes replace Loom recordings and Google Doc feedback",
-      "AI flags the key moments across 8 client videos so you focus on what matters",
-      "Voice-dictate corrections while watching - faster than typing for every client",
+      "Student uploads a roll from their home gym - you review overnight",
+      "Timestamped notes replace long voice memos and Google Doc breakdowns",
+      "AI flags the key moments across 8 student videos so you focus on what matters",
       "Replaces Drive + Loom + Trello at a fraction of the cost",
     ],
   },
 ];
 
 export default function UseCases() {
-  const [active, setActive] = useState("fitness");
+  const [active, setActive] = useState("sparring");
   const headerRef = useScrollReveal();
   const contentRef = useScrollReveal();
   const tabRefs = useRef({});
@@ -109,9 +105,9 @@ export default function UseCases() {
       <div className="container">
         <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Use Cases</span>
-          <h2 className="section-title">Built for how you coach</h2>
+          <h2 className="section-title">Built for how BJJ coaches actually teach</h2>
           <p className="section-subtitle">
-            Pick your coaching style. The tools are the same - the examples change.
+            Pick your workflow. The tools are the same - the examples change.
           </p>
         </div>
 

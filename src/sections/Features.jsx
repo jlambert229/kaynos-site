@@ -21,31 +21,31 @@ const features = [
     icon: MessageSquareQuote,
     title: "Leave notes at the exact right moment",
     description:
-      "Pin a note to 0:34 where their elbow drops, or 2:15 where the tempo drifts. Clients see your notes synced to the video and can add their own.",
+      "Pin a note at 1:42 where the sweep opens up, or 3:15 where they forced the guard pass. Students see your notes synced to the video and can reply with questions.",
   },
   {
     icon: UserRoundCheck,
-    title: "Private sessions and shared classes",
+    title: "Private rolls and shared classes",
     description:
-      "One-on-one reviews stay between you and your client. Shared classes go to the whole group. Everyone sees exactly what's meant for them.",
+      "One-on-one session reviews stay between you and your student. Competition footage and drill demos go to the whole academy. Everyone sees exactly what's meant for them.",
   },
   {
     icon: ShieldCheck,
     title: "Your footage stays private",
     description:
-      "Videos are never public. Each account is isolated. No one sees your clients' footage except you and them. For coaches working with minors, there are no social features, no public profiles, and no way for anyone outside the account to discover content.",
+      "Videos are never public. Each academy is isolated. No one sees your students' footage except you and them. For coaches running kids programs, there are no social features, no public profiles, and no way for anyone outside the academy to find content.",
   },
   {
     icon: AudioLines,
     title: "Dictate notes hands-free",
     description:
-      "Tap the mic button while watching video. Speak your feedback and it becomes a timestamped note - transcribed in real time. Edit it, save it, move to the next moment.",
+      "Tap the mic button while watching the video. Speak your feedback and it becomes a timestamped note - transcribed in real time. Edit it, save it, move to the next roll.",
   },
   {
     icon: Sparkles,
-    title: "AI spots what you might miss",
+    title: "AI flags the moments worth reviewing",
     description:
-      "One click and AI analyzes your video, flagging the most important moments (typically 2-4, depending on video length) worth reviewing. A starting point, not a replacement - jump to the key timestamps instead of scrubbing through an hour of footage. You can also toggle a pose skeleton overlay to analyze body position frame by frame.",
+      "AI analyzes your sparring footage and places timestamped placeholders at the key moments - sweeps, submissions, scrambles, positional changes. Typically 2-4 per roll. You review each one, keep it, edit it, or delete it. Skip scrubbing through an hour of mat time.",
   },
 ];
 

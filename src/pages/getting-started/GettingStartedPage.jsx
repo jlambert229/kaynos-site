@@ -30,7 +30,7 @@ export default function GettingStartedPage() {
           </li>
           <li>
             <strong>Mark the teaching moment.</strong> Scrub to a timestamp and add a short coach
-            note so your client sees it in context.
+            note so your student sees it in context.
           </li>
           <li>
             <strong>Invite someone.</strong> From the Admin panel, send an invite so they can log

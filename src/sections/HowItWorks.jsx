@@ -12,10 +12,10 @@ export default function HowItWorks() {
           <h2 className="section-title">How it works</h2>
           <div className="prose-steps">
             <p>
-              <strong>Film your session</strong> - or have your client film
-              theirs. Your phone is all you need - film between sessions and
+              <strong>Film your session</strong> - or have your student film
+              theirs. Your phone is all you need - film between classes and
               upload right there. GoPro, tripod, or any camera works too.
-              Same workflow whether you're in the room or reviewing remotely.
+              Same workflow whether you're in the academy or reviewing remotely.
             </p>
             <p>
               <strong>Upload and add notes.</strong> Drop the video into Kaynos
@@ -23,7 +23,7 @@ export default function HowItWorks() {
               makes sense for your practice.
             </p>
             <p>
-              <strong>Send your client a link.</strong> They watch their footage,
+              <strong>Send your student a link.</strong> They watch their footage,
               see your notes synced to the timeline, and can leave questions
               or observations of their own.
             </p>

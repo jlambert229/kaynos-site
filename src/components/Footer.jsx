@@ -80,7 +80,7 @@ export default function Footer() {
               <span>kaynos</span>
             </div>
             <p className="footer-tagline">
-              Keep your clients improving between sessions.
+              Video review for BJJ coaches.
             </p>
           </div>
 

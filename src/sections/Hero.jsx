@@ -14,12 +14,13 @@ export default function Hero() {
             <KaynosLogo size="hero" />
           </div>
           <h1 className="hero-title">
-            Stop losing your best coaching moments.
+            Video review for BJJ coaches.
           </h1>
           <p className="hero-description">
-            Upload training videos. Dictate notes at exact moments - or let AI
-            flag the key timestamps for you. Share privately with your clients so
-            they can review between sessions.
+            Upload sparring rolls and class footage. AI flags the sweeps,
+            submissions, and scrambles worth reviewing — so you stop scrubbing
+            through an hour of mat time. Share privately with your students so
+            they come back sharper.
           </p>
           <div className="hero-cta-row">
             <CtaButton>Start 14-Day Trial</CtaButton>

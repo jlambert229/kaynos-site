@@ -1,95 +1,89 @@
-import { FMT, FREE_SEATS, SEAT_PRICE, COACH_MONTHLY_PRICE, calcMonthlyCost } from "../config/pricing";
+import { FMT, COACH_MONTHLY_PRICE } from "../config/pricing";
 import { URLS } from "../config/urls";
 
 export const faqs = [
   {
     question: "How does pricing work?",
-    answer: `Coaches pay ${FMT.coachMonthlySlash}. The first ${FREE_SEATS} client seats are included. Each additional active client seat is ${FMT.seatPriceSlash}. Your bill adjusts monthly based on how many clients are active. For example, 10 clients costs $${calcMonthlyCost(10)}/mo (${FMT.coachMonthly} base + ${10 - FREE_SEATS} extra seats at ${FMT.seatPrice} each).`,
+    answer: `${FMT.coachMonthlySlash} flat. All features included. Unlimited student accounts — no per-seat math, no tiers. Your bill is the same whether you coach 5 students or 500. Cancel anytime.`,
     linkText: "See pricing",
     linkHref: "#pricing",
   },
   {
-    question: "What do clients pay?",
-    answer: "Nothing. Clients access Kaynos for free. The coach is the only one who pays. Clients sign up through a link you send them and get full access to their sessions, classes, and notes at no cost.",
+    question: "What do students pay?",
+    answer: "Nothing. Students access Kaynos for free. The coach is the only one who pays. Students sign up through a link you send them and get full access to their sessions, classes, and notes at no cost.",
     linkText: "See pricing details",
     linkHref: "#pricing",
   },
   {
-    question: "What counts as an active seat?",
-    answer: `An active seat is a client who has logged in or accessed content during the current billing period. If a client is inactive for a full billing cycle, they don't count toward your seat total. Your first ${FREE_SEATS} active seats are always included in the ${FMT.coachMonthlySlash} base price.`,
-    linkText: "See pricing",
-    linkHref: "#pricing",
-  },
-  {
-    question: "What types of coaching does this work for?",
-    answer: "Any coaching where reviewing movement on video helps. Personal training, martial arts, dance, golf, swim, gymnastics — any discipline where seeing yourself matters. The AI features (video analysis, pose overlay) are strongest for sports and movement coaching.",
+    question: "Who is Kaynos built for?",
+    answer: "BJJ and MMA coaches. The AI is tuned for grappling — it recognizes sweeps, submissions, scrambles, and positional changes. Other grappling disciplines (judo, wrestling, submission grappling) work well too. If you teach striking, dance, or a non-grappling sport, the core workflow works but you'll get less out of the AI.",
     linkText: "See use cases",
     linkHref: "#use-cases",
   },
   {
-    question: "Do my clients need to download an app?",
-    answer: "No. Everything runs in the browser. Clients just log in from their phone or computer using the link you send them.",
-    linkText: "Try the client demo",
+    question: "Do my students need to download an app?",
+    answer: "No. Everything runs in the browser. Students just log in from their phone or computer using the link you send them.",
+    linkText: "Try the student demo",
     linkHref: URLS.demoStudent,
     external: true,
   },
   {
-    question: "Can clients see each other's private sessions?",
-    answer: "No. Private sessions are only visible to the assigned client, the coach, and admins. Classes are visible to everyone in your account, great for group content and shared recordings.",
+    question: "Can students see each other's private sessions?",
+    answer: "No. Private sessions are only visible to the assigned student, the coach, and admins. Classes are visible to everyone in your academy — great for competition footage, drill demos, and shared recordings.",
   },
   {
     question: "What happens after the trial?",
-    answer: `Your coach plan continues at ${FMT.coachMonthlySlash}. The first ${FREE_SEATS} client seats stay included. Any additional active seats are billed at ${FMT.seatPriceSlash} each. Cancel anytime. No contracts, no cancellation fees.`,
+    answer: `Your plan continues at ${FMT.coachMonthlySlash}. Cancel anytime. No contracts, no cancellation fees.`,
     linkText: "Start 14-Day Trial",
     linkHref: URLS.signup,
     external: true,
   },
   {
     question: "What video formats work?",
-    answer: "MP4, MOV, WebM, and MKV. Files up to 5 GB. You can also link Vimeo videos if you already host there.",
+    answer: "MP4, MOV, WebM, and MKV. Files up to 5 GB. Phone footage, GoPro files, camera files — they all work.",
     linkText: "Try the coach demo",
     linkHref: URLS.demoCoach,
     external: true,
   },
   {
     question: "Can I use Kaynos from my phone?",
-    answer: "Yes. Upload videos, add notes, and manage clients right from your phone's browser. No app to install. Most coaches film on their phone and upload directly - the whole workflow works without a laptop.",
+    answer: "Yes. Upload videos, add notes, and manage students right from your phone's browser. No app to install. Most coaches film on their phone and upload directly after class.",
   },
   {
-    question: "Can my clients upload videos too?",
-    answer: "Yes. Coaches and clients can both upload. This is how remote coaching works - your client films at their gym, uploads it, and you review on your schedule with timestamped notes.",
+    question: "Can my students upload videos too?",
+    answer: "Yes. Coaches and students can both upload. Useful for remote coaching — a student films a roll at their home gym, uploads it, and you review on your schedule.",
   },
   {
     question: "What does the AI video review do?",
-    answer: "You click one button and AI analyzes your video, flagging the most important moments (typically 2-4, depending on video length) worth reviewing with your client. It gives you timestamped starting points so you don't have to scrub through the whole recording. You decide what to keep, edit, or delete.",
+    answer: "You upload a sparring video. AI analyzes it and places timestamped placeholders at the moments worth reviewing — typically 2-4 per roll, depending on length. You review each placeholder, edit, delete, or turn it into a note for your student. It's a starting point, not a replacement.",
   },
   {
     question: "How long are videos stored?",
     answer: "Videos are retained for at least 6 months. As older videos age past the retention window, they cycle out to free up storage. Active accounts keep recent content indefinitely. If your account is canceled, videos are kept for 30 days before deletion.",
   },
   {
-    question: "Is my data safe? What about videos of minors?",
-    answer: "Each account is fully isolated. Students only see their own sessions. There are no social features, no public profiles, and no way for anyone outside the account to discover content. Videos are encrypted in transit and at rest.",
+    question: "Is my data safe? What about videos of kids?",
+    answer: "Each academy is fully isolated. Students only see their own sessions. There are no social features, no public profiles, and no way for anyone outside the academy to discover content. Videos are encrypted in transit and at rest. For coaches running kids programs, this is the point — no way for strangers to find your footage.",
     linkText: "See security details",
     linkHref: "/security",
   },
   {
     question: "Can I have multiple coaches on one account?",
-    answer: `Each coach gets their own Kaynos account at ${FMT.coachMonthlySlash}. If you run a multi-coach gym, each coach manages their own roster independently. At 51+ active clients, you unlock invoicing, dedicated support, and SLA-backed uptime.`,
+    answer: `Each coach gets their own Kaynos account at ${FMT.coachMonthlySlash}. If you run a multi-coach academy, each coach manages their own roster. For larger schools (50+ active students across multiple coaches), contact us about team pricing.`,
     linkText: "Contact us about teams",
     linkHref: URLS.support,
   },
   {
     question: "Can I organize sessions by topic or technique?",
-    answer: "Yes. Tag sessions with any label - guard, takedowns, recital prep, whatever fits. Use the search palette (Cmd+K or Ctrl+K) to find sessions, clients, or notes across your whole account.",
+    answer: "Yes. Tag sessions with anything — guard, takedowns, passing, comp prep. Use the search palette (Cmd+K or Ctrl+K) to find sessions, students, or notes across your whole academy.",
   },
   {
     question: "Can I see usage reports?",
-    answer: "Yes. The admin panel shows member counts, session stats, storage usage, and expiring videos. Export your roster as CSV or download a full data export as JSON. Optional weekly or monthly email reports.",
+    answer: "Yes. The admin panel shows student counts, session stats, storage usage, and expiring videos. Export your roster as CSV or download a full data export as JSON. Optional weekly or monthly email reports.",
   },
   {
     question: "Does Kaynos have scheduling?",
-    answer: "Yes. Kaynos has a built-in calendar with session scheduling, conflict checks, ICS export, and email reminders. Instructors set their weekly availability, add one-off exceptions, and clients can request private lessons through a booking flow with approval.",
+    answer: "Yes. Built-in calendar with session scheduling, conflict checks, ICS export, and email reminders. Instructors set their weekly availability, add one-off exceptions, and students can request private lessons through a booking flow with approval.",
     linkText: "See what we've shipped",
     linkHref: "/changelog",
   },
