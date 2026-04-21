@@ -17,10 +17,9 @@ export default function Hero() {
             Video review for BJJ coaches.
           </h1>
           <p className="hero-description">
-            Upload sparring rolls and class footage. AI flags the sweeps,
-            submissions, and scrambles worth reviewing — so you stop scrubbing
-            through an hour of mat time. Share privately with your students so
-            they come back sharper.
+            Upload sparring rolls and class footage. AI flags moments worth
+            reviewing so you stop scrubbing through every minute of mat time.
+            Share privately with your students.
           </p>
           <div className="hero-cta-row">
             <CtaButton>Start 14-Day Trial</CtaButton>

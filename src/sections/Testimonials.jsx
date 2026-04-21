@@ -12,13 +12,12 @@ export default function Testimonials() {
 
           <div className="early-access-body">
             <p>
-              Kaynos is new. I ship features weekly and every early
-              user has a direct line to me. If something&rsquo;s missing,
-              I want to hear about it before you work around it.
+              Kaynos is new. No existing users yet — if you sign up,
+              you&rsquo;re among the first. You get a direct line to me for
+              feedback, feature requests, and bug reports.
             </p>
             <p>
-              Try the demo with real sample data — no signup
-              needed.{" "}
+              Try the demo with sample data — no signup needed.{" "}
               <a
                 href={URLS.demoCoach}
                 target="_blank"
@@ -29,7 +28,7 @@ export default function Testimonials() {
               </a>
             </p>
             <p>
-              Or see what&rsquo;s shipped recently.{" "}
+              Or see what&rsquo;s shipped so far.{" "}
               <Link to="/changelog" className="early-access-link">
                 Changelog <ArrowRight size={14} />
               </Link>

@@ -35,10 +35,10 @@ export default function About() {
           <section className="about-section">
             <h2>The product</h2>
             <p className="about-text">
-              Upload sparring and class footage. AI flags the moments worth
-              reviewing — sweeps, submissions, scrambles. Pin timestamped notes
-              at the exact moments that matter and share privately with your
-              students so they can review between classes.
+              Upload sparring and class footage. AI places timestamped
+              placeholders at moments worth reviewing. Pin your own notes
+              at the exact moments that matter and share privately with
+              your students so they can review between classes.
             </p>
           </section>
 

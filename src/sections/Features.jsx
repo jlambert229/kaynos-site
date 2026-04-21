@@ -45,7 +45,7 @@ const features = [
     icon: Sparkles,
     title: "AI flags the moments worth reviewing",
     description:
-      "AI analyzes your sparring footage and places timestamped placeholders at the key moments - sweeps, submissions, scrambles, positional changes. Typically 2-4 per roll. You review each one, keep it, edit it, or delete it. Skip scrubbing through an hour of mat time.",
+      "AI analyzes your sparring footage and places timestamped placeholders at moments worth a closer look. You review each one, keep it, edit it, or delete it. Skip scrubbing through every minute of mat time.",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function Features() {
         <div ref={headerRef} className="reveal section-header">
           <h2 className="section-title">What you get</h2>
           <p className="section-subtitle">
-            Upload video, leave timestamped notes, share with clients. Here's what that means day to day.
+            Upload video, leave timestamped notes, share with your students. Here's what that means day to day.
           </p>
         </div>
 

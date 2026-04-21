@@ -18,9 +18,9 @@ export const comparisonColumns = [
 
 export const comparisonFeatures = [
   {
-    name: "Built for BJJ & MMA",
-    detail: "AI tuned for grappling; examples, language, and workflow match how coaches actually teach",
-    kaynos: true, coachnow: "partial", onform: "partial", diy: false,
+    name: "BJJ-tuned AI prompt",
+    detail: "Default AI analysis is written for jiu jitsu rather than generic coaching",
+    kaynos: true, coachnow: false, onform: false, diy: false,
   },
   {
     name: "Works in the browser",
@@ -48,8 +48,8 @@ export const comparisonFeatures = [
     kaynos: true, coachnow: false, onform: false, diy: true,
   },
   {
-    name: "Unlimited students included",
-    detail: "Scale from 5 to 500 without pricing changes",
+    name: "No per-seat billing",
+    detail: "Your price is the same as you add more student accounts",
     kaynos: true, coachnow: false, onform: false, diy: false,
   },
   {

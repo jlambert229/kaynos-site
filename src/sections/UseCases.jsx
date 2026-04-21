@@ -9,12 +9,12 @@ const cases = [
     label: "Sparring & Rolls",
     title: "Daily sparring review",
     description:
-      "Film every roll. Upload after class. AI flags the key moments. Send each student their own session with timestamped coaching notes. They come back sharper because they actually review.",
+      "Film rolls, upload after class, add timestamped notes. AI places placeholders at moments worth reviewing. Send each student their own session so they can review between classes.",
     examples: [
-      "Film a 6-minute roll, AI places 3 placeholders at the sweeps and scrambles worth discussing",
+      "Upload a roll, AI places placeholders at moments worth discussing",
       "Pin a note at the exact moment their guard gets passed",
-      "Dictate corrections hands-free while watching - no typing interrupts the flow",
-      "Track who's watching their sessions and who's not",
+      "Dictate corrections hands-free while watching — no typing interrupts the flow",
+      "Track who has watched their sessions and who hasn't",
     ],
   },
   {
@@ -23,12 +23,12 @@ const cases = [
     label: "Competition Prep",
     title: "Comp footage & prep",
     description:
-      "Break down matches. Post comp footage as shared classes for the whole academy. Build private libraries of your students' competition runs so you can see patterns match over match.",
+      "Break down matches. Post comp footage as shared classes for the whole academy. Build per-student session libraries tagged by opponent or tournament.",
     examples: [
       "Post comp footage as a shared class for the whole gym to study",
-      "Private match review - what worked, what didn't, what to drill this week",
-      "Tag sessions by opponent, division, or tournament",
-      "Review technique trends across 5+ matches to spot what needs work",
+      "Private match review — add timestamped notes on what worked and what didn't",
+      "Tag sessions by opponent, division, or tournament for easy lookup",
+      "Each student gets a private library of their matches over time",
     ],
   },
   {
@@ -37,12 +37,12 @@ const cases = [
     label: "Private Lessons",
     title: "Private lesson libraries",
     description:
-      "Each private student gets their own library of their sessions. They rewatch between privates. You see what they've watched. Built-in scheduling handles the booking.",
+      "Each private student gets their own library of their sessions. They rewatch between privates. You track who has viewed what. Built-in scheduling handles the booking.",
     examples: [
-      "Record a technique detail once, student replays it 20 times before the next private",
+      "Record a technique detail once, your student can replay it as many times as they want",
       "Schedule private lessons with built-in availability and booking",
-      "Students request new privates through the booking flow - you approve or decline",
-      "Track which techniques each student has covered over months",
+      "Students request new privates through the booking flow — you approve or decline",
+      "Tag sessions by technique so students find prior lessons quickly",
     ],
   },
   {
@@ -53,10 +53,10 @@ const cases = [
     description:
       "Your students film at their home gym or academy and upload for review. You watch on your schedule, leave timestamped notes, and they review when they can. No shared timezone required.",
     examples: [
-      "Student uploads a roll from their home gym - you review overnight",
+      "Student uploads a roll from their home gym — you review on your schedule",
       "Timestamped notes replace long voice memos and Google Doc breakdowns",
-      "AI flags the key moments across 8 student videos so you focus on what matters",
-      "Replaces Drive + Loom + Trello at a fraction of the cost",
+      "AI places placeholders across student videos so you focus on what matters",
+      "Replaces Drive + Loom + Trello for your remote coaching workflow",
     ],
   },
 ];

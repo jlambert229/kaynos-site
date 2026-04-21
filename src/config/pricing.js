@@ -34,7 +34,7 @@ export const FMT = {
 export const COACH_FEATURES = [
   "All features included",
   "Unlimited student accounts",
-  "AI sparring breakdown",
+  "AI video analysis",
   "Voice-to-note dictation",
   "Timestamped coach notes",
   "Private sessions & group classes",
@@ -54,7 +54,7 @@ export const PRICING_COPY = {
   subtitle: `${FMT.coachMonthlySlash}. No per-seat math. No tiers. Your students access everything for free.`,
   ctaLine: `${FMT.coachMonthlySlash}. Unlimited students. ${TRIAL_DAYS}-day trial.`,
   trialNote: `${TRIAL_DAYS}-day trial. Card on file.`,
-  seoDescription: `Video review for BJJ coaches. ${FMT.coachMonthlySlash} flat, unlimited students. AI flags the sweeps, submissions, and scrambles worth reviewing.`,
-  jsonLdProductDesc: `Private video review platform built for BJJ and MMA coaches. ${FMT.coachMonthlySlash} flat. Unlimited students. AI flags the moments in sparring footage worth reviewing.`,
+  seoDescription: `Video review for BJJ coaches. ${FMT.coachMonthlySlash} flat, unlimited student accounts. AI flags moments in your sparring footage worth reviewing.`,
+  jsonLdProductDesc: `Private video review platform built for BJJ and MMA coaches. ${FMT.coachMonthlySlash} flat. Unlimited student accounts. AI flags moments in sparring footage worth reviewing.`,
   jsonLdOfferDesc: `Coach plan. All features included. Unlimited students. ${TRIAL_DAYS}-day trial, card on file.`,
 };

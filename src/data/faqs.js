@@ -4,7 +4,7 @@ import { URLS } from "../config/urls";
 export const faqs = [
   {
     question: "How does pricing work?",
-    answer: `${FMT.coachMonthlySlash} flat. All features included. Unlimited student accounts — no per-seat math, no tiers. Your bill is the same whether you coach 5 students or 500. Cancel anytime.`,
+    answer: `${FMT.coachMonthlySlash} flat. All features included. No per-seat billing — your price doesn't change as you add more student accounts. Video upload and storage limits apply to the plan. Cancel anytime.`,
     linkText: "See pricing",
     linkHref: "#pricing",
   },
@@ -16,7 +16,7 @@ export const faqs = [
   },
   {
     question: "Who is Kaynos built for?",
-    answer: "BJJ and MMA coaches. The AI is tuned for grappling — it recognizes sweeps, submissions, scrambles, and positional changes. Other grappling disciplines (judo, wrestling, submission grappling) work well too. If you teach striking, dance, or a non-grappling sport, the core workflow works but you'll get less out of the AI.",
+    answer: "BJJ and MMA coaches. The AI analysis uses a default prompt written for jiu jitsu, so it gives more useful output on grappling footage than on other sports. Other grappling disciplines (judo, wrestling, submission grappling) work well too. If you teach striking or a non-grappling sport, the core workflow (upload, timestamped notes, share) still works, but the AI will be less tailored to what you're looking at.",
     linkText: "See use cases",
     linkHref: "#use-cases",
   },
@@ -55,7 +55,7 @@ export const faqs = [
   },
   {
     question: "What does the AI video review do?",
-    answer: "You upload a sparring video. AI analyzes it and places timestamped placeholders at the moments worth reviewing — typically 2-4 per roll, depending on length. You review each placeholder, edit, delete, or turn it into a note for your student. It's a starting point, not a replacement.",
+    answer: "You upload a video. AI analyzes it and places timestamped placeholders at moments worth reviewing. You review each placeholder, edit, delete, or turn it into a note for your student. It's a starting point, not a replacement — you're still the coach.",
   },
   {
     question: "How long are videos stored?",

@@ -22,9 +22,9 @@ export default function ForCoaches() {
             Video review that your students actually watch.
           </h1>
           <p className="coaches-lead">
-            Whether you coach 5 students or 500 — upload sparring footage,
-            let AI flag the moments worth reviewing, and share privately.
-            Your students review on any device&nbsp;- no app required.
+            Upload sparring footage, let AI flag moments worth reviewing,
+            and share privately. Your students review on any device&nbsp;-
+            no app required.
           </p>
           <div className="coaches-cta">
             <a href={URLS.signup} className="btn btn-primary btn-lg">
@@ -51,11 +51,11 @@ export default function ForCoaches() {
             <li className="coaches-step">
               <span className="coaches-step-number">2</span>
               <div className="coaches-step-body">
-                <h3>AI flags the moments</h3>
+                <h3>AI flags moments to review</h3>
                 <p>
                   AI analyzes your roll and places timestamped placeholders at
-                  the key moments. You review each one, edit, keep, or delete.
-                  Or dictate your own notes hands-free.
+                  moments worth a closer look. You review each one, edit, keep,
+                  or delete. Or dictate your own notes hands-free.
                 </p>
               </div>
             </li>
@@ -79,11 +79,11 @@ export default function ForCoaches() {
           <div className="coaches-disciplines">
             <div className="coaches-discipline-card">
               <h3>Sparring &amp; rolls</h3>
-              <p>AI-assisted breakdown of every roll - sweeps, submissions, scrambles</p>
+              <p>AI-assisted review of rolls and positional sparring</p>
             </div>
             <div className="coaches-discipline-card">
               <h3>Competition prep</h3>
-              <p>Match review, opponent study, comp footage libraries</p>
+              <p>Match review and comp footage libraries</p>
             </div>
             <div className="coaches-discipline-card">
               <h3>Private lessons</h3>
