@@ -67,7 +67,7 @@ export default function CoachPreview() {
           <div className="cp-header">
             <div>
               <div className="cp-greeting">Good morning, Professor Marco</div>
-              <div className="cp-date">Safety Harbor Jiu-Jitsu</div>
+              <div className="cp-date">FL Jitsu Academy</div>
             </div>
           </div>
 
