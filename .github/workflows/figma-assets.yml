@@ -1,0 +1,39 @@
+name: Figma assets
+
+on:
+  workflow_dispatch:
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Export from Figma
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_FILE_KEY: ${{ secrets.FIGMA_FILE_KEY }}
+        run: npm run figma:export
+
+      - name: Verify build
+        run: npm run build
+
+      - name: Create PR if changes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: refresh Figma exports"
+          title: "chore: refresh Figma exports"
+          body: |
+            Automated export from Figma (`npm run figma:export`).
+
+            **Secrets used:** `FIGMA_TOKEN`, `FIGMA_FILE_KEY`
+          branch: chore/figma-assets-export
+          delete-branch: true

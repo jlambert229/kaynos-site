@@ -9,3 +9,5 @@ tests/e2e/results
 tests/e2e/report
 test-results
 playwright-report
+.swarm/
+deno.lock
