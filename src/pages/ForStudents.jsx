@@ -9,7 +9,7 @@ export default function ForStudents() {
     <>
       <Seo
         title="For Students"
-        description="Your coach sent you a session on Kaynos. Here's how it works - watch video, see notes, and reply. Free, no app needed."
+        description="Your coach sent you a session on Kaynos. Here's what to expect — watch the video, read your coach's notes, reply on any moment. Free, no app needed."
         path="/for/students"
         jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Kaynos for Students", url: "https://www.kaynos.net/for/students" }}
       />
@@ -19,11 +19,11 @@ export default function ForStudents() {
           <span className="section-label">For Students</span>
           <h1 className="students-title">Your coach sent you a session.</h1>
           <p className="students-lead">
-            Here's how it works - it takes about 30 seconds.
+            Here's what that means — it takes about 30 seconds to read.
           </p>
           <p className="students-parent-note">
-            Parents: your child's coach invited them to review their session.
-            Here's what that means.
+            Parents: your child's coach invited them to review their own
+            training footage. Here's what's on the other end of the link.
           </p>
 
           <ol className="students-steps">
@@ -64,30 +64,30 @@ export default function ForStudents() {
             <div className="students-message-card">
               <h3>It's free for you</h3>
               <p>
-                Your coach pays for Kaynos. Students and clients always use it
-                free.
+                Your coach pays for Kaynos. Students don't, always.
               </p>
             </div>
             <div className="students-message-card">
-              <h3>No app needed</h3>
+              <h3>No app to install</h3>
               <p>
-                Works in any browser on any device. Nothing to download.
+                It runs in the browser on any device. Nothing to download.
               </p>
             </div>
             <div className="students-message-card">
               <h3>Your footage is private</h3>
               <p>
-                You only see your own sessions. Nobody else can see your videos
-                or notes.
+                You only see the sessions your coach shares with you. Your
+                videos and your notes aren't visible to other students.
               </p>
             </div>
             <div className="students-message-card">
               <h3>Safe for kids</h3>
               <p>
-                Videos are private - only your coach and you can see your
-                sessions. There are no social features, no public profiles, and
-                no way for strangers to find your content. If you're a parent,
-                your child's footage stays between them and their coach.
+                Only your coach and you can see sessions they've shared
+                with you. There are no social features, no public
+                profiles, and no way for someone outside your gym to find
+                the footage. For parents: video of your child stays
+                between them and the coach.
               </p>
             </div>
           </div>

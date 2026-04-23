@@ -32,15 +32,16 @@ export default function Newsletter() {
           <div className="newsletter-icon">
             <Inbox size={24} />
           </div>
-          <h3 className="newsletter-title">Stay in the loop</h3>
+          <h3 className="newsletter-title">Occasional updates</h3>
           <p className="newsletter-desc">
-            Product updates and coaching workflow tips - about once a month.
+            About one short email a month: what shipped, what's next, and
+            things I've learned about coaching with video.
           </p>
 
           {status === "success" ? (
             <div className="newsletter-success">
               <CircleCheck size={32} className="newsletter-success-icon" />
-              <p>You're on the list. We email about once a month.</p>
+              <p>You're on the list. Expect about one email a month.</p>
             </div>
           ) : (
             <form

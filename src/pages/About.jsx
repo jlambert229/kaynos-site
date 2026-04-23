@@ -8,53 +8,47 @@ export default function About() {
     <>
       <Seo
         title="About Kaynos"
-        description="Kaynos is a private video review platform for coaches. Built by a coach, for coaches."
+        description="Kaynos is a private video review tool for BJJ coaches, built and run by one. Independent, self-funded, based in the United States."
         path="/about"
         jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "About Kaynos", url: "https://www.kaynos.net/about" }}
       />
       <Navbar />
       <main className="about-main container">
         <div className="about-content">
-          <span className="section-label">Company</span>
-          <h1 className="about-title">About Kaynos</h1>
+          <h1 className="about-title">About</h1>
           <p className="about-lead">
-            Kaynos is a private video review platform for coaches. Built by a
-            coach, for coaches.
+            Kaynos is a private video review tool for BJJ coaches, built
+            by one. It's independent and self-funded — no investors, no
+            growth team, no roadmap written by outsiders.
           </p>
 
           <section className="about-section">
-            <h2>The problem</h2>
+            <h2>How it started</h2>
             <p className="about-text">
-              Coaches lose footage in text threads. Feedback gets disconnected
-              from the video it refers to. Important moments slip away because
-              there is no simple way to pin a note to a specific timestamp and
-              share it privately with a client.
-            </p>
-          </section>
-
-          <section className="about-section">
-            <h2>The product</h2>
-            <p className="about-text">
-              Upload sparring and class footage. AI places timestamped
-              placeholders at moments worth reviewing. Pin your own notes
-              at the exact moments that matter and share privately with
-              your students so they can review between classes.
+              Every coach I train with has at some point filmed a great
+              roll, pointed at the phone, and said "you have to see this
+              sweep." Then the footage ends up in a group chat, buried
+              under other messages, and the moment gets lost. I kept
+              running into it and eventually built what I wanted: a place
+              to upload video, drop timestamped notes, and share specific
+              moments with specific students without any of it being
+              public.
             </p>
           </section>
 
           <section className="about-section">
             <h2>Who's behind it</h2>
             <p className="about-text">
-              One person. Independent and self-funded. I use Kaynos myself —
-              if something's broken or missing, I hear about it fast. Founded
-              in 2026, based in the United States.
+              One person. I use Kaynos for my own training, so when
+              something is broken or missing I usually hear about it the
+              same day. Founded in 2026, based in the United States.
             </p>
           </section>
 
           <section className="about-section">
             <h2>Contact</h2>
             <p className="about-contact">
-              General inquiries:{" "}
+              General:{" "}
               <a href={URLS.support}>support@kaynos.net</a>
             </p>
             <p className="about-contact">

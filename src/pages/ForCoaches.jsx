@@ -9,7 +9,7 @@ export default function ForCoaches() {
     <>
       <Seo
         title="Video Review for BJJ Coaches"
-        description="Upload sparring footage. AI flags the moments worth reviewing. Share privately with your students. $29/mo flat, unlimited students."
+        description="Video review for BJJ coaches. Upload sparring, let AI surface the moments worth reviewing, and send notes to your students. $29/mo flat, students free."
         path="/for/coaches"
         jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Kaynos for BJJ Coaches", url: "https://www.kaynos.net/for/coaches" }}
       />
@@ -19,12 +19,12 @@ export default function ForCoaches() {
           {/* ── Hero ── */}
           <span className="section-label">For Coaches</span>
           <h1 className="coaches-title">
-            Video review that your students actually watch.
+            Video review your students will actually watch.
           </h1>
           <p className="coaches-lead">
-            Upload sparring footage, let AI flag moments worth reviewing,
-            and share privately. Your students review on any device&nbsp;-
-            no app required.
+            Upload your sparring footage and let AI do a first pass on
+            what's worth reviewing. Send the result to the student. They
+            watch in a browser on any device — nothing to install.
           </p>
           <div className="coaches-cta">
             <a href={URLS.signup} className="btn btn-primary btn-lg">
@@ -43,8 +43,8 @@ export default function ForCoaches() {
               <div className="coaches-step-body">
                 <h3>Film</h3>
                 <p>
-                  Phone, GoPro, tripod — whatever you already use on the mat.
-                  Upload any common format.
+                  Phone, GoPro, or a tripod camera — whatever you already
+                  bring to the mats. MP4, MOV, WebM, and MKV all work.
                 </p>
               </div>
             </li>
@@ -53,9 +53,11 @@ export default function ForCoaches() {
               <div className="coaches-step-body">
                 <h3>AI flags moments to review</h3>
                 <p>
-                  AI analyzes your roll and places timestamped placeholders at
-                  moments worth a closer look. You review each one, edit, keep,
-                  or delete. Or dictate your own notes hands-free.
+                  AI scans the roll and drops timestamped placeholders on
+                  moments worth a second look. You decide what to keep,
+                  edit, or throw out. Or skip the AI and dictate your own
+                  notes — tap the mic, talk, and it transcribes into the
+                  timeline.
                 </p>
               </div>
             </li>
@@ -64,9 +66,10 @@ export default function ForCoaches() {
               <div className="coaches-step-body">
                 <h3>Share &amp; schedule</h3>
                 <p>
-                  Your student gets a link. They watch in their browser, see
-                  your notes, and can reply. Schedule privates from the
-                  built-in calendar with availability and booking.
+                  Send the student a link. They watch in a browser, see
+                  your notes at the right timestamps, and can reply on
+                  specific moments. Private lessons book through the
+                  built-in calendar.
                 </p>
               </div>
             </li>

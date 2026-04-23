@@ -21,8 +21,8 @@ export default function Comparison() {
           <span className="section-label">Compare</span>
           <h2 className="section-title">How Kaynos stacks up</h2>
           <p className="section-subtitle">
-            Feature-by-feature against CoachNow, OnForm, and the DIY stack
-            most BJJ gyms use today.
+            Side by side against CoachNow, OnForm, and the Google Drive +
+            Vimeo setup a lot of gyms end up cobbling together.
           </p>
         </div>
 
@@ -68,11 +68,12 @@ export default function Comparison() {
         </p>
 
         <div className="cmp-switching">
-          <h3 className="cmp-switching-title">Switching from another platform?</h3>
+          <h3 className="cmp-switching-title">Coming from another platform?</h3>
           <p className="cmp-switching-text">
-            If you're on CoachNow, OnForm, or a DIY stack and thinking about switching,
-            I'll help you set up your account and get your students moved over. Your existing
-            videos can be re-uploaded — I'll walk you through it.
+            If you're on CoachNow, OnForm, or a Drive + Vimeo setup and
+            you're thinking about moving over, send me a note. I'll help
+            you get the account set up, move your roster across, and walk
+            through re-uploading your existing videos.
           </p>
           <a href={URLS.support} className="btn btn-secondary">Talk to me</a>
         </div>

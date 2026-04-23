@@ -15,7 +15,8 @@ export default function Demos() {
           <span className="section-label">Live demos</span>
           <h2 className="section-title">See it for yourself</h2>
           <p className="section-subtitle">
-            No sign-up needed. Click and explore the real app with sample data.
+            Open either demo below. No signup, no email. It's the real app,
+            loaded with sample BJJ data.
           </p>
         </div>
 
@@ -54,7 +55,8 @@ export default function Demos() {
         </div>
 
         <p className="demos-note">
-          Both demos use sample data. You can switch between coach and client views from inside.
+          Both demos run on the same sample data. You can flip between the
+          coach and student views without logging out.
         </p>
       </div>
     </section>

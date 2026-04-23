@@ -17,7 +17,7 @@ export default function Pricing() {
         <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Pricing</span>
           <h2 className="section-title">
-            One plan. One price. No per-seat math.
+            One plan. Your students are free.
           </h2>
           <p className="section-subtitle">
             {PRICING_COPY.subtitle}

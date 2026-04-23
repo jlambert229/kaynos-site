@@ -13,16 +13,16 @@ export default function Story() {
           <div className="prose-body">
             <p>
               I train BJJ. I kept watching coaches film great rolls and then
-              lose the footage in text threads. Students would ask "what was
-              that sweep you showed me?" and there was no way to point them
-              back to the exact moment.
+              lose the footage in text threads and group chats. Students
+              would ask "what was that sweep you showed me?" and there was
+              no way to point them back to the exact moment it happened.
             </p>
             <p>
-              So I built the tool I wanted. Upload a video, pin notes to the
-              timeline — or dictate them hands-free — and share it with one
-              student or a whole class. AI can flag moments to review, but
-              you&rsquo;re the coach. No social feeds. No feature bloat. The
-              core is simple: video, notes, share.
+              So I built what I wanted. Upload a video, pin notes to the
+              timeline (or dictate them hands-free) and send it to one
+              student or a whole class. AI can flag moments worth reviewing,
+              but you&rsquo;re still the one coaching. There are no social
+              feeds here and no public profiles.
             </p>
             <p>
               Kaynos is independent and self-funded. If something&rsquo;s

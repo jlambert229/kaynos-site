@@ -45,14 +45,15 @@ const entries = [
 export default function Changelog() {
   return (
     <>
-      <Seo title="Changelog" description="See what's new in Kaynos. Latest features, improvements, and updates to the coaching platform." path="/changelog" />
+      <Seo title="Changelog" description="Recent shipping log: features and fixes for the Kaynos coaching platform." path="/changelog" />
       <Navbar />
       <main className="changelog-main container">
         <div className="changelog-content">
           <span className="section-label">Changelog</span>
           <h1 className="changelog-title">What's new</h1>
           <p className="changelog-lead">
-            We ship fast. Here's what's landed recently.
+            Features and fixes that have shipped recently. If there's
+            something you'd like to see next, let me know.
           </p>
 
           <div className="changelog-timeline">
