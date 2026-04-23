@@ -9,6 +9,12 @@
   NODE_VERSION = "22"
 
 [[redirects]]
+  from = "https://kaynos.net/*"
+  to = "https://www.kaynos.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
