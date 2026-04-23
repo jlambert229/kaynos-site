@@ -2,6 +2,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import { URLS } from "../config/urls";
+import { SITE_URL } from "../seo/constants";
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "About Kaynos",
+  url: `${SITE_URL}/about`,
+};
 
 export default function About() {
   return (
@@ -10,7 +18,7 @@ export default function About() {
         title="About Kaynos"
         description="Kaynos is a private video review tool for BJJ coaches, built and run by one. Independent, self-funded, based in the United States."
         path="/about"
-        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "About Kaynos", url: "https://www.kaynos.net/about" }}
+        jsonLd={aboutJsonLd}
       />
       <Navbar />
       <main className="about-main container">

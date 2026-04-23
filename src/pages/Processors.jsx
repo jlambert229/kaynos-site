@@ -1,6 +1,14 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { SITE_URL } from "../seo/constants";
+
+const processorsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Sub-Processors",
+  url: `${SITE_URL}/processors`,
+};
 
 const subProcessors = [
   { provider: "Netlify", purpose: "Hosting, CDN, form processing, edge functions", location: "United States", dpa: "SCCs in place" },
@@ -16,7 +24,7 @@ export default function Processors() {
         title="Sub-Processors"
         description="Third-party service providers that process data on behalf of Kaynos."
         path="/processors"
-        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Sub-Processors", url: "https://www.kaynos.net/processors" }}
+        jsonLd={processorsJsonLd}
       />
       <Navbar />
       <main className="legal-main container">

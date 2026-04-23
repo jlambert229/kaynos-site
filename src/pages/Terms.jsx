@@ -3,6 +3,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import { URLS } from "../config/urls";
+import { SITE_URL } from "../seo/constants";
+
+const termsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Terms of Service",
+  url: `${SITE_URL}/terms`,
+};
 
 export default function Terms() {
   return (
@@ -11,7 +19,7 @@ export default function Terms() {
         title="Terms of Service"
         description="Terms of Service information for the Kaynos marketing site."
         path="/terms"
-        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Terms of Service", url: "https://www.kaynos.net/terms" }}
+        jsonLd={termsJsonLd}
       />
       <Navbar />
       <main className="legal-main container">

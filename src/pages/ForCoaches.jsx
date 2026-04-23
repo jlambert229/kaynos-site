@@ -3,15 +3,23 @@ import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import { URLS } from "../config/urls";
 import { FMT, PRICING_COPY } from "../config/pricing";
+import { SITE_URL } from "../seo/constants";
+
+const forCoachesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Kaynos for BJJ Coaches",
+  url: `${SITE_URL}/for/coaches`,
+};
 
 export default function ForCoaches() {
   return (
     <>
       <Seo
         title="Video Review for BJJ Coaches"
-        description="Video review for BJJ coaches. Upload sparring, let AI surface the moments worth reviewing, and send notes to your students. $29/mo flat, students free."
+        description={`Video review for BJJ coaches. Upload sparring, let AI surface the moments worth reviewing, and send notes to your students. ${FMT.coachMonthly}/mo flat, students free.`}
         path="/for/coaches"
-        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Kaynos for BJJ Coaches", url: "https://www.kaynos.net/for/coaches" }}
+        jsonLd={forCoachesJsonLd}
       />
       <Navbar />
       <main className="coaches-main container">

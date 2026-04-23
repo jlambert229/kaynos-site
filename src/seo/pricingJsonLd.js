@@ -1,4 +1,4 @@
-import { SITE_URL } from "./constants";
+import { SITE_URL, OG_SHARE_URL } from "./constants";
 import { COACH_MONTHLY_PRICE, PLAN_NAME, PRICING_COPY } from "../config/pricing";
 
 /**
@@ -24,6 +24,7 @@ export const pricingJsonLd = {
   "@type": "Product",
   name: "Kaynos",
   description: PRICING_COPY.jsonLdProductDesc,
+  image: OG_SHARE_URL,
   brand: {
     "@type": "Brand",
     name: "Kaynos",

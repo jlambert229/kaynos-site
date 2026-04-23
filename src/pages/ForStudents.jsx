@@ -3,6 +3,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import { URLS } from "../config/urls";
+import { SITE_URL } from "../seo/constants";
+
+const forStudentsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Kaynos for Students",
+  url: `${SITE_URL}/for/students`,
+};
 
 export default function ForStudents() {
   return (
@@ -11,7 +19,7 @@ export default function ForStudents() {
         title="For Students"
         description="Your coach sent you a session on Kaynos. Here's what to expect — watch the video, read your coach's notes, reply on any moment. Free, no app needed."
         path="/for/students"
-        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Kaynos for Students", url: "https://www.kaynos.net/for/students" }}
+        jsonLd={forStudentsJsonLd}
       />
       <Navbar />
       <main className="students-main container">
