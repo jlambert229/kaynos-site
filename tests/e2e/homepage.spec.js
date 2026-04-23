@@ -8,7 +8,7 @@ test.describe("Homepage sections", () => {
   test("hero section renders with CTA", async ({ page }) => {
     const hero = page.locator("#hero");
     await expect(hero).toBeVisible();
-    await expect(hero.locator("h1")).toContainText(/coaching moments/i);
+    await expect(hero.locator("h1")).toContainText(/video review for bjj coaches/i);
     await expect(hero.locator("text=Try It Free")).toBeVisible();
     await expect(hero.locator("text=See a Demo")).toBeVisible();
   });
@@ -21,23 +21,12 @@ test.describe("Homepage sections", () => {
     await expect(cards).toHaveCount(4);
   });
 
-  test("pricing section renders with toggle", async ({ page }) => {
+  test("pricing section renders with plan price and CTA", async ({ page }) => {
     const pricing = page.locator("#pricing");
     await pricing.scrollIntoViewIfNeeded();
     await expect(pricing).toBeVisible();
-    // Monthly/Annual toggle
-    const toggleBtns = pricing.locator(".pricing-toggle-btn");
-    await expect(toggleBtns).toHaveCount(2);
-  });
-
-  test("calculator slider is interactive", async ({ page }) => {
-    const calc = page.locator("#calculator");
-    await calc.scrollIntoViewIfNeeded();
-    const slider = calc.locator('input[type="range"]');
-    await expect(slider).toBeVisible();
-    // Drag slider and verify results update
-    await slider.fill("10");
-    await expect(calc.locator(".calc-result-value").first()).toBeVisible();
+    await expect(pricing.locator(".pricing-amount")).toContainText(/\$\d+/);
+    await expect(pricing.locator("text=Start 14-Day Trial")).toBeVisible();
   });
 
   test("FAQ items expand on click", async ({ page }) => {

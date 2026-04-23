@@ -38,7 +38,7 @@ test.describe("Site navigation", () => {
       { path: "/contact", heading: /get in touch/i },
       { path: "/changelog", heading: /what's new/i },
       { path: "/privacy", heading: /privacy policy/i },
-      { path: "/getting-started", heading: /get going/i },
+      { path: "/getting-started", heading: /up and running/i },
       { path: "/accessibility", heading: /accessibility/i },
     ];
     for (const { path, heading } of routes) {
