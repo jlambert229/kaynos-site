@@ -53,9 +53,9 @@ export default function Newsletter() {
               className="newsletter-form-wrap"
             >
               <input type="hidden" name="form-name" value="newsletter" />
-              <p style={{ display: "none" }}>
+              <p style={{ display: "none" }} aria-hidden="true">
                 <label>
-                  Don&apos;t fill this out: <input name="fax_number" />
+                  Don&apos;t fill this out: <input name="fax_number" tabIndex={-1} />
                 </label>
               </p>
               <div className="newsletter-input-row">

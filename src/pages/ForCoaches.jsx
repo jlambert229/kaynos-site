@@ -22,7 +22,7 @@ export default function ForCoaches() {
         jsonLd={forCoachesJsonLd}
       />
       <Navbar />
-      <main className="coaches-main container">
+      <main id="main-content" className="coaches-main container">
         <div className="coaches-content">
           {/* ── Hero ── */}
           <span className="section-label">For Coaches</span>

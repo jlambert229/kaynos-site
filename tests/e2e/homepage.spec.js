@@ -9,8 +9,8 @@ test.describe("Homepage sections", () => {
     const hero = page.locator("#hero");
     await expect(hero).toBeVisible();
     await expect(hero.locator("h1")).toContainText(/video review for bjj coaches/i);
-    await expect(hero.locator("text=Try It Free")).toBeVisible();
-    await expect(hero.locator("text=See a Demo")).toBeVisible();
+    await expect(hero.getByText("Try It Free")).toBeVisible();
+    await expect(hero.getByText("See a Demo")).toBeVisible();
   });
 
   test("features section loads", async ({ page }) => {
@@ -26,7 +26,7 @@ test.describe("Homepage sections", () => {
     await pricing.scrollIntoViewIfNeeded();
     await expect(pricing).toBeVisible();
     await expect(pricing.locator(".pricing-amount")).toContainText(/\$\d+/);
-    await expect(pricing.locator("text=Start 14-Day Trial")).toBeVisible();
+    await expect(pricing.getByText("Start 14-Day Trial")).toBeVisible();
   });
 
   test("FAQ items expand on click", async ({ page }) => {
@@ -41,8 +41,8 @@ test.describe("Homepage sections", () => {
     const footer = page.locator("footer");
     await footer.scrollIntoViewIfNeeded();
     await expect(footer.locator(".footer-col-title")).toHaveCount(3);
-    await expect(footer.locator("text=Product")).toBeVisible();
-    await expect(footer.locator("text=Resources")).toBeVisible();
-    await expect(footer.locator("text=Legal")).toBeVisible();
+    await expect(footer.getByText("Product")).toBeVisible();
+    await expect(footer.getByText("Resources")).toBeVisible();
+    await expect(footer.getByText("Legal")).toBeVisible();
   });
 });

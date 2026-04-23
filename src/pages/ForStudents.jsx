@@ -22,7 +22,7 @@ export default function ForStudents() {
         jsonLd={forStudentsJsonLd}
       />
       <Navbar />
-      <main className="students-main container">
+      <main id="main-content" className="students-main container">
         <div className="students-content">
           <span className="section-label">For Students</span>
           <h1 className="students-title">Your coach sent you a session.</h1>

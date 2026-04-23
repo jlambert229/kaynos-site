@@ -22,7 +22,7 @@ export default function Terms() {
         jsonLd={termsJsonLd}
       />
       <Navbar />
-      <main className="legal-main container">
+      <main id="main-content" className="legal-main container">
         <article className="legal-article">
           <span className="section-label">Legal</span>
           <h1 className="legal-title">Terms of Service</h1>

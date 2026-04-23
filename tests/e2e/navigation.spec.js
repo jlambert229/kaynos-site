@@ -10,9 +10,9 @@ test.describe("Site navigation", () => {
     test.skip(!!isMobile, "Desktop nav hidden on mobile");
     await page.goto("/");
     await expect(page.locator(".navbar-links")).toBeVisible();
-    await expect(page.locator('.navbar-links >> text="Features"')).toBeVisible();
-    await expect(page.locator('.navbar-links >> text="Pricing"')).toBeVisible();
-    await expect(page.locator('.navbar-links >> text="Demos"')).toBeVisible();
+    await expect(page.locator('.navbar-links').getByText('Features')).toBeVisible();
+    await expect(page.locator('.navbar-links').getByText('Pricing')).toBeVisible();
+    await expect(page.locator('.navbar-links').getByText('Demos')).toBeVisible();
   });
 
   test("mobile menu opens and closes", async ({ page, isMobile }) => {
@@ -49,6 +49,6 @@ test.describe("Site navigation", () => {
 
   test("404 page renders for unknown route", async ({ page }) => {
     await page.goto("/this-does-not-exist");
-    await expect(page.locator("text=404")).toBeVisible();
+    await expect(page.getByText("404")).toBeVisible();
   });
 });

@@ -27,7 +27,7 @@ export default function Processors() {
         jsonLd={processorsJsonLd}
       />
       <Navbar />
-      <main className="legal-main container">
+      <main id="main-content" className="legal-main container">
         <article className="legal-article">
           <span className="section-label">Privacy</span>
           <h1 className="legal-title">Sub-Processors</h1>

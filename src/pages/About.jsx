@@ -21,7 +21,7 @@ export default function About() {
         jsonLd={aboutJsonLd}
       />
       <Navbar />
-      <main className="about-main container">
+      <main id="main-content" className="about-main container">
         <div className="about-content">
           <h1 className="about-title">About</h1>
           <p className="about-lead">

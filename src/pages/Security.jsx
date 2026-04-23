@@ -25,7 +25,7 @@ export default function Security() {
         jsonLd={securityJsonLd}
       />
       <Navbar />
-      <main className="security-main container">
+      <main id="main-content" className="security-main container">
         <div className="security-content">
           <span className="section-label">Trust</span>
           <h1 className="security-title">Security &amp; Privacy</h1>
