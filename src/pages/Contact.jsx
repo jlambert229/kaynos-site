@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { SendHorizonal, Inbox } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -18,7 +18,7 @@ export default function Contact() {
 
   useEffect(() => () => clearTimeout(cooldownTimer.current), []);
 
-  const validate = useCallback(() => {
+  function validate() {
     const errs = {};
     if (!form.name.trim()) errs.name = "Name is required.";
     else if (form.name.length > MAX_NAME) errs.name = `Name must be under ${MAX_NAME} characters.`;
@@ -27,7 +27,7 @@ export default function Contact() {
     if (!form.message.trim()) errs.message = "Message is required.";
     else if (form.message.length > MAX_MESSAGE) errs.message = `Message must be under ${MAX_MESSAGE} characters.`;
     return errs;
-  }, [form]);
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();

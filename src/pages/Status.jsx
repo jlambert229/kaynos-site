@@ -67,7 +67,7 @@ export default function Status() {
   const [results, setResults] = useState({});
   const [lastChecked, setLastChecked] = useState(null);
 
-  async function checkServices() {
+  async function checkServices(mounted = { current: true }) {
     const checks = {};
     for (const svc of services) {
       if (svc.type === "self") {
@@ -88,16 +88,18 @@ export default function Status() {
         checks[svc.name] = "down";
       }
     }
+    if (!mounted.current) return;
     setResults(checks);
     setLastChecked(new Date());
   }
 
   useEffect(() => {
-    // checkServices is also used as a button handler; calling it once on mount
-    // is intentional and safe — state is set asynchronously after all fetches
-    // settle, so there is no cascading-render risk.
+    const mounted = { current: true };
+    // checkServices is async and guards every setState behind mounted.current —
+    // the set-state-in-effect rule fires on the call site, not the guard.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    checkServices();
+    checkServices(mounted);
+    return () => { mounted.current = false; };
   }, []);
 
   const vals = Object.values(results);
