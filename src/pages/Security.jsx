@@ -1,5 +1,6 @@
 // KAY-547: Domain references (security@kaynos.net) in this file are prose
 // display text in legal copy, not navigable <a href> URLs.
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
@@ -92,7 +93,7 @@ export default function Security() {
               Vulnerability reports: <a href={URLS.security}>security@kaynos.net</a>
             </p>
             <p className="security-contact">
-              System status and uptime: <a href="/status">kaynos.net/status</a>
+              System status and uptime: <Link to="/status">kaynos.net/status</Link>
             </p>
           </section>
 

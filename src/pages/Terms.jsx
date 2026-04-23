@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { URLS } from "../config/urls";
 
 export default function Terms() {
   return (
@@ -18,7 +20,7 @@ export default function Terms() {
           <h1 className="legal-title">Terms of Service</h1>
           <p className="legal-lead">
             The Terms of Service for the Kaynos application are available at{" "}
-            <a href="https://app.kaynos.net/terms" target="_blank" rel="noopener noreferrer">
+            <a href={URLS.terms} target="_blank" rel="noopener noreferrer">
               app.kaynos.net/terms
             </a>
             . This marketing site (kaynos.net) is provided for informational purposes.
@@ -27,7 +29,7 @@ export default function Terms() {
           <section className="legal-section">
             <p>
               By using this marketing site, you agree to our{" "}
-              <a href="/privacy">Privacy Policy</a> and accept that information
+              <Link to="/privacy">Privacy Policy</Link> and accept that information
               you submit through forms is processed as described therein.
             </p>
           </section>

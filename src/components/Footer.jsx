@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import KaynosLogo from "./KaynosLogo";
 import { URLS } from "../config/urls";
 
@@ -89,13 +90,15 @@ export default function Footer() {
               <div className="footer-col-title">{col.title}</div>
               <div className="footer-col-links">
                 {col.links.map(({ label, href, external }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  >
-                    {label}
-                  </a>
+                  external ? (
+                    <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                      {label}
+                    </a>
+                  ) : href.startsWith("#") ? (
+                    <a key={label} href={href}>{label}</a>
+                  ) : (
+                    <Link key={label} to={href}>{label}</Link>
+                  )
                 ))}
               </div>
             </div>
