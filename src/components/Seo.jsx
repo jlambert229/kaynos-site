@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import {
   SITE_URL,
   SEO_DEFAULT_DESCRIPTION,
-  SEO_DEFAULT_TITLE,
   OG_SHARE_URL,
   OG_SHARE_ALT,
   OG_SHARE_WIDTH,

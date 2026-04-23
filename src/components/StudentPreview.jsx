@@ -5,7 +5,6 @@
  */
 
 const ACCENT = "#3b7dd8";
-const GREEN = "#30a46c";
 
 const sessions = [
   { title: "Guard Retention Drill", coach: "Professor Marco", time: "Today", watched: false, notes: 4 },

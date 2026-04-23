@@ -31,7 +31,7 @@ export default function ForCoaches() {
           </h1>
           <p className="coaches-lead">
             Upload your sparring footage and let AI do a first pass on
-            what's worth reviewing. Send the result to the student. They
+            what&apos;s worth reviewing. Send the result to the student. They
             watch in a browser on any device — nothing to install.
           </p>
           <div className="coaches-cta">

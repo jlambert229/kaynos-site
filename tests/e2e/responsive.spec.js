@@ -5,7 +5,6 @@ test.describe("Responsive layout", () => {
     test.skip(!isMobile, "Layout test for mobile only");
     await page.goto("/");
     const ctaRow = page.locator(".hero-cta-row");
-    const box = await ctaRow.boundingBox();
     // On mobile, buttons should stack — row height should be > a single button
     const buttons = ctaRow.locator(".btn, a.btn");
     const count = await buttons.count();

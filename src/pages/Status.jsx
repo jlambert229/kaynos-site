@@ -93,6 +93,10 @@ export default function Status() {
   }
 
   useEffect(() => {
+    // checkServices is also used as a button handler; calling it once on mount
+    // is intentional and safe — state is set asynchronously after all fetches
+    // settle, so there is no cascading-render risk.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     checkServices();
   }, []);
 
@@ -161,7 +165,7 @@ export default function Status() {
           <section className="status-section">
             <h2 className="status-section-title">Infrastructure</h2>
             <p className="status-section-desc">
-              Underlying providers that power Kaynos. Check each provider's status page for current availability.
+              Underlying providers that power Kaynos. Check each provider&apos;s status page for current availability.
             </p>
             <div className="status-list">
               {infrastructure.map((infra) => (
@@ -187,7 +191,7 @@ export default function Status() {
           <section className="status-section">
             <h2 className="status-section-title">Report an Issue</h2>
             <p className="status-section-desc">
-              If you're experiencing problems, email{" "}
+              If you&apos;re experiencing problems, email{" "}
               <a href={URLS.support}>support@kaynos.net</a>.
               For security issues, contact{" "}
               <a href={URLS.security}>security@kaynos.net</a>.

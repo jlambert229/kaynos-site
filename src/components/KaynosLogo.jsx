@@ -1,5 +1,3 @@
-import React from "react";
-
 const sizeMap = {
   sm: 20,
   md: 24,

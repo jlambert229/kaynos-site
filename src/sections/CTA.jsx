@@ -1,6 +1,6 @@
 import CtaButton from "../components/CtaButton";
 import useScrollReveal from "../hooks/useScrollReveal";
-import { TRIAL_DAYS, PRICING_COPY } from "../config/pricing";
+import { TRIAL_DAYS } from "../config/pricing";
 import { URLS } from "../config/urls";
 
 export default function CTA() {

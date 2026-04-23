@@ -86,7 +86,7 @@ export default function CoachPreview() {
           <div className="cp-grid">
             {/* Schedule */}
             <div className="cp-section">
-              <div className="cp-section-title">Today's Schedule</div>
+              <div className="cp-section-title">Today&apos;s Schedule</div>
               <div className="cp-schedule">
                 {schedule.map((s) => (
                   <div key={s.time} className="cp-sched-item" style={{ borderLeftColor: s.color }}>

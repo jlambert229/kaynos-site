@@ -50,10 +50,10 @@ export default function Changelog() {
       <main className="changelog-main container">
         <div className="changelog-content">
           <span className="section-label">Changelog</span>
-          <h1 className="changelog-title">What's new</h1>
+          <h1 className="changelog-title">What&apos;s new</h1>
           <p className="changelog-lead">
-            Features and fixes that have shipped recently. If there's
-            something you'd like to see next, let me know.
+            Features and fixes that have shipped recently. If there&apos;s
+            something you&apos;d like to see next, let me know.
           </p>
 
           <div className="changelog-timeline">

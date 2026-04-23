@@ -34,7 +34,7 @@ export default function Security() {
           <p className="security-intro">
             Kaynos stores coaching videos, timestamped notes, and the
             conversations between coaches and their clients. We treat that data
-            the way you'd expect - encrypted, isolated per account, and never
+            the way you&apos;d expect - encrypted, isolated per account, and never
             shared. Below are the specifics for anyone doing due diligence.
           </p>
 
@@ -61,18 +61,18 @@ export default function Security() {
 
           <section className="security-section">
             <h2>Data Isolation</h2>
-            <p className="security-summary">Your account is completely separate from every other coach's account. No one can see your data.</p>
+            <p className="security-summary">Your account is completely separate from every other coach&apos;s account. No one can see your data.</p>
             <ul className="security-list">
               <li>Each coaching business is a separate tenant</li>
-              <li>Students only see their own sessions - enforced at the database query level</li>
-              <li>Coaches see only their school's data</li>
+              <li>Students only see their own sessions &mdash; enforced at the database query level</li>
+              <li>Coaches see only their school&apos;s data</li>
               <li>No cross-tenant data access</li>
             </ul>
           </section>
 
           <section className="security-section">
             <h2>Privacy</h2>
-            <p className="security-summary">We don't track you, and your data stays yours. Third-party services only process what's needed and don't store it.</p>
+            <p className="security-summary">We don&apos;t track you, and your data stays yours. Third-party services only process what&apos;s needed and don&apos;t store it.</p>
             <ul className="security-list">
               <li>No third-party analytics or tracking on the marketing site</li>
               <li>GDPR-ready: data export and deletion on request</li>

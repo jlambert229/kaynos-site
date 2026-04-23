@@ -27,11 +27,11 @@ export default function ForStudents() {
           <span className="section-label">For Students</span>
           <h1 className="students-title">Your coach sent you a session.</h1>
           <p className="students-lead">
-            Here's what that means — it takes about 30 seconds to read.
+            Here&apos;s what that means — it takes about 30 seconds to read.
           </p>
           <p className="students-parent-note">
-            Parents: your child's coach invited them to review their own
-            training footage. Here's what's on the other end of the link.
+            Parents: your child&apos;s coach invited them to review their own
+            training footage. Here&apos;s what&apos;s on the other end of the link.
           </p>
 
           <ol className="students-steps">
@@ -40,7 +40,7 @@ export default function ForStudents() {
               <div className="students-step-body">
                 <h3>You get a link</h3>
                 <p>
-                  Your coach uploads a video and shares it with you. You'll get
+                  Your coach uploads a video and shares it with you. You&apos;ll get
                   an email with a direct link.
                 </p>
               </div>
@@ -51,7 +51,7 @@ export default function ForStudents() {
                 <h3>Watch and see their notes</h3>
                 <p>
                   Open the video in your browser - no app to install. Your
-                  coach's notes appear at the exact moments they're talking
+                  coach&apos;s notes appear at the exact moments they&apos;re talking
                   about.
                 </p>
               </div>
@@ -61,7 +61,7 @@ export default function ForStudents() {
               <div className="students-step-body">
                 <h3>Reply and ask questions</h3>
                 <p>
-                  Leave your own notes or reply to your coach's. It's a
+                  Leave your own notes or reply to your coach&apos;s. It&apos;s a
                   conversation anchored to the video.
                 </p>
               </div>
@@ -70,9 +70,9 @@ export default function ForStudents() {
 
           <div className="students-messages">
             <div className="students-message-card">
-              <h3>It's free for you</h3>
+              <h3>It&apos;s free for you</h3>
               <p>
-                Your coach pays for Kaynos. Students don't, always.
+                Your coach pays for Kaynos. Students don&apos;t, always.
               </p>
             </div>
             <div className="students-message-card">
@@ -85,13 +85,13 @@ export default function ForStudents() {
               <h3>Your footage is private</h3>
               <p>
                 You only see the sessions your coach shares with you. Your
-                videos and your notes aren't visible to other students.
+                videos and your notes aren&apos;t visible to other students.
               </p>
             </div>
             <div className="students-message-card">
               <h3>Safe for kids</h3>
               <p>
-                Only your coach and you can see sessions they've shared
+                Only your coach and you can see sessions they&apos;ve shared
                 with you. There are no social features, no public
                 profiles, and no way for someone outside your gym to find
                 the footage. For parents: video of your child stays
