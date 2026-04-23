@@ -28,6 +28,8 @@ export default function BackToTop() {
         window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
       }}
       aria-label="Back to top"
+      aria-hidden={!visible}
+      tabIndex={visible ? 0 : -1}
     >
       <ChevronUp size={20} />
     </button>

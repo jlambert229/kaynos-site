@@ -27,7 +27,7 @@ export default function Comparison() {
         </div>
 
         <div ref={tableRef} className="reveal cmp-table-wrap">
-          <table className="cmp-table" role="grid">
+          <table className="cmp-table">
             <thead>
               <tr className="cmp-header">
                 <th className="cmp-feature-col" scope="col"><span className="visually-hidden">Feature</span></th>

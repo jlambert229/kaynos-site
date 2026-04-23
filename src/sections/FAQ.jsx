@@ -69,7 +69,6 @@ export default function FAQ() {
                   </button>
                   <div
                     id={`faq-answer-${index}`}
-                    role="region"
                     className={`faq-answer${isOpen ? " faq-answer--open" : ""}`}
                   >
                     <p>
