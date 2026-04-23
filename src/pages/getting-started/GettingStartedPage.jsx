@@ -5,9 +5,11 @@ export default function GettingStartedPage() {
   return (
     <>
       <p className="getting-started-kicker">Getting started</p>
-      <h1 className="getting-started-title">Get going in a few minutes</h1>
+      <h1 className="getting-started-title">Up and running in a few minutes</h1>
       <p className="getting-started-lead">
-        Sign up, upload one clip, leave a note, invite a client. Everything runs in the browser at{" "}
+        The fastest way to see if Kaynos fits is to go through one full
+        loop: sign up, upload a clip, pin a note, invite a student.
+        Everything runs in the browser at{" "}
         <a href={URLS.app} target="_blank" rel="noopener noreferrer">
           app.kaynos.net
         </a>
@@ -15,30 +17,34 @@ export default function GettingStartedPage() {
       </p>
 
       <section className="getting-started-section">
-        <h2 className="getting-started-heading">Right now</h2>
+        <h2 className="getting-started-heading">The short version</h2>
         <ol className="getting-started-list">
           <li>
             <strong>Open an account.</strong>{" "}
             <a href={URLS.signup} target="_blank" rel="noopener noreferrer">
               Start your free trial
             </a>
-            . Sign in anytime at app.kaynos.net.
+            . Sign in afterwards at app.kaynos.net.
           </li>
           <li>
-            <strong>Upload one video.</strong> Create a session or class, drag in a file from
-            your phone or computer, wait for processing to finish.
+            <strong>Upload one video.</strong> Create a session or class,
+            drag a file in from your phone or laptop, and wait for
+            processing to finish.
           </li>
           <li>
-            <strong>Mark the teaching moment.</strong> Scrub to a timestamp and add a short coach
-            note so your student sees it in context.
+            <strong>Mark the teaching moment.</strong> Scrub to a
+            timestamp and drop a short note so the student sees your
+            feedback in context.
           </li>
           <li>
-            <strong>Invite someone.</strong> From the Admin panel, send an invite so they can log
-            in and watch assigned footage.
+            <strong>Invite someone.</strong> From the Admin panel, send
+            an invite so they can log in and watch what you've assigned
+            them.
           </li>
           <li>
-            <strong>Have them watch.</strong> They use the same site in a browser, no app install.
-            You can see who has opened their videos when you are ready to follow up.
+            <strong>Have them watch.</strong> They open the same site in
+            a browser — no app install. You can check in later to see
+            who opened their session.
           </li>
         </ol>
       </section>

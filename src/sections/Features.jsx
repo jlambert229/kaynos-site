@@ -13,39 +13,39 @@ import { URLS } from "../config/urls";
 const features = [
   {
     icon: CloudUpload,
-    title: "Upload footage from anywhere",
+    title: "Upload from the mat",
     description:
-      "Film on your phone between sessions and upload right there - no laptop needed. GoPro and camera files work too.",
+      "Film on your phone between rounds and upload from the same device. GoPro and tripod files work too if you'd rather shoot with something dedicated.",
   },
   {
     icon: MessageSquareQuote,
-    title: "Leave notes at the exact right moment",
+    title: "Notes pinned to the timeline",
     description:
-      "Pin a note at 1:42 where the sweep opens up, or 3:15 where they forced the guard pass. Students see your notes synced to the video and can reply with questions.",
+      "Drop a note at 1:42 where the sweep opens up, or at 3:15 where the guard pass goes through. Students see the notes appear as the video plays and can reply on a specific moment.",
   },
   {
     icon: UserRoundCheck,
     title: "Private rolls and shared classes",
     description:
-      "One-on-one session reviews stay between you and your student. Competition footage and drill demos go to the whole academy. Everyone sees exactly what's meant for them.",
+      "One-on-one session reviews stay between you and the student who rolled. Drill demos and comp footage go to the whole academy. Nobody sees material that wasn't meant for them.",
   },
   {
     icon: ShieldCheck,
-    title: "Your footage stays private",
+    title: "Private by default",
     description:
-      "Videos are never public. Each academy is isolated. No one sees your students' footage except you and them. For coaches running kids programs, there are no social features, no public profiles, and no way for anyone outside the academy to find content.",
+      "Videos are never public, and academies are fully isolated from each other. For gyms running a kids program, that also means no social feeds, no public profiles, and nothing an outsider can search to find your footage.",
   },
   {
     icon: AudioLines,
-    title: "Dictate notes hands-free",
+    title: "Dictate notes instead of typing",
     description:
-      "Tap the mic button while watching the video. Speak your feedback and it becomes a timestamped note - transcribed in real time. Edit it, save it, move to the next roll.",
+      "Tap the mic, talk, and the transcription comes back as a timestamped note you can edit before saving. Useful when you're working through a stack of rolls and don't want to keep pausing to type.",
   },
   {
     icon: Sparkles,
-    title: "AI flags the moments worth reviewing",
+    title: "AI does the first pass",
     description:
-      "AI analyzes your sparring footage and places timestamped placeholders at moments worth a closer look. You review each one, keep it, edit it, or delete it. Skip scrubbing through every minute of mat time.",
+      "Upload the video and Kaynos runs an AI pass that drops timestamped placeholders on moments worth a second look. They're starting points, not finished notes — you keep, edit, or throw out each one.",
   },
 ];
 
@@ -59,7 +59,9 @@ export default function Features() {
         <div ref={headerRef} className="reveal section-header">
           <h2 className="section-title">What you get</h2>
           <p className="section-subtitle">
-            Upload video, leave timestamped notes, share with your students. Here's what that means day to day.
+            The core of Kaynos is short: upload a video, drop notes at the
+            right timestamps, send the link. Everything else on this list is
+            stuff I wanted when I was on the mats.
           </p>
         </div>
 
@@ -82,7 +84,7 @@ export default function Features() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Try the demo - no signup needed <ArrowRight size={14} />
+            Try the demo — no signup needed <ArrowRight size={14} />
           </a>
         </div>
       </div>

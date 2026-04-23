@@ -9,26 +9,26 @@ const cases = [
     label: "Sparring & Rolls",
     title: "Daily sparring review",
     description:
-      "Film rolls, upload after class, add timestamped notes. AI places placeholders at moments worth reviewing. Send each student their own session so they can review between classes.",
+      "Film rolls between rounds, upload after class, and let AI do a first pass on the moments worth talking through. Then send each student their own session so they can rewatch during the week.",
     examples: [
-      "Upload a roll, AI places placeholders at moments worth discussing",
-      "Pin a note at the exact moment their guard gets passed",
-      "Dictate corrections hands-free while watching — no typing interrupts the flow",
-      "Track who has watched their sessions and who hasn't",
+      "Upload a roll and let AI flag the moments worth reviewing first",
+      "Pin a note at the exact timestamp a guard pass goes through",
+      "Dictate corrections hands-free while you watch — no typing between observations",
+      "See which students have actually watched their sessions",
     ],
   },
   {
     id: "competition",
     icon: Trophy,
     label: "Competition Prep",
-    title: "Comp footage & prep",
+    title: "Comp footage and prep",
     description:
-      "Break down matches. Post comp footage as shared classes for the whole academy. Build per-student session libraries tagged by opponent or tournament.",
+      "Break down matches with your competitors. Post a full tournament's footage as a shared class for everyone to learn from. Keep each competitor's match history in their own private library.",
     examples: [
-      "Post comp footage as a shared class for the whole gym to study",
-      "Private match review — add timestamped notes on what worked and what didn't",
-      "Tag sessions by opponent, division, or tournament for easy lookup",
-      "Each student gets a private library of their matches over time",
+      "Post comp footage as a shared class so the whole gym can study from it",
+      "Review a match privately with timestamped notes on what worked and what didn't",
+      "Tag sessions by opponent, division, or tournament to find them later",
+      "Each competitor builds a private library of their matches over time",
     ],
   },
   {
@@ -37,26 +37,26 @@ const cases = [
     label: "Private Lessons",
     title: "Private lesson libraries",
     description:
-      "Each private student gets their own library of their sessions. They rewatch between privates. You track who has viewed what. Built-in scheduling handles the booking.",
+      "Every private student gets a library of their lessons so they can rewatch between sessions. Booking runs on the built-in scheduler — students request, you approve.",
     examples: [
-      "Record a technique detail once, your student can replay it as many times as they want",
-      "Schedule private lessons with built-in availability and booking",
-      "Students request new privates through the booking flow — you approve or decline",
-      "Tag sessions by technique so students find prior lessons quickly",
+      "Record a technique detail once, the student can replay it as often as they need",
+      "Schedule privates through a built-in calendar with availability windows",
+      "Students request private lessons through the booking flow — you approve or decline",
+      "Tag sessions by technique so a student can pull up prior lessons on the same move",
     ],
   },
   {
     id: "remote",
     icon: Globe,
     label: "Online / Remote",
-    title: "Remote & async BJJ coaching",
+    title: "Remote and async coaching",
     description:
-      "Your students film at their home gym or academy and upload for review. You watch on your schedule, leave timestamped notes, and they review when they can. No shared timezone required.",
+      "A student films at their own gym and uploads it to you. You watch on your own schedule, drop timestamped notes, and they review when they can. No shared timezone needed.",
     examples: [
-      "Student uploads a roll from their home gym — you review on your schedule",
-      "Timestamped notes replace long voice memos and Google Doc breakdowns",
-      "AI places placeholders across student videos so you focus on what matters",
-      "Replaces Drive + Loom + Trello for your remote coaching workflow",
+      "Student uploads a roll from their home gym — you watch on your own schedule",
+      "Timestamped notes replace long voice memos and scrolling through Google Docs",
+      "AI runs through every upload first so you spend your time on the notes that matter",
+      "Replaces the Drive + Loom + Trello stack most remote coaches end up with",
     ],
   },
 ];
@@ -105,9 +105,10 @@ export default function UseCases() {
       <div className="container">
         <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Use Cases</span>
-          <h2 className="section-title">Built for how BJJ coaches actually teach</h2>
+          <h2 className="section-title">Four ways coaches are using it</h2>
           <p className="section-subtitle">
-            Pick your workflow. The tools are the same - the examples change.
+            Sparring, comp prep, privates, remote coaching. Same set of
+            tools under the hood; what changes is how you reach for them.
           </p>
         </div>
 

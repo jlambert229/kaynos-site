@@ -49,21 +49,22 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact" description="Get in touch with the Kaynos team. Questions, feedback, partnerships - we'd love to hear from you." path="/contact" />
+      <Seo title="Contact" description="Questions, feedback, walkthroughs — send them over. I read everything and usually reply within a day." path="/contact" />
       <Navbar />
       <main className="contact-main container">
         <div className="contact-content">
           <span className="section-label">Contact</span>
           <h1 className="contact-title">Get in touch</h1>
           <p className="contact-lead">
-            Have a question, want a walkthrough, or just want to say hi? We'd love to hear from you.
+            Questions, feedback, or a walkthrough — send it over. I read
+            everything and usually reply the same day.
           </p>
 
           <div className="contact-grid">
             <div className="contact-card">
               <Inbox size={20} className="contact-card-icon" />
-              <h2>Email us</h2>
-              <p>For anything - questions, feedback, partnerships.</p>
+              <h2>Email</h2>
+              <p>For anything at all.</p>
               <a href={URLS.support} className="contact-link">support@kaynos.net</a>
             </div>
           </div>
@@ -72,7 +73,7 @@ export default function Contact() {
             <form className="contact-form" name="contact" data-netlify="true" netlify-honeypot="phone_ext" onSubmit={handleSubmit}>
               <input type="hidden" name="form-name" value="contact" />
               <h2 className="contact-form-title">Send a message</h2>
-              {status === "error" && <div className="contact-error contact-form-error" aria-live="polite">Something went wrong. Please try again or email us directly.</div>}
+              {status === "error" && <div className="contact-error contact-form-error" aria-live="polite">Something went wrong on my end. Try again or just email support@kaynos.net directly.</div>}
               {/* Honeypot - hidden from humans, bots will fill it */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
                 <label htmlFor="contact-phone-ext">Phone ext</label>
@@ -128,8 +129,8 @@ export default function Contact() {
             </form>
           ) : (
             <div className="contact-success">
-              <h2>Message sent.</h2>
-              <p>We'll get back to you within a day. You can also reach us at <a href={URLS.support}>support@kaynos.net</a>.</p>
+              <h2>Got it.</h2>
+              <p>I'll get back to you inside a day. If you need me sooner, <a href={URLS.support}>support@kaynos.net</a> goes to the same inbox.</p>
             </div>
           )}
         </div>

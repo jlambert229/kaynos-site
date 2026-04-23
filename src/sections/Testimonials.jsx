@@ -8,16 +8,18 @@ export default function Testimonials() {
     <section id="testimonials" className="section section--alt">
       <div className="container">
         <div className="early-access">
-          <h2 className="section-title">Early and transparent</h2>
+          <h2 className="section-title">Still early days</h2>
 
           <div className="early-access-body">
             <p>
-              Kaynos is new. No existing users yet — if you sign up,
-              you&rsquo;re among the first. You get a direct line to me for
-              feedback, feature requests, and bug reports.
+              Kaynos is new. There aren&rsquo;t users to quote here yet.
+              If you sign up now you&rsquo;ll be one of the first, which
+              mostly means you&rsquo;ll have a direct line to me when
+              something&rsquo;s broken or missing.
             </p>
             <p>
-              Try the demo with sample data — no signup needed.{" "}
+              Rather look before signing up? The demo is wired up with
+              sample BJJ data and works without an account.{" "}
               <a
                 href={URLS.demoCoach}
                 target="_blank"
@@ -28,7 +30,7 @@ export default function Testimonials() {
               </a>
             </p>
             <p>
-              Or see what&rsquo;s shipped so far.{" "}
+              Or see what&rsquo;s already shipped.{" "}
               <Link to="/changelog" className="early-access-link">
                 Changelog <ArrowRight size={14} />
               </Link>

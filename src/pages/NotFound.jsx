@@ -22,7 +22,7 @@ export default function NotFound() {
             <span className="not-found-code">404</span>
             <h1 className="not-found-title">Page not found</h1>
             <p className="not-found-description">
-              The page you're looking for doesn't exist or has been moved. Here are some helpful links:
+              That page isn't here — either it never was, or it's moved somewhere else. A few places that might be what you wanted.
             </p>
             <div className="not-found-links">
               {suggestions.map((s) => (

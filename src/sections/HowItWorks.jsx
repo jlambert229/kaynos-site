@@ -12,20 +12,21 @@ export default function HowItWorks() {
           <h2 className="section-title">How it works</h2>
           <div className="prose-steps">
             <p>
-              <strong>Film your session</strong> - or have your student film
-              theirs. Your phone is all you need - film between classes and
-              upload right there. GoPro, tripod, or any camera works too.
-              Same workflow whether you're in the academy or reviewing remotely.
+              <strong>Film the roll or the technique.</strong> A phone is
+              enough. GoPros and tripod cameras work fine if that's already
+              your setup. Students can also film at their own gym and send
+              the footage back to you for review.
             </p>
             <p>
-              <strong>Upload and add notes.</strong> Drop the video into Kaynos
-              and leave notes at the moments that matter. Tag sessions however
-              makes sense for your practice.
+              <strong>Upload and mark it up.</strong> Drag the video in,
+              scrub to whatever you want to point at, and drop a note. Tag
+              sessions however makes sense — by student, by technique, by
+              tournament.
             </p>
             <p>
-              <strong>Send your student a link.</strong> They watch their footage,
-              see your notes synced to the timeline, and can leave questions
-              or observations of their own.
+              <strong>Send your student the link.</strong> They open it in
+              a browser, watch with your notes appearing in place, and can
+              reply on specific moments with questions of their own.
             </p>
           </div>
           <Link to="/getting-started" className="how-it-works-link">
