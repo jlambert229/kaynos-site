@@ -1,4 +1,3 @@
-import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -10,12 +9,12 @@ import Contact from "./pages/Contact";
 import Changelog from "./pages/Changelog";
 import Accessibility from "./pages/Accessibility";
 import ForStudents from "./pages/ForStudents";
-const ForCoaches = lazy(() => import("./pages/ForCoaches"));
+import ForCoaches from "./pages/ForCoaches";
 import Security from "./pages/Security";
 import Processors from "./pages/Processors";
 import Terms from "./pages/Terms";
 import About from "./pages/About";
-const Status = lazy(() => import("./pages/Status"));
+import Status from "./pages/Status";
 import BackToTop from "./components/BackToTop";
 
 
@@ -36,12 +35,12 @@ export function AppRoutes() {
         <Route path="/changelog" element={<Changelog />} />
         <Route path="/accessibility" element={<Accessibility />} />
         <Route path="/for/students" element={<ForStudents />} />
-        <Route path="/for/coaches" element={<Suspense fallback={null}><ForCoaches /></Suspense>} />
+        <Route path="/for/coaches" element={<ForCoaches />} />
         <Route path="/security" element={<Security />} />
         <Route path="/processors" element={<Processors />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/about" element={<About />} />
-        <Route path="/status" element={<Suspense fallback={null}><Status /></Suspense>} />
+        <Route path="/status" element={<Status />} />
         <Route path="/docs" element={<Navigate to="/getting-started" replace />} />
         <Route
           path="/docs/getting-started"
