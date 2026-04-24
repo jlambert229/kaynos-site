@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import KaynosLogo from "./KaynosLogo";
@@ -23,11 +23,18 @@ function scrollToHash(hash) {
 }
 
 export default function Navbar() {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname, hash } = location;
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileMenuRef = useRef(null);
+
+  // When the route changes to a path with a hash, scroll to the anchor after React has
+  // rendered the destination page. Replaces a brittle rAF + setTimeout(100) hack.
+  useEffect(() => {
+    if (hash) scrollToHash(hash);
+  }, [pathname, hash]);
 
   useEffect(() => {
     let ticking = false;
@@ -45,8 +52,10 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (!mobileOpen) return undefined;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
   }, [mobileOpen]);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
@@ -78,15 +87,14 @@ export default function Navbar() {
   }, [mobileOpen, closeMobile]);
 
   const handleSectionClick = useCallback(
-    (e, hash) => {
+    (e, targetHash) => {
       e.preventDefault();
       if (pathname === "/") {
-        scrollToHash(hash);
+        scrollToHash(targetHash);
       } else {
-        navigate("/" + hash);
-        requestAnimationFrame(() => {
-          setTimeout(() => scrollToHash(hash), 100);
-        });
+        // Navigate to the home page at the anchor; the effect on [pathname, hash]
+        // will scroll once React renders the destination.
+        navigate("/" + targetHash);
       }
     },
     [pathname, navigate]
