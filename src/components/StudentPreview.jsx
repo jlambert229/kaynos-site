@@ -5,6 +5,8 @@
  */
 import KaynosLogo from "./KaynosLogo";
 
+const ACCENT = "#3b7dd8";
+
 const sessions = [
   { title: "Guard Retention Drill", coach: "Professor Marco", time: "Today", watched: false, notes: 4 },
   { title: "Takedown Entry - Single Leg", coach: "Professor Marco", time: "Yesterday", watched: true, notes: 2 },
@@ -31,7 +33,7 @@ export default function StudentPreview() {
       <div className="sp-body">
         <div className="sp-sidebar">
           <div className="sp-sidebar-logo">
-            <KaynosLogo size="sm" />
+            <KaynosLogo size="sm" color={ACCENT} />
             <span>Kaynos</span>
           </div>
           {["Dashboard", "My Sessions", "Classes", "Profile"].map((item, i) => (

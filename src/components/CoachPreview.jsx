@@ -48,7 +48,7 @@ export default function CoachPreview() {
         {/* Sidebar */}
         <div className="cp-sidebar">
           <div className="cp-sidebar-logo">
-            <KaynosLogo size="sm" />
+            <KaynosLogo size="sm" color={ACCENT} />
             <span>Kaynos</span>
           </div>
           {["Dashboard", "Sessions", "Classes", "Students", "Schedule", "Admin"].map((item, i) => (

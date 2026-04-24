@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CheckCircle2, AlertTriangle, XCircle, RefreshCw } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -63,43 +63,42 @@ function statusLabel(status) {
   return "Checking...";
 }
 
+async function checkOne(svc) {
+  if (svc.type === "self") return "operational";
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    await fetch(svc.checkUrl, { method: "HEAD", mode: "no-cors", signal: controller.signal });
+    clearTimeout(timeout);
+    return "reachable";
+  } catch {
+    return "down";
+  }
+}
+
 export default function Status() {
   const [results, setResults] = useState({});
   const [lastChecked, setLastChecked] = useState(null);
+  const mountedRef = useRef({ current: true });
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
-  async function checkServices(mounted = { current: true }) {
-    const checks = {};
-    for (const svc of services) {
-      if (svc.type === "self") {
-        checks[svc.name] = "operational";
-        continue;
-      }
-      try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 8000);
-        await fetch(svc.checkUrl, {
-          method: "HEAD",
-          mode: "no-cors",
-          signal: controller.signal,
-        });
-        clearTimeout(timeout);
-        checks[svc.name] = "reachable";
-      } catch {
-        checks[svc.name] = "down";
-      }
-    }
-    if (!mounted.current) return;
-    setResults(checks);
+  async function runChecks() {
+    setIsRefreshing(true);
+    const pairs = await Promise.all(
+      services.map(async (svc) => [svc.name, await checkOne(svc)])
+    );
+    if (!mountedRef.current.current) return;
+    setResults(Object.fromEntries(pairs));
     setLastChecked(new Date());
+    setIsRefreshing(false);
   }
 
   useEffect(() => {
-    const mounted = { current: true };
-    // checkServices is async and guards every setState behind mounted.current —
-    // the set-state-in-effect rule fires on the call site, not the guard.
+    const holder = { current: true };
+    mountedRef.current = holder;
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    checkServices(mounted);
-    return () => { mounted.current = false; };
+    runChecks();
+    return () => { holder.current = false; };
   }, []);
 
   const vals = Object.values(results);
@@ -140,8 +139,8 @@ export default function Status() {
           {lastChecked && (
             <p className="status-last-checked">
               Last checked: {lastChecked.toLocaleTimeString()} &middot;{" "}
-              <button onClick={checkServices} className="status-refresh-btn">
-                Refresh
+              <button onClick={() => runChecks()} disabled={isRefreshing} className="status-refresh-btn">
+                {isRefreshing ? "Refreshing…" : "Refresh"}
               </button>
             </p>
           )}

@@ -9,7 +9,7 @@ test.describe("Homepage sections", () => {
     const hero = page.locator("#hero");
     await expect(hero).toBeVisible();
     await expect(hero.locator("h1")).toContainText(/video review for bjj coaches/i);
-    await expect(hero.getByText("Try It Free")).toBeVisible();
+    await expect(hero.getByText("Start 14-Day Trial")).toBeVisible();
     await expect(hero.getByText("See a Demo")).toBeVisible();
   });
 
@@ -18,7 +18,7 @@ test.describe("Homepage sections", () => {
     await section.scrollIntoViewIfNeeded();
     await expect(section.locator("h2")).toContainText(/what you get/i);
     const cards = section.locator(".feature-card");
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(6);
   });
 
   test("pricing section renders with plan price and CTA", async ({ page }) => {
