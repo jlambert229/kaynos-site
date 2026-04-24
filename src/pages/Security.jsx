@@ -1,10 +1,19 @@
 // KAY-547: Domain references (security@kaynos.net) in this file are prose
 // display text in legal copy, not navigable <a href> URLs.
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import CtaButton from "../components/CtaButton";
 import { URLS } from "../config/urls";
+import { SITE_URL } from "../seo/constants";
+
+const securityJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Security & Privacy",
+  url: `${SITE_URL}/security`,
+};
 
 export default function Security() {
   return (
@@ -13,10 +22,10 @@ export default function Security() {
         title="Security & Privacy"
         description="How Kaynos protects your data. Learn about our infrastructure, authentication, data isolation, and privacy practices."
         path="/security"
-        jsonLd={{ "@context": "https://schema.org", "@type": "WebPage", name: "Security & Privacy", url: "https://www.kaynos.net/security" }}
+        jsonLd={securityJsonLd}
       />
       <Navbar />
-      <main className="security-main container">
+      <main id="main-content" className="security-main container">
         <div className="security-content">
           <span className="section-label">Trust</span>
           <h1 className="security-title">Security &amp; Privacy</h1>
@@ -25,7 +34,7 @@ export default function Security() {
           <p className="security-intro">
             Kaynos stores coaching videos, timestamped notes, and the
             conversations between coaches and their clients. We treat that data
-            the way you'd expect - encrypted, isolated per account, and never
+            the way you&apos;d expect - encrypted, isolated per account, and never
             shared. Below are the specifics for anyone doing due diligence.
           </p>
 
@@ -52,18 +61,18 @@ export default function Security() {
 
           <section className="security-section">
             <h2>Data Isolation</h2>
-            <p className="security-summary">Your account is completely separate from every other coach's account. No one can see your data.</p>
+            <p className="security-summary">Your account is completely separate from every other coach&apos;s account. No one can see your data.</p>
             <ul className="security-list">
               <li>Each coaching business is a separate tenant</li>
-              <li>Students only see their own sessions - enforced at the database query level</li>
-              <li>Coaches see only their school's data</li>
+              <li>Students only see their own sessions &mdash; enforced at the database query level</li>
+              <li>Coaches see only their school&apos;s data</li>
               <li>No cross-tenant data access</li>
             </ul>
           </section>
 
           <section className="security-section">
             <h2>Privacy</h2>
-            <p className="security-summary">We don't track you, and your data stays yours. Third-party services only process what's needed and don't store it.</p>
+            <p className="security-summary">We don&apos;t track you, and your data stays yours. Third-party services only process what&apos;s needed and don&apos;t store it.</p>
             <ul className="security-list">
               <li>No third-party analytics or tracking on the marketing site</li>
               <li>GDPR-ready: data export and deletion on request</li>
@@ -92,7 +101,7 @@ export default function Security() {
               Vulnerability reports: <a href={URLS.security}>security@kaynos.net</a>
             </p>
             <p className="security-contact">
-              System status and uptime: <a href="/status">kaynos.net/status</a>
+              System status and uptime: <Link to="/status">kaynos.net/status</Link>
             </p>
           </section>
 

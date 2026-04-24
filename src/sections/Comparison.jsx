@@ -27,7 +27,7 @@ export default function Comparison() {
         </div>
 
         <div ref={tableRef} className="reveal cmp-table-wrap">
-          <table className="cmp-table" role="grid">
+          <table className="cmp-table">
             <thead>
               <tr className="cmp-header">
                 <th className="cmp-feature-col" scope="col"><span className="visually-hidden">Feature</span></th>
@@ -70,8 +70,8 @@ export default function Comparison() {
         <div className="cmp-switching">
           <h3 className="cmp-switching-title">Coming from another platform?</h3>
           <p className="cmp-switching-text">
-            If you're on CoachNow, OnForm, or a Drive + Vimeo setup and
-            you're thinking about moving over, send me a note. I'll help
+            If you&apos;re on CoachNow, OnForm, or a Drive + Vimeo setup and
+            you&apos;re thinking about moving over, send me a note. I&apos;ll help
             you get the account set up, move your roster across, and walk
             through re-uploading your existing videos.
           </p>

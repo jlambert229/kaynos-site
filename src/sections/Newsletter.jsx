@@ -34,28 +34,28 @@ export default function Newsletter() {
           </div>
           <h3 className="newsletter-title">Occasional updates</h3>
           <p className="newsletter-desc">
-            About one short email a month: what shipped, what's next, and
-            things I've learned about coaching with video.
+            About one short email a month: what shipped, what&apos;s next, and
+            things I&apos;ve learned about coaching with video.
           </p>
 
           {status === "success" ? (
             <div className="newsletter-success">
               <CircleCheck size={32} className="newsletter-success-icon" />
-              <p>You're on the list. Expect about one email a month.</p>
+              <p>You&apos;re on the list. Expect about one email a month.</p>
             </div>
           ) : (
             <form
               name="newsletter"
               method="POST"
               data-netlify="true"
-              netlify-honeypot="fax_number"
+              data-netlify-honeypot="fax_number"
               onSubmit={handleSubmit}
               className="newsletter-form-wrap"
             >
               <input type="hidden" name="form-name" value="newsletter" />
-              <p style={{ display: "none" }}>
+              <p style={{ display: "none" }} aria-hidden="true">
                 <label>
-                  Don't fill this out: <input name="fax_number" />
+                  Don&apos;t fill this out: <input name="fax_number" tabIndex={-1} />
                 </label>
               </p>
               <div className="newsletter-input-row">

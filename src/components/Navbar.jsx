@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import KaynosLogo from "./KaynosLogo";
@@ -23,10 +23,18 @@ function scrollToHash(hash) {
 }
 
 export default function Navbar() {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname, hash } = location;
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
+
+  // When the route changes to a path with a hash, scroll to the anchor after React has
+  // rendered the destination page. Replaces a brittle rAF + setTimeout(100) hack.
+  useEffect(() => {
+    if (hash) scrollToHash(hash);
+  }, [pathname, hash]);
 
   useEffect(() => {
     let ticking = false;
@@ -44,17 +52,19 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (!mobileOpen) return undefined;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
   }, [mobileOpen]);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
   useEffect(() => {
     if (!mobileOpen) return;
-    const menu = document.querySelector('.mobile-menu.open');
+    const menu = mobileMenuRef.current;
     if (!menu) return;
-    const focusable = menu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+    const focusable = menu.querySelectorAll('a, button');
     if (!focusable.length) return;
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
@@ -69,7 +79,7 @@ export default function Navbar() {
     const onEsc = (e) => { if (e.key === 'Escape') closeMobile(); };
     menu.addEventListener('keydown', trap);
     window.addEventListener('keydown', onEsc);
-    first.focus();
+    requestAnimationFrame(() => first?.focus());
     return () => {
       menu.removeEventListener('keydown', trap);
       window.removeEventListener('keydown', onEsc);
@@ -77,15 +87,14 @@ export default function Navbar() {
   }, [mobileOpen, closeMobile]);
 
   const handleSectionClick = useCallback(
-    (e, hash) => {
+    (e, targetHash) => {
       e.preventDefault();
       if (pathname === "/") {
-        scrollToHash(hash);
+        scrollToHash(targetHash);
       } else {
-        navigate("/" + hash);
-        requestAnimationFrame(() => {
-          setTimeout(() => scrollToHash(hash), 100);
-        });
+        // Navigate to the home page at the anchor; the effect on [pathname, hash]
+        // will scroll once React renders the destination.
+        navigate("/" + targetHash);
       }
     },
     [pathname, navigate]
@@ -147,12 +156,14 @@ export default function Navbar() {
           className="mobile-toggle"
           onClick={() => setMobileOpen((prev) => !prev)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      <div className={`mobile-menu${mobileOpen ? " open" : ""}`}>
+      <div id="mobile-menu" ref={mobileMenuRef} className={`mobile-menu${mobileOpen ? " open" : ""}`}>
         <button type="button" className="mobile-close" onClick={closeMobile} aria-label="Close menu">
           <X size={24} />
         </button>

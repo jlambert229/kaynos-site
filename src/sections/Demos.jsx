@@ -15,7 +15,7 @@ export default function Demos() {
           <span className="section-label">Live demos</span>
           <h2 className="section-title">See it for yourself</h2>
           <p className="section-subtitle">
-            Open either demo below. No signup, no email. It's the real app,
+            Open either demo below. No signup, no email. It&apos;s the real app,
             loaded with sample BJJ data.
           </p>
         </div>

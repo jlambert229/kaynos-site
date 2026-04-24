@@ -9,6 +9,12 @@
   NODE_VERSION = "22"
 
 [[redirects]]
+  from = "https://kaynos.net/*"
+  to = "https://www.kaynos.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
@@ -30,7 +36,7 @@
     # neither Vite's HTML output nor Netlify headers currently automate.
     # Analytics: When adding Plausible or Fathom, append the analytics domain
     # to script-src (e.g. https://plausible.io) and connect-src below.
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://app.kaynos.net https://plausible.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://app.kaynos.net https://demo.kaynos.net https://student.kaynos.net https://docs.kaynos.net https://plausible.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests"
 
 [[headers]]
   for = "/*.html"

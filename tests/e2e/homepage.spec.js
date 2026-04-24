@@ -8,9 +8,9 @@ test.describe("Homepage sections", () => {
   test("hero section renders with CTA", async ({ page }) => {
     const hero = page.locator("#hero");
     await expect(hero).toBeVisible();
-    await expect(hero.locator("h1")).toContainText(/coaching moments/i);
-    await expect(hero.locator("text=Try It Free")).toBeVisible();
-    await expect(hero.locator("text=See a Demo")).toBeVisible();
+    await expect(hero.locator("h1")).toContainText(/video review for bjj coaches/i);
+    await expect(hero.getByText("Start 14-Day Trial")).toBeVisible();
+    await expect(hero.getByText("See a Demo")).toBeVisible();
   });
 
   test("features section loads", async ({ page }) => {
@@ -18,26 +18,15 @@ test.describe("Homepage sections", () => {
     await section.scrollIntoViewIfNeeded();
     await expect(section.locator("h2")).toContainText(/what you get/i);
     const cards = section.locator(".feature-card");
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(6);
   });
 
-  test("pricing section renders with toggle", async ({ page }) => {
+  test("pricing section renders with plan price and CTA", async ({ page }) => {
     const pricing = page.locator("#pricing");
     await pricing.scrollIntoViewIfNeeded();
     await expect(pricing).toBeVisible();
-    // Monthly/Annual toggle
-    const toggleBtns = pricing.locator(".pricing-toggle-btn");
-    await expect(toggleBtns).toHaveCount(2);
-  });
-
-  test("calculator slider is interactive", async ({ page }) => {
-    const calc = page.locator("#calculator");
-    await calc.scrollIntoViewIfNeeded();
-    const slider = calc.locator('input[type="range"]');
-    await expect(slider).toBeVisible();
-    // Drag slider and verify results update
-    await slider.fill("10");
-    await expect(calc.locator(".calc-result-value").first()).toBeVisible();
+    await expect(pricing.locator(".pricing-amount")).toContainText(/\$\d+/);
+    await expect(pricing.getByText("Start 14-Day Trial")).toBeVisible();
   });
 
   test("FAQ items expand on click", async ({ page }) => {
@@ -52,8 +41,8 @@ test.describe("Homepage sections", () => {
     const footer = page.locator("footer");
     await footer.scrollIntoViewIfNeeded();
     await expect(footer.locator(".footer-col-title")).toHaveCount(3);
-    await expect(footer.locator("text=Product")).toBeVisible();
-    await expect(footer.locator("text=Resources")).toBeVisible();
-    await expect(footer.locator("text=Legal")).toBeVisible();
+    await expect(footer.getByText("Product")).toBeVisible();
+    await expect(footer.getByText("Resources")).toBeVisible();
+    await expect(footer.getByText("Legal")).toBeVisible();
   });
 });

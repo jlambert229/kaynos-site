@@ -1,4 +1,4 @@
-import { FMT, COACH_MONTHLY_PRICE } from "../config/pricing";
+import { FMT } from "../config/pricing";
 import { URLS } from "../config/urls";
 
 export const faqs = [

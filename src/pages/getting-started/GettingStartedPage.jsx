@@ -38,7 +38,7 @@ export default function GettingStartedPage() {
           </li>
           <li>
             <strong>Invite someone.</strong> From the Admin panel, send
-            an invite so they can log in and watch what you've assigned
+            an invite so they can log in and watch what you&apos;ve assigned
             them.
           </li>
           <li>

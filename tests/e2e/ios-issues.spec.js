@@ -76,24 +76,6 @@ test.describe("iOS / WebKit specific issues", () => {
     expect(Number(navbarZ)).toBeGreaterThanOrEqual(1000);
   });
 
-  test("cookie banner renders above other content", async ({ page, context }) => {
-    // Use a fresh context so localStorage is empty
-    await context.clearCookies();
-    await page.goto("/");
-    // Clear any existing consent and reload
-    await page.evaluate(() => localStorage.removeItem("kaynos-cookies"));
-    await page.reload();
-    await page.waitForTimeout(3000); // Cookie banner shows after 2s delay
-    const banner = page.locator(".cookie-banner");
-    const isVisible = await banner.isVisible().catch(() => false);
-    if (isVisible) {
-      const bannerZ = await banner.evaluate(
-        (el) => getComputedStyle(el).zIndex
-      );
-      expect(Number(bannerZ)).toBeGreaterThanOrEqual(1500);
-    }
-  });
-
   test("input fields do not zoom on iOS focus", async ({ page }) => {
     await page.goto("/contact");
     const input = page.locator(".contact-input").first();

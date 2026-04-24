@@ -13,7 +13,7 @@ export default function HowItWorks() {
           <div className="prose-steps">
             <p>
               <strong>Film the roll or the technique.</strong> A phone is
-              enough. GoPros and tripod cameras work fine if that's already
+              enough. GoPros and tripod cameras work fine if that&apos;s already
               your setup. Students can also film at their own gym and send
               the footage back to you for review.
             </p>

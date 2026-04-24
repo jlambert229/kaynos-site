@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, "..", "dist");
-const BASE = "https://kaynos.net";
+const BASE = "https://www.kaynos.net";
 
 const routes = [
   "/",
@@ -27,13 +27,10 @@ const routes = [
   "/status",
 ];
 
-const today = new Date().toISOString().split("T")[0];
-
 const urls = routes
   .map(
     (r) => `  <url>
     <loc>${BASE}${r}</loc>
-    <lastmod>${today}</lastmod>
   </url>`
   )
   .join("\n");
@@ -45,5 +42,10 @@ ${urls}
 `;
 
 mkdirSync(DIST, { recursive: true });
-writeFileSync(resolve(DIST, "sitemap.xml"), xml, "utf-8");
-console.log(`sitemap.xml written to ${DIST} (${routes.length} URLs)`);
+try {
+  writeFileSync(resolve(DIST, "sitemap.xml"), xml, "utf-8");
+  console.log(`sitemap.xml written to ${DIST} (${routes.length} URLs)`);
+} catch (err) {
+  console.error(`ERROR: failed to write sitemap.xml — ${err.message}`);
+  process.exit(1);
+}

@@ -14,7 +14,7 @@ export default function Story() {
             <p>
               I train BJJ. I kept watching coaches film great rolls and then
               lose the footage in text threads and group chats. Students
-              would ask "what was that sweep you showed me?" and there was
+              would ask &ldquo;what was that sweep you showed me?&rdquo; and there was
               no way to point them back to the exact moment it happened.
             </p>
             <p>

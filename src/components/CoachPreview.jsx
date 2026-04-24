@@ -3,6 +3,7 @@
  * Shown on the marketing site hero to give prospects a taste of the product.
  * Pure CSS/JSX - no real data, no API calls.
  */
+import KaynosLogo from "./KaynosLogo";
 
 const ACCENT = "#3b7dd8";
 const GREEN = "#30a46c";
@@ -47,11 +48,7 @@ export default function CoachPreview() {
         {/* Sidebar */}
         <div className="cp-sidebar">
           <div className="cp-sidebar-logo">
-            <svg width="18" height="18" viewBox="0 0 185 191" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 64 151 L 102 189 L 178 190 L 102 114 Z" fill={ACCENT} />
-              <path d="M 184 1 L 116 1 L 1 115 L 0 185 Z" fill={ACCENT} />
-              <path d="M 58 0 L 3 0 L 0 3 L 0 91 L 57 34 Z" fill={ACCENT} />
-            </svg>
+            <KaynosLogo size="sm" color={ACCENT} />
             <span>Kaynos</span>
           </div>
           {["Dashboard", "Sessions", "Classes", "Students", "Schedule", "Admin"].map((item, i) => (
@@ -86,7 +83,7 @@ export default function CoachPreview() {
           <div className="cp-grid">
             {/* Schedule */}
             <div className="cp-section">
-              <div className="cp-section-title">Today's Schedule</div>
+              <div className="cp-section-title">Today&apos;s Schedule</div>
               <div className="cp-schedule">
                 {schedule.map((s) => (
                   <div key={s.time} className="cp-sched-item" style={{ borderLeftColor: s.color }}>

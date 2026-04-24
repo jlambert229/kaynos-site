@@ -1,5 +1,6 @@
 // KAY-547: Domain references (support@kaynos.net) in this file are prose
 // display text in legal copy, not navigable <a href> URLs.
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
@@ -14,7 +15,7 @@ export default function Accessibility() {
       <main className="legal-main container">
         <article className="legal-article">
           <div className="legal-meta">
-            <a href="/" className="legal-back">&larr; Back to home</a>
+            <Link to="/" className="legal-back">&larr; Back to home</Link>
           </div>
           <h1 className="legal-title">Accessibility Statement</h1>
           <p className="legal-effective">Last updated: April 2026</p>
