@@ -58,14 +58,24 @@ test.describe("Accessibility basics", () => {
     }
   });
 
-  test("color contrast on primary text", async ({ page }) => {
+  test("color contrast on primary text (dark scheme)", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
     await page.goto("/");
-    // Verify the primary text color is light enough on dark background
     const textColor = await page.locator("body").evaluate(
       (el) => getComputedStyle(el).color
     );
     // Should be near-white (#f5f5f7 = rgb(245, 245, 247))
     expect(textColor).toMatch(/rgb\(24[0-9], 24[0-9], 24[0-9]\)/);
+  });
+
+  test("color contrast on primary text (light scheme)", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.goto("/");
+    const textColor = await page.locator("body").evaluate(
+      (el) => getComputedStyle(el).color
+    );
+    // Should be near-black (the dark end of the light-theme text tokens)
+    expect(textColor).toMatch(/rgb\((1[0-9]|2[0-9]|3[0-9]), (1[0-9]|2[0-9]|3[0-9]), (1[0-9]|2[0-9]|3[0-9])\)/);
   });
 
   test("focus indicators are visible", async ({ page }) => {
