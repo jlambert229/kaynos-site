@@ -72,7 +72,7 @@ export default function Comparison() {
           <p className="cmp-switching-text">
             If you&apos;re on CoachNow, OnForm, or a Drive + Vimeo setup and
             you&apos;re thinking about moving over, send me a note. I&apos;ll help
-            you get the account set up, move your roster across, and walk
+            set up your account, migrate your roster, and walk you
             through re-uploading your existing videos.
           </p>
           <a href={URLS.support} className="btn btn-secondary">Talk to me</a>

@@ -69,7 +69,7 @@ export const faqs = [
   },
   {
     question: "Can I have multiple coaches on one account?",
-    answer: `Each coach gets their own Kaynos account at ${FMT.coachMonthlySlash}. In a multi-coach gym, each coach manages their own roster. For larger schools with roughly 50+ active students across several coaches, reach out — I can work out team pricing.`,
+    answer: `Each coach gets their own Kaynos account at ${FMT.coachMonthlySlash}. In a multi-coach gym, each coach manages their own roster. For larger schools with 50+ active students across several coaches, reach out — I can work out team pricing.`,
     linkText: "Contact about teams",
     linkHref: URLS.support,
   },

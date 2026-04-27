@@ -27,7 +27,7 @@ export default function ForStudents() {
           <span className="section-label">For Students</span>
           <h1 className="students-title">Your coach sent you a session.</h1>
           <p className="students-lead">
-            Here&apos;s what that means — it takes about 30 seconds to read.
+            Here&apos;s what to do — about 30 seconds to read.
           </p>
           <p className="students-parent-note">
             Parents: your child&apos;s coach invited them to review their own
