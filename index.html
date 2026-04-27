@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#050508" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#f8f8fa" media="(prefers-color-scheme: light)" />
+  <!-- Block iOS Safari from auto-linking number/date/address-like strings.
+       The site has no real phone numbers or addresses; every email link is
+       already wrapped in a real <a href="mailto:...">. -->
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
   <!-- Title, description, canonical, OG, and Twitter tags are injected at build time per route. -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="manifest" href="/manifest.json" />
