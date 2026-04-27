@@ -9,10 +9,10 @@ const cases = [
     label: "Sparring & Rolls",
     title: "Daily sparring review",
     description:
-      "Film rolls between rounds, upload after class, and let AI do a first pass on the moments worth talking through. Then send each student their own session so they can rewatch during the week.",
+      "Film a few rolls each class, upload after, and let AI do a first pass on the moments worth talking through. Then send each student their own session so they can rewatch during the week.",
     examples: [
       "Upload a roll and let AI flag the moments worth reviewing first",
-      "Pin a note at the exact timestamp a guard pass goes through",
+      "Pin a note at the exact moment the pass finishes",
       "Dictate corrections hands-free while you watch — no typing between observations",
       "See which students have actually watched their sessions",
     ],
