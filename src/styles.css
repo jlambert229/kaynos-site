@@ -297,9 +297,9 @@ svg {
 }
 
 .navbar-brand-text {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
 }
 
@@ -523,18 +523,13 @@ svg {
 .hero-title {
   font-size: clamp(44px, 7vw, 80px);
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: -0.02em;
   line-height: 1.05;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+  margin-bottom: 24px;
 }
 
-.hero-kicker {
-  font-size: clamp(16px, 2.5vw, 24px);
-  letter-spacing: 0.52em;
-  text-transform: uppercase;
-  color: rgba(165, 176, 116, 0.9);
-  margin: 0 0 24px 0.52em;
+.hero-title .accent {
+  color: var(--accent);
 }
 
 .hero-description {
