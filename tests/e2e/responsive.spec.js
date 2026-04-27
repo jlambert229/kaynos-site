@@ -93,4 +93,25 @@ test.describe("Responsive layout", () => {
       expect(right, `${selector} extends past viewport`).toBeLessThanOrEqual(720 + 1);
     }
   });
+
+  test("layout has no horizontal overflow at 320px (iPhone SE 1st gen)", async ({ page }) => {
+    // The narrowest mainstream phone width still in use. Mobile project
+    // viewports in playwright.config.js cover 390px+; 320px catches anything
+    // that assumes a roomier phone.
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.goto("/");
+    const overflow = await page.evaluate(() =>
+      document.documentElement.scrollWidth > document.documentElement.clientWidth
+    );
+    expect(overflow).toBe(false);
+
+    // The comparison table is the one element that's *allowed* to scroll
+    // horizontally — the rest of the homepage should fit the viewport.
+    for (const selector of ["#hero", "#features", "#pricing", "footer"]) {
+      const locator = page.locator(selector);
+      await locator.first().scrollIntoViewIfNeeded();
+      const right = await locator.first().evaluate((el) => Math.round(el.getBoundingClientRect().right));
+      expect(right, `${selector} extends past 320px viewport`).toBeLessThanOrEqual(320 + 1);
+    }
+  });
 });

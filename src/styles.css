@@ -2667,6 +2667,19 @@ svg {
   overflow-x: auto;
   /* Block iOS swipe-back from triggering when scrolling the table. */
   overscroll-behavior-x: contain;
+  /* Right-edge fade hints that the table is horizontally scrollable on
+     narrow screens. The mask is anchored to the wrapper, not the
+     scrolled content, so the hint stays visible at any scroll position. */
+  mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent);
+  -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent);
+}
+
+@media (min-width: 769px) {
+  /* Wider screens fit the full table; no fade needed. */
+  .cmp-table-wrap {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
 }
 
 .cmp-table {
