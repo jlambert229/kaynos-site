@@ -190,7 +190,7 @@ export default function Status() {
           </section>
 
           <section className="status-section">
-            <h2 className="status-section-title">Report an Issue</h2>
+            <h2 className="status-section-title">Report an issue</h2>
             <p className="status-section-desc">
               If you&apos;re experiencing problems, email{" "}
               <a href={URLS.support}>support@kaynos.net</a>.

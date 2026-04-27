@@ -60,7 +60,7 @@ export default function Security() {
           </section>
 
           <section className="security-section">
-            <h2>Data Isolation</h2>
+            <h2>Data isolation</h2>
             <p className="security-summary">Your account is completely separate from every other coach&apos;s account. No one can see your data.</p>
             <ul className="security-list">
               <li>Each coaching business is a separate tenant</li>
@@ -82,7 +82,7 @@ export default function Security() {
           </section>
 
           <section className="security-section">
-            <h2>Transport Security</h2>
+            <h2>Transport security</h2>
             <p className="security-summary">All connections are encrypted. Data cannot be intercepted between your device and our servers.</p>
             <ul className="security-list">
               <li>All connections are encrypted (TLS 1.2+ enforced)</li>
