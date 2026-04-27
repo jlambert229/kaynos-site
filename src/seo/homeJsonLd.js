@@ -1,4 +1,5 @@
 import { SITE_URL, SEO_DEFAULT_DESCRIPTION } from "./constants";
+import { BUSINESS } from "../config/business";
 
 /** JSON-LD for the marketing homepage (WebSite + publisher Organization). */
 export const homeJsonLd = {
@@ -9,7 +10,14 @@ export const homeJsonLd = {
   description: SEO_DEFAULT_DESCRIPTION,
   publisher: {
     "@type": "Organization",
-    name: "Kaynos",
+    name: BUSINESS.name,
     url: `${SITE_URL}/`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: BUSINESS.city,
+      addressRegion: BUSINESS.region,
+      postalCode: BUSINESS.postalCode,
+      addressCountry: BUSINESS.country,
+    },
   },
 };

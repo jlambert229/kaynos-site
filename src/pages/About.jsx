@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import { URLS } from "../config/urls";
 import { SITE_URL } from "../seo/constants";
+import { BUSINESS_ADDRESS_LINE } from "../config/business";
 
 const aboutJsonLd = {
   "@context": "https://schema.org",
@@ -49,7 +50,7 @@ export default function About() {
             <p className="about-text">
               One person. I use Kaynos for my own training, so when
               something is broken or missing I usually hear about it the
-              same day. Founded in 2026, based in the United States.
+              same day. Founded in 2026. Based in {BUSINESS_ADDRESS_LINE}.
             </p>
           </section>
 

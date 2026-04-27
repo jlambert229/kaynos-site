@@ -6,6 +6,7 @@ import Seo from "../components/Seo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { URLS } from "../config/urls";
+import { BUSINESS_ADDRESS_LINE } from "../config/business";
 
 const effectiveDate = "April 9, 2026";
 
@@ -53,7 +54,7 @@ export default function PrivacyPolicy() {
             <h2>1A. Data Controller</h2>
             <p>
               Kaynos is the data controller for personal information collected through this
-              site. Contact:{" "}
+              site. Postal address: Kaynos, {BUSINESS_ADDRESS_LINE}, United States. Contact:{" "}
               <a href={URLS.support}>support@kaynos.net</a>
             </p>
           </section>
