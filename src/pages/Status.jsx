@@ -8,31 +8,31 @@ import { URLS } from "../config/urls";
 const services = [
   {
     name: "Marketing Site",
-    description: "kaynos.net - this website",
+    description: "kaynos.net — this website",
     checkUrl: "/",
     type: "self",
   },
   {
     name: "Application",
-    description: "app.kaynos.net - coach and student dashboards",
+    description: "app.kaynos.net — coach and student dashboards",
     checkUrl: "https://app.kaynos.net",
     type: "external",
   },
   {
     name: "Coach Demo",
-    description: "demo.kaynos.net - live demo with sample data",
+    description: "demo.kaynos.net — live demo with sample data",
     checkUrl: "https://demo.kaynos.net",
     type: "external",
   },
   {
     name: "Student Demo",
-    description: "student.kaynos.net - student demo view",
+    description: "student.kaynos.net — student demo view",
     checkUrl: "https://student.kaynos.net",
     type: "external",
   },
   {
     name: "Help Center",
-    description: "docs.kaynos.net - documentation and guides",
+    description: "docs.kaynos.net — documentation and guides",
     checkUrl: "https://docs.kaynos.net",
     type: "external",
   },
@@ -60,7 +60,7 @@ function statusLabel(status) {
   if (status === "reachable") return "Reachable";
   if (status === "degraded") return "Degraded";
   if (status === "down") return "Unreachable";
-  return "Checking...";
+  return "Checking…";
 }
 
 async function checkOne(svc) {
@@ -109,7 +109,7 @@ export default function Status() {
     <>
       <Seo
         title="System Status"
-        description="Real-time status of Kaynos services - application, demos, help center, and infrastructure components."
+        description="Real-time status of Kaynos services — application, demos, help center, and infrastructure components."
         path="/status"
       />
       <Navbar />
@@ -132,7 +132,7 @@ export default function Status() {
             ) : anyDown ? (
               <><AlertTriangle size={22} /> Some services may be unreachable</>
             ) : (
-              <><RefreshCw size={20} className="status-spin" /> Checking services...</>
+              <><RefreshCw size={20} className="status-spin" /> Checking services…</>
             )}
           </div>
 
