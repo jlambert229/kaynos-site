@@ -585,14 +585,14 @@ svg {
 /* ---- COACH PREVIEW (mobile app mockup) ---- */
 .cp-frame {
   width: 100%;
-  max-width: 300px;
-  margin: 48px auto 0;
+  max-width: 240px;
+  margin: 40px auto 0;
   background: #0d0d14;
   color: #f5f5f7;
-  border-radius: 42px;
-  border: 10px solid #1a1a22;
+  border-radius: 32px;
+  border: 6px solid #1a1a22;
   box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 24px 50px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(255, 255, 255, 0.04),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   overflow: hidden;
@@ -607,11 +607,11 @@ svg {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 96px;
-  height: 20px;
+  width: 72px;
+  height: 14px;
   background: #0a0a0f;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   z-index: 2;
 }
 
@@ -619,31 +619,33 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 22px 6px;
-  font-size: 11px;
+  padding: 6px 16px 3px;
+  font-size: 9px;
   font-weight: 600;
   color: var(--text-primary);
   position: relative;
   z-index: 1;
 }
-.cp-status-time { min-width: 48px; }
+.cp-status-time { min-width: 36px; }
 .cp-status-icons {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   color: var(--text-primary);
 }
+.cp-status-icons svg { width: 11px; height: 8px; }
+.cp-status-icons svg:last-child { width: 16px; }
 
 .cp-appbar {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 16px 12px;
+  gap: 8px;
+  padding: 6px 12px 8px;
   border-bottom: 1px solid var(--border);
 }
 .cp-appbar-text { flex: 1; min-width: 0; }
 .cp-greeting {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
@@ -651,13 +653,13 @@ svg {
   text-overflow: ellipsis;
 }
 .cp-date {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--text-tertiary);
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .cp-body {
-  padding: 14px 14px 12px;
+  padding: 10px 10px 8px;
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -666,77 +668,77 @@ svg {
 .cp-kpi-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 .cp-kpi {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-top: 2px solid;
-  border-radius: 10px;
-  padding: 8px 10px;
+  border-radius: 8px;
+  padding: 5px 7px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 .cp-kpi-icon {
-  font-size: 7px;
-  width: 18px;
-  height: 18px;
-  border-radius: 5px;
+  font-size: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .cp-kpi-value {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
 }
 .cp-kpi-label {
-  font-size: 9px;
+  font-size: 8px;
   color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .cp-section-title {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-bottom: 8px;
-  padding-bottom: 6px;
+  margin-bottom: 5px;
+  padding-bottom: 4px;
   border-bottom: 1px solid var(--border);
 }
 
 .cp-schedule {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: 16px;
+  gap: 3px;
+  margin-bottom: 10px;
 }
 .cp-sched-item {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  padding: 6px 8px;
+  gap: 6px;
+  padding: 4px 6px;
   border-left: 3px solid;
   border-radius: 4px;
   background: var(--bg-elevated);
 }
 .cp-sched-time {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 600;
   color: var(--text-secondary);
-  min-width: 44px;
+  min-width: 36px;
   padding-top: 1px;
 }
 .cp-sched-body { flex: 1; min-width: 0; }
 .cp-sched-title {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
@@ -744,27 +746,27 @@ svg {
   text-overflow: ellipsis;
 }
 .cp-sched-meta {
-  font-size: 9px;
+  font-size: 8px;
   color: var(--text-tertiary);
 }
 
 .cp-activity {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 .cp-act-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 8px;
+  gap: 6px;
+  padding: 4px 6px;
   border-radius: 6px;
   background: var(--bg-elevated);
 }
 .cp-act-icon {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -780,7 +782,7 @@ svg {
 }
 .cp-act-body { flex: 1; min-width: 0; }
 .cp-act-title {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   color: var(--text-primary);
   white-space: nowrap;
@@ -788,15 +790,15 @@ svg {
   text-overflow: ellipsis;
 }
 .cp-act-meta {
-  font-size: 9px;
+  font-size: 8px;
   color: var(--text-tertiary);
 }
 .cp-act-badge {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   color: var(--accent);
   background: rgba(59, 125, 216, 0.1);
-  padding: 1px 6px;
+  padding: 1px 5px;
   border-radius: 8px;
   flex-shrink: 0;
 }
@@ -805,27 +807,27 @@ svg {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   border-top: 1px solid var(--border);
-  padding: 8px 4px 4px;
+  padding: 5px 3px 2px;
   background: var(--bg-elevated);
 }
 .cp-tab {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  font-size: 8px;
+  gap: 1px;
+  font-size: 7px;
   color: var(--text-tertiary);
   letter-spacing: 0.02em;
 }
-.cp-tab svg { color: inherit; }
+.cp-tab svg { color: inherit; width: 13px; height: 13px; }
 .cp-tab--active { color: var(--accent); }
 
 .cp-home-indicator {
-  width: 110px;
-  height: 4px;
+  width: 80px;
+  height: 3px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.25);
-  margin: 4px auto 6px;
+  margin: 3px auto 5px;
 }
 
 /* ---- DEMOS ---- */
@@ -898,14 +900,14 @@ svg {
 
 .sp-frame {
   width: 100%;
-  max-width: 300px;
+  max-width: 240px;
   margin: 0 auto;
   background: #0c0c14;
   color: #f5f5f7;
-  border-radius: 42px;
-  border: 10px solid #1a1a22;
+  border-radius: 32px;
+  border: 6px solid #1a1a22;
   box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 24px 50px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(255, 255, 255, 0.04),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   overflow: hidden;
@@ -921,11 +923,11 @@ svg {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 96px;
-  height: 20px;
+  width: 72px;
+  height: 14px;
   background: #0a0a0f;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   z-index: 2;
 }
 
@@ -933,32 +935,34 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 22px 6px;
-  font-size: 11px;
+  padding: 6px 16px 3px;
+  font-size: 9px;
   font-weight: 600;
   color: var(--text-primary);
   position: relative;
   z-index: 1;
 }
-.sp-status-time { min-width: 48px; }
+.sp-status-time { min-width: 36px; }
 .sp-status-icons {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   color: var(--text-primary);
 }
+.sp-status-icons svg { width: 11px; height: 8px; }
+.sp-status-icons svg:last-child { width: 16px; }
 
 .sp-appbar {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 16px 12px;
+  gap: 8px;
+  padding: 6px 12px 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 .sp-appbar-text { flex: 1; min-width: 0; }
 
 .sp-greeting {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
@@ -967,54 +971,54 @@ svg {
 }
 
 .sp-subtitle {
-  font-size: 10px;
+  font-size: 9px;
   color: #3b7dd8;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .sp-body {
-  padding: 14px 14px 12px;
+  padding: 10px 10px 8px;
   flex: 1;
   min-width: 0;
   overflow: hidden;
-  font-size: 11px;
+  font-size: 10px;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .sp-section-title {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 8px;
-  margin-top: 4px;
+  margin-bottom: 5px;
+  margin-top: 2px;
 }
 
 .sp-section-title + .sp-list {
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
 .sp-list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .sp-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 8px;
+  gap: 6px;
+  padding: 4px 6px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .sp-status-pill {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 600;
-  padding: 2px 6px;
+  padding: 1px 5px;
   border-radius: 3px;
   flex-shrink: 0;
   text-transform: uppercase;
@@ -1033,7 +1037,7 @@ svg {
 
 .sp-item-body { flex: 1; min-width: 0; }
 .sp-item-title {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   color: var(--text-primary);
   white-space: nowrap;
@@ -1041,16 +1045,16 @@ svg {
   text-overflow: ellipsis;
 }
 .sp-item-meta {
-  font-size: 9px;
+  font-size: 8px;
   color: rgba(255, 255, 255, 0.4);
 }
 
 .sp-notes-badge {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 600;
   color: var(--accent);
   background: rgba(59, 125, 216, 0.12);
-  padding: 2px 6px;
+  padding: 1px 5px;
   border-radius: 3px;
   flex-shrink: 0;
 }
@@ -1059,27 +1063,27 @@ svg {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 8px 4px 4px;
+  padding: 5px 3px 2px;
   background: rgba(255, 255, 255, 0.02);
 }
 .sp-tab {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  font-size: 9px;
+  gap: 1px;
+  font-size: 7px;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.02em;
 }
-.sp-tab svg { color: inherit; }
+.sp-tab svg { color: inherit; width: 13px; height: 13px; }
 .sp-tab--active { color: var(--accent); }
 
 .sp-home-indicator {
-  width: 110px;
-  height: 4px;
+  width: 80px;
+  height: 3px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.25);
-  margin: 4px auto 6px;
+  margin: 3px auto 5px;
 }
 
 /* ---- FEATURES (bento) ---- */
