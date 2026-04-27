@@ -89,6 +89,9 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   maxLength={MAX_NAME}
                   required
+                  autoComplete="name"
+                  autoCapitalize="words"
+                  inputMode="text"
                   aria-invalid={errors.name ? "true" : undefined}
                   aria-describedby={errors.name ? "contact-name-error" : undefined}
                 />
@@ -105,6 +108,11 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   maxLength={254}
                   required
+                  autoComplete="email"
+                  autoCapitalize="off"
+                  autoCorrect="off"
+                  spellCheck="false"
+                  inputMode="email"
                   aria-invalid={errors.email ? "true" : undefined}
                   aria-describedby={errors.email ? "contact-email-error" : undefined}
                 />
@@ -121,6 +129,8 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   maxLength={MAX_MESSAGE}
                   required
+                  autoCapitalize="sentences"
+                  enterKeyHint="send"
                   aria-invalid={errors.message ? "true" : undefined}
                   aria-describedby={errors.message ? "contact-msg-error" : undefined}
                 />
