@@ -15,13 +15,13 @@ const features = [
     icon: CloudUpload,
     title: "Upload from the mat",
     description:
-      "Film on your phone between rounds and upload from the same device. GoPro and tripod files work too if you'd rather shoot with something dedicated.",
+      "Film on your phone between rolls and upload from the same device. GoPro and tripod files work too if you'd rather shoot with something dedicated.",
   },
   {
     icon: MessageSquareQuote,
     title: "Notes pinned to the timeline",
     description:
-      "Drop a note at 1:42 where the sweep opens up, or at 3:15 where the guard pass goes through. Students see the notes appear as the video plays and can reply on a specific moment.",
+      "Drop a note at 1:42 where you hit the sweep, or at 3:15 where the pass finishes. Students see the notes appear as the video plays and can reply on a specific moment.",
   },
   {
     icon: UserRoundCheck,
