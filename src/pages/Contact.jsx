@@ -49,7 +49,7 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact" description="Questions, feedback, walkthroughs — send them over. I read everything and usually reply within a day." path="/contact" />
+      <Seo title="Contact" description="Questions, feedback, walkthroughs — send them over. I read everything and usually reply the same day." path="/contact" />
       <Navbar />
       <main className="contact-main container">
         <div className="contact-content">
@@ -112,7 +112,7 @@ export default function Contact() {
                   id="contact-msg"
                   className="contact-input contact-textarea"
                   rows={5}
-                  placeholder="How can we help?"
+                  placeholder="What's on your mind?"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   maxLength={MAX_MESSAGE}
@@ -130,7 +130,7 @@ export default function Contact() {
           ) : (
             <div className="contact-success">
               <h2>Got it.</h2>
-              <p>I&apos;ll get back to you inside a day. If you need me sooner, <a href={URLS.support}>support@kaynos.net</a> goes to the same inbox.</p>
+              <p>I&apos;ll get back to you the same day. If you need me sooner, <a href={URLS.support}>support@kaynos.net</a> goes to the same inbox.</p>
             </div>
           )}
         </div>

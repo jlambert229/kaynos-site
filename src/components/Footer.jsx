@@ -11,7 +11,7 @@ const columns = [
       { label: "For Coaches", href: "/for/coaches" },
       { label: "For Students", href: "/for/students" },
       { label: "Coach Demo", href: URLS.demoCoach, external: true },
-      { label: "Client Demo", href: URLS.demoStudent, external: true },
+      { label: "Student Demo", href: URLS.demoStudent, external: true },
     ],
   },
   {
