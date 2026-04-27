@@ -33,7 +33,7 @@ export default function Security() {
 
           <p className="security-intro">
             Kaynos stores coaching videos, timestamped notes, and the
-            conversations between coaches and their clients. We treat that data
+            conversations between coaches and their students. We treat that data
             the way you&apos;d expect - encrypted, isolated per account, and never
             shared. Below are the specifics for anyone doing due diligence.
           </p>
