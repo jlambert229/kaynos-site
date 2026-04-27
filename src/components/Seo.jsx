@@ -57,7 +57,7 @@ export default function Seo({
   ogImageAlt,
 }) {
   const canonicalUrl = `${SITE_URL}${normalizePath(path) || "/"}`;
-  const pageTitle = title.includes("|") ? title : `${title} | Badgerskope`;
+  const pageTitle = title.includes("|") ? title : `${title} | Kaynos`;
   const imageAlt = ogImageAlt || (ogImage ? title : OG_SHARE_ALT);
   const breadcrumbs = buildBreadcrumbs(path, title);
 
@@ -69,7 +69,7 @@ export default function Seo({
       {noIndex ? <meta name="robots" content="noindex, follow" /> : null}
 
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Badgerskope" />
+      <meta property="og:site_name" content="Kaynos" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={pageTitle} />

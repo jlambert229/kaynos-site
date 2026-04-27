@@ -78,10 +78,10 @@ export default function Footer() {
           <div className="footer-brand-col">
             <div className="footer-brand">
               <KaynosLogo size="md" />
-              <span>BADGERSKOPE</span>
+              <span>kaynos</span>
             </div>
             <p className="footer-tagline">
-              Evidence &gt; Hype
+              Video review for BJJ coaches.
             </p>
           </div>
 
@@ -122,7 +122,7 @@ export default function Footer() {
             ))}
           </div>
           <div className="footer-copyright">
-            &copy; {new Date().getFullYear()} Badgerskope. All rights reserved.
+            &copy; {new Date().getFullYear()} Kaynos. All rights reserved.
           </div>
         </div>
       </div>

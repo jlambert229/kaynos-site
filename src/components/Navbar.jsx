@@ -106,7 +106,7 @@ export default function Navbar() {
       <div className="navbar-inner">
         <Link to="/" className="navbar-brand">
           <KaynosLogo size="nav" />
-          <span className="navbar-brand-text">BADGERSKOPE</span>
+          <span className="navbar-brand-text">kaynos</span>
         </Link>
 
         <div className="navbar-links">
@@ -147,7 +147,7 @@ export default function Navbar() {
             Log In
           </a>
           <a href={URLS.signup} className="btn btn-primary">
-            Get Early Access
+            Start 14-Day Trial
           </a>
         </div>
 
@@ -201,7 +201,7 @@ export default function Navbar() {
         )}
         <a href={URLS.login} onClick={closeMobile}>Log In</a>
         <a href={URLS.signup} className="btn btn-primary" onClick={closeMobile}>
-          Get Early Access
+          Start 14-Day Trial
         </a>
       </div>
     </nav>
