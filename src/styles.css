@@ -83,6 +83,12 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
+  /* iOS auto-resizes text on landscape rotation; lock to authored size. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Suppress the default iOS blue tap flash; visible feedback is handled
+     by :hover and :focus-visible on each interactive element. */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -360,6 +366,12 @@ svg {
   color: var(--text-primary);
 }
 
+.nav-login:focus-visible {
+  outline: none;
+  color: var(--text-primary);
+  box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+}
+
 .mobile-toggle {
   display: none;
   background: none;
@@ -390,7 +402,7 @@ svg {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 80px 32px 48px;
+  padding: calc(80px + env(safe-area-inset-top, 0px)) 32px calc(48px + env(safe-area-inset-bottom, 0px));
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
@@ -451,6 +463,12 @@ svg {
 
 .mobile-close:hover {
   background: var(--bg-secondary);
+}
+
+.mobile-close:focus-visible {
+  outline: none;
+  background: var(--bg-secondary);
+  box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
 }
 
 @media (max-width: 768px) {
@@ -1673,6 +1691,12 @@ svg {
   color: var(--text-primary);
 }
 
+.footer-social:focus-visible {
+  outline: none;
+  color: var(--text-primary);
+  box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+}
+
 .footer-copyright {
   color: var(--text-tertiary);
   font-size: 13px;
@@ -2157,8 +2181,6 @@ svg {
   .back-to-top {
     bottom: calc(76px + env(safe-area-inset-bottom, 0px));
     right: 12px;
-    width: 40px;
-    height: 40px;
   }
 }
 
@@ -2643,6 +2665,8 @@ svg {
   max-width: 900px;
   margin: 0 auto;
   overflow-x: auto;
+  /* Block iOS swipe-back from triggering when scrolling the table. */
+  overscroll-behavior-x: contain;
 }
 
 .cmp-table {
@@ -3497,6 +3521,7 @@ svg {
   padding-top: 120px;
   padding-bottom: 80px;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .status-content {

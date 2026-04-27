@@ -69,6 +69,11 @@ export default function Newsletter() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="newsletter-input"
+                  autoComplete="email"
+                  autoCapitalize="off"
+                  autoCorrect="off"
+                  spellCheck="false"
+                  inputMode="email"
                 />
                 <button
                   type="submit"
