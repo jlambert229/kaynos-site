@@ -89,8 +89,10 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   maxLength={MAX_NAME}
                   required
+                  aria-invalid={errors.name ? "true" : undefined}
+                  aria-describedby={errors.name ? "contact-name-error" : undefined}
                 />
-                {errors.name && <span className="contact-error">{errors.name}</span>}
+                {errors.name && <span id="contact-name-error" className="contact-error">{errors.name}</span>}
               </div>
               <div className="contact-field">
                 <label htmlFor="contact-email" className="contact-label">Email</label>
@@ -103,8 +105,10 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   maxLength={254}
                   required
+                  aria-invalid={errors.email ? "true" : undefined}
+                  aria-describedby={errors.email ? "contact-email-error" : undefined}
                 />
-                {errors.email && <span className="contact-error">{errors.email}</span>}
+                {errors.email && <span id="contact-email-error" className="contact-error">{errors.email}</span>}
               </div>
               <div className="contact-field">
                 <label htmlFor="contact-msg" className="contact-label">Message</label>
@@ -117,8 +121,10 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   maxLength={MAX_MESSAGE}
                   required
+                  aria-invalid={errors.message ? "true" : undefined}
+                  aria-describedby={errors.message ? "contact-msg-error" : undefined}
                 />
-                {errors.message && <span className="contact-error">{errors.message}</span>}
+                {errors.message && <span id="contact-msg-error" className="contact-error">{errors.message}</span>}
               </div>
               <button type="submit" className="btn btn-primary btn-lg contact-submit" disabled={status === "submitting"}>
                 <SendHorizonal size={18} /> {status === "submitting" ? "Sending\u2026" : "Send Message"}
@@ -128,7 +134,7 @@ export default function Contact() {
               </p>
             </form>
           ) : (
-            <div className="contact-success">
+            <div className="contact-success" role="status" aria-live="polite">
               <h2>Got it.</h2>
               <p>I&apos;ll get back to you the same day. If you need me sooner, <a href={URLS.support}>support@kaynos.net</a> goes to the same inbox.</p>
             </div>

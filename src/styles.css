@@ -3590,6 +3590,12 @@ svg {
   text-underline-offset: 2px;
 }
 
+.status-refresh-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+  border-radius: var(--radius-sm);
+}
+
 .status-section {
   margin-bottom: 40px;
 }

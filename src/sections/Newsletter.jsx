@@ -39,7 +39,7 @@ export default function Newsletter() {
           </p>
 
           {status === "success" ? (
-            <div className="newsletter-success">
+            <div className="newsletter-success" role="status" aria-live="polite">
               <CircleCheck size={32} className="newsletter-success-icon" />
               <p>You&apos;re on the list. Expect about one email a month.</p>
             </div>
