@@ -147,7 +147,7 @@ export default function Navbar() {
             Log In
           </a>
           <a href={URLS.signup} className="btn btn-primary">
-            Start Free Trial
+            Start 14-Day Trial
           </a>
         </div>
 
@@ -201,7 +201,7 @@ export default function Navbar() {
         )}
         <a href={URLS.login} onClick={closeMobile}>Log In</a>
         <a href={URLS.signup} className="btn btn-primary" onClick={closeMobile}>
-          Start Free Trial
+          Start 14-Day Trial
         </a>
       </div>
     </nav>

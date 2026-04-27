@@ -3,11 +3,11 @@ import { test, expect } from "@playwright/test";
 test.describe("iOS / WebKit specific issues", () => {
   test("fixed navbar stays visible after scroll", async ({ page }) => {
     await page.goto("/");
-    await page.evaluate(() => window.scrollTo(0, 500));
-    await page.waitForTimeout(300);
     const navbar = page.locator(".navbar");
     await expect(navbar).toBeVisible();
-    // Verify it's still at top of viewport (fixed positioning)
+    await page.evaluate(() => window.scrollTo(0, 500));
+    await expect(navbar).toHaveClass(/scrolled/);
+    // Fixed positioning keeps it pinned to the top of the viewport.
     const box = await navbar.boundingBox();
     expect(box.y).toBeLessThanOrEqual(5);
   });
@@ -68,8 +68,7 @@ test.describe("iOS / WebKit specific issues", () => {
 
   test("no z-index stacking issues — navbar above content", async ({ page }) => {
     await page.goto("/");
-    await page.evaluate(() => window.scrollTo(0, 300));
-    await page.waitForTimeout(300);
+    // z-index is set in CSS and doesn't depend on scroll state.
     const navbarZ = await page.locator(".navbar").evaluate(
       (el) => getComputedStyle(el).zIndex
     );
@@ -94,15 +93,15 @@ test.describe("iOS / WebKit specific issues", () => {
     // Open menu
     await toggle.click();
     await expect(page.locator(".mobile-menu.open")).toBeVisible();
-    // Close menu
+    // Close menu — wait on the actual class transition rather than a fixed sleep.
     await page.locator(".mobile-close").click();
-    await page.waitForTimeout(300);
-    // Body overflow should be restored
+    await expect(page.locator(".mobile-menu.open")).not.toBeVisible();
+    // Body overflow should be restored.
     const overflow = await page.evaluate(
       () => document.body.style.overflow
     );
     expect(overflow).toBe("");
-    // Should be scrollable
+    // Should be scrollable.
     await page.evaluate(() => window.scrollTo(0, 200));
     const scrollY = await page.evaluate(() => window.scrollY);
     expect(scrollY).toBeGreaterThan(0);
