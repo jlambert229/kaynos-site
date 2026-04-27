@@ -1,7 +1,6 @@
 import KaynosLogo from "../components/KaynosLogo";
 import CtaButton from "../components/CtaButton";
 import CoachPreview from "../components/CoachPreview";
-import { PRICING_COPY } from "../config/pricing";
 import { URLS } from "../config/urls";
 
 export default function Hero() {
@@ -14,31 +13,26 @@ export default function Hero() {
             <KaynosLogo size="hero" />
           </div>
           <h1 className="hero-title">
-            Video review for BJJ coaches.
+            BADGERSKOPE
           </h1>
+          <p className="hero-kicker">Evidence &gt; Hype</p>
           <p className="hero-description">
-            Film on your phone, upload, and pin notes at the moments you
-            want your student to come back to. AI scans the footage first
-            so you&rsquo;re not rewatching every minute to find a
-            ten-second sequence.
+            Objective breakdowns for athletes and coaches. Upload your clips, annotate key
+            moments, and turn footage into repeatable decisions backed by evidence.
           </p>
           <div className="hero-cta-row">
-            <CtaButton>Start 14-Day Trial</CtaButton>
+            <CtaButton>Get Early Access</CtaButton>
             <a
               href={URLS.demoCoach}
               className="btn btn-secondary"
               target="_blank"
               rel="noopener noreferrer"
             >
-              See a Demo
+              Watch Demo
             </a>
           </div>
-          <p className="hero-meta">
-            {PRICING_COPY.heroLine} &middot; {PRICING_COPY.trialNote}
-            {" "}<a href="#pricing" className="hero-calc-link">See pricing &rarr;</a>
-          </p>
           <p className="hero-meta hero-meta--alt">
-            Already invited?{" "}
+            Already have access?{" "}
             <a href={URLS.login}>Log in &rarr;</a>
           </p>
         </div>

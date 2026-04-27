@@ -4,12 +4,12 @@ import { SITE_URL, SEO_DEFAULT_DESCRIPTION } from "./constants";
 export const homeJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Kaynos",
+  name: "Badgerskope",
   url: `${SITE_URL}/`,
   description: SEO_DEFAULT_DESCRIPTION,
   publisher: {
     "@type": "Organization",
-    name: "Kaynos",
+    name: "Badgerskope",
     url: `${SITE_URL}/`,
   },
 };
