@@ -27,7 +27,7 @@ const CTA = lazy(() => import("../sections/CTA"));
 export default function Home() {
   return (
     <>
-      <Seo title="Kaynos | Video review for BJJ coaches." path="/" jsonLd={homeJsonLd} />
+      <Seo title="Badgerskope | Evidence-driven video analysis." path="/" jsonLd={homeJsonLd} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(pricingJsonLd)}</script>
