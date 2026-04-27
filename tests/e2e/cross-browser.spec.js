@@ -14,7 +14,8 @@ test.describe("Cross-browser rendering", () => {
   test("navbar backdrop-filter renders on scroll", async ({ page }) => {
     await page.goto("/");
     await page.evaluate(() => window.scrollTo(0, 200));
-    await page.waitForTimeout(400);
+    // toHaveClass already retries until the assertion passes or the timeout
+    // fires; no need for a fixed sleep.
     const navbar = page.locator(".navbar");
     await expect(navbar).toHaveClass(/scrolled/);
   });

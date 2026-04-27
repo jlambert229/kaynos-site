@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { URLS } from "../../src/config/urls.js";
 
 test.describe("Site navigation", () => {
   test("homepage loads with correct title", async ({ page }) => {
@@ -13,6 +14,14 @@ test.describe("Site navigation", () => {
     await expect(page.locator('.navbar-links').getByText('Features')).toBeVisible();
     await expect(page.locator('.navbar-links').getByText('Pricing')).toBeVisible();
     await expect(page.locator('.navbar-links').getByText('Demos')).toBeVisible();
+  });
+
+  test("navbar trial CTA points at signup with consistent copy", async ({ page, isMobile }) => {
+    test.skip(!!isMobile, "Desktop CTA hidden on mobile");
+    await page.goto("/");
+    const cta = page.locator(".navbar-cta").getByRole("link", { name: /start 14-day trial/i });
+    await expect(cta).toBeVisible();
+    await expect(cta).toHaveAttribute("href", URLS.signup);
   });
 
   test("mobile menu opens and closes", async ({ page, isMobile }) => {

@@ -73,4 +73,24 @@ test.describe("Responsive layout", () => {
     );
     expect(overflowX).toBe("auto");
   });
+
+  test("layout has no horizontal overflow at the 720px tablet-landscape boundary", async ({ page }) => {
+    // The CSS jumps between 640 and 768 with nothing tuned for the in-between
+    // tablet-landscape range. Catch any horizontal overflow that creeps in.
+    await page.setViewportSize({ width: 720, height: 1024 });
+    await page.goto("/");
+    const overflow = await page.evaluate(() =>
+      document.documentElement.scrollWidth > document.documentElement.clientWidth
+    );
+    expect(overflow).toBe(false);
+
+    // Hero, features, pricing, and the comparison wrapper should all stay
+    // inside the viewport at this width.
+    for (const selector of ["#hero", "#features", "#pricing", ".cmp-table-wrap"]) {
+      const locator = page.locator(selector);
+      await locator.first().scrollIntoViewIfNeeded();
+      const right = await locator.first().evaluate((el) => Math.round(el.getBoundingClientRect().right));
+      expect(right, `${selector} extends past viewport`).toBeLessThanOrEqual(720 + 1);
+    }
+  });
 });

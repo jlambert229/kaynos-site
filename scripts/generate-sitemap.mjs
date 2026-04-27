@@ -1,6 +1,10 @@
 /**
  * Post-build script: generates dist/sitemap.xml from the prerender route list.
  * Called via the "postbuild" npm script.
+ *
+ * `lastmod` uses the build timestamp for every URL. That's not a precise
+ * per-page edit time, but it's a useful freshness signal for crawlers and
+ * costs nothing to maintain.
  */
 import { writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
@@ -27,10 +31,13 @@ const routes = [
   "/status",
 ];
 
+const lastmod = new Date().toISOString().slice(0, 10);
+
 const urls = routes
   .map(
     (r) => `  <url>
     <loc>${BASE}${r}</loc>
+    <lastmod>${lastmod}</lastmod>
   </url>`
   )
   .join("\n");

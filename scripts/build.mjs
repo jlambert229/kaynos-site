@@ -13,10 +13,12 @@
  */
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { existsSync, statSync } from "node:fs";
 import path from "node:path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
+const distDir = path.join(projectRoot, "dist");
 const viteBin = path.join(
   projectRoot,
   "node_modules",
@@ -35,11 +37,34 @@ const BUILT_RE = /built in \d/;
 const PRERENDER_RE = /Prerendered \d+ pages?/;
 const GRACE_MS = 1500;
 const KILL_ESCALATION_MS = 2000;
+// Sentinel routes that must be present and non-empty before we kill vite.
+// If any are missing, the build is incomplete and we let vite keep running
+// (or fail naturally) rather than exiting with a partial dist.
+const REQUIRED_ARTIFACTS = [
+  "index.html",
+  "for/coaches/index.html",
+  "for/students/index.html",
+  "contact/index.html",
+];
 
 let buffer = "";
 let builtSeen = false;
 let prerenderSeen = false;
 let shutdownScheduled = false;
+
+function distLooksComplete() {
+  if (!existsSync(distDir)) return false;
+  for (const rel of REQUIRED_ARTIFACTS) {
+    const full = path.join(distDir, rel);
+    if (!existsSync(full)) return false;
+    try {
+      if (statSync(full).size === 0) return false;
+    } catch {
+      return false;
+    }
+  }
+  return true;
+}
 
 function maybeScheduleShutdown() {
   if (shutdownScheduled) return;
@@ -47,6 +72,12 @@ function maybeScheduleShutdown() {
   shutdownScheduled = true;
   setTimeout(() => {
     if (child.exitCode != null || child.signalCode) return;
+    if (!distLooksComplete()) {
+      // Sentinels appeared but dist isn't ready — likely a race. Reset
+      // and re-poll on the next stdout tick rather than killing prematurely.
+      shutdownScheduled = false;
+      return;
+    }
     child.kill("SIGTERM");
     setTimeout(() => {
       if (child.exitCode != null || child.signalCode) return;
