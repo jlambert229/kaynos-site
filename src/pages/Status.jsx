@@ -26,7 +26,7 @@ const services = [
   },
   {
     name: "Student Demo",
-    description: "student.kaynos.net - client demo view",
+    description: "student.kaynos.net - student demo view",
     checkUrl: "https://student.kaynos.net",
     type: "external",
   },
