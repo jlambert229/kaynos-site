@@ -35,7 +35,7 @@ export default function FAQ() {
             <input
               type="text"
               className="faq-search"
-              placeholder="Search questions..."
+              placeholder="Search questions…"
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);

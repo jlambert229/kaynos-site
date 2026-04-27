@@ -50,7 +50,7 @@ export default function ForStudents() {
               <div className="students-step-body">
                 <h3>Watch and see their notes</h3>
                 <p>
-                  Open the video in your browser - no app to install. Your
+                  Open the video in your browser — no app to install. Your
                   coach&apos;s notes appear at the exact moments they&apos;re talking
                   about.
                 </p>
