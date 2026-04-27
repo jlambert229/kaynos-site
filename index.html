@@ -14,8 +14,15 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="apple-touch-icon" href="/logo.png" />
+  <!-- Resource hints for the external origins linked or scripted from
+       every page. preconnect for plausible (analytics is requested on
+       page load); dns-prefetch for the demo / app / docs links so the
+       handshake is cheap if a visitor follows one. -->
+  <link rel="preconnect" href="https://plausible.io" crossorigin />
   <link rel="dns-prefetch" href="https://app.kaynos.net" />
   <link rel="dns-prefetch" href="https://demo.kaynos.net" />
+  <link rel="dns-prefetch" href="https://student.kaynos.net" />
+  <link rel="dns-prefetch" href="https://docs.kaynos.net" />
   <script defer data-domain="kaynos.net" src="https://plausible.io/js/script.js"></script>
 </head>
 

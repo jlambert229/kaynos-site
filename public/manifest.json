@@ -1,11 +1,11 @@
 {
   "name": "Kaynos",
   "short_name": "Kaynos",
-  "description": "Private video training platform for coaches and trainers",
+  "description": "Video review for BJJ coaches. Film on your phone, pin notes at the right moments, send to your students.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000",
-  "theme_color": "#2997ff",
+  "background_color": "#050508",
+  "theme_color": "#050508",
   "icons": [
     {
       "src": "/favicon.svg",
