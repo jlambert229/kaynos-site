@@ -5,12 +5,10 @@ import Seo from "../components/Seo";
 const entries = [
   {
     date: "April 2026",
-    title: "AI review, video clips, and notifications",
+    title: "AI review and scheduling",
     items: [
       "AI video review: one-click analysis flags key moments with timestamped suggestions",
-      "Video clips: extract and share segments from any session or class",
-      "In-app notifications: bell icon with read/unread list alongside email alerts",
-      "Coach progress reports: automated weekly email with per-student watch rates",
+      "Coach progress reports: optional weekly or monthly email with per-student watch rates",
       "Session scheduling: calendar UI, conflict checks, ICS export, and email reminders",
     ],
   },
@@ -20,9 +18,7 @@ const entries = [
     items: [
       "Voice-to-note dictation: hands-free coaching notes via Deepgram transcription",
       "Global search palette (Cmd+K / Ctrl+K) across sessions, classes, students, and notes",
-      "Drawing annotations: freehand overlay on video frames for visual feedback",
       "Highlight markers: time-range selections on the video timeline",
-      "Tenant admin dashboard for multi-school management",
     ],
   },
   {
@@ -31,7 +27,6 @@ const entries = [
     items: [
       "Video uploads with timestamped coaching notes and threaded replies",
       "Private sessions and shared group classes",
-      "@mention notifications with email alerts and direct links",
       "Custom video player with timeline markers, speed control, and resume",
       "Watch progress tracking: see which students viewed their sessions",
       "Admin portal with member management, usage reports, and CSV export",
