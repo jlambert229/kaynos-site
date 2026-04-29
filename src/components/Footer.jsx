@@ -6,8 +6,8 @@ const columns = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "Features", href: "/#features" },
+      { label: "Pricing", href: "/#pricing" },
       { label: "For Coaches", href: "/for/coaches" },
       { label: "For Students", href: "/for/students" },
       { label: "Coach Demo", href: URLS.demoCoach, external: true },
@@ -94,7 +94,7 @@ export default function Footer() {
                     <a key={label} href={href} target="_blank" rel="noopener noreferrer">
                       {label}
                     </a>
-                  ) : href.startsWith("#") ? (
+                  ) : href.includes("#") ? (
                     <a key={label} href={href}>{label}</a>
                   ) : (
                     <Link key={label} to={href}>{label}</Link>
