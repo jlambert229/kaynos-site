@@ -12,17 +12,15 @@ export default function Story() {
           <h2 className="section-title">Why I built this</h2>
           <div className="prose-body">
             <p>
-              I train BJJ. I kept watching coaches film great rolls and then
-              lose the footage in text threads and group chats. Students
-              would ask &ldquo;what was that sweep you showed me?&rdquo; and there was
-              no way to point them back to the exact moment it happened.
+              I train BJJ, and the most effective training always came from
+              private lessons. I wanted a simple way to keep those sessions,
+              along with my coach&rsquo;s thoughts and feedback to help me
+              improve.
             </p>
             <p>
-              So I built what I wanted. Upload a video, pin notes to the
-              timeline (or dictate them hands-free) and send it to one
-              student or a whole class. AI can flag moments worth reviewing,
-              but you&rsquo;re still the one coaching. There are no social
-              feeds here and no public profiles.
+              Easy enough that my coach would actually use it with his other
+              students, useful enough that I&rsquo;d open it the night before
+              every private. So that&rsquo;s what I built.
             </p>
             <p>
               Kaynos is independent and self-funded. If something&rsquo;s
