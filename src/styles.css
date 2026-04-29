@@ -223,12 +223,27 @@ svg {
 }
 
 .btn-primary {
-  background: var(--accent);
+  /* In dark mode, --accent (#3b7dd8) only hits 4.0:1 against #fff —
+     fails WCAG AA. We use --accent-hover (#2c6ab8, 5.4:1) for the
+     button surface so the white label stays AA, and reserve --accent
+     for inline link/text use against dark backgrounds where it has
+     plenty of contrast. Light mode --accent (#2563c4) is dark enough
+     on its own and is restored below. */
+  background: var(--accent-hover);
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
+  background: #1d4fa8;
+}
+
+@media (prefers-color-scheme: light) {
+  .btn-primary {
+    background: var(--accent);
+  }
+  .btn-primary:hover {
+    background: var(--accent-hover);
+  }
 }
 
 .btn-primary:focus-visible {
@@ -2692,6 +2707,25 @@ svg {
 
 
 /* ---- COMPARISON TABLE ---- */
+
+/* Mobile-only swipe hint above the comparison table. The mask fade on
+   the right edge already suggests scrollability, but explicit text
+   makes it discoverable for users who don't pick up on the gradient. */
+.cmp-scroll-hint {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .cmp-scroll-hint {
+    display: block;
+    text-align: center;
+    margin: 0 0 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
+  }
+}
 
 .cmp-table-wrap {
   max-width: 900px;
