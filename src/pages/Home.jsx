@@ -19,6 +19,7 @@ const Demos = lazy(() => import("../sections/Demos"));
 const UseCases = lazy(() => import("../sections/UseCases"));
 const Testimonials = lazy(() => import("../sections/Testimonials"));
 const Story = lazy(() => import("../sections/Story"));
+const PrivacyCallout = lazy(() => import("../sections/PrivacyCallout"));
 const Pricing = lazy(() => import("../sections/Pricing"));
 const FAQ = lazy(() => import("../sections/FAQ"));
 const Newsletter = lazy(() => import("../sections/Newsletter"));
@@ -51,6 +52,9 @@ export default function Home() {
         </Suspense></ErrorBoundary>
         <ErrorBoundary><Suspense fallback={null}>
           <Testimonials />
+        </Suspense></ErrorBoundary>
+        <ErrorBoundary><Suspense fallback={null}>
+          <PrivacyCallout />
         </Suspense></ErrorBoundary>
         <ErrorBoundary><Suspense fallback={null}>
           <Pricing />

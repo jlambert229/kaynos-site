@@ -52,8 +52,11 @@ export default function Pricing() {
             </CtaButton>
 
             <p className="pricing-note">
-              {PRICING_COPY.trialNote}{" "}
+              {PRICING_COPY.trialNote} {PRICING_COPY.billingNote}{" "}
               <a href="#comparison">See how we compare &rarr;</a>
+            </p>
+            <p className="pricing-note">
+              {PRICING_COPY.softLimitNote}
             </p>
           </div>
         </div>

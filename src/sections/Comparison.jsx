@@ -71,9 +71,10 @@ export default function Comparison() {
           <h3 className="cmp-switching-title">Coming from another platform?</h3>
           <p className="cmp-switching-text">
             If you&apos;re on CoachNow, OnForm, or a Drive + Vimeo setup and
-            you&apos;re thinking about moving over, send me a note. I&apos;ll help
-            set up your account, migrate your roster, and walk you
-            through re-uploading your existing videos.
+            you&apos;re thinking about moving over, send me a note. I&apos;ll set
+            up your account, import your roster, and stay on a thread with
+            you while you re-upload your most-watched videos. Most coaches
+            are running on Kaynos within a week.
           </p>
           <a href={URLS.support} className="btn btn-secondary">Talk to me</a>
         </div>
