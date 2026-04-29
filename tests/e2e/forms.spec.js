@@ -19,11 +19,12 @@ test.describe("Contact form", () => {
 
   test("shows custom error when email format is invalid", async ({ page }) => {
     await page.goto("/contact");
-    // Fill name + invalid email + message, then bypass native email validation
-    // by removing the type="email" before submitting so client-side validate()
-    // runs and shows the custom message.
+    // Disable native browser validation on the form so React's validate() is
+    // what runs at submit time. Mutating the input's type attribute doesn't
+    // work — React is a controlled component and re-renders type="email" back.
+    // form.noValidate is a DOM property React doesn't track, so the patch sticks.
+    await page.locator("form.contact-form").evaluate((el) => { el.noValidate = true; });
     await page.locator("#contact-name").fill("Test User");
-    await page.locator("#contact-email").evaluate((el) => el.setAttribute("type", "text"));
     await page.locator("#contact-email").fill("not-an-email");
     await page.locator("#contact-msg").fill("Hello there.");
     await page.locator(".contact-submit").click();
