@@ -13,12 +13,30 @@ const navLinks = [
 ];
 
 function scrollToHash(hash) {
-  const el = document.querySelector(hash);
-  if (el) {
+  const performScroll = (el) => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
+  };
+
+  const el = document.querySelector(hash);
+  if (el) {
+    performScroll(el);
     return true;
   }
+
+  // Target not in the DOM yet — likely a section behind a Suspense boundary
+  // (Pricing, Demos, etc. on Home.jsx). Watch for it to appear instead of
+  // polling. Disconnect after success or a 3s safety timeout.
+  const observer = new MutationObserver(() => {
+    const target = document.querySelector(hash);
+    if (target) {
+      performScroll(target);
+      observer.disconnect();
+      clearTimeout(timeoutId);
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+  const timeoutId = setTimeout(() => observer.disconnect(), 3000);
   return false;
 }
 
@@ -30,8 +48,6 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileMenuRef = useRef(null);
 
-  // When the route changes to a path with a hash, scroll to the anchor after React has
-  // rendered the destination page. Replaces a brittle rAF + setTimeout(100) hack.
   useEffect(() => {
     if (hash) scrollToHash(hash);
   }, [pathname, hash]);

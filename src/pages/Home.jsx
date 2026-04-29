@@ -1,4 +1,3 @@
-import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Seo from "../components/Seo";
 import { homeJsonLd } from "../seo/homeJsonLd";
@@ -8,27 +7,24 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ErrorBoundary from "../components/ErrorBoundary";
 
-// Eager imports (above-fold)
 import Hero from "../sections/Hero";
 import Features from "../sections/Features";
-
-// Lazy load below-fold sections
-const Comparison = lazy(() => import("../sections/Comparison"));
-const HowItWorks = lazy(() => import("../sections/HowItWorks"));
-const Demos = lazy(() => import("../sections/Demos"));
-const UseCases = lazy(() => import("../sections/UseCases"));
-const Testimonials = lazy(() => import("../sections/Testimonials"));
-const Story = lazy(() => import("../sections/Story"));
-const PrivacyCallout = lazy(() => import("../sections/PrivacyCallout"));
-const Pricing = lazy(() => import("../sections/Pricing"));
-const FAQ = lazy(() => import("../sections/FAQ"));
-const Newsletter = lazy(() => import("../sections/Newsletter"));
-const CTA = lazy(() => import("../sections/CTA"));
+import Comparison from "../sections/Comparison";
+import HowItWorks from "../sections/HowItWorks";
+import Demos from "../sections/Demos";
+import UseCases from "../sections/UseCases";
+import Testimonials from "../sections/Testimonials";
+import Story from "../sections/Story";
+import PrivacyCallout from "../sections/PrivacyCallout";
+import Pricing from "../sections/Pricing";
+import FAQ from "../sections/FAQ";
+import Newsletter from "../sections/Newsletter";
+import CTA from "../sections/CTA";
 
 export default function Home() {
   return (
     <>
-      <Seo title="Kaynos | Video review for BJJ coaches." path="/" jsonLd={homeJsonLd} />
+      <Seo title="Video review for BJJ coaches" path="/" jsonLd={homeJsonLd} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(pricingJsonLd)}</script>
@@ -37,33 +33,23 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <Features />
-        <ErrorBoundary><Suspense fallback={null}>
-          <Comparison />
-        </Suspense></ErrorBoundary>
-        <ErrorBoundary><Suspense fallback={null}>
-          <HowItWorks />
-        </Suspense></ErrorBoundary>
-        <ErrorBoundary><Suspense fallback={null}>
-          <Demos />
-        </Suspense></ErrorBoundary>
-        <ErrorBoundary><Suspense fallback={null}>
+        <ErrorBoundary><Comparison /></ErrorBoundary>
+        <ErrorBoundary><HowItWorks /></ErrorBoundary>
+        <ErrorBoundary><Demos /></ErrorBoundary>
+        <ErrorBoundary>
           <UseCases />
           <Story />
-        </Suspense></ErrorBoundary>
-        <ErrorBoundary><Suspense fallback={null}>
-          <Testimonials />
-        </Suspense></ErrorBoundary>
-        <ErrorBoundary><Suspense fallback={null}>
-          <PrivacyCallout />
-        </Suspense></ErrorBoundary>
-        <ErrorBoundary><Suspense fallback={null}>
+        </ErrorBoundary>
+        <ErrorBoundary><Testimonials /></ErrorBoundary>
+        <ErrorBoundary><PrivacyCallout /></ErrorBoundary>
+        <ErrorBoundary>
           <Pricing />
           <FAQ />
-        </Suspense></ErrorBoundary>
-        <ErrorBoundary><Suspense fallback={null}>
+        </ErrorBoundary>
+        <ErrorBoundary>
           <Newsletter />
           <CTA />
-        </Suspense></ErrorBoundary>
+        </ErrorBoundary>
       </main>
       <Footer />
     </>

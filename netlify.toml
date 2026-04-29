@@ -14,10 +14,24 @@
   status = 301
   force = true
 
+# /docs paths exist as React Router client-side <Navigate> redirects in App.jsx;
+# mirror them server-side so direct hits 301 instead of relying on SPA hydration.
+[[redirects]]
+  from = "/docs"
+  to = "/getting-started"
+  status = 301
+
+[[redirects]]
+  from = "/docs/getting-started"
+  to = "/getting-started"
+  status = 301
+
+# SPA fallback: serve index.html with a 404 status for unknown routes so bots
+# don't index typos as real pages. The NotFound page still renders client-side.
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 404
 
 [[headers]]
   for = "/*"

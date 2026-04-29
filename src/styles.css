@@ -2607,8 +2607,12 @@ svg {
   gap: 8px;
   font-size: 13px;
   color: var(--text-tertiary);
-  cursor: pointer;
   line-height: 1.4;
+}
+
+.newsletter-consent input,
+.newsletter-consent label {
+  cursor: pointer;
 }
 
 .newsletter-consent input {
