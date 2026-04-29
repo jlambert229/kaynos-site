@@ -54,6 +54,8 @@ export const PRICING_COPY = {
   subtitle: `${FMT.coachMonthlySlash} for the coach, flat. Students stay free no matter how many you add, and every feature is included without tiers.`,
   ctaLine: `${FMT.coachMonthlySlash} for the coach, students free. ${TRIAL_DAYS}-day trial.`,
   trialNote: `${TRIAL_DAYS} days free. Card required to start.`,
+  billingNote: `Monthly billing — cancel anytime.`,
+  softLimitNote: `If you're approaching ${VIDEO_UPLOADS} uploads or ${STORAGE_GB} GB, I'll send a heads-up around 80% — no surprise cutoffs mid-class.`,
   seoDescription: `Video review built for BJJ coaches. Upload sparring, let AI surface the moments worth reviewing, and send notes straight to your students. ${FMT.coachMonthlySlash} flat — students are free.`,
   jsonLdProductDesc: `Private video review for BJJ and MMA coaches. ${FMT.coachMonthlySlash} flat, students use Kaynos for free. AI surfaces the moments in sparring footage worth reviewing.`,
   jsonLdOfferDesc: `Coach plan. Every feature included, students free. ${TRIAL_DAYS}-day trial, card required.`,
