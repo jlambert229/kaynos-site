@@ -59,8 +59,8 @@
     --bg-secondary: #eeeef0;
     --bg-tertiary: #e4e4e8;
     --text-primary: #1a1a1f;
-    --text-secondary: rgba(26, 26, 31, 0.72);
-    --text-tertiary: rgba(26, 26, 31, 0.55);
+    --text-secondary: rgba(26, 26, 31, 0.78);
+    --text-tertiary: rgba(26, 26, 31, 0.7);
     --border: rgba(0, 0, 0, 0.08);
     --border-strong: rgba(0, 0, 0, 0.14);
     --border-hairline: rgba(0, 0, 0, 0.06);
@@ -105,6 +105,16 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
+}
+
+/* Inline links inside running prose are underlined so they're
+   distinguishable without relying on color (WCAG 1.4.1). Buttons,
+   nav-style links, and tile/card links opt out via class or by not
+   sitting inside a <p>/<li>. */
+p a:not(.btn),
+li a:not(.btn) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 img,
@@ -3114,7 +3124,7 @@ svg {
   line-height: 1;
 }
 
-.students-step-body h3 {
+.students-step-body h2 {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 6px;
@@ -3140,7 +3150,7 @@ svg {
   padding: 28px;
 }
 
-.students-message-card h3 {
+.students-message-card h2 {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 8px;
@@ -3614,6 +3624,12 @@ svg {
   color: #ffb224;
 }
 
+@media (prefers-color-scheme: light) {
+  .status-banner--ok { color: #1b7a4d; }
+  .status-banner--down { color: #b3271e; }
+  .status-banner--checking { color: #8a5a00; }
+}
+
 .status-last-checked {
   font-size: 13px;
   color: var(--text-tertiary);
@@ -3697,6 +3713,7 @@ svg {
 }
 
 .status-row-status--operational { color: #30a46c; }
+.status-row-status--reachable { color: #30a46c; }
 .status-row-status--degraded { color: #ffb224; }
 .status-row-status--down { color: #ff453a; }
 .status-row-status--checking { color: var(--text-tertiary); }
@@ -3705,6 +3722,13 @@ svg {
 .status-icon--warn { color: #ffb224; }
 .status-icon--down { color: #ff453a; }
 .status-icon--checking { color: var(--text-tertiary); }
+
+@media (prefers-color-scheme: light) {
+  .status-row-status--operational,
+  .status-row-status--reachable { color: #1b7a4d; }
+  .status-row-status--degraded { color: #8a5a00; }
+  .status-row-status--down { color: #b3271e; }
+}
 
 .status-spin {
   animation: statusSpin 1.5s linear infinite;

@@ -36,9 +36,17 @@ test.describe("Site navigation", () => {
     await expect(page.locator(".mobile-menu.open")).not.toBeVisible();
   });
 
-  test("hash navigation scrolls to sections", async ({ page }) => {
+  test("hash navigation scrolls to sections", async ({ page, isMobile }) => {
     await page.goto("/");
-    await page.locator('a[href="#features"]').first().click();
+    if (isMobile) {
+      // On mobile, the desktop navbar links are display:none. Open the
+      // mobile menu first so the hash anchor is actually clickable.
+      await page.locator(".mobile-toggle").click();
+      await expect(page.locator(".mobile-menu.open")).toBeVisible();
+      await page.locator(".mobile-menu a[href='#features']").click();
+    } else {
+      await page.locator(".navbar-links a[href='#features']").click();
+    }
     await expect(page.locator("#features")).toBeInViewport();
   });
 

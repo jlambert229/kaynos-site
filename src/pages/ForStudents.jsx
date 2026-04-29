@@ -38,7 +38,7 @@ export default function ForStudents() {
             <li className="students-step">
               <span className="students-step-number">1</span>
               <div className="students-step-body">
-                <h3>You get a link</h3>
+                <h2>You get a link</h2>
                 <p>
                   Your coach uploads a video and shares it with you. You&apos;ll get
                   an email with a direct link.
@@ -48,7 +48,7 @@ export default function ForStudents() {
             <li className="students-step">
               <span className="students-step-number">2</span>
               <div className="students-step-body">
-                <h3>Watch and see their notes</h3>
+                <h2>Watch and see their notes</h2>
                 <p>
                   Open the video in your browser — no app to install. Your
                   coach&apos;s notes appear at the exact moments they&apos;re talking
@@ -59,7 +59,7 @@ export default function ForStudents() {
             <li className="students-step">
               <span className="students-step-number">3</span>
               <div className="students-step-body">
-                <h3>Reply and ask questions</h3>
+                <h2>Reply and ask questions</h2>
                 <p>
                   Leave your own notes or reply to your coach&apos;s. It&apos;s a
                   conversation anchored to the video.
@@ -70,26 +70,26 @@ export default function ForStudents() {
 
           <div className="students-messages">
             <div className="students-message-card">
-              <h3>It&apos;s free for you</h3>
+              <h2>It&apos;s free for you</h2>
               <p>
                 Your coach pays for Kaynos. Students don&apos;t, always.
               </p>
             </div>
             <div className="students-message-card">
-              <h3>No app to install</h3>
+              <h2>No app to install</h2>
               <p>
                 It runs in the browser on any device. Nothing to download.
               </p>
             </div>
             <div className="students-message-card">
-              <h3>Your footage is private</h3>
+              <h2>Your footage is private</h2>
               <p>
                 You only see the sessions your coach shares with you. Your
                 videos and your notes aren&apos;t visible to other students.
               </p>
             </div>
             <div className="students-message-card">
-              <h3>Safe for kids</h3>
+              <h2>Safe for kids</h2>
               <p>
                 Only your coach and you can see sessions they&apos;ve shared
                 with you. There are no social features, no public

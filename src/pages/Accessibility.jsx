@@ -12,7 +12,7 @@ export default function Accessibility() {
     <>
       <Seo title="Accessibility Statement" description="Kaynos is committed to making our website and platform accessible to everyone. Learn about our WCAG 2.1 Level AA commitment." path="/accessibility" />
       <Navbar />
-      <main className="legal-main container">
+      <main id="main-content" className="legal-main container">
         <article className="legal-article">
           <div className="legal-meta">
             <Link to="/" className="legal-back">&larr; Back to home</Link>

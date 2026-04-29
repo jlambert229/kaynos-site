@@ -30,6 +30,8 @@ test.describe("iOS / WebKit specific issues", () => {
       );
       const tooSmall = [];
       for (const el of interactiveElements) {
+        // The skip-to-content link is intentionally 1×1 until focus.
+        if (el.classList.contains("skip-to-content")) continue;
         const rect = el.getBoundingClientRect();
         // Skip hidden elements
         if (rect.width === 0 || rect.height === 0) continue;
@@ -101,8 +103,9 @@ test.describe("iOS / WebKit specific issues", () => {
       () => document.body.style.overflow
     );
     expect(overflow).toBe("");
-    // Should be scrollable.
-    await page.evaluate(() => window.scrollTo(0, 200));
+    // Should be scrollable. Use behavior:'instant' so we don't race the
+    // CSS smooth-scroll animation and read scrollY mid-tween.
+    await page.evaluate(() => window.scrollTo({ top: 200, behavior: "instant" }));
     const scrollY = await page.evaluate(() => window.scrollY);
     expect(scrollY).toBeGreaterThan(0);
   });
