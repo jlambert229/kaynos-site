@@ -105,7 +105,7 @@ export default function UseCases() {
       <div className="container">
         <div ref={headerRef} className="reveal section-header">
           <span className="section-label">Use Cases</span>
-          <h2 className="section-title">Four ways coaches are using it</h2>
+          <h2 className="section-title">Four ways coaches can use it</h2>
           <p className="section-subtitle">
             Sparring, comp prep, privates, remote coaching. Same set of
             tools under the hood; what changes is how you reach for them.
