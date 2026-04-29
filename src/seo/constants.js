@@ -5,8 +5,6 @@ export const SITE_URL = "https://www.kaynos.net";
 
 export const SEO_DEFAULT_DESCRIPTION = PRICING_COPY.seoDescription;
 
-export const SEO_DEFAULT_TITLE = "Kaynos | Video review for BJJ coaches.";
-
 /** Open Graph / Twitter card (1200x630 in public/). */
 export const OG_SHARE_PATH = "/og-share.png";
 export const OG_SHARE_URL = `${SITE_URL}${OG_SHARE_PATH}`;

@@ -83,10 +83,13 @@ export default function Newsletter() {
                   {status === "submitting" ? "Subscribing\u2026" : "Subscribe"}
                 </button>
               </div>
-              <label className="newsletter-consent">
-                <input type="checkbox" name="consent" required />
-                <span>I agree to receive product updates via email. <a href="/privacy">Privacy Policy</a>.</span>
-              </label>
+              <div className="newsletter-consent">
+                <input id="newsletter-consent" type="checkbox" name="consent" required />
+                <span>
+                  <label htmlFor="newsletter-consent">I agree to receive product updates via email.</label>{" "}
+                  <a href="/privacy">Privacy Policy</a>.
+                </span>
+              </div>
             </form>
           )}
 
