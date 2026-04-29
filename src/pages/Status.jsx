@@ -113,7 +113,7 @@ export default function Status() {
         path="/status"
       />
       <Navbar />
-      <main className="status-main container">
+      <main id="main-content" className="status-main container">
         <div className="status-content">
           <span className="section-label">System Status</span>
           <h1 className="status-title">Kaynos System Status</h1>

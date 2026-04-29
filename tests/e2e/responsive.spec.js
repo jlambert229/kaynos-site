@@ -44,12 +44,26 @@ test.describe("Responsive layout", () => {
     test.skip(!isMobile, "Overflow test for mobile only");
     await page.goto("/");
     const overflowElements = await page.evaluate(() => {
+      // An ancestor with overflow:auto/scroll/hidden on the X axis clips
+      // its descendants visually, so a child whose rect extends past the
+      // viewport isn't actually overflowing the page (e.g. the comparison
+      // table inside .cmp-table-wrap).
+      const inScrollableX = (el) => {
+        let cur = el.parentElement;
+        while (cur && cur !== document.documentElement) {
+          const cs = getComputedStyle(cur);
+          if (["auto", "scroll", "hidden"].includes(cs.overflowX)) return true;
+          cur = cur.parentElement;
+        }
+        return false;
+      };
       const problems = [];
       const all = document.querySelectorAll("h1, h2, h3, p, span, a");
       for (const el of all) {
         const rect = el.getBoundingClientRect();
         if (rect.width === 0) continue;
         if (rect.right > window.innerWidth + 2) {
+          if (inScrollableX(el)) continue;
           problems.push({
             tag: el.tagName,
             text: el.textContent?.slice(0, 40),

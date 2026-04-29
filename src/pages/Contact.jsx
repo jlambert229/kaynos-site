@@ -51,7 +51,7 @@ export default function Contact() {
     <>
       <Seo title="Contact" description="Questions, feedback, walkthroughs — send them over. I read everything and usually reply the same day." path="/contact" />
       <Navbar />
-      <main className="contact-main container">
+      <main id="main-content" className="contact-main container">
         <div className="contact-content">
           <span className="section-label">Contact</span>
           <h1 className="contact-title">Get in touch</h1>

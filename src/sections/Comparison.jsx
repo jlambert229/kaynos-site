@@ -26,7 +26,13 @@ export default function Comparison() {
           </p>
         </div>
 
-        <div ref={tableRef} className="reveal cmp-table-wrap">
+        <div
+          ref={tableRef}
+          className="reveal cmp-table-wrap"
+          role="region"
+          aria-label="Feature comparison"
+          tabIndex={0}
+        >
           <table className="cmp-table">
             <thead>
               <tr className="cmp-header">
@@ -73,8 +79,8 @@ export default function Comparison() {
             If you&apos;re on CoachNow, OnForm, or a Drive + Vimeo setup and
             you&apos;re thinking about moving over, send me a note. I&apos;ll set
             up your account, import your roster, and stay on a thread with
-            you while you re-upload your most-watched videos. Most coaches
-            are running on Kaynos within a week.
+            you while you re-upload your most-watched videos. Migrations
+            usually wrap inside a week.
           </p>
           <a href={URLS.support} className="btn btn-secondary">Talk to me</a>
         </div>
