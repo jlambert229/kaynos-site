@@ -141,6 +141,24 @@ svg {
   border-top: none;
 }
 
+/* Tighter vertical rhythm for sections flagged in design review */
+#how-it-works.section,
+#use-cases.section {
+  padding: clamp(48px, 7vw, 96px) 0;
+}
+
+#how-it-works .how-it-works-prose .section-title {
+  margin-bottom: 24px;
+}
+
+#use-cases .section-header {
+  margin-bottom: 56px;
+}
+
+#use-cases .uc-tabs {
+  margin-bottom: 32px;
+}
+
 .section-label {
   display: inline-block;
   font-size: 12px;
@@ -3215,6 +3233,10 @@ svg {
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xl);
+  padding: 24px;
 }
 
 .coaches-step-number {
