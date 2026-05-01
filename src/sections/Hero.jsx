@@ -31,6 +31,7 @@ export default function Hero() {
               rel="noopener noreferrer"
             >
               See a Demo
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </div>
           <p className="hero-meta">

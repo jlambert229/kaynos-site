@@ -70,7 +70,7 @@ export default function Contact() {
           </div>
 
           {status !== "success" ? (
-            <form className="contact-form" name="contact" data-netlify="true" data-netlify-honeypot="phone_ext" onSubmit={handleSubmit}>
+            <form className="contact-form" name="contact" method="post" data-netlify="true" data-netlify-honeypot="phone_ext" onSubmit={handleSubmit}>
               <input type="hidden" name="form-name" value="contact" />
               <h2 className="contact-form-title">Send a message</h2>
               {status === "error" && <div className="contact-error contact-form-error" aria-live="polite">Something went wrong on my end. Try again or just email support@kaynos.net directly.</div>}
@@ -83,6 +83,7 @@ export default function Contact() {
                 <label htmlFor="contact-name" className="contact-label">Name</label>
                 <input
                   id="contact-name"
+                  name="name"
                   className="contact-input"
                   placeholder="Your name"
                   value={form.name}
@@ -101,6 +102,7 @@ export default function Contact() {
                 <label htmlFor="contact-email" className="contact-label">Email</label>
                 <input
                   id="contact-email"
+                  name="email"
                   type="email"
                   className="contact-input"
                   placeholder="you@example.com"
@@ -122,6 +124,7 @@ export default function Contact() {
                 <label htmlFor="contact-msg" className="contact-label">Message</label>
                 <textarea
                   id="contact-msg"
+                  name="message"
                   className="contact-input contact-textarea"
                   rows={5}
                   placeholder="What's on your mind?"
