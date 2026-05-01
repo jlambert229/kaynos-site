@@ -24,6 +24,9 @@ export default function Terms() {
       <Navbar />
       <main id="main-content" className="legal-main container">
         <article className="legal-article">
+          <div className="legal-meta">
+            <Link to="/" className="legal-back">&larr; Back to home</Link>
+          </div>
           <span className="section-label">Legal</span>
           <h1 className="legal-title">Terms of Service</h1>
           <p className="legal-lead">
