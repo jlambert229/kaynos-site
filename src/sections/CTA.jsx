@@ -11,8 +11,9 @@ export default function CTA() {
       <div ref={revealRef} className="reveal container cta-container">
         <h2 className="cta-title">Give it a shot.</h2>
         <p className="cta-subtitle">
-          {TRIAL_DAYS} days free with a card on file, cancel anytime.
-          Students are always free.
+          Sign up, upload a roll, pin a note, send the link.
+          {" "}{TRIAL_DAYS} days free with a card on file — cancel anytime,
+          students free.
         </p>
         <div className="cta-actions">
           <CtaButton>Start 14-Day Trial</CtaButton>
