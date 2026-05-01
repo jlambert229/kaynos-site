@@ -120,7 +120,7 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
       <a href="#main-content" className="skip-to-content">Skip to content</a>
       <div className="navbar-inner">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand" aria-label="Kaynos – Home">
           <KaynosLogo size="nav" />
           <span className="navbar-brand-text">kaynos</span>
         </Link>
@@ -179,7 +179,13 @@ export default function Navbar() {
         </button>
       </div>
 
-      <div id="mobile-menu" ref={mobileMenuRef} className={`mobile-menu${mobileOpen ? " open" : ""}`}>
+      <div
+        id="mobile-menu"
+        ref={mobileMenuRef}
+        className={`mobile-menu${mobileOpen ? " open" : ""}`}
+        aria-hidden={mobileOpen ? "false" : "true"}
+        inert={mobileOpen ? undefined : ""}
+      >
         {/* Close button is first in the DOM so the focus trap auto-focuses
             it on open — easiest "get out" affordance. The brand link is
             positioned via CSS absolute, not DOM order. */}

@@ -5,6 +5,7 @@ import Seo from "../components/Seo";
 const entries = [
   {
     date: "April 2026",
+    iso: "2026-04",
     title: "AI review and scheduling",
     items: [
       "AI video review: one-click analysis flags key moments with timestamped suggestions",
@@ -14,6 +15,7 @@ const entries = [
   },
   {
     date: "March 2026",
+    iso: "2026-03",
     title: "Voice dictation and search",
     items: [
       "Voice-to-note dictation: hands-free coaching notes via Deepgram transcription",
@@ -23,6 +25,7 @@ const entries = [
   },
   {
     date: "February 2026",
+    iso: "2026-02",
     title: "Platform launch",
     items: [
       "Video uploads with timestamped coaching notes and threaded replies",
@@ -54,7 +57,7 @@ export default function Changelog() {
           <div className="changelog-timeline">
             {entries.map((entry) => (
               <div key={entry.date} className="changelog-entry">
-                <div className="changelog-date">{entry.date}</div>
+                <time className="changelog-date" dateTime={entry.iso}>{entry.date}</time>
                 <h2 className="changelog-entry-title">{entry.title}</h2>
                 <ul className="changelog-items">
                   {entry.items.map((item) => (

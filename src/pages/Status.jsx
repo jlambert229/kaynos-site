@@ -139,7 +139,7 @@ export default function Status() {
           {lastChecked && (
             <p className="status-last-checked">
               Last checked: {lastChecked.toLocaleTimeString()} &middot;{" "}
-              <button onClick={() => runChecks()} disabled={isRefreshing} className="status-refresh-btn">
+              <button type="button" onClick={() => runChecks()} disabled={isRefreshing} className="status-refresh-btn">
                 {isRefreshing ? "Refreshing…" : "Refresh"}
               </button>
             </p>

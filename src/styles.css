@@ -620,6 +620,11 @@ svg {
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
+  /* Negative-margin trick: expand the tap zone to ~41px tall without
+     pushing surrounding micro-copy around. */
+  display: inline-block;
+  padding: 12px 4px;
+  margin: -12px -4px;
 }
 
 .hero-meta a:hover {
@@ -1708,7 +1713,7 @@ svg {
 .footer-col-links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
 }
 
 .footer-col-links a {
@@ -1716,6 +1721,9 @@ svg {
   font-size: 14px;
   transition: color 0.15s;
   text-decoration: none;
+  /* Padding expands each tap target to ~44px while keeping the visual
+     gap between rows roughly the same as the previous gap:10px. */
+  padding: 10px 0;
 }
 
 .footer-col-links a:hover {
@@ -2555,6 +2563,7 @@ svg {
 }
 
 .changelog-date {
+  display: block;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -2678,8 +2687,13 @@ svg {
 }
 
 .newsletter-consent input {
-  margin-top: 3px;
+  margin-top: 1px;
   flex-shrink: 0;
+  /* Bump the actual checkbox to a 20px hit area; the label still fires the
+     same toggle, but the box itself is now reasonable to tap directly. */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .newsletter-consent a {
@@ -2983,12 +2997,6 @@ svg {
   max-width: 640px;
   margin: 0 auto;
   text-align: center;
-  animation: ucFadeIn 0.35s ease;
-}
-
-@keyframes ucFadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .uc-panel-icon {
@@ -3390,6 +3398,12 @@ svg {
   font-size: 15px;
   color: var(--text-secondary);
   margin-bottom: 56px;
+}
+
+.coaches-pricing-detail a {
+  display: inline-block;
+  padding: 12px 4px;
+  margin: -12px -4px;
 }
 
 .coaches-final-cta {

@@ -67,9 +67,6 @@ export default function UseCases() {
   const contentRef = useScrollReveal();
   const tabRefs = useRef({});
 
-  const current = cases.find((c) => c.id === active);
-  const Icon = current.icon;
-
   const handleKeyDown = useCallback(
     (e) => {
       const currentIndex = cases.findIndex((c) => c.id === active);
@@ -120,6 +117,7 @@ export default function UseCases() {
               return (
                 <button
                   key={c.id}
+                  type="button"
                   ref={(el) => { tabRefs.current[c.id] = el; }}
                   id={`uc-tab-${c.id}`}
                   role="tab"
@@ -137,25 +135,33 @@ export default function UseCases() {
             })}
           </div>
 
-          <div
-            className="uc-panel"
-            key={active}
-            id={`uc-panel-${active}`}
-            role="tabpanel"
-            aria-labelledby={`uc-tab-${active}`}
-            tabIndex={0}
-          >
-            <div className="uc-panel-icon">
-              <Icon size={28} aria-hidden="true" />
-            </div>
-            <h3 className="uc-panel-title">{current.title}</h3>
-            <p className="uc-panel-desc">{current.description}</p>
-            <ul className="uc-panel-examples">
-              {current.examples.map((ex) => (
-                <li key={ex}>{ex}</li>
-              ))}
-            </ul>
-          </div>
+          {cases.map((c) => {
+            const PanelIcon = c.icon;
+            const isActive = c.id === active;
+            return (
+              <div
+                key={c.id}
+                className="uc-panel"
+                id={`uc-panel-${c.id}`}
+                role="tabpanel"
+                aria-labelledby={`uc-tab-${c.id}`}
+                aria-hidden={isActive ? "false" : "true"}
+                hidden={!isActive}
+                tabIndex={0}
+              >
+                <div className="uc-panel-icon">
+                  <PanelIcon size={28} aria-hidden="true" />
+                </div>
+                <h3 className="uc-panel-title">{c.title}</h3>
+                <p className="uc-panel-desc">{c.description}</p>
+                <ul className="uc-panel-examples">
+                  {c.examples.map((ex) => (
+                    <li key={ex}>{ex}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

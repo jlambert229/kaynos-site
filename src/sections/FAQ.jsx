@@ -56,6 +56,7 @@ export default function FAQ() {
               return (
                 <div key={faq.question} className="faq-item">
                   <button
+                    type="button"
                     className="faq-question"
                     onClick={() => toggle(faq.question)}
                     aria-expanded={isOpen}
