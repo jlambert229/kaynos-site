@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
@@ -29,6 +30,9 @@ export default function Processors() {
       <Navbar />
       <main id="main-content" className="legal-main container">
         <article className="legal-article">
+          <div className="legal-meta">
+            <Link to="/" className="legal-back">&larr; Back to home</Link>
+          </div>
           <span className="section-label">Privacy</span>
           <h1 className="legal-title">Sub-Processors</h1>
           <p className="legal-lead">

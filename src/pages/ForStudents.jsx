@@ -29,10 +29,11 @@ export default function ForStudents() {
           <p className="students-lead">
             Here&apos;s what to do — about 30 seconds to read.
           </p>
-          <p className="students-parent-note">
-            Parents: your child&apos;s coach invited them to review their own
-            training footage. Here&apos;s what&apos;s on the other end of the link.
-          </p>
+          <aside className="students-parent-note" aria-label="Note for parents">
+            <strong>Parents:</strong> your child&apos;s coach invited them to
+            review their own training footage. Here&apos;s what&apos;s on the
+            other end of the link.
+          </aside>
 
           <ol className="students-steps">
             <li className="students-step">

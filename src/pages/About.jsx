@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
@@ -24,6 +25,9 @@ export default function About() {
       <Navbar />
       <main id="main-content" className="about-main container">
         <div className="about-content">
+          <div className="legal-meta">
+            <Link to="/" className="legal-back">&larr; Back to home</Link>
+          </div>
           <h1 className="about-title">About</h1>
           <p className="about-lead">
             Kaynos is a private video review tool for BJJ coaches, built

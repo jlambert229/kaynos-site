@@ -180,9 +180,16 @@ export default function Navbar() {
       </div>
 
       <div id="mobile-menu" ref={mobileMenuRef} className={`mobile-menu${mobileOpen ? " open" : ""}`}>
+        {/* Close button is first in the DOM so the focus trap auto-focuses
+            it on open — easiest "get out" affordance. The brand link is
+            positioned via CSS absolute, not DOM order. */}
         <button type="button" className="mobile-close" onClick={closeMobile} aria-label="Close menu">
           <X size={24} />
         </button>
+        <Link to="/" className="mobile-menu-brand" onClick={closeMobile}>
+          <KaynosLogo size="nav" />
+          <span>kaynos</span>
+        </Link>
         {navLinks.map(({ label, href, external, page }) =>
           external ? (
             <a

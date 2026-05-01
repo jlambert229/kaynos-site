@@ -27,6 +27,9 @@ export default function Security() {
       <Navbar />
       <main id="main-content" className="security-main container">
         <div className="security-content">
+          <div className="legal-meta">
+            <Link to="/" className="legal-back">&larr; Back to home</Link>
+          </div>
           <span className="section-label">Trust</span>
           <h1 className="security-title">Security &amp; Privacy</h1>
           <p className="security-lead">How Kaynos protects your data.</p>

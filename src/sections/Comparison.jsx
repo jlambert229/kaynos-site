@@ -26,9 +26,12 @@ export default function Comparison() {
           </p>
         </div>
 
-        <p className="cmp-scroll-hint" aria-hidden="true">
-          Swipe to compare more &rarr;
-        </p>
+        <div className="cmp-scroll-hint-row">
+          <span className="cmp-scroll-hint" aria-hidden="true">
+            Swipe to compare more
+            <span className="cmp-scroll-hint-arrow">&rarr;</span>
+          </span>
+        </div>
         <div
           ref={tableRef}
           className="reveal cmp-table-wrap"

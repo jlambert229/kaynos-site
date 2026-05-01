@@ -53,7 +53,7 @@ export const PRICING_COPY = {
   heroLine: `Flat ${FMT.coachMonthlySlash} for the coach. Students are free.`,
   subtitle: `${FMT.coachMonthlySlash} for the coach, flat. Students stay free no matter how many you add, and every feature is included without tiers.`,
   ctaLine: `${FMT.coachMonthlySlash} for the coach, students free. ${TRIAL_DAYS}-day trial.`,
-  trialNote: `${TRIAL_DAYS} days free. Card required to start.`,
+  trialNote: `${TRIAL_DAYS} days free. Card required to start — no charge until day ${TRIAL_DAYS + 1}, cancel anytime before.`,
   billingNote: `Monthly billing — cancel anytime.`,
   softLimitNote: `If you're approaching ${VIDEO_UPLOADS} uploads or ${STORAGE_GB} GB, I'll send a heads-up around 80% — no surprise cutoffs mid-class.`,
   seoDescription: `Video review built for BJJ coaches. Upload sparring, let AI surface the moments worth reviewing, and send notes straight to your students. ${FMT.coachMonthlySlash} flat — students are free.`,
