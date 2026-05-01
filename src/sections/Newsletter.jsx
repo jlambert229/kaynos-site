@@ -32,10 +32,10 @@ export default function Newsletter() {
           <div className="newsletter-icon">
             <Inbox size={24} />
           </div>
-          <h3 className="newsletter-title">Occasional updates</h3>
+          <h3 className="newsletter-title">One email a month</h3>
           <p className="newsletter-desc">
-            About one short email a month: what shipped, what&apos;s next, and
-            things I&apos;ve learned about coaching with video.
+            What shipped, what&apos;s next, and things I&apos;ve learned about
+            coaching with video. One short email a month — that&apos;s it.
           </p>
 
           {status === "success" ? (
