@@ -8,13 +8,13 @@ export default function Testimonials() {
     <section id="testimonials" className="section section--alt">
       <div className="container">
         <div className="early-access">
-          <h2 className="section-title">Still early days</h2>
+          <h2 className="section-title">Be one of the first</h2>
 
           <div className="early-access-body">
             <p>
-              Kaynos is new. There aren&rsquo;t users to quote here yet.
-              If you sign up now you&rsquo;ll be one of the first, which
-              mostly means you&rsquo;ll have a direct line to me when
+              Kaynos is new — the next quote on this page could be yours.
+              If you sign up now you&rsquo;ll be one of the first coaches
+              on the platform, which mostly means a direct line to me when
               something&rsquo;s broken or missing.
             </p>
             <p>
@@ -24,7 +24,7 @@ export default function Testimonials() {
                 href={URLS.demoCoach}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="early-access-link"
+                className="early-access-link plausible-event-name=CTA-Demo-Coach"
               >
                 Open the demo <ArrowRight size={14} />
               </a>
