@@ -1,22 +1,22 @@
 /* ── Competitor data ──────────────────────────────────────────────────
  * Single source of truth for all competitor references on the site.
  * Used by Comparison (feature table).
+ *
+ * Note: competitor monthly prices are deliberately omitted from the
+ * column subtitles. Their pricing pages tier (CoachNow has plans from
+ * $9.99 to $900; OnForm has a free tier) and any single number we
+ * picked would be cherry-picked. The comparison stands on features.
  * ─────────────────────────────────────────────────────────────────── */
 
 import { FMT } from "../config/pricing";
-
-/* Month/year these competitor prices were last verified. Surface this on
- * the comparison table so prospects know the snapshot date. Update when
- * you re-check the competitors' pricing pages. */
-export const competitorPricingAsOf = "May 2026";
 
 /* ── Comparison table columns ────────────────────────────────────── */
 
 export const comparisonColumns = [
   { key: "kaynos", label: "Kaynos", sub: `${FMT.coachMonthlySlash} flat` },
-  { key: "coachnow", label: "CoachNow", sub: "$50/mo" },
-  { key: "onform", label: "OnForm", sub: "$30/mo" },
-  { key: "diy", label: "Drive + Vimeo", sub: "Free" },
+  { key: "coachnow", label: "CoachNow", sub: "" },
+  { key: "onform", label: "OnForm", sub: "" },
+  { key: "diy", label: "Drive + Vimeo", sub: "" },
 ];
 
 /* ── Comparison table features ───────────────────────────────────── */

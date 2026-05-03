@@ -2915,14 +2915,6 @@ svg {
   text-underline-offset: 3px;
 }
 
-.cmp-pricing-asof {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 12px;
-  color: var(--text-muted, var(--text-secondary));
-  opacity: 0.7;
-}
-
 .cmp-switching {
   text-align: center;
   margin-top: 48px;

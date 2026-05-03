@@ -35,10 +35,10 @@ export default function ForCoaches() {
             watch in a browser on any device — nothing to install.
           </p>
           <div className="coaches-cta">
-            <a href={URLS.signup} className="btn btn-primary btn-lg plausible-event-name=CTA-Trial">
+            <a href={URLS.signup} className="btn btn-primary btn-lg plausible-event-name=Signup">
               Start 14-Day Trial
             </a>
-            <a href={URLS.demoCoach} className="btn btn-secondary btn-lg plausible-event-name=CTA-Demo-Coach">
+            <a href={URLS.demoCoach} className="btn btn-secondary btn-lg plausible-event-name=Demo+Coach">
               See a Demo
             </a>
           </div>
@@ -116,7 +116,7 @@ export default function ForCoaches() {
           {/* ── Final CTA ── */}
           <div className="coaches-final-cta">
             <h2>Try it free for {FMT.trialDays}&nbsp;days</h2>
-            <a href={URLS.signup} className="btn btn-primary btn-lg plausible-event-name=CTA-Trial">
+            <a href={URLS.signup} className="btn btn-primary btn-lg plausible-event-name=Signup">
               Start 14-Day Trial
             </a>
           </div>

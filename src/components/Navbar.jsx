@@ -162,7 +162,7 @@ export default function Navbar() {
           <a href={URLS.login} className="nav-login">
             Log In
           </a>
-          <a href={URLS.signup} className="btn btn-primary plausible-event-name=CTA-Trial">
+          <a href={URLS.signup} className="btn btn-primary plausible-event-name=Signup">
             Start 14-Day Trial
           </a>
         </div>
@@ -229,7 +229,7 @@ export default function Navbar() {
           )
         )}
         <a href={URLS.login} onClick={closeMobile}>Log In</a>
-        <a href={URLS.signup} className="btn btn-primary plausible-event-name=CTA-Trial" onClick={closeMobile}>
+        <a href={URLS.signup} className="btn btn-primary plausible-event-name=Signup" onClick={closeMobile}>
           Start 14-Day Trial
         </a>
       </div>

@@ -29,7 +29,7 @@ export default function Demos() {
             <CoachPreview />
             <a
               href={URLS.demoCoach}
-              className="demos-preview-cta plausible-event-name=CTA-Demo-Coach"
+              className="demos-preview-cta plausible-event-name=Demo+Coach"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -45,7 +45,7 @@ export default function Demos() {
             <StudentPreview />
             <a
               href={URLS.demoStudent}
-              className="demos-preview-cta plausible-event-name=CTA-Demo-Student"
+              className="demos-preview-cta plausible-event-name=Demo+Student"
               target="_blank"
               rel="noopener noreferrer"
             >

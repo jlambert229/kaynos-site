@@ -40,7 +40,7 @@ export default function Contact() {
       const formData = new FormData(e.target);
       const res = await fetch("/", { method: "POST", body: formData });
       if (!res.ok) throw new Error(res.statusText);
-      window.plausible?.("Form-Contact");
+      window.plausible?.("Contact Submit");
       setStatus("success");
       cooldownTimer.current = setTimeout(() => setStatus("idle"), 5000);
     } catch {
@@ -50,7 +50,7 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact" description="Questions, feedback, walkthroughs — send them over. I read everything and try to reply within a day or two." path="/contact" />
+      <Seo title="Contact" description="Questions, feedback, walkthroughs — send them over. I read everything and usually reply the same day." path="/contact" />
       <Navbar />
       <main id="main-content" className="contact-main container">
         <div className="contact-content">
@@ -58,7 +58,7 @@ export default function Contact() {
           <h1 className="contact-title">Get in touch</h1>
           <p className="contact-lead">
             Questions, feedback, or a walkthrough — send it over. I read
-            everything and try to reply within a day or two.
+            everything and usually reply the same day.
           </p>
 
           <div className="contact-grid">
@@ -150,7 +150,7 @@ export default function Contact() {
           ) : (
             <div className="contact-success" role="status" aria-live="polite">
               <h2>Got it.</h2>
-              <p>I&apos;ll get back to you within a day or two. If you need me sooner, <a href={URLS.support}>support@kaynos.net</a> goes to the same inbox.</p>
+              <p>I&apos;ll get back to you the same day. If you need me sooner, <a href={URLS.support}>support@kaynos.net</a> goes to the same inbox.</p>
             </div>
           )}
         </div>
