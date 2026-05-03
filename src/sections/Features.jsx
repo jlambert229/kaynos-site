@@ -80,7 +80,7 @@ export default function Features() {
         <div className="features-bottom-link">
           <a
             href={URLS.demoCoach}
-            className="feature-link plausible-event-name=CTA-Demo-Coach"
+            className="feature-link plausible-event-name=Demo+Coach"
             target="_blank"
             rel="noopener noreferrer"
           >

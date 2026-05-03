@@ -17,7 +17,7 @@ export default function CTA() {
         </p>
         <div className="cta-actions">
           <CtaButton>Start 14-Day Trial</CtaButton>
-          <a href={URLS.demoCoach} className="btn btn-outline btn-lg plausible-event-name=CTA-Demo-Coach">
+          <a href={URLS.demoCoach} className="btn btn-outline btn-lg plausible-event-name=Demo+Coach">
             See a Demo
           </a>
         </div>

@@ -18,7 +18,7 @@ export default function Newsletter() {
       const formData = new FormData(e.target);
       const res = await fetch("/", { method: "POST", body: formData });
       if (!res.ok) throw new Error(res.statusText);
-      window.plausible?.("Form-Newsletter");
+      window.plausible?.("Newsletter Signup");
       setStatus("success");
       cooldownTimer.current = setTimeout(() => setStatus("idle"), 5000);
     } catch {
