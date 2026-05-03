@@ -1,6 +1,6 @@
 import { Check, X, Minus } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
-import { comparisonColumns, comparisonFeatures } from "../data/competitors";
+import { comparisonColumns, comparisonFeatures, competitorPricingAsOf } from "../data/competitors";
 import { URLS } from "../config/urls";
 
 function Cell({ value }) {
@@ -77,6 +77,10 @@ export default function Comparison() {
         </div>
         <p className="cmp-calc-link">
           <a href="#pricing">See pricing details &rarr;</a>
+        </p>
+        <p className="cmp-pricing-asof">
+          Other tools&rsquo; prices as of {competitorPricingAsOf}; check
+          their sites for current numbers.
         </p>
 
         <div className="cmp-switching">

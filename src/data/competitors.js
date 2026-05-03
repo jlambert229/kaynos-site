@@ -5,6 +5,11 @@
 
 import { FMT } from "../config/pricing";
 
+/* Month/year these competitor prices were last verified. Surface this on
+ * the comparison table so prospects know the snapshot date. Update when
+ * you re-check the competitors' pricing pages. */
+export const competitorPricingAsOf = "May 2026";
+
 /* ── Comparison table columns ────────────────────────────────────── */
 
 export const comparisonColumns = [

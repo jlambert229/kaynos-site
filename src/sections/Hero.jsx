@@ -26,7 +26,7 @@ export default function Hero() {
             <CtaButton>Start 14-Day Trial</CtaButton>
             <a
               href={URLS.demoCoach}
-              className="btn btn-secondary"
+              className="btn btn-secondary plausible-event-name=CTA-Demo-Coach"
               target="_blank"
               rel="noopener noreferrer"
             >

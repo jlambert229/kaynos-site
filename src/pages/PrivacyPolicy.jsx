@@ -214,7 +214,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="legal-section">
+          <section id="minors" className="legal-section">
             <h2>9. Children</h2>
             <p>
               This site is not directed to children under 13, and we do not knowingly collect

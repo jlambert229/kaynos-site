@@ -96,7 +96,10 @@ export default function ForStudents() {
                 with you. There are no social features, no public
                 profiles, and no way for someone outside your gym to find
                 the footage. For parents: video of your child stays
-                between them and the coach.
+                between them and the coach.{" "}
+                <Link to="/privacy#minors" className="students-message-link">
+                  How we handle minors&rsquo; data &rarr;
+                </Link>
               </p>
             </div>
           </div>
