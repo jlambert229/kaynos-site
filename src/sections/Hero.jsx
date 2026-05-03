@@ -43,7 +43,7 @@ export default function Hero() {
             <a href={URLS.login}>Log in &rarr;</a>
           </p>
         </div>
-        <CoachPreview />
+        <CoachPreview priority />
       </div>
     </section>
   );
