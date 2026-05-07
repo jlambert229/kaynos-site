@@ -1,7 +1,7 @@
 import CtaButton from "../components/CtaButton";
+import DemoLink from "../components/DemoLink";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { TRIAL_DAYS } from "../config/pricing";
-import { URLS } from "../config/urls";
 
 export default function CTA() {
   const revealRef = useScrollReveal();
@@ -17,9 +17,7 @@ export default function CTA() {
         </p>
         <div className="cta-actions">
           <CtaButton>Start 14-Day Trial</CtaButton>
-          <a href={URLS.demoCoach} className="btn btn-outline btn-lg plausible-event-name=Demo+Coach">
-            See a Demo
-          </a>
+          <DemoLink className="btn btn-outline btn-lg">See a Demo</DemoLink>
         </div>
       </div>
     </section>

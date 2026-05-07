@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CtaButton from "../components/CtaButton";
-import { URLS } from "../config/urls";
+import DemoLink from "../components/DemoLink";
 
 export default function Testimonials() {
   return (
@@ -20,14 +20,9 @@ export default function Testimonials() {
             <p>
               Rather look before signing up? The demo is wired up with
               sample BJJ data and works without an account.{" "}
-              <a
-                href={URLS.demoCoach}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="early-access-link plausible-event-name=Demo+Coach"
-              >
+              <DemoLink className="early-access-link">
                 Open the demo <ArrowRight size={14} />
-              </a>
+              </DemoLink>
             </p>
             <p>
               Or see what&rsquo;s already shipped.{" "}

@@ -8,7 +8,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
-import { URLS } from "../config/urls";
+import DemoLink from "../components/DemoLink";
 
 const features = [
   {
@@ -78,14 +78,9 @@ export default function Features() {
         </div>
 
         <div className="features-bottom-link">
-          <a
-            href={URLS.demoCoach}
-            className="feature-link plausible-event-name=Demo+Coach"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <DemoLink className="feature-link">
             Try the demo — no signup needed <ArrowRight size={14} />
-          </a>
+          </DemoLink>
         </div>
       </div>
     </section>

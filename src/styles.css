@@ -47,6 +47,17 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
   --font: "Inter Variable", "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Two-stop focus ring: 2px halo in --bg (so the ring reads against the
+     button surface) + 4px accent ring around it. Centralized so a token
+     change updates every focusable surface in lockstep. */
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  /* Status / semantic colors used by the /status page and other state
+     indicators. Kept fixed across light/dark because they encode meaning
+     (green=ok, amber=warn, red=down) rather than chrome. Light-mode darker
+     variants are below for contrast against light backgrounds. */
+  --status-ok: #30a46c;
+  --status-warn: #ffb224;
+  --status-down: #ff453a;
   color-scheme: dark light;
 }
 
@@ -75,9 +86,24 @@
     --red: #d32f2f;
     --green: #1b9e4b;
     --orange: #e68a00;
+    /* Darker status colors for light backgrounds */
+    --status-ok: #1b7a4d;
+    --status-warn: #8a5a00;
+    --status-down: #b3271e;
     color-scheme: light;
   }
 }
+
+/* Breakpoint system used throughout this stylesheet:
+     480px  — phone (max-width)
+     640px  — small-tablet boundary (paired with 641px min-width for ranges)
+     768px  — tablet (max/min-width)
+     960px  — features-grid stacking point (one section uses this)
+     1440 / 1920 / 2560 px — ultrawide step-ups
+   The 640/641 pair is intentional: it isolates true small-tablet layouts
+   from phones (≤480) and from larger tablets (≥768). Don't fold these into
+   a smaller set without visual review — several layouts depend on the
+   between-480-and-640 band. */
 
 html {
   font-size: 16px;
@@ -248,7 +274,7 @@ svg {
 
 .btn-primary:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  box-shadow: var(--focus-ring);
 }
 
 .btn-secondary {
@@ -264,7 +290,7 @@ svg {
 
 .btn-secondary:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  box-shadow: var(--focus-ring);
 }
 
 .btn-outline {
@@ -280,7 +306,7 @@ svg {
 
 .btn-outline:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  box-shadow: var(--focus-ring);
 }
 
 .btn-lg {
@@ -743,7 +769,14 @@ svg {
   }
 }
 
-/* ---- STUDENT PREVIEW (mobile app mockup) ---- */
+/* ---- STUDENT PREVIEW (mobile app mockup) ----
+   The .sp-* selectors render a static visual mockup of the dark-mode
+   mobile app inside the marketing page. Colors here are deliberately
+   hardcoded to the app's dark theme (#0c0c14 surface, #f5f5f7 text,
+   #3b7dd8 accent, #30a46c "watched" pill, etc.) and are NOT routed
+   through site tokens — the mockup must look the same regardless of
+   the visitor's prefers-color-scheme so it always reads as "this is
+   what the app looks like." Don't tokenize these. */
 
 .sp-frame {
   width: 100%;
@@ -986,14 +1019,23 @@ svg {
   line-height: 1.7;
 }
 
-.feature-link {
+/* Shared base for the inline "→" link variants used in feature cards,
+   how-it-works prose, story callout, and early-access copy. Each variant
+   below sets only the gap/size/spacing that differs from this base. */
+.feature-link,
+.how-it-works-link,
+.story-contact-link,
+.early-access-link {
   display: inline-flex;
   align-items: center;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.feature-link {
   gap: 6px;
   margin-top: 16px;
   font-size: 14px;
-  font-weight: 600;
-  color: var(--accent);
   text-decoration: none;
   transition: gap 0.2s ease;
 }
@@ -1027,7 +1069,8 @@ svg {
   margin-bottom: 32px;
 }
 
-.prose-steps p {
+.prose-steps p,
+.prose-body p {
   font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.8;
@@ -1040,12 +1083,8 @@ svg {
 }
 
 .how-it-works-link {
-  display: inline-flex;
-  align-items: center;
   gap: 8px;
   font-size: 15px;
-  font-weight: 600;
-  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
   margin-top: 12px;
@@ -1067,20 +1106,9 @@ svg {
   margin-bottom: 32px;
 }
 
-.prose-body p {
-  font-size: 17px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
 .story-contact-link {
-  display: inline-flex;
-  align-items: center;
   gap: 6px;
   font-size: 15px;
-  font-weight: 600;
-  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
   margin-top: 8px;
@@ -1113,11 +1141,7 @@ svg {
 }
 
 .early-access-link {
-  display: inline-flex;
-  align-items: center;
   gap: 4px;
-  color: var(--accent);
-  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -3490,25 +3514,19 @@ svg {
 .status-banner--ok {
   background: rgba(48, 164, 108, 0.1);
   border: 1px solid rgba(48, 164, 108, 0.25);
-  color: #30a46c;
+  color: var(--status-ok);
 }
 
 .status-banner--down {
   background: rgba(255, 69, 58, 0.1);
   border: 1px solid rgba(255, 69, 58, 0.25);
-  color: #ff453a;
+  color: var(--status-down);
 }
 
 .status-banner--checking {
   background: rgba(255, 178, 36, 0.1);
   border: 1px solid rgba(255, 178, 36, 0.2);
-  color: #ffb224;
-}
-
-@media (prefers-color-scheme: light) {
-  .status-banner--ok { color: #1b7a4d; }
-  .status-banner--down { color: #b3271e; }
-  .status-banner--checking { color: #8a5a00; }
+  color: var(--status-warn);
 }
 
 .status-last-checked {
@@ -3593,23 +3611,16 @@ svg {
   flex-shrink: 0;
 }
 
-.status-row-status--operational { color: #30a46c; }
-.status-row-status--reachable { color: #30a46c; }
-.status-row-status--degraded { color: #ffb224; }
-.status-row-status--down { color: #ff453a; }
+.status-row-status--operational { color: var(--status-ok); }
+.status-row-status--reachable { color: var(--status-ok); }
+.status-row-status--degraded { color: var(--status-warn); }
+.status-row-status--down { color: var(--status-down); }
 .status-row-status--checking { color: var(--text-tertiary); }
 
-.status-icon--ok { color: #30a46c; }
-.status-icon--warn { color: #ffb224; }
-.status-icon--down { color: #ff453a; }
+.status-icon--ok { color: var(--status-ok); }
+.status-icon--warn { color: var(--status-warn); }
+.status-icon--down { color: var(--status-down); }
 .status-icon--checking { color: var(--text-tertiary); }
-
-@media (prefers-color-scheme: light) {
-  .status-row-status--operational,
-  .status-row-status--reachable { color: #1b7a4d; }
-  .status-row-status--degraded { color: #8a5a00; }
-  .status-row-status--down { color: #b3271e; }
-}
 
 .status-spin {
   animation: statusSpin 1.5s linear infinite;

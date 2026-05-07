@@ -22,8 +22,17 @@ export default function Newsletter() {
       setStatus("success");
       cooldownTimer.current = setTimeout(() => setStatus("idle"), 5000);
     } catch {
+      // Error stays visible until the user types again — auto-clearing it
+      // would risk hiding the failure before the visitor noticed.
       setStatus("error");
     }
+  }
+
+  function clearErrorOnEdit(setter) {
+    return (e) => {
+      setter(e.target.value);
+      if (status === "error") setStatus("idle");
+    };
   }
 
   return (
@@ -68,7 +77,7 @@ export default function Newsletter() {
                   required
                   placeholder="you@example.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={clearErrorOnEdit(setEmail)}
                   className="newsletter-input"
                   autoComplete="email"
                   autoCapitalize="off"

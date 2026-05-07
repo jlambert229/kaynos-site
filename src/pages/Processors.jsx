@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Seo from "../components/Seo";
+import LegalLayout from "../components/LegalLayout";
 import { SITE_URL } from "../seo/constants";
+import { PROCESSORS_LAST_UPDATED } from "../config/business";
 
 const processorsJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Sub-Processors",
+  description: "Third-party service providers that process data on behalf of Kaynos.",
   url: `${SITE_URL}/processors`,
 };
 
@@ -20,54 +19,41 @@ const subProcessors = [
 
 export default function Processors() {
   return (
-    <>
-      <Seo
-        title="Sub-Processors"
-        description="Third-party service providers that process data on behalf of Kaynos."
-        path="/processors"
-        jsonLd={processorsJsonLd}
-      />
-      <Navbar />
-      <main id="main-content" className="legal-main container">
-        <article className="legal-article">
-          <div className="legal-meta">
-            <Link to="/" className="legal-back">&larr; Back to home</Link>
-          </div>
-          <span className="section-label">Privacy</span>
-          <h1 className="legal-title">Sub-Processors</h1>
-          <p className="legal-lead">
-            Third-party service providers that process data on our behalf.
-          </p>
+    <LegalLayout
+      title="Sub-Processors"
+      description="Third-party service providers that process data on behalf of Kaynos."
+      path="/processors"
+      jsonLd={processorsJsonLd}
+      eyebrow="Privacy"
+      heading="Sub-Processors"
+      lead="Third-party service providers that process data on our behalf."
+    >
+      <div className="processors-table-wrap">
+        <table className="processors-table">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Purpose</th>
+              <th>Location</th>
+              <th>DPA Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {subProcessors.map((sp) => (
+              <tr key={sp.provider}>
+                <td className="processors-provider">{sp.provider}</td>
+                <td>{sp.purpose}</td>
+                <td>{sp.location}</td>
+                <td>{sp.dpa}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-          <div className="processors-table-wrap">
-            <table className="processors-table">
-              <thead>
-                <tr>
-                  <th>Provider</th>
-                  <th>Purpose</th>
-                  <th>Location</th>
-                  <th>DPA Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {subProcessors.map((sp) => (
-                  <tr key={sp.provider}>
-                    <td className="processors-provider">{sp.provider}</td>
-                    <td>{sp.purpose}</td>
-                    <td>{sp.location}</td>
-                    <td>{sp.dpa}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="processors-note">
-            This list is updated when we add or change sub-processors. Last updated: April 2026.
-          </p>
-        </article>
-      </main>
-      <Footer />
-    </>
+      <p className="processors-note">
+        This list is updated when we add or change sub-processors. Last updated: {PROCESSORS_LAST_UPDATED}.
+      </p>
+    </LegalLayout>
   );
 }
