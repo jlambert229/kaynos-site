@@ -85,24 +85,27 @@ export default function Footer() {
             </p>
           </div>
 
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h2 className="footer-col-title">{col.title}</h2>
-              <div className="footer-col-links">
-                {col.links.map(({ label, href, external }) => (
-                  external ? (
-                    <a key={label} href={href} target="_blank" rel="noopener noreferrer">
-                      {label}
-                    </a>
-                  ) : href.includes("#") ? (
-                    <a key={label} href={href}>{label}</a>
-                  ) : (
-                    <Link key={label} to={href}>{label}</Link>
-                  )
-                ))}
-              </div>
-            </div>
-          ))}
+          {columns.map((col) => {
+            const titleId = `footer-col-${col.title.toLowerCase().replace(/\s+/g, "-")}`;
+            return (
+              <nav key={col.title} aria-labelledby={titleId}>
+                <h2 id={titleId} className="footer-col-title">{col.title}</h2>
+                <div className="footer-col-links">
+                  {col.links.map(({ label, href, external }) => (
+                    external ? (
+                      <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                        {label}
+                      </a>
+                    ) : href.includes("#") ? (
+                      <a key={label} href={href}>{label}</a>
+                    ) : (
+                      <Link key={label} to={href}>{label}</Link>
+                    )
+                  ))}
+                </div>
+              </nav>
+            );
+          })}
         </div>
 
         <div className="footer-bottom">

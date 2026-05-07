@@ -145,6 +145,7 @@ export default function Navbar() {
                 key={href}
                 to={href}
                 className="navbar-link"
+                aria-current={pathname === href ? "page" : undefined}
               >
                 {label}
               </Link>
@@ -215,6 +216,7 @@ export default function Navbar() {
               key={href}
               to={href}
               onClick={closeMobile}
+              aria-current={pathname === href ? "page" : undefined}
             >
               {label}
             </Link>
