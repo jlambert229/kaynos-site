@@ -60,6 +60,27 @@ function chunk(arr, size) {
   return out;
 }
 
+/* fetch() has no built-in timeout; without one, a stuck Figma API or CDN
+   can block CI indefinitely. 30s/60s give the API and image downloads
+   plenty of headroom for large frames while bounding the worst case. */
+const FIGMA_API_TIMEOUT_MS = 30_000;
+const DOWNLOAD_TIMEOUT_MS = 60_000;
+
+async function fetchWithTimeout(url, init = {}, timeoutMs) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...init, signal: controller.signal });
+  } catch (e) {
+    if (e.name === "AbortError") {
+      throw new Error(`Request timed out after ${timeoutMs}ms: ${url}`);
+    }
+    throw e;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function figmaImages(fileKey, token, ids, format, scale, svgOutlineText) {
   const params = new URLSearchParams();
   params.set("ids", ids.join(","));
@@ -67,9 +88,11 @@ async function figmaImages(fileKey, token, ids, format, scale, svgOutlineText) {
   if (scale != null && format !== "svg") params.set("scale", String(scale));
   if (format === "svg" && svgOutlineText) params.set("svg_outline_text", "true");
   const url = `https://api.figma.com/v1/images/${fileKey}?${params}`;
-  const res = await fetch(url, {
-    headers: { "X-Figma-Token": token },
-  });
+  const res = await fetchWithTimeout(
+    url,
+    { headers: { "X-Figma-Token": token } },
+    FIGMA_API_TIMEOUT_MS,
+  );
   if (!res.ok) {
     const text = await res.text();
     throw new Error(`Figma images API ${res.status}: ${text}`);
@@ -78,7 +101,7 @@ async function figmaImages(fileKey, token, ids, format, scale, svgOutlineText) {
 }
 
 async function downloadToFile(url, outPath) {
-  const res = await fetch(url);
+  const res = await fetchWithTimeout(url, {}, DOWNLOAD_TIMEOUT_MS);
   if (!res.ok) {
     throw new Error(`Download ${outPath}: ${res.status}`);
   }

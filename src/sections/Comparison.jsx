@@ -37,6 +37,10 @@ export default function Comparison() {
           className="reveal cmp-table-wrap"
           role="region"
           aria-label="Feature comparison"
+          // The container scrolls horizontally on narrow viewports; tabIndex=0
+          // is the canonical pattern to make scroll regions keyboard-accessible.
+          // Paired with role="region" + aria-label, it satisfies WCAG 2.1.1.
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
         >
           <table className="cmp-table">

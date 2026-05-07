@@ -2,7 +2,7 @@ import { ExternalLink, LayoutDashboard, CirclePlay } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import CoachPreview from "../components/CoachPreview";
 import StudentPreview from "../components/StudentPreview";
-import { URLS } from "../config/urls";
+import DemoLink from "../components/DemoLink";
 
 export default function Demos() {
   const headerRef = useScrollReveal();
@@ -27,14 +27,9 @@ export default function Demos() {
               Coach dashboard
             </div>
             <CoachPreview />
-            <a
-              href={URLS.demoCoach}
-              className="demos-preview-cta plausible-event-name=Demo+Coach"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <DemoLink className="demos-preview-cta">
               Try the coach demo <ExternalLink size={14} aria-hidden />
-            </a>
+            </DemoLink>
           </div>
 
           <div className="demos-preview-col">
@@ -43,14 +38,9 @@ export default function Demos() {
               Student dashboard
             </div>
             <StudentPreview />
-            <a
-              href={URLS.demoStudent}
-              className="demos-preview-cta plausible-event-name=Demo+Student"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <DemoLink which="student" className="demos-preview-cta">
               Try the student demo <ExternalLink size={14} aria-hidden />
-            </a>
+            </DemoLink>
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 import KaynosLogo from "../components/KaynosLogo";
 import CtaButton from "../components/CtaButton";
 import CoachPreview from "../components/CoachPreview";
+import DemoLink from "../components/DemoLink";
 import { PRICING_COPY } from "../config/pricing";
 import { URLS } from "../config/urls";
 
@@ -24,15 +25,7 @@ export default function Hero() {
           </p>
           <div className="hero-cta-row">
             <CtaButton>Start 14-Day Trial</CtaButton>
-            <a
-              href={URLS.demoCoach}
-              className="btn btn-secondary plausible-event-name=Demo+Coach"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              See a Demo
-              <span className="sr-only"> (opens in new tab)</span>
-            </a>
+            <DemoLink className="btn btn-secondary">See a Demo</DemoLink>
           </div>
           <p className="hero-meta">
             {PRICING_COPY.heroLine} &middot; {PRICING_COPY.trialNote}
