@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Runs lint + unit tests on every git commit. Configured per-clone via the
+# `prepare` npm script which runs `git config core.hooksPath .githooks`.
+#
+# To bypass intentionally (e.g. WIP commit), use `git commit --no-verify`.
+# Skipping hooks for a "make CI green" hotfix is almost never the right call —
+# fix the underlying issue.
+set -e
+
+# Skip if not in a git working tree (e.g. detached environments).
+git rev-parse --git-dir > /dev/null 2>&1 || exit 0
+
+# Only run if there are staged JS/JSX/CSS changes; trivial commits (docs,
+# config) shouldn't pay the lint+test cost.
+staged=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(js|jsx|mjs|cjs|css)$' || true)
+if [ -z "$staged" ]; then
+  exit 0
+fi
+
+echo "pre-commit: running lint…"
+npm run lint --silent
+
+echo "pre-commit: running tests…"
+npm test --silent
+
+echo "pre-commit: ok"

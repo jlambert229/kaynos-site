@@ -39,7 +39,10 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=()"
+    # Privacy Sandbox / 2024+ directives are denied alongside the classics so
+    # any browser that lands on a not-yet-supported permission gets a deny by
+    # default rather than the spec's "allow if not specified" fallback.
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=(), browsing-topics=(), attribution-reporting=(), join-ad-interest-group=(), run-ad-auction=(), private-state-token-issuance=(), private-state-token-redemption=(), private-aggregation=(), shared-storage=(), shared-storage-select-url=(), unload=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     X-XSS-Protection = "1; mode=block"
     Cross-Origin-Opener-Policy = "same-origin"

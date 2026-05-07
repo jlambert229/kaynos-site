@@ -3,11 +3,19 @@
  * Post-build cleanup: drop chunks that vite emits to dist/ but no
  * client code path can reach.
  *
- * Today that's `parse-*.js` (the link parser from vite-prerender-plugin).
- * Our `src/prerender.jsx` calls `await import('vite-prerender-plugin/parse')`
- * inside the `prerender()` function, but that function only runs at build
- * time — browsers never invoke it, and no HTML preloads the chunk. The
- * file is pure CDN bloat (~212 kB raw, ~83 kB gzipped).
+ * Targets:
+ *   - `parse-*.js` — the link parser from vite-prerender-plugin. Loaded via
+ *     `await import('vite-prerender-plugin/parse')` inside the prerender()
+ *     function in src/prerender.jsx; that function runs only at build time.
+ *   - `server.browser-*.js` — react-dom/server's browser entry. Loaded via
+ *     `await import('react-dom/server')` inside the same prerender()
+ *     function. Also build-only.
+ *
+ * Both are pulled in by `src/prerender.jsx`'s build path, never by the
+ * client hydration entry. The dynamic-import keeps them in their own
+ * chunks; no HTML references them; the prerender bundle preserves the
+ * `import("./...")` strings, but no live code in either chunk calls the
+ * function that triggers those imports at runtime.
  *
  * Before stripping, we verify:
  *   1. No HTML in dist/ references the file.
@@ -26,7 +34,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, "..", "dist");
 const ASSETS = join(DIST, "assets");
 
-const STRIPPABLE_PREFIXES = ["parse-"];
+const STRIPPABLE_PREFIXES = ["parse-", "server.browser-"];
 
 async function* walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -74,11 +82,20 @@ async function main() {
     }
 
     // 2. The only JS chunk that may reference it is the prerender bundle.
+    //    `assetEntries` is a snapshot taken before any strips, so files
+    //    deleted in earlier loop iterations may no longer exist on disk.
+    //    Treat ENOENT as "gone, can't reference anything."
     const offendingJsRefs = [];
     for (const name of assetEntries) {
       if (!name.endsWith(".js") || name === target) continue;
       if (name.startsWith("prerender-")) continue;
-      const content = await readFile(join(ASSETS, name), "utf-8");
+      let content;
+      try {
+        content = await readFile(join(ASSETS, name), "utf-8");
+      } catch (err) {
+        if (err.code === "ENOENT") continue;
+        throw err;
+      }
       if (content.includes(target)) offendingJsRefs.push(name);
     }
     if (offendingJsRefs.length > 0) {
@@ -106,4 +123,8 @@ async function main() {
   );
 }
 
-main();
+main().catch((err) => {
+  console.error("strip-build-only-chunks: unexpected error");
+  console.error(err);
+  process.exit(1);
+});

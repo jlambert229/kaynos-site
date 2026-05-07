@@ -19,6 +19,7 @@
     "figma:export": "node scripts/figma-export.mjs",
     "figma:export:dry": "node scripts/figma-export.mjs --dry-run",
     "lint": "eslint .",
+    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
     "postbuild": "node scripts/generate-sitemap.mjs && node scripts/verify-prerender-seo.mjs && node scripts/strip-build-only-chunks.mjs"
   },
   "dependencies": {

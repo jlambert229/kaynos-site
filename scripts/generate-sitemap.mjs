@@ -14,21 +14,25 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, "..", "dist");
 const BASE = "https://www.kaynos.net";
 
+/* Each route declares its own priority + changefreq. Both fields are
+   treated as hints by major crawlers; the goal here is to nudge them
+   toward the marketing entry points (home, /for/coaches) and away from
+   legal / status pages that almost never change. */
 const routes = [
-  "/",
-  "/privacy",
-  "/data-use",
-  "/getting-started",
-  "/contact",
-  "/changelog",
-  "/accessibility",
-  "/for/coaches",
-  "/for/students",
-  "/security",
-  "/processors",
-  "/terms",
-  "/about",
-  "/status",
+  { path: "/",                  priority: "1.0", changefreq: "weekly" },
+  { path: "/for/coaches",       priority: "0.9", changefreq: "monthly" },
+  { path: "/for/students",      priority: "0.7", changefreq: "monthly" },
+  { path: "/about",             priority: "0.6", changefreq: "monthly" },
+  { path: "/getting-started",   priority: "0.6", changefreq: "monthly" },
+  { path: "/changelog",         priority: "0.6", changefreq: "weekly" },
+  { path: "/contact",           priority: "0.5", changefreq: "yearly" },
+  { path: "/security",          priority: "0.5", changefreq: "yearly" },
+  { path: "/status",            priority: "0.4", changefreq: "daily" },
+  { path: "/privacy",           priority: "0.3", changefreq: "yearly" },
+  { path: "/data-use",          priority: "0.3", changefreq: "yearly" },
+  { path: "/terms",             priority: "0.3", changefreq: "yearly" },
+  { path: "/processors",        priority: "0.3", changefreq: "yearly" },
+  { path: "/accessibility",     priority: "0.3", changefreq: "yearly" },
 ];
 
 const lastmod = new Date().toISOString().slice(0, 10);
@@ -36,8 +40,10 @@ const lastmod = new Date().toISOString().slice(0, 10);
 const urls = routes
   .map(
     (r) => `  <url>
-    <loc>${BASE}${r}</loc>
+    <loc>${BASE}${r.path}</loc>
     <lastmod>${lastmod}</lastmod>
+    <changefreq>${r.changefreq}</changefreq>
+    <priority>${r.priority}</priority>
   </url>`
   )
   .join("\n");
