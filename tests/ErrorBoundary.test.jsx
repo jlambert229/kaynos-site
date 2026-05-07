@@ -39,7 +39,9 @@ describe("<ErrorBoundary />", () => {
     );
     const alert = screen.getByRole("alert");
     expect(alert).toHaveTextContent(/something went wrong/i);
-    expect(alert).toHaveTextContent(/reload the page/i);
+    // Fallback offers a "Go to home page" link rather than a reload prompt.
+    const homeLink = screen.getByRole("link", { name: /go to home page/i });
+    expect(homeLink).toHaveAttribute("href", "/");
   });
 
   it("renders a custom fallback element when provided", () => {
