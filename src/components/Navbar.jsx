@@ -24,9 +24,12 @@ function scrollToHash(hash) {
     return true;
   }
 
-  // Target not in the DOM yet — likely a section behind a Suspense boundary
-  // (Pricing, Demos, etc. on Home.jsx). Watch for it to appear instead of
-  // polling. Disconnect after success or a 3s safety timeout.
+  // Target not in the DOM yet. Today every section on Home.jsx is imported
+  // synchronously (no React.lazy / no <Suspense>), so this branch is
+  // unreachable in practice — but it's cheap defensive cover for the day
+  // someone wraps a section behind a Suspense boundary. Watch for the
+  // target to appear instead of polling; disconnect after success or a 3s
+  // safety timeout so we don't leak the observer.
   const observer = new MutationObserver(() => {
     const target = document.querySelector(hash);
     if (target) {

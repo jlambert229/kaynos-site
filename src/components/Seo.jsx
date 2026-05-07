@@ -9,13 +9,13 @@ import {
 } from "../seo/constants";
 
 /** Normalize a route path for canonical URL construction. */
-function normalizePath(path) {
+export function normalizePath(path) {
   if (path === "/") return "";
   return path.startsWith("/") ? path : `/${path}`;
 }
 
 /** Title-case a single path segment (e.g. "for" → "For", "data-use" → "Data Use"). */
-function segmentLabel(seg) {
+export function segmentLabel(seg) {
   return seg
     .split("-")
     .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
@@ -25,7 +25,7 @@ function segmentLabel(seg) {
 /** Build a BreadcrumbList ItemList for a path with any number of segments.
  *  Intermediate segments (not the final leaf) omit `item` to avoid pointing at
  *  URLs that may not resolve as real routes (e.g., /for exists only as a parent). */
-function buildBreadcrumbs(path, pageTitle) {
+export function buildBreadcrumbs(path, pageTitle) {
   const segments = normalizePath(path).split("/").filter(Boolean);
   if (segments.length === 0) return null;
   const items = [

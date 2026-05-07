@@ -1,7 +1,12 @@
-import { renderToString } from "react-dom/server";
 import { MemoryRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AppRoutes } from "./App.jsx";
+
+/* react-dom/server is the heaviest build-time-only dependency here (~50 KB
+   raw minified). Static-importing it puts it in the shared chunk that the
+   browser downloads on every page load. Dynamic-importing inside
+   prerender() keeps it in its own chunk that strip-build-only-chunks then
+   removes once the build finishes. */
 
 
 /**
@@ -48,6 +53,7 @@ export function extractLeadingHeadMarkup(rootHtml) {
  */
 export async function prerender(data) {
   const url = data.url || "/";
+  const { renderToString } = await import("react-dom/server");
   const raw = renderToString(
     <HelmetProvider>
       <MemoryRouter initialEntries={[url]} initialIndex={0}>
