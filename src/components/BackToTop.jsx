@@ -31,7 +31,7 @@ export default function BackToTop() {
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
     >
-      <ChevronUp size={20} />
+      <ChevronUp size={20} aria-hidden="true" />
     </button>
   );
 }

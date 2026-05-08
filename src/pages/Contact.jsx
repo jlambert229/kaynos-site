@@ -67,7 +67,7 @@ export default function Contact() {
 
           <div className="contact-grid">
             <div className="contact-card">
-              <Inbox size={20} className="contact-card-icon" />
+              <Inbox size={20} className="contact-card-icon" aria-hidden="true" />
               <h2>Email</h2>
               <p>For anything at all.</p>
               <a href={URLS.support} className="contact-link">support@kaynos.net</a>
@@ -145,7 +145,7 @@ export default function Contact() {
                 {errors.message && <span id="contact-msg-error" className="contact-error">{errors.message}</span>}
               </div>
               <button type="submit" className="btn btn-primary btn-lg contact-submit" disabled={status === "submitting"}>
-                <SendHorizonal size={18} /> {status === "submitting" ? "Sending\u2026" : "Send Message"}
+                <SendHorizonal size={18} aria-hidden="true" /> {status === "submitting" ? "Sending\u2026" : "Send Message"}
               </button>
               <p className="contact-privacy-link">
                 By submitting, you agree to our <a href="/privacy">Privacy Policy</a>.

@@ -21,13 +21,13 @@ export default function Testimonials() {
               Rather look before signing up? The demo is wired up with
               sample BJJ data and works without an account.{" "}
               <DemoLink className="early-access-link">
-                Open the demo <ArrowRight size={14} />
+                Open the demo <ArrowRight size={14} aria-hidden="true" />
               </DemoLink>
             </p>
             <p>
               Or see what&rsquo;s already shipped.{" "}
               <Link to="/changelog" className="early-access-link">
-                Changelog <ArrowRight size={14} />
+                Changelog <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </p>
           </div>

@@ -44,7 +44,7 @@ export default function Newsletter() {
       <div className="container">
         <div ref={revealRef} className="reveal newsletter-card">
           <div className="newsletter-icon">
-            <Inbox size={24} />
+            <Inbox size={24} aria-hidden="true" />
           </div>
           <h3 className="newsletter-title">One email a month</h3>
           <p className="newsletter-desc">
@@ -54,7 +54,7 @@ export default function Newsletter() {
 
           {status === "success" ? (
             <div className="newsletter-success" role="status" aria-live="polite">
-              <CircleCheck size={32} className="newsletter-success-icon" />
+              <CircleCheck size={32} className="newsletter-success-icon" aria-hidden="true" />
               <p>You&apos;re on the list. Expect about one email a month.</p>
             </div>
           ) : (

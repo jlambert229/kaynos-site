@@ -34,7 +34,7 @@ export default function NotFound() {
             </div>
             <div className="not-found-actions">
               <Link to="/" className="btn btn-primary">
-                <ArrowLeft size={16} /> Back to home
+                <ArrowLeft size={16} aria-hidden="true" /> Back to home
               </Link>
             </div>
           </div>
