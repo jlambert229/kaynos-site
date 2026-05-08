@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { homeJsonLd } from "../src/seo/homeJsonLd";
 import { faqJsonLd } from "../src/seo/faqJsonLd";
 import { pricingJsonLd } from "../src/seo/pricingJsonLd";
+import { contactJsonLd } from "../src/seo/contactJsonLd";
 import { faqs } from "../src/data/faqs";
 
 describe("homeJsonLd", () => {
@@ -70,5 +71,25 @@ describe("pricingJsonLd", () => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     expect(validUntil.getTime()).toBeGreaterThanOrEqual(today.getTime());
+  });
+});
+
+describe("contactJsonLd", () => {
+  it("declares schema.org ContactPage", () => {
+    expect(contactJsonLd["@context"]).toBe("https://schema.org");
+    expect(contactJsonLd["@type"]).toBe("ContactPage");
+  });
+
+  it("exposes a customer-support ContactPoint with a parseable email", () => {
+    const points = contactJsonLd.mainEntity.contactPoint;
+    expect(Array.isArray(points)).toBe(true);
+    expect(points.length).toBeGreaterThan(0);
+    const support = points.find((p) => p.contactType === "customer support");
+    expect(support).toBeDefined();
+    expect(support.email).toMatch(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/);
+  });
+
+  it("url points at /contact (canonical contact route)", () => {
+    expect(contactJsonLd.url).toMatch(/\/contact$/);
   });
 });

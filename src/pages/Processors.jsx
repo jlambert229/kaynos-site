@@ -21,7 +21,7 @@ export default function Processors() {
   return (
     <LegalLayout
       title="Sub-Processors"
-      description="Third-party service providers that process data on behalf of Kaynos."
+      description="Third-party providers that process data for Kaynos: Netlify (hosting), Neon (database), Backblaze B2 (video storage), Resend (email). US-hosted with DPAs."
       path="/processors"
       jsonLd={processorsJsonLd}
       eyebrow="Privacy"

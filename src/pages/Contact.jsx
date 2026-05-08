@@ -3,6 +3,7 @@ import { SendHorizonal, Inbox } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { contactJsonLd } from "../seo/contactJsonLd";
 import { URLS } from "../config/urls";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -54,7 +55,7 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact" description="Questions, feedback, walkthroughs — send them over. I read everything and usually reply the same day." path="/contact" />
+      <Seo title="Contact" description="Questions, feedback, walkthroughs — send them over. I read everything and usually reply the same day." path="/contact" jsonLd={contactJsonLd} />
       <Navbar />
       <main id="main-content" className="contact-main container">
         <div className="contact-content">

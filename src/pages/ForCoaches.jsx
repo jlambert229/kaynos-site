@@ -17,7 +17,7 @@ export default function ForCoaches() {
     <>
       <Seo
         title="Video Review for BJJ Coaches"
-        description={`Video review for BJJ coaches. Upload sparring, let AI surface the moments worth reviewing, and send notes to your students. ${FMT.coachMonthly}/mo flat, students free.`}
+        description={`Coaching tools for BJJ and MMA: upload sparring footage, let AI surface key moments, drop timestamped notes, and book private lessons. ${FMT.coachMonthly}/mo flat, students free.`}
         path="/for/coaches"
         jsonLd={forCoachesJsonLd}
       />
