@@ -17,13 +17,17 @@ export default function Newsletter() {
     try {
       const formData = new FormData(e.target);
       const res = await fetch("/", { method: "POST", body: formData });
-      if (!res.ok) throw new Error(res.statusText);
+      if (!res.ok) throw new Error(res.statusText || `HTTP ${res.status}`);
       window.plausible?.("Newsletter Signup");
       setStatus("success");
       cooldownTimer.current = setTimeout(() => setStatus("idle"), 5000);
-    } catch {
+    } catch (err) {
       // Error stays visible until the user types again — auto-clearing it
       // would risk hiding the failure before the visitor noticed.
+      console.error("[newsletter] signup failed:", err);
+      window.plausible?.("Newsletter Signup Error", {
+        props: { reason: err?.message?.slice(0, 80) || "unknown" },
+      });
       setStatus("error");
     }
   }

@@ -39,11 +39,15 @@ export default function Contact() {
     try {
       const formData = new FormData(e.target);
       const res = await fetch("/", { method: "POST", body: formData });
-      if (!res.ok) throw new Error(res.statusText);
+      if (!res.ok) throw new Error(res.statusText || `HTTP ${res.status}`);
       window.plausible?.("Contact Submit");
       setStatus("success");
       cooldownTimer.current = setTimeout(() => setStatus("idle"), 5000);
-    } catch {
+    } catch (err) {
+      console.error("[contact] submission failed:", err);
+      window.plausible?.("Contact Submit Error", {
+        props: { reason: err?.message?.slice(0, 80) || "unknown" },
+      });
       setStatus("error");
     }
   }

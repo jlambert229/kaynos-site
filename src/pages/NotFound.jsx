@@ -6,7 +6,7 @@ import Seo from "../components/Seo";
 
 const suggestions = [
   { label: "Home", to: "/", desc: "Back to the main page" },
-  { label: "Pricing", to: "/#pricing", desc: "Plans and credit system" },
+  { label: "Pricing", to: "/#pricing", desc: "Flat $29/mo, students free" },
   { label: "Getting Started", to: "/getting-started", desc: "Setup guide" },
   { label: "Contact", to: "/contact", desc: "Get in touch" },
 ];

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Runs lint + unit tests on every git commit. Configured per-clone via the
-# `prepare` npm script which runs `git config core.hooksPath .githooks`.
+# Runs secret scan + lint + unit tests on every git commit. Configured
+# per-clone via the `prepare` npm script which runs
+# `git config core.hooksPath .githooks`.
 #
 # To bypass intentionally (e.g. WIP commit), use `git commit --no-verify`.
 # Skipping hooks for a "make CI green" hotfix is almost never the right call —
@@ -10,6 +11,40 @@ set -e
 # Skip if not in a git working tree (e.g. detached environments).
 git rev-parse --git-dir > /dev/null 2>&1 || exit 0
 
+# ── Secret scan ────────────────────────────────────────────────────────
+# Grep the staged diff (added lines only) for common credential shapes.
+# This is a coarse net — it catches obvious leaks (live Stripe keys,
+# private key blocks, AWS access keys), not entropy-based detection.
+# Skip lockfiles where bare hashes are normal.
+echo "pre-commit: scanning for secrets…"
+secret_scan_files=$(git diff --cached --name-only --diff-filter=ACMR | grep -vE '(^|/)(package-lock\.json|yarn\.lock|pnpm-lock\.yaml)$' || true)
+if [ -n "$secret_scan_files" ]; then
+  # Added lines only (lines starting with `+` but not `+++` headers).
+  added=$(git diff --cached --diff-filter=ACMR -U0 -- $secret_scan_files | grep -E '^\+[^+]' || true)
+  if [ -n "$added" ]; then
+    # Live secret patterns. Uses fixed string OR regex — be careful editing.
+    secret_match=$(echo "$added" | grep -nE \
+      -e 'AKIA[0-9A-Z]{16}' \
+      -e 'sk_live_[0-9A-Za-z]{16,}' \
+      -e 'rk_live_[0-9A-Za-z]{16,}' \
+      -e 'pk_live_[0-9A-Za-z]{16,}' \
+      -e 'xox[baprs]-[0-9A-Za-z-]{10,}' \
+      -e 'gh[pousr]_[0-9A-Za-z]{30,}' \
+      -e 'npm_[0-9A-Za-z]{30,}' \
+      -e '-----BEGIN ([A-Z]+ )?PRIVATE KEY' \
+      -e '(secret|api[_-]?key|access[_-]?token|auth[_-]?token|bearer)[\"'"'"' :=]+[A-Za-z0-9+/=_-]{32,}' \
+      || true)
+    if [ -n "$secret_match" ]; then
+      echo "pre-commit: BLOCKED — possible secret in staged changes:" >&2
+      echo "$secret_match" | head -10 >&2
+      echo "" >&2
+      echo "If this is a false positive, run \`git commit --no-verify\`." >&2
+      exit 1
+    fi
+  fi
+fi
+
+# ── Lint + tests ───────────────────────────────────────────────────────
 # Only run if there are staged JS/JSX/CSS changes; trivial commits (docs,
 # config) shouldn't pay the lint+test cost.
 staged=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(js|jsx|mjs|cjs|css)$' || true)
