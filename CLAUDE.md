@@ -68,6 +68,22 @@ Before committing UI or routing changes, run `npm run build` and the tests that 
 - Site config: `netlify.toml`, `netlify/`.
 - Follow org rules for production: offer local / draft verification before any production deploy CLI. Do not assume prod deploy without explicit confirmation when the task is deployment-shaped.
 
+## Build economy
+
+Each PR triggers two Netlify builds against the team's monthly quota: one deploy preview (on push to the PR branch) and one production build (on merge to `main`). Hitting the cap manifests as `state: error` on the deploy with the message `Skipped due to account credit usage exceeded` — code on `main` is fine, the deploy just didn't run.
+
+- **Bundle related fixes into one PR.** Two micro-PRs for what could have been one logical change costs four builds where two would do. Open a PR when a logical unit is ready — not when each individual file is done. A burst of 5 PRs in a day is 10 builds; with care, it's often 4–6.
+- **Verify header / CSP / redirect changes on the deploy preview before merging.** Anything that ships via `netlify.toml` or `dist/_headers` only proves correct on a real Netlify deploy. Pull the preview's headers explicitly:
+  ```bash
+  curl -sIL "https://deploy-preview-<N>--kaynos-site.netlify.app/" | grep -iE "^content-security|^cache-control|^location"
+  ```
+  The cost of merging a wrong header is a full production-build round-trip to roll back.
+- **When a deploy looks "stuck", check Netlify directly, don't poll live URLs.** Production deploy state and error reasons live in the Netlify API:
+  ```bash
+  netlify api listSiteDeploys --data '{"site_id":"49f32a31-dde3-4af1-92e7-821740749f5e","per_page":5}'
+  ```
+  Retry a credit-cap-skipped deploy with `netlify api createSiteBuild` once credit is restored — same `main` will deploy on the next attempt.
+
 ## File layout reference
 
 | Area | Location                    |
