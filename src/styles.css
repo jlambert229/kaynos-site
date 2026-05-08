@@ -1499,7 +1499,7 @@ svg {
 }
 
 .footer-brand-col .footer-brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   color: var(--text-primary);
@@ -1507,6 +1507,17 @@ svg {
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-brand-col .footer-brand:hover {
+  opacity: 0.8;
+}
+
+.footer-brand-col .footer-brand:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
 }
 
 .footer-brand-col .footer-tagline {
@@ -2740,9 +2751,19 @@ svg {
 }
 
 @media (max-width: 640px) {
+  /* Bump up from 12px so individual cells are still legible after the
+     4-column squeeze. The feature-name column carries the burden; tighten
+     its right padding so each cell has more breathing room. */
   .cmp-header,
   .cmp-row {
-    font-size: 12px;
+    font-size: 13px;
+  }
+  .cmp-feature-col {
+    padding-right: 8px;
+  }
+  .cmp-feature-detail {
+    font-size: 11px;
+    line-height: 1.4;
   }
 }
 
