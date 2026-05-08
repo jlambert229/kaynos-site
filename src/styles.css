@@ -129,6 +129,18 @@
    a smaller set without visual review — several layouts depend on the
    between-480-and-640 band. */
 
+/* Z-index ladder (highest wins). Centralized so adding a new layer
+   doesn't accidentally collide with an existing one:
+     10000 — .skip-to-content     (focused-only; must beat everything)
+      1000 — .navbar               (fixed top chrome)
+       999 — .mobile-menu.open     (overlay; below navbar so brand stays visible)
+       900 — .back-to-top          (FAB; above content, below chrome/menu)
+         2 — phone-preview chrome  (within-component stacking)
+         0 — .hero-bg               (background gradient layer)
+         1 — .hero-content + others (sit above hero-bg via local stacking)
+   Anything else should pick from this set or document why a new layer
+   is needed. Avoid plucking arbitrary values out of the gaps. */
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
