@@ -19,8 +19,8 @@ export default function Security() {
   return (
     <>
       <Seo
-        title="Security & Privacy"
-        description="How Kaynos protects your data. Learn about our infrastructure, authentication, data isolation, and privacy practices."
+        title="Security and Privacy"
+        description="How Kaynos protects your data: encrypted infrastructure, per-account isolation, signed video URLs, and a security contact for responsible disclosure."
         path="/security"
         jsonLd={securityJsonLd}
       />

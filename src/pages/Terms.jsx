@@ -15,7 +15,7 @@ export default function Terms() {
   return (
     <LegalLayout
       title="Terms of Service"
-      description="Terms of Service information for the Kaynos marketing site."
+      description="Terms governing use of the Kaynos marketing site (kaynos.net). The Terms of Service for the Kaynos application live at app.kaynos.net/terms."
       path="/terms"
       jsonLd={termsJsonLd}
       eyebrow="Legal"
