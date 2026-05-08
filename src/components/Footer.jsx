@@ -76,10 +76,10 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand-col">
-            <div className="footer-brand">
+            <Link to="/" className="footer-brand" aria-label="Kaynos – Home">
               <KaynosLogo size="md" />
               <span>kaynos</span>
-            </div>
+            </Link>
             <p className="footer-tagline">
               Video review for BJJ coaches.
             </p>
