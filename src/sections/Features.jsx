@@ -69,7 +69,7 @@ export default function Features() {
           {features.map(({ icon: Icon, title, description }) => (
             <div key={title} className="feature-card">
               <div className="feature-icon">
-                <Icon size={22} />
+                <Icon size={22} aria-hidden="true" />
               </div>
               <h3>{title}</h3>
               <p>{description}</p>
@@ -79,7 +79,7 @@ export default function Features() {
 
         <div className="features-bottom-link">
           <DemoLink className="feature-link">
-            Try the demo — no signup needed <ArrowRight size={14} />
+            Try the demo — no signup needed <ArrowRight size={14} aria-hidden="true" />
           </DemoLink>
         </div>
       </div>

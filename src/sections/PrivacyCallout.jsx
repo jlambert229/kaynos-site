@@ -19,7 +19,7 @@ export default function PrivacyCallout() {
             remember to flip on &mdash; it&apos;s the default.
           </p>
           <Link to="/security" className="story-contact-link">
-            See security details <ArrowRight size={14} />
+            See security details <ArrowRight size={14} aria-hidden="true" />
           </Link>
         </div>
       </div>

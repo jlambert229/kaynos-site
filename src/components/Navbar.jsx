@@ -179,7 +179,7 @@ export default function Navbar() {
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
       </div>
 
@@ -194,7 +194,7 @@ export default function Navbar() {
             it on open — easiest "get out" affordance. The brand link is
             positioned via CSS absolute, not DOM order. */}
         <button type="button" className="mobile-close" onClick={closeMobile} aria-label="Close menu">
-          <X size={24} />
+          <X size={24} aria-hidden="true" />
         </button>
         <Link to="/" className="mobile-menu-brand" onClick={closeMobile}>
           <KaynosLogo size="nav" />
