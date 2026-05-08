@@ -46,7 +46,7 @@ export default function Comparison() {
           <table className="cmp-table">
             <thead>
               <tr className="cmp-header">
-                <th className="cmp-feature-col" scope="col"><span className="visually-hidden">Feature</span></th>
+                <th className="cmp-feature-col" scope="col"><span className="sr-only">Feature</span></th>
                 {comparisonColumns.map((c) => (
                   <th
                     key={c.key}

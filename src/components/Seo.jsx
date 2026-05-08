@@ -43,6 +43,11 @@ export function buildBreadcrumbs(path, pageTitle) {
   return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items };
 }
 
+/* SERP truncation happens around these lengths on Google desktop. They're
+   soft budgets — exceeding doesn't break anything, but the tail gets cut. */
+const SEO_TITLE_BUDGET = 60;
+const SEO_DESCRIPTION_BUDGET = 160;
+
 /**
  * Per-route SEO: title, description, canonical, Open Graph, Twitter.
  * @param {{ title: string; description?: string; path: string; jsonLd?: object; noIndex?: boolean; ogImage?: string; ogImageAlt?: string }} props
@@ -60,6 +65,15 @@ export default function Seo({
   const pageTitle = title.includes("|") ? title : `${title} | Kaynos`;
   const imageAlt = ogImageAlt || (ogImage ? title : OG_SHARE_ALT);
   const breadcrumbs = buildBreadcrumbs(path, title);
+
+  if (import.meta.env?.DEV) {
+    if (pageTitle.length > SEO_TITLE_BUDGET) {
+      console.warn(`[Seo] title exceeds ${SEO_TITLE_BUDGET} chars (${pageTitle.length}) for ${path}: "${pageTitle}"`);
+    }
+    if (description.length > SEO_DESCRIPTION_BUDGET) {
+      console.warn(`[Seo] description exceeds ${SEO_DESCRIPTION_BUDGET} chars (${description.length}) for ${path}`);
+    }
+  }
 
   return (
     <Helmet prioritizeSeoTags>
