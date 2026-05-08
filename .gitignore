@@ -11,3 +11,9 @@ test-results
 playwright-report
 .swarm/
 deno.lock
+
+# Local worktree directories (used for parallel-agent workflows;
+# each worktree has its own .git pointer so its contents are tracked
+# in its own checkout, but the directory itself shouldn't appear as
+# untracked in the parent repo).
+.worktrees/

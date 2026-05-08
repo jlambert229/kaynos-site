@@ -127,4 +127,37 @@ describe("<Newsletter /> error handling", () => {
     fireEvent.change(email, { target: { value: "user2@example.com" } });
     expect(screen.queryByText(/something went wrong/i)).toBeNull();
   });
+
+  it("aborts a hung submit via AbortController so the form never strands in 'submitting'", async () => {
+    // Capture the AbortSignal the component passes to fetch and resolve only
+    // when the signal fires. This proves the timeout path actually triggers
+    // an abort instead of waiting on the network forever.
+    let capturedSignal;
+    vi.spyOn(globalThis, "fetch").mockImplementation((_url, init) => {
+      capturedSignal = init?.signal;
+      return new Promise((_resolve, reject) => {
+        capturedSignal?.addEventListener("abort", () => {
+          reject(new DOMException("aborted", "AbortError"));
+        });
+      });
+    });
+
+    renderNewsletter();
+    const email = screen.getByLabelText(/email address/i);
+    fireEvent.change(email, { target: { value: "user@example.com" } });
+    fireEvent.click(screen.getByRole("checkbox"));
+    await act(async () => {
+      fireEvent.submit(email.closest("form"));
+    });
+    expect(capturedSignal).toBeDefined();
+    expect(capturedSignal.aborted).toBe(false);
+
+    // Drain the 15s abort timer — the catch branch should run and surface the
+    // generic error message rather than leaving the button disabled forever.
+    await act(async () => {
+      vi.advanceTimersByTime(15_000);
+    });
+    expect(capturedSignal.aborted).toBe(true);
+    expect(screen.getByText(/something went wrong/i)).toBeInTheDocument();
+  });
 });

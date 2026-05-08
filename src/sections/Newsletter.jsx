@@ -3,6 +3,11 @@ import { Inbox, CircleCheck } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import { URLS } from "../config/urls";
 
+// Cap the form submit at 15s so a hung Netlify response can't strand the
+// button in "Subscribing…" forever. AbortError surfaces through the same
+// catch path as any other failure.
+const SUBMIT_TIMEOUT_MS = 15_000;
+
 export default function Newsletter() {
   const revealRef = useScrollReveal();
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
@@ -14,9 +19,11 @@ export default function Newsletter() {
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus("submitting");
+    const controller = new AbortController();
+    const abortTimer = setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS);
     try {
       const formData = new FormData(e.target);
-      const res = await fetch("/", { method: "POST", body: formData });
+      const res = await fetch("/", { method: "POST", body: formData, signal: controller.signal });
       if (!res.ok) throw new Error(res.statusText || `HTTP ${res.status}`);
       window.plausible?.("Newsletter Signup");
       setStatus("success");
@@ -29,6 +36,8 @@ export default function Newsletter() {
         props: { reason: err?.message?.slice(0, 80) || "unknown" },
       });
       setStatus("error");
+    } finally {
+      clearTimeout(abortTimer);
     }
   }
 
@@ -44,7 +53,7 @@ export default function Newsletter() {
       <div className="container">
         <div ref={revealRef} className="reveal newsletter-card">
           <div className="newsletter-icon">
-            <Inbox size={24} />
+            <Inbox size={24} aria-hidden="true" />
           </div>
           <h3 className="newsletter-title">One email a month</h3>
           <p className="newsletter-desc">
@@ -54,7 +63,7 @@ export default function Newsletter() {
 
           {status === "success" ? (
             <div className="newsletter-success" role="status" aria-live="polite">
-              <CircleCheck size={32} className="newsletter-success-icon" />
+              <CircleCheck size={32} className="newsletter-success-icon" aria-hidden="true" />
               <p>You&apos;re on the list. Expect about one email a month.</p>
             </div>
           ) : (

@@ -28,7 +28,7 @@ export default function Story() {
             </p>
           </div>
           <Link to="/contact" className="story-contact-link">
-            Talk to me directly <ArrowRight size={14} />
+            Talk to me directly <ArrowRight size={14} aria-hidden="true" />
           </Link>
         </div>
       </div>

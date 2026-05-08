@@ -40,14 +40,14 @@ export default function Pricing() {
             <ul className="pricing-features pricing-features--single">
               {COACH_FEATURES.map((feature) => (
                 <li key={feature}>
-                  <Check size={16} className="check" strokeWidth={2.5} />
+                  <Check size={16} className="check" strokeWidth={2.5} aria-hidden="true" />
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
 
             <CtaButton>
-              <Sparkles size={18} />
+              <Sparkles size={18} aria-hidden="true" />
               Start 14-Day Trial
             </CtaButton>
 

@@ -48,11 +48,11 @@ const infrastructure = [
 ];
 
 function StatusIcon({ status }) {
-  if (status === "operational") return <CheckCircle2 size={18} className="status-icon status-icon--ok" />;
-  if (status === "reachable") return <CheckCircle2 size={18} className="status-icon status-icon--ok" />;
-  if (status === "degraded") return <AlertTriangle size={18} className="status-icon status-icon--warn" />;
-  if (status === "down") return <XCircle size={18} className="status-icon status-icon--down" />;
-  return <RefreshCw size={16} className="status-icon status-icon--checking" />;
+  if (status === "operational") return <CheckCircle2 size={18} className="status-icon status-icon--ok" aria-hidden="true" />;
+  if (status === "reachable") return <CheckCircle2 size={18} className="status-icon status-icon--ok" aria-hidden="true" />;
+  if (status === "degraded") return <AlertTriangle size={18} className="status-icon status-icon--warn" aria-hidden="true" />;
+  if (status === "down") return <XCircle size={18} className="status-icon status-icon--down" aria-hidden="true" />;
+  return <RefreshCw size={16} className="status-icon status-icon--checking" aria-hidden="true" />;
 }
 
 function statusLabel(status) {
@@ -128,11 +128,11 @@ export default function Status() {
 
           <div className={`status-banner ${allOk ? "status-banner--ok" : anyDown ? "status-banner--down" : "status-banner--checking"}`}>
             {allOk ? (
-              <><CheckCircle2 size={22} /> All systems operational</>
+              <><CheckCircle2 size={22} aria-hidden="true" /> All systems operational</>
             ) : anyDown ? (
-              <><AlertTriangle size={22} /> Some services may be unreachable</>
+              <><AlertTriangle size={22} aria-hidden="true" /> Some services may be unreachable</>
             ) : (
-              <><RefreshCw size={20} className="status-spin" /> Checking services…</>
+              <><RefreshCw size={20} className="status-spin" aria-hidden="true" /> Checking services…</>
             )}
           </div>
 

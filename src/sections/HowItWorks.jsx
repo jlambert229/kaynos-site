@@ -30,7 +30,7 @@ export default function HowItWorks() {
             </p>
           </div>
           <Link to="/getting-started" className="how-it-works-link">
-            Full setup guide <ArrowRight size={16} />
+            Full setup guide <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </div>

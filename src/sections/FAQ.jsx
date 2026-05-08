@@ -66,6 +66,7 @@ export default function FAQ() {
                     <ChevronDown
                       className={`faq-chevron${isOpen ? " open" : ""}`}
                       size={20}
+                      aria-hidden="true"
                     />
                   </button>
                   <div
