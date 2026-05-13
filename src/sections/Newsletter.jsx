@@ -97,6 +97,7 @@ export default function Newsletter() {
                   autoCorrect="off"
                   spellCheck="false"
                   inputMode="email"
+                  maxLength={254}
                 />
                 <button
                   type="submit"

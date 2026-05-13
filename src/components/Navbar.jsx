@@ -12,13 +12,26 @@ const navLinks = [
   { label: "Contact", href: "/contact", page: true },
 ];
 
+// Query for an element by its hash, but treat malformed selectors as "not
+// found" rather than letting the DOMException bubble up. Pasting a URL like
+// `/#<script>` produces an invalid CSS selector that would otherwise crash
+// the navigation useEffect and bubble to the ErrorBoundary.
+// Exported only so the unit test can exercise the catch path directly.
+export function safeQuerySelector(hash) {
+  try {
+    return document.querySelector(hash);
+  } catch {
+    return null;
+  }
+}
+
 function scrollToHash(hash) {
   const performScroll = (el) => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
   };
 
-  const el = document.querySelector(hash);
+  const el = safeQuerySelector(hash);
   if (el) {
     performScroll(el);
     return true;
@@ -31,7 +44,7 @@ function scrollToHash(hash) {
   // target to appear instead of polling; disconnect after success or a 3s
   // safety timeout so we don't leak the observer.
   const observer = new MutationObserver(() => {
-    const target = document.querySelector(hash);
+    const target = safeQuerySelector(hash);
     if (target) {
       performScroll(target);
       observer.disconnect();

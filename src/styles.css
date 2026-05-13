@@ -497,6 +497,11 @@ svg {
   background: var(--bg-secondary);
 }
 
+.mobile-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 .mobile-menu {
   display: flex;
   position: fixed;
