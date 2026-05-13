@@ -57,7 +57,7 @@ function StatusIcon({ status }) {
 
 function statusLabel(status) {
   if (status === "operational") return "Operational";
-  if (status === "reachable") return "Reachable";
+  if (status === "reachable") return "Responding";
   if (status === "degraded") return "Degraded";
   if (status === "down") return "Unreachable";
   return "Checking…";
@@ -68,6 +68,11 @@ async function checkOne(svc) {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
+    // `mode: "no-cors"` returns an opaque response — we can't read the status
+    // code, so this confirms the URL accepts a request (DNS + TCP + TLS),
+    // not that the service is healthy. A 5xx looks the same as a 200.
+    // The label distinguishes "Responding" from "Operational" to make that
+    // limitation visible to anyone reading the page.
     await fetch(svc.checkUrl, { method: "HEAD", mode: "no-cors", signal: controller.signal });
     clearTimeout(timeout);
     return "reachable";
@@ -147,6 +152,12 @@ export default function Status() {
 
           <section className="status-section">
             <h2 className="status-section-title">Services</h2>
+            <p className="status-section-desc">
+              External services show &ldquo;Responding&rdquo; if your browser can
+              reach them — that confirms the URL is up, but not that the
+              service inside is healthy. For application-level health, check
+              each provider&apos;s status page below.
+            </p>
             <div className="status-list">
               {services.map((svc) => (
                 <div key={svc.name} className="status-row">

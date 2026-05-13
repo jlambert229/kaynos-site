@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { extractLeadingHeadMarkup } from "../src/prerender.jsx";
+import { extractLeadingHeadMarkup, extractJsonLdScripts } from "../src/prerender.jsx";
 
 describe("extractLeadingHeadMarkup", () => {
   it("extracts title and meta tags from leading HTML", () => {
@@ -111,5 +111,65 @@ describe("extractLeadingHeadMarkup", () => {
     const result = extractLeadingHeadMarkup(html);
     expect(result.headMarkup).toEqual(['<meta name="x" content="a>b">']);
     expect(result.innerHtml).toBe("<div>body</div>");
+  });
+});
+
+describe("extractJsonLdScripts", () => {
+  it("returns no scripts and the original html when none are present", () => {
+    const html = "<div>body</div>";
+    const result = extractJsonLdScripts(html);
+    expect(result.scripts).toEqual([]);
+    expect(result.stripped).toBe(html);
+  });
+
+  it("extracts a single JSON-LD script from mid-body", () => {
+    // Real-world layout: BackToTop renders first, then Helmet's scripts —
+    // so leading-position extraction would miss them.
+    const html =
+      '<div id="root"><button>back-to-top</button>' +
+      '<script type="application/ld+json">{"@type":"WebSite"}</script>' +
+      '<main>page</main></div>';
+    const result = extractJsonLdScripts(html);
+    expect(result.scripts).toHaveLength(1);
+    expect(result.scripts[0]).toContain('"@type":"WebSite"');
+    expect(result.stripped).toBe(
+      '<div id="root"><button>back-to-top</button><main>page</main></div>',
+    );
+  });
+
+  it("extracts multiple JSON-LD scripts in source order", () => {
+    const html =
+      '<div><script type="application/ld+json">{"@type":"A"}</script>' +
+      'middle' +
+      '<script type="application/ld+json">{"@type":"B"}</script>' +
+      '<script type="application/ld+json">{"@type":"C"}</script></div>';
+    const result = extractJsonLdScripts(html);
+    expect(result.scripts).toHaveLength(3);
+    expect(result.scripts[0]).toContain('"@type":"A"');
+    expect(result.scripts[1]).toContain('"@type":"B"');
+    expect(result.scripts[2]).toContain('"@type":"C"');
+    expect(result.stripped).toBe("<div>middle</div>");
+  });
+
+  it("does not touch <script src=...> or other script types", () => {
+    const html =
+      '<div><script src="/app.js"></script>' +
+      '<script type="text/template">{{x}}</script>' +
+      '<script type="application/ld+json">{"@type":"X"}</script></div>';
+    const result = extractJsonLdScripts(html);
+    expect(result.scripts).toHaveLength(1);
+    expect(result.scripts[0]).toContain('"@type":"X"');
+    expect(result.stripped).toBe(
+      '<div><script src="/app.js"></script><script type="text/template">{{x}}</script></div>',
+    );
+  });
+
+  it("matches case-insensitively and tolerates whitespace around the type attribute", () => {
+    const html =
+      '<SCRIPT  TYPE = "application/ld+json" >{"@type":"Y"}</SCRIPT><div>x</div>';
+    const result = extractJsonLdScripts(html);
+    expect(result.scripts).toHaveLength(1);
+    expect(result.scripts[0]).toContain('"@type":"Y"');
+    expect(result.stripped).toBe("<div>x</div>");
   });
 });

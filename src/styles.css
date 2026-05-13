@@ -500,7 +500,17 @@ svg {
 .mobile-menu {
   display: flex;
   position: fixed;
-  inset: 0;
+  /* On iOS Safari, `inset: 0` sizes against the largest viewport (address
+     bar collapsed), so when the bar is visible the bottom CTAs can slip
+     beneath it and require an extra scroll. Pin the top to the viewport
+     and size with 100dvh — the dynamic viewport unit shrinks to whatever
+     is actually visible. The `min-height: 100vh` fallback keeps older
+     iOS / Android <13 working at the static viewport size. */
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  height: 100dvh;
   background: var(--bg-base);
   z-index: 999;
   flex-direction: column;
@@ -2781,7 +2791,10 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  /* 12px vertical + 14px line-height + 1px borders ≈ 44px — meets WCAG 2.5.5
+     touch target without making desktop pills look chunky. */
+  padding: 12px 20px;
+  min-height: 44px;
   font-family: var(--font);
   font-size: 14px;
   font-weight: 500;
@@ -2879,9 +2892,14 @@ svg {
   }
 
   .uc-tab {
-    padding: 7px 12px;
-    font-size: 12px;
-    gap: 5px;
+    /* Don't shrink below the 44px target on phones — they're the most
+       likely place tap accuracy matters. Tighten the horizontal padding
+       and gap so 4 tabs still fit on a 360px viewport without wrapping
+       awkwardly. */
+    padding: 10px 14px;
+    min-height: 44px;
+    font-size: 13px;
+    gap: 6px;
   }
 }
 
