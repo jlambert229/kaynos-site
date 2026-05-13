@@ -10,6 +10,10 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const MAX_NAME = 200;
 const MAX_MESSAGE = 500;
 
+// Cap the submit at 15s so a hung Netlify response can't strand the button
+// in "Sending…" forever. Matches the Newsletter form's pattern.
+const SUBMIT_TIMEOUT_MS = 15_000;
+
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
@@ -37,9 +41,11 @@ export default function Contact() {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
     setStatus("submitting");
+    const controller = new AbortController();
+    const abortTimer = setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS);
     try {
       const formData = new FormData(e.target);
-      const res = await fetch("/", { method: "POST", body: formData });
+      const res = await fetch("/", { method: "POST", body: formData, signal: controller.signal });
       if (!res.ok) throw new Error(res.statusText || `HTTP ${res.status}`);
       window.plausible?.("Contact Submit");
       setStatus("success");
@@ -50,6 +56,8 @@ export default function Contact() {
         props: { reason: err?.message?.slice(0, 80) || "unknown" },
       });
       setStatus("error");
+    } finally {
+      clearTimeout(abortTimer);
     }
   }
 

@@ -10,8 +10,31 @@ import { AppRoutes } from "./App.jsx";
 
 
 /**
- * React 19 renders Helmet `<title>`, `<meta>`, and `<link>` at the start of the
- * root HTML string. Move them into the document head via vite-prerender-plugin.
+ * Helmet's JSON-LD scripts can't be hoisted by extractLeadingHeadMarkup
+ * because they don't render at the start of the React tree — components
+ * above the Helmet site (e.g. BackToTop in AppRoutes) put their own
+ * markup first, so the scripts end up mid-body.
+ *
+ * This function scans the entire HTML, lifts every
+ * `<script type="application/ld+json">…</script>` out of the body, and
+ * returns the scripts (to add to head) plus the stripped HTML. We
+ * intentionally match only `application/ld+json` — relocating arbitrary
+ * inline scripts would have surprising side effects.
+ *
+ * @param {string} html
+ * @returns {{ stripped: string, scripts: string[] }}
+ */
+export function extractJsonLdScripts(html) {
+  const re = /<script\b[^>]*\btype\s*=\s*["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi;
+  const scripts = html.match(re) || [];
+  const stripped = scripts.length ? html.replace(re, "") : html;
+  return { stripped, scripts };
+}
+
+/**
+ * React 19 renders Helmet `<title>`, `<meta>`, and `<link>` at the start of
+ * the root HTML string. Move them into the document head via
+ * vite-prerender-plugin.
  * @param {string} rootHtml
  */
 export function extractLeadingHeadMarkup(rootHtml) {
@@ -63,15 +86,20 @@ export async function prerender(data) {
   );
 
   const { innerHtml, plainTitle, headMarkup } = extractLeadingHeadMarkup(raw);
+  // Lift JSON-LD scripts out of the body so they land in <head> — canonical
+  // placement for crawlers, and matches the intent of Helmet's
+  // `prioritizeSeoTags` flag (which prioritizes meta/link/title but does not
+  // reorder scripts).
+  const { stripped, scripts } = extractJsonLdScripts(innerHtml);
 
   const head = {
     lang: "en",
     title: plainTitle,
-    elements: new Set(headMarkup),
+    elements: new Set([...headMarkup, ...scripts]),
   };
 
   const { parseLinks } = await import("vite-prerender-plugin/parse");
-  const links = new Set(parseLinks(innerHtml));
+  const links = new Set(parseLinks(stripped));
 
-  return { html: innerHtml, links, head };
+  return { html: stripped, links, head };
 }

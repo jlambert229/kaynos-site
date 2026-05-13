@@ -2,21 +2,22 @@ import { SITE_URL, OG_SHARE_URL } from "./constants";
 import { COACH_MONTHLY_PRICE, PLAN_NAME, PRICING_COPY } from "../config/pricing";
 
 /**
- * Compute priceValidUntil as end-of-current-quarter at build time.
- * Quarters: Q1 = Mar 31, Q2 = Jun 30, Q3 = Sep 30, Q4 = Dec 31.
+ * Compute priceValidUntil ~12 months from the build date.
+ *
+ * Google's rich-results validator rejects offer schemas whose
+ * priceValidUntil is in the past. The previous end-of-quarter horizon
+ * would silently expire if a deploy slipped past a quarter boundary.
+ * A year out gives plenty of buffer; pricing changes roll a fresh
+ * schema on the next deploy.
+ *
+ * Snaps to the last day of the month so the value is stable across
+ * multiple builds in the same calendar month.
  */
-function endOfCurrentQuarter() {
+function priceValidThrough() {
   const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth(); // 0-based
-  const quarterEnd = [
-    new Date(year, 2, 31),  // Q1: Jan-Mar  -> Mar 31
-    new Date(year, 5, 30),  // Q2: Apr-Jun  -> Jun 30
-    new Date(year, 8, 30),  // Q3: Jul-Sep  -> Sep 30
-    new Date(year, 11, 31), // Q4: Oct-Dec  -> Dec 31
-  ];
-  const qi = Math.floor(month / 3);
-  return quarterEnd[qi].toISOString().split("T")[0];
+  // Day 0 of (month + 13) = last day of (month + 12). Handles year rollover.
+  const end = new Date(now.getFullYear(), now.getMonth() + 13, 0);
+  return end.toISOString().split("T")[0];
 }
 
 export const pricingJsonLd = {
@@ -35,7 +36,7 @@ export const pricingJsonLd = {
       name: PLAN_NAME,
       price: `${COACH_MONTHLY_PRICE}.00`,
       priceCurrency: "USD",
-      priceValidUntil: endOfCurrentQuarter(),
+      priceValidUntil: priceValidThrough(),
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/`,
       description: PRICING_COPY.jsonLdOfferDesc,
