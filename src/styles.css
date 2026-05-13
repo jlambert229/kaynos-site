@@ -49,6 +49,10 @@
   --bg-tertiary: #24242f;
   --text-primary: #f5f5f7;
   --text-secondary: rgba(245, 245, 247, 0.72);
+  /* WCAG 1.4.3 check: rgba(245,245,247,0.6) blended onto --bg-card
+     (#0d0d14) renders as rgb(152,152,156). Contrast = 6.73:1 — passes
+     AA (4.5:1) and is one decimal off AAA (7:1). Used for placeholders
+     and de-emphasized labels. Re-verify if --bg-card changes. */
   --text-tertiary: rgba(245, 245, 247, 0.6);
   --border: rgba(255, 255, 255, 0.07);
   --border-strong: rgba(255, 255, 255, 0.12);
@@ -1257,6 +1261,10 @@ svg {
   margin-bottom: 32px;
 }
 
+/* Overflow check between 481–768px (where this 72px desktop size applies
+   on mobile-medium devices): card max-width is 480px with 88px of
+   horizontal padding → 392px content area. "199" at 72px ≈ 130px wide.
+   No overflow. At ≤480px the override below drops to 48px. */
 .pricing-amount {
   font-size: 72px;
   font-weight: 700;
@@ -2277,6 +2285,10 @@ svg {
   appearance: none;
 }
 
+/* Text inputs intentionally use :focus (not :focus-visible). Browsers
+   treat the two the same for text fields, and a mouse user clicking
+   into a field wants to see the focus ring to know what they're
+   editing. Same pattern repeats on .faq-search and .newsletter-input. */
 .contact-input:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);

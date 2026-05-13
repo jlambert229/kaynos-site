@@ -88,6 +88,7 @@ export default function Newsletter() {
                   type="email"
                   name="email"
                   required
+                  aria-required="true"
                   placeholder="you@example.com"
                   value={email}
                   onChange={clearErrorOnEdit(setEmail)}
@@ -108,7 +109,7 @@ export default function Newsletter() {
                 </button>
               </div>
               <div className="newsletter-consent">
-                <input id="newsletter-consent" type="checkbox" name="consent" required />
+                <input id="newsletter-consent" type="checkbox" name="consent" required aria-required="true" />
                 <span>
                   <label htmlFor="newsletter-consent">I agree to receive product updates via email.</label>{" "}
                   <a href="/privacy">Privacy Policy</a>.
