@@ -84,7 +84,9 @@ async function checkOne(svc) {
 export default function Status() {
   const [results, setResults] = useState({});
   const [lastChecked, setLastChecked] = useState(null);
-  const mountedRef = useRef({ current: true });
+  // Guards setState after unmount when the in-flight Promise.all resolves.
+  // Standard ref pattern — flip to false in cleanup, check before setState.
+  const mountedRef = useRef(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   async function runChecks() {
@@ -92,18 +94,17 @@ export default function Status() {
     const pairs = await Promise.all(
       services.map(async (svc) => [svc.name, await checkOne(svc)])
     );
-    if (!mountedRef.current.current) return;
+    if (!mountedRef.current) return;
     setResults(Object.fromEntries(pairs));
     setLastChecked(new Date());
     setIsRefreshing(false);
   }
 
   useEffect(() => {
-    const holder = { current: true };
-    mountedRef.current = holder;
+    mountedRef.current = true;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     runChecks();
-    return () => { holder.current = false; };
+    return () => { mountedRef.current = false; };
   }, []);
 
   const vals = Object.values(results);

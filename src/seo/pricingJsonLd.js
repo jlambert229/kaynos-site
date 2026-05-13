@@ -12,6 +12,11 @@ import { COACH_MONTHLY_PRICE, PLAN_NAME, PRICING_COPY } from "../config/pricing"
  *
  * Snaps to the last day of the month so the value is stable across
  * multiple builds in the same calendar month.
+ *
+ * Deploy-delay safety: the value is 12 months out, so a deploy would
+ * need to be skipped for ~12 months before the date approaches today.
+ * Even at extreme timezones, the UTC-vs-local off-by-one is negligible
+ * against that buffer.
  */
 function priceValidThrough() {
   const now = new Date();
