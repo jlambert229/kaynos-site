@@ -8,6 +8,11 @@ import {
   PRICING_COPY,
 } from "../config/pricing";
 
+// Friction-reducers surfaced right at the conversion moment — same facts
+// already stated in PRICING_COPY.trialNote, just promoted above the button
+// instead of buried in the fine print below it.
+const TRUST_POINTS = ["14 days free", "No charge until day 15", "Cancel anytime"];
+
 export default function Pricing() {
   const headerRef = useScrollReveal();
 
@@ -42,6 +47,15 @@ export default function Pricing() {
                 <li key={feature}>
                   <Check size={16} className="check" strokeWidth={2.5} aria-hidden="true" />
                   <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <ul className="pricing-trust-row">
+              {TRUST_POINTS.map((point) => (
+                <li key={point}>
+                  <Check size={14} className="check" strokeWidth={3} aria-hidden="true" />
+                  <span>{point}</span>
                 </li>
               ))}
             </ul>

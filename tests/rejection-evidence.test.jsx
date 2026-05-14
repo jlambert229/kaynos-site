@@ -300,6 +300,50 @@ describe("dist — Inter font preload (every page)", () => {
   });
 });
 
+// Conversion / demo-prominence pass. Four approved changes that surface
+// the live demo and the trial's friction-reducers more aggressively.
+// Pinned against the prerendered HTML so a refactor can't quietly drop
+// them.
+describe("dist — demo-prominence + trust elements (conversion pass)", () => {
+  const distHomeHtml = resolve(__dirname, "..", "dist", "index.html");
+  const skipIfNoBuild = existsSync(distHomeHtml) ? it : it.skip;
+
+  skipIfNoBuild("hero carries the low-friction demo micro-link", () => {
+    const html = readFileSync(distHomeHtml, "utf8");
+    expect(html).toMatch(/class="hero-demo-hint"/);
+    // The link points at the live demo and is Plausible-tagged. React
+    // renders href before className, so match attribute-order-agnostically.
+    expect(html).toMatch(/href="https:\/\/demo\.kaynos\.net"/);
+    expect(html).toMatch(/class="hero-demo-hint-link plausible-event-name=Demo\+Coach"/);
+  });
+
+  skipIfNoBuild("demos section has a 'what you'll see' bullet list per preview", () => {
+    const html = readFileSync(distHomeHtml, "utf8");
+    const matches = html.match(/class="demos-preview-bullets"/g) || [];
+    expect(matches).toHaveLength(2); // coach + student columns
+  });
+
+  skipIfNoBuild("pricing card shows the trust row above the trial button", () => {
+    const html = readFileSync(distHomeHtml, "utf8");
+    expect(html).toMatch(/class="pricing-trust-row"/);
+    expect(html).toMatch(/14 days free/);
+    expect(html).toMatch(/No charge until day 15/);
+    expect(html).toMatch(/Cancel anytime/);
+    // The trust row must sit BEFORE the CTA button in source order.
+    const trustIdx = html.indexOf("pricing-trust-row");
+    const ctaIdx = html.indexOf("Start 14-Day Trial", trustIdx);
+    expect(trustIdx).toBeGreaterThan(-1);
+    expect(ctaIdx).toBeGreaterThan(trustIdx);
+  });
+
+  skipIfNoBuild("navbar 'Demos' is a direct external link to the live coach demo", () => {
+    const html = readFileSync(distHomeHtml, "utf8");
+    expect(html).toMatch(
+      /<a href="https:\/\/demo\.kaynos\.net" class="navbar-link plausible-event-name=Demo\+Coach" target="_blank" rel="noopener noreferrer">/,
+    );
+  });
+});
+
 // iOS-developer audit findings. Each test pins a specific Mobile-Safari
 // affordance so a refactor can't silently revert these protections.
 describe("CSS — iOS Safari affordances (iOS audit findings, pinned)", () => {

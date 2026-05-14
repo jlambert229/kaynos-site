@@ -7,7 +7,10 @@ import { URLS } from "../config/urls";
 const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Demos", href: "#demos" },
+  // Direct-open the live coach demo rather than scrolling to the in-page
+  // Demos section — the fastest no-signup path to the real product. The
+  // `event` token feeds Plausible the same way <DemoLink> does.
+  { label: "Demos", href: URLS.demoCoach, external: true, event: "Demo+Coach" },
   { label: "For Coaches", href: "/for/coaches", page: true },
   { label: "Contact", href: "/contact", page: true },
 ];
@@ -142,12 +145,12 @@ export default function Navbar() {
         </Link>
 
         <div className="navbar-links">
-          {navLinks.map(({ label, href, external, page }) =>
+          {navLinks.map(({ label, href, external, page, event }) =>
             external ? (
               <a
                 key={href}
                 href={href}
-                className="navbar-link"
+                className={`navbar-link${event ? ` plausible-event-name=${event}` : ""}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -213,11 +216,12 @@ export default function Navbar() {
           <KaynosLogo size="nav" />
           <span>kaynos</span>
         </Link>
-        {navLinks.map(({ label, href, external, page }) =>
+        {navLinks.map(({ label, href, external, page, event }) =>
           external ? (
             <a
               key={href}
               href={href}
+              className={event ? `plausible-event-name=${event}` : undefined}
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMobile}

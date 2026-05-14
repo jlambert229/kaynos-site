@@ -27,6 +27,11 @@ export default function Demos() {
               Coach dashboard
             </div>
             <CoachPreview />
+            <ul className="demos-preview-bullets">
+              <li>A real session with timestamped coach notes</li>
+              <li>AI-flagged moments queued up to review</li>
+              <li>Pin a new note and send it to a student</li>
+            </ul>
             <DemoLink className="demos-preview-cta">
               Try the coach demo <ExternalLink size={14} aria-hidden />
             </DemoLink>
@@ -38,6 +43,11 @@ export default function Demos() {
               Student dashboard
             </div>
             <StudentPreview />
+            <ul className="demos-preview-bullets">
+              <li>Every session the coach sends, in one place</li>
+              <li>Timestamped notes synced to the video</li>
+              <li>Watched and unwatched at a glance</li>
+            </ul>
             <DemoLink which="student" className="demos-preview-cta">
               Try the student demo <ExternalLink size={14} aria-hidden />
             </DemoLink>

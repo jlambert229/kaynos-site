@@ -745,6 +745,31 @@ svg {
   margin-bottom: 20px;
 }
 
+/* The lowest-friction path framed as a quiet alternative to the two
+   big CTA buttons — no signup, instant. Kept visually subordinate so
+   it complements the primary "Start 14-Day Trial" rather than competing. */
+.hero-demo-hint {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+
+.hero-demo-hint-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  /* Negative-margin trick mirrors .hero-meta a — expands the tap zone
+     to ~41px tall without nudging the surrounding micro-copy. */
+  display: inline-block;
+  padding: 12px 4px;
+  margin: -12px -4px;
+}
+
+.hero-demo-hint-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .hero-meta {
   font-size: 14px;
   color: var(--text-tertiary);
@@ -845,6 +870,39 @@ svg {
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+/* "What you'll see" bullets — tells the visitor what to look for before
+   they click through, so the live demo doesn't open cold. */
+.demos-preview-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 280px;
+  width: 100%;
+}
+
+.demos-preview-bullets li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.demos-preview-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .demos-preview-cta {
@@ -1375,7 +1433,34 @@ svg {
   flex-shrink: 0;
 }
 
-/* -- CTA & note -- */
+/* -- trust row, CTA & note -- */
+
+/* Friction-reducers promoted directly above the trial button — the
+   highest-hesitation moment on the page. Wraps to a column on the
+   narrowest cards so the three points never get cramped onto one line. */
+.pricing-trust-row {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+}
+
+.pricing-trust-row li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.pricing-trust-row .check {
+  color: var(--accent);
+  flex-shrink: 0;
+}
 
 .pricing-card .btn {
   width: 100%;

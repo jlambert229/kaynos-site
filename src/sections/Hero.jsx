@@ -27,6 +27,11 @@ export default function Hero() {
             <CtaButton>Start 14-Day Trial</CtaButton>
             <DemoLink className="btn btn-secondary">See a Demo</DemoLink>
           </div>
+          <p className="hero-demo-hint">
+            Prefer no signup?{" "}
+            <DemoLink className="hero-demo-hint-link">Open the live demo &rarr;</DemoLink>
+            {" "}30 seconds in.
+          </p>
           <p className="hero-meta">
             {PRICING_COPY.heroLine} &middot; {PRICING_COPY.trialNote}
             {" "}<a href="#pricing" className="hero-calc-link">See pricing &rarr;</a>
