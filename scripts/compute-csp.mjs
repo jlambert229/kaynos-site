@@ -37,12 +37,18 @@ async function* walkHtml(dir) {
    "Vite started emitting an inline <script> we don't have a hash for". */
 export const INLINE_SCRIPT_RE = /<script(?![^>]*\bsrc\s*=)[^>]*>([\s\S]*?)<\/script>/gi;
 
+/* Strip HTML comments so the literal text "<script>" inside a comment
+   block can't get picked up as a real inline script. Browsers ignore
+   the comment when parsing; the CSP hasher needs to match that. */
+const HTML_COMMENT_RE = /<!--[\s\S]*?-->/g;
+
 /** Extract the inline content of every non-src <script> in `html`. */
 export function extractInlineScripts(html) {
+  const stripped = html.replace(HTML_COMMENT_RE, "");
   const out = [];
   const re = new RegExp(INLINE_SCRIPT_RE.source, INLINE_SCRIPT_RE.flags);
   let m;
-  while ((m = re.exec(html))) {
+  while ((m = re.exec(stripped))) {
     if (m[1] && m[1].trim()) out.push(m[1]);
   }
   return out;

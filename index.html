@@ -25,11 +25,15 @@
   <link rel="manifest" href="/manifest.json" />
   <link rel="apple-touch-icon" href="/logo.png" />
   <!-- Resource hints for the external origins linked or scripted from
-       every page. preconnect for plausible (analytics is requested on
-       page load); dns-prefetch for the demo / app / docs links so the
-       handshake is cheap if a visitor follows one. -->
+       every page. preconnect (TCP + TLS) for the two most-likely
+       next requests: plausible.io (analytics fires on every load) and
+       app.kaynos.net (primary CTA "Start 14-Day Trial" lands on
+       /signup). dns-prefetch (lighter — DNS only) for the other
+       subdomains that are reachable but less commonly followed. Mobile
+       Safari respects this set; opening a fifth preconnect would start
+       costing more than it saves. -->
   <link rel="preconnect" href="https://plausible.io" crossorigin />
-  <link rel="dns-prefetch" href="https://app.kaynos.net" />
+  <link rel="preconnect" href="https://app.kaynos.net" />
   <link rel="dns-prefetch" href="https://demo.kaynos.net" />
   <link rel="dns-prefetch" href="https://student.kaynos.net" />
   <link rel="dns-prefetch" href="https://docs.kaynos.net" />
@@ -37,8 +41,14 @@
        would break analytics silently. Defensive layer is CSP — script-src
        restricts external scripts to plausible.io only (see netlify.toml +
        dist/_headers). If self-hosting becomes worthwhile, swap the URL
-       and bump it manually. -->
-  <script defer data-domain="kaynos.net" src="https://plausible.io/js/script.tagged-events.js"></script>
+       and bump it manually.
+
+       fetchpriority="low": analytics shouldn't compete for bandwidth with
+       the hero LCP image during first paint. Mobile Safari 17.2+ honors
+       this attribute; older browsers ignore it harmlessly. defer still
+       keeps execution after HTML parse, so DOM-ready ordering is
+       unchanged. -->
+  <script defer fetchpriority="low" data-domain="kaynos.net" src="https://plausible.io/js/script.tagged-events.js"></script>
 </head>
 
 <body>

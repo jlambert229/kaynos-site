@@ -54,4 +54,28 @@ describe("extractInlineScripts", () => {
     expect(content).toContain("@type");
     expect(content).toContain("WebSite");
   });
+
+  // Regression: a previous comment in index.html contained the literal
+  // text "<script> tags;" which the regex matched as a real inline
+  // script opener. Stripping HTML comments before extracting prevents
+  // future comments from poisoning the generated CSP.
+  it("ignores <script> text inside HTML comments", () => {
+    const html = `
+      <!-- talking about <script> tags but not emitting one -->
+      <script type="application/ld+json">{"@type":"X"}</script>
+    `;
+    const inline = extractInlineScripts(html);
+    expect(inline).toHaveLength(1);
+    expect(inline[0]).toContain("@type");
+  });
+
+  it("ignores real inline-script-looking content inside HTML comments", () => {
+    // A nastier case: the comment contains a full <script>…</script>
+    // pair. The browser would still treat the whole block as a comment.
+    const html = `
+      <!-- <script>alert("nope")</script> -->
+      <script>const real = 1;</script>
+    `;
+    expect(extractInlineScripts(html)).toEqual(["const real = 1;"]);
+  });
 });
