@@ -98,6 +98,7 @@ export default function Newsletter() {
                   autoCorrect="off"
                   spellCheck="false"
                   inputMode="email"
+                  enterKeyHint="send"
                   maxLength={254}
                 />
                 <button

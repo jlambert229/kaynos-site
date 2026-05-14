@@ -243,6 +243,55 @@ describe("CSS — mobile-toggle focus ring (real finding, now pinned)", () => {
   });
 });
 
+// iOS-developer audit findings. Each test pins a specific Mobile-Safari
+// affordance so a refactor can't silently revert these protections.
+describe("CSS — iOS Safari affordances (iOS audit findings, pinned)", () => {
+  it("navbar height respects env(safe-area-inset-top) so content clears the notch", () => {
+    expect(
+      /\.navbar\s*\{[\s\S]*?height:\s*calc\(72px\s*\+\s*env\(safe-area-inset-top[\s\S]*?padding-top:\s*env\(safe-area-inset-top/.test(
+        stylesCss,
+      ),
+    ).toBe(true);
+  });
+
+  it("footer bottom padding respects env(safe-area-inset-bottom) for the home indicator", () => {
+    expect(
+      /\.footer\s*\{[\s\S]*?padding:\s*64px\s*0\s*calc\(40px\s*\+\s*env\(safe-area-inset-bottom/.test(
+        stylesCss,
+      ),
+    ).toBe(true);
+  });
+
+  it("primary buttons have a :active state to give tap feedback when tap-highlight is suppressed", () => {
+    expect(/\.btn:active\s*\{[\s\S]*?transform:\s*scale\(0\.98\)/.test(stylesCss)).toBe(true);
+    expect(/\.btn-primary:active\s*\{/.test(stylesCss)).toBe(true);
+    expect(/\.btn-secondary:active\s*\{/.test(stylesCss)).toBe(true);
+  });
+
+  it("mobile-toggle and back-to-top have :active feedback", () => {
+    expect(/\.mobile-toggle:active\s*\{/.test(stylesCss)).toBe(true);
+    expect(/\.back-to-top:active\s*\{[\s\S]*?transform:\s*scale\(0\.96\)/.test(stylesCss)).toBe(true);
+  });
+});
+
+// index.html iOS meta tags. Pinned via raw HTML read because Helmet
+// doesn't render these in the SPA — they're build-time static.
+describe("index.html — iOS Add-to-Home-Screen meta tags (iOS audit finding, pinned)", () => {
+  const html = readFileSync(resolve(__dirname, "..", "index.html"), "utf8");
+
+  it("declares apple-mobile-web-app-title for the home-screen label", () => {
+    expect(/<meta\s+name="apple-mobile-web-app-title"\s+content="Kaynos"\s*\/?>/.test(html)).toBe(true);
+  });
+  it("opts into standalone launch mode (apple-mobile-web-app-capable)", () => {
+    expect(/<meta\s+name="apple-mobile-web-app-capable"\s+content="yes"\s*\/?>/.test(html)).toBe(true);
+  });
+  it("sets a status-bar style compatible with viewport-fit=cover", () => {
+    expect(
+      /<meta\s+name="apple-mobile-web-app-status-bar-style"\s+content="black-translucent"\s*\/?>/.test(html),
+    ).toBe(true);
+  });
+});
+
 // Agent claim: navbar links had no active state for aria-current="page".
 // Real finding — added in the UI/UX pass. Pin the selector + the
 // underline-expansion behaviour so a future cleanup can't silently drop it.

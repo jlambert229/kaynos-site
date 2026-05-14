@@ -107,6 +107,7 @@ export default function Contact() {
                   autoComplete="name"
                   autoCapitalize="words"
                   inputMode="text"
+                  enterKeyHint="next"
                   aria-invalid={errors.name ? "true" : undefined}
                   aria-describedby={errors.name ? "contact-name-error" : undefined}
                 />
@@ -129,6 +130,7 @@ export default function Contact() {
                   autoCorrect="off"
                   spellCheck="false"
                   inputMode="email"
+                  enterKeyHint="next"
                   aria-invalid={errors.email ? "true" : undefined}
                   aria-describedby={errors.email ? "contact-email-error" : undefined}
                 />

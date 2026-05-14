@@ -317,6 +317,18 @@ svg {
   box-shadow: var(--focus-ring);
 }
 
+/* iOS touch feedback: -webkit-tap-highlight-color is set to transparent
+   globally (see html block), so the press-state has to be authored
+   explicitly. A subtle scale plus a darker surface gives a clear
+   "you pressed this" cue on every Mobile Safari tap. */
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:active {
+  background: #16498a;
+}
+
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
@@ -326,6 +338,10 @@ svg {
 .btn-secondary:hover {
   background: var(--accent-soft);
   border-color: var(--accent-dim);
+}
+
+.btn-secondary:active {
+  background: var(--bg-secondary);
 }
 
 .btn-secondary:focus-visible {
@@ -340,6 +356,11 @@ svg {
 }
 
 .btn-outline:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.btn-outline:active {
   background: var(--accent-soft);
   border-color: var(--accent);
 }
@@ -362,7 +383,14 @@ svg {
   top: 0;
   left: 0;
   right: 0;
-  height: 72px;
+  /* Push the bar's contents below the Dynamic Island / notch on iOS
+     when the page extends edge-to-edge under viewport-fit=cover.
+     The 72px bar height stays the visual norm; the safe-area inset
+     adds on top of it so the *inner* content (logo + links) sits in
+     the actual safe region. Falls back to 72px on non-notched devices
+     where env() returns 0. */
+  height: calc(72px + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
   z-index: 1000;
   transition: all 0.35s ease;
 }
@@ -509,6 +537,10 @@ svg {
 
 .mobile-toggle:hover {
   background: var(--bg-secondary);
+}
+
+.mobile-toggle:active {
+  background: var(--bg-tertiary);
 }
 
 .mobile-toggle:focus-visible {
@@ -1526,7 +1558,9 @@ svg {
 
 .footer {
   border-top: 1px solid var(--border);
-  padding: 64px 0 40px;
+  /* Bottom padding respects the iOS home-indicator inset so the legal
+     row never sits under the indicator bar on edge-to-edge devices. */
+  padding: 64px 0 calc(40px + env(safe-area-inset-bottom, 0px));
 }
 
 .footer-grid {
@@ -2092,6 +2126,11 @@ svg {
   border-color: var(--accent-dim);
 }
 
+.back-to-top:active {
+  background: var(--bg-tertiary);
+  transform: scale(0.96);
+}
+
 .back-to-top:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
@@ -2111,7 +2150,9 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 72px;
+  /* Match the actual navbar height including the iOS safe-area inset
+     so the 404 content never tucks under the navbar on notched phones. */
+  padding-top: calc(72px + env(safe-area-inset-top, 0px));
 }
 
 .not-found-content {
