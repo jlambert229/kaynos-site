@@ -242,3 +242,28 @@ describe("CSS — mobile-toggle focus ring (real finding, now pinned)", () => {
     expect(/\.mobile-toggle:focus-visible\s*\{[\s\S]*?box-shadow:\s*var\(--focus-ring\)/.test(stylesCss)).toBe(true);
   });
 });
+
+// Agent claim: navbar links had no active state for aria-current="page".
+// Real finding — added in the UI/UX pass. Pin the selector + the
+// underline-expansion behaviour so a future cleanup can't silently drop it.
+describe("CSS — navbar active page indicator (real finding, now pinned)", () => {
+  it("targets aria-current=page with primary text color", () => {
+    expect(
+      /\.navbar-links\s+(?:a|\.navbar-link)\[aria-current="page"\][\s\S]*?color:\s*var\(--text-primary\)/.test(
+        stylesCss,
+      ),
+    ).toBe(true);
+  });
+  it("extends the underline pseudo-element to active links", () => {
+    expect(
+      /\.navbar-links\s+(?:a|\.navbar-link)\[aria-current="page"\]::after[\s\S]*?width:\s*100%/.test(
+        stylesCss,
+      ),
+    ).toBe(true);
+  });
+  it("also highlights aria-current=page in the mobile menu", () => {
+    expect(
+      /\.mobile-menu\s+a\[aria-current="page"\][\s\S]*?color:\s*var\(--accent\)/.test(stylesCss),
+    ).toBe(true);
+  });
+});

@@ -433,6 +433,14 @@ svg {
   color: var(--text-primary);
 }
 
+/* Active page indicator. Navbar renders aria-current="page" on the
+   matching link (Navbar.jsx); style it so users know which top-level
+   page they're on without having to read the URL. */
+.navbar-links a[aria-current="page"],
+.navbar-links .navbar-link[aria-current="page"] {
+  color: var(--text-primary);
+}
+
 .navbar-links a::after,
 .navbar-links .navbar-link::after {
   content: "";
@@ -445,7 +453,9 @@ svg {
 }
 
 .navbar-links a:hover::after,
-.navbar-links .navbar-link:hover::after {
+.navbar-links .navbar-link:hover::after,
+.navbar-links a[aria-current="page"]::after,
+.navbar-links .navbar-link[aria-current="page"]::after {
   width: 100%;
 }
 
@@ -556,6 +566,11 @@ svg {
 
 .mobile-menu a:not(.btn):hover {
   background: var(--bg-secondary);
+}
+
+.mobile-menu a[aria-current="page"]:not(.btn) {
+  background: var(--bg-secondary);
+  color: var(--accent);
 }
 
 .mobile-menu .btn {
@@ -2689,7 +2704,10 @@ svg {
 }
 
 .cmp-row:hover {
-  background: rgba(255, 255, 255, 0.02);
+  /* 2% on the elevated bg was visually inert. 6% gives a clear "you're
+     looking at this row" signal without competing with the row's own
+     accent treatment when it's a Kaynos column. */
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .cmp-row:last-child {
