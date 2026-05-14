@@ -243,6 +243,34 @@ describe("CSS — mobile-toggle focus ring (real finding, now pinned)", () => {
   });
 });
 
+// iOS performance: the home-page hero screenshot is the LCP candidate, so
+// prerender.jsx emits a <link rel="preload" as="image"> for it. These
+// tests confirm the preload is in the home HTML only — non-home routes
+// shouldn't preload an image they don't render. The build must have run
+// for this to make sense; we tolerate a missing dist/ by skipping rather
+// than failing the unit-test pass.
+import { existsSync } from "node:fs";
+
+describe("dist — LCP image preload (home only)", () => {
+  const distHomeHtml = resolve(__dirname, "..", "dist", "index.html");
+  const distContactHtml = resolve(__dirname, "..", "dist", "contact", "index.html");
+  const skipIfNoBuild = existsSync(distHomeHtml) ? it : it.skip;
+
+  skipIfNoBuild("home HTML preloads the coach screenshot with the correct attribute case", () => {
+    const html = readFileSync(distHomeHtml, "utf8");
+    expect(html).toMatch(
+      /<link\s+rel="preload"\s+as="image"\s+href="\/app-coach-iphone-1x\.webp"\s+imagesrcset="[^"]+1x[^"]+2x[^"]*"\s+fetchpriority="high"/,
+    );
+  });
+
+  skipIfNoBuild("non-home routes do not preload the home hero image", () => {
+    if (!existsSync(distContactHtml)) return;
+    const html = readFileSync(distContactHtml, "utf8");
+    expect(html).not.toMatch(/<link[^>]+app-coach-iphone-1x\.webp[^>]+rel="preload"/);
+    expect(html).not.toMatch(/rel="preload"[^>]+app-coach-iphone/);
+  });
+});
+
 // iOS-developer audit findings. Each test pins a specific Mobile-Safari
 // affordance so a refactor can't silently revert these protections.
 describe("CSS — iOS Safari affordances (iOS audit findings, pinned)", () => {

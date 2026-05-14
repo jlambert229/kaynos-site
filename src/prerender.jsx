@@ -92,10 +92,20 @@ export async function prerender(data) {
   // reorder scripts).
   const { stripped, scripts } = extractJsonLdScripts(innerHtml);
 
+  const extras = [];
+  if (url === "/" || url === "") {
+    // LCP preload for the Home hero screenshot. Emitted as raw HTML so the
+    // attribute case is correct — Helmet/React mangle imagesrcset and
+    // fetchpriority to PascalCase, which Mobile Safari silently ignores.
+    extras.push(
+      '<link rel="preload" as="image" href="/app-coach-iphone-1x.webp" imagesrcset="/app-coach-iphone-1x.webp 1x, /app-coach-iphone-2x.webp 2x" fetchpriority="high">',
+    );
+  }
+
   const head = {
     lang: "en",
     title: plainTitle,
-    elements: new Set([...headMarkup, ...scripts]),
+    elements: new Set([...headMarkup, ...scripts, ...extras]),
   };
 
   const { parseLinks } = await import("vite-prerender-plugin/parse");

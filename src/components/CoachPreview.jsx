@@ -8,6 +8,11 @@
  * WebP-only — every browser shipping in the last ~5 years supports it
  * (Safari 14+, iOS 14+, Chrome 32+, Firefox 65+). The 1x source covers
  * the fallback `<img>` for any UA that ignores <picture>/<source>.
+ *
+ * The matching <link rel="preload" as="image"> is emitted only for the
+ * Home route by prerender.jsx — Helmet mangles the imagesrcset attribute
+ * casing, so the preload is injected as raw HTML at prerender time
+ * instead of via React.
  */
 export default function CoachPreview({ priority = false }) {
   return (
