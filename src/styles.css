@@ -283,7 +283,11 @@ svg {
   border-radius: var(--radius);
   border: none;
   cursor: pointer;
-  transition: all 0.25s ease;
+  /* Narrowed from `transition: all` — only the listed properties change
+     on hover/active/focus, so listing them explicitly lets the browser
+     skip tracking every other animatable property (padding, width,
+     line-height, etc.) per frame. transform is the iOS press cue. */
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -392,7 +396,10 @@ svg {
   height: calc(72px + env(safe-area-inset-top, 0px));
   padding-top: env(safe-area-inset-top, 0px);
   z-index: 1000;
-  transition: all 0.35s ease;
+  /* Narrowed from `transition: all` — the only properties that actually
+     change between .navbar and .navbar.scrolled are background,
+     backdrop-filter, and the bottom border. */
+  transition: background-color 0.35s ease, backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease, border-bottom-color 0.35s ease;
 }
 
 .navbar.scrolled {
@@ -2884,7 +2891,9 @@ svg {
   border: 1px solid var(--border-hairline);
   border-radius: 999px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  /* Narrowed from `transition: all`. Only color/background/border change
+     on :hover and .uc-tab-active. */
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .uc-tab:hover {
