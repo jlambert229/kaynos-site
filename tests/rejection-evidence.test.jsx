@@ -271,6 +271,35 @@ describe("dist — LCP image preload (home only)", () => {
   });
 });
 
+// iOS performance: scripts/inject-font-preload.mjs injects a preload for
+// the Inter Latin woff2 into every HTML so Mobile Safari starts the font
+// fetch in parallel with HTML parse instead of waiting for the CSS to
+// reference @font-face. This shortens the font-display:swap window by
+// ~100–150 ms on first visit.
+describe("dist — Inter font preload (every page)", () => {
+  const distHomeHtml = resolve(__dirname, "..", "dist", "index.html");
+  const distContactHtml = resolve(__dirname, "..", "dist", "contact", "index.html");
+  const skipIfNoBuild = existsSync(distHomeHtml) ? it : it.skip;
+
+  skipIfNoBuild("home HTML preloads the Inter Latin woff2 with type+crossorigin", () => {
+    const html = readFileSync(distHomeHtml, "utf8");
+    expect(html).toMatch(
+      /<link\s+rel="preload"\s+as="font"\s+type="font\/woff2"\s+crossorigin\s+href="\/assets\/inter-latin-wght-normal-[A-Za-z0-9_-]+\.woff2"/,
+    );
+  });
+
+  skipIfNoBuild("contact route preloads the same font (postbuild visits every page)", () => {
+    if (!existsSync(distContactHtml)) return;
+    const html = readFileSync(distContactHtml, "utf8");
+    expect(html).toMatch(/<link[^>]+rel="preload"[^>]+as="font"[^>]+inter-latin-wght-normal/);
+  });
+
+  skipIfNoBuild("does not preload the Latin-Ext font (English-only site never fetches it)", () => {
+    const html = readFileSync(distHomeHtml, "utf8");
+    expect(html).not.toMatch(/rel="preload"[^>]+inter-latin-ext/);
+  });
+});
+
 // iOS-developer audit findings. Each test pins a specific Mobile-Safari
 // affordance so a refactor can't silently revert these protections.
 describe("CSS — iOS Safari affordances (iOS audit findings, pinned)", () => {
