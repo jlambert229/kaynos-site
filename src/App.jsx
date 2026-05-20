@@ -16,6 +16,7 @@ import Terms from "./pages/Terms";
 import About from "./pages/About";
 import Status from "./pages/Status";
 import BackToTop from "./components/BackToTop";
+import MagicLinkSignIn from "./pages/auth/MagicLinkSignIn";
 
 
 /** Routes + chrome (used inside any router: Browser or Memory for prerender). */
@@ -41,6 +42,7 @@ export function AppRoutes() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/about" element={<About />} />
         <Route path="/status" element={<Status />} />
+        <Route path="/auth/magic-link" element={<MagicLinkSignIn />} />
         <Route path="/docs" element={<Navigate to="/getting-started" replace />} />
         <Route
           path="/docs/getting-started"
