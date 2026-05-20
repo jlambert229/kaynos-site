@@ -35,19 +35,19 @@
     "react-router-dom": "^7.15.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.27.0",
-    "@playwright/test": "^1.59.1",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.60.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
-    "@vitejs/plugin-react": "^6.0.1",
-    "eslint": "^9.27.0",
+    "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "^10.4.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.6.0",
     "jsdom": "^29.1.1",
-    "vite": "^8.0.11",
+    "vite": "^8.0.13",
     "vite-prerender-plugin": "^0.5.13",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.6"
   }
 }
