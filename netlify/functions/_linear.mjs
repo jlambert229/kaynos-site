@@ -81,8 +81,10 @@ export function originAllowed(event) {
 
 /**
  * Crude in-memory per-IP rate limiter. Per-instance (Netlify Functions are
- * stateless across cold starts), so it does not stop a determined attacker -
- * intended only to slow accidental rapid double-submits from the form.
+ * stateless across cold starts), so it does not stop a determined attacker.
+ * Intended only to slow accidental rapid double-submits from the form.
+ *
+ * Limitations and escalation path: docs/runbook-linear-functions.md
  */
 const rateBucket = new Map();
 const RATE_WINDOW_MS = 60_000;

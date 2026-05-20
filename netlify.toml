@@ -29,6 +29,14 @@
   to = "/getting-started"
   status = 301
 
+# Catch-all for legacy /docs/* paths on the marketing site. The help center
+# lives at docs.kaynos.net; any bookmarked /docs/... URL on www should land on
+# getting-started rather than the SPA 404 fallback.
+[[redirects]]
+  from = "/docs/*"
+  to = "/getting-started"
+  status = 301
+
 # SPA fallback: serve index.html with a 404 status for unknown routes so bots
 # don't index typos as real pages. The NotFound page still renders client-side.
 [[redirects]]
@@ -108,5 +116,10 @@
 
 [[headers]]
   for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/.well-known/security.txt"
   [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"

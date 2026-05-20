@@ -5,6 +5,12 @@
  * `writeBundle`, so the parent process never exits on its own — causing
  * Netlify to sit on "Deploy Preview processing" until the build timeout.
  *
+ * Upstream tracking (KAY-1507): re-test removing this wrapper after major
+ * Vite or vite-prerender-plugin upgrades. Known related issues:
+ * - https://github.com/preactjs/vite-prerender-plugin/issues/3
+ * - https://github.com/vitejs/vite/issues/21957
+ * See docs/vite-build-workaround.md for the quarterly check procedure.
+ *
  * We spawn vite, stream its output verbatim, and once both the "built in"
  * and "Prerendered N pages" sentinels have been seen, we give writes a
  * brief grace window and then SIGTERM (escalating to SIGKILL) so
