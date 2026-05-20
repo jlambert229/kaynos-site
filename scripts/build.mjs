@@ -15,6 +15,7 @@ import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { existsSync, statSync } from "node:fs";
 import path from "node:path";
+import { prerenderArtifactPaths } from "./publicRoutes.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
@@ -40,12 +41,7 @@ const KILL_ESCALATION_MS = 2000;
 // Sentinel routes that must be present and non-empty before we kill vite.
 // If any are missing, the build is incomplete and we let vite keep running
 // (or fail naturally) rather than exiting with a partial dist.
-const REQUIRED_ARTIFACTS = [
-  "index.html",
-  "for/coaches/index.html",
-  "for/students/index.html",
-  "contact/index.html",
-];
+const REQUIRED_ARTIFACTS = prerenderArtifactPaths;
 
 let buffer = "";
 let builtSeen = false;
