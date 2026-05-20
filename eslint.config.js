@@ -8,6 +8,8 @@ export default [
   {
     ignores: [
       "dist/",
+      "**/dist/**",
+      ".worktrees/**",
       "node_modules/",
       "public/",
       "tests/e2e/results/",

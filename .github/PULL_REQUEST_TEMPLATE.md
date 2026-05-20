@@ -12,8 +12,11 @@
 <!-- Bulleted, concrete. Each box maps to something a reviewer can verify. -->
 - [ ] `npm run lint` — clean
 - [ ] `npm test` — clean
-- [ ] `npm run build` — prerender + sitemap + SEO check green
+- [ ] `npm run build` — prerender + sitemap + SEO + header/sitemap drift checks green
 - [ ] Manual verification (browser/device) — describe what you exercised
+- [ ] **Deploy preview** (if headers, CSP, redirects, analytics, or forms changed): see `docs/deploy-preview-checklist.md`
+  - [ ] `npm run verify:remote-headers` with `DEPLOY_PREVIEW_URL=...` (optional)
+  - [ ] Plausible: click tagged CTA, confirm `POST plausible.io/api/event` in Network tab (optional)
 
 ## Notes for reviewer
 

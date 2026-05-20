@@ -110,6 +110,7 @@ export default function Status() {
   const vals = Object.values(results);
   const allOk = vals.length > 0 && vals.every(s => s === "operational" || s === "reachable");
   const anyDown = vals.some(s => s === "down");
+  const hasReachabilityOnly = vals.some(s => s === "reachable");
 
   return (
     <>
@@ -134,7 +135,11 @@ export default function Status() {
 
           <div className={`status-banner ${allOk ? "status-banner--ok" : anyDown ? "status-banner--down" : "status-banner--checking"}`}>
             {allOk ? (
-              <><CheckCircle2 size={22} aria-hidden="true" /> All systems operational</>
+              hasReachabilityOnly ? (
+                <><CheckCircle2 size={22} aria-hidden="true" /> All services reachable</>
+              ) : (
+                <><CheckCircle2 size={22} aria-hidden="true" /> All systems operational</>
+              )
             ) : anyDown ? (
               <><AlertTriangle size={22} aria-hidden="true" /> Some services may be unreachable</>
             ) : (
@@ -154,10 +159,11 @@ export default function Status() {
           <section className="status-section">
             <h2 className="status-section-title">Services</h2>
             <p className="status-section-desc">
-              External services show &ldquo;Responding&rdquo; if your browser can
-              reach them — that confirms the URL is up, but not that the
-              service inside is healthy. For application-level health, check
-              each provider&apos;s status page below.
+              External services show &ldquo;Responding&rdquo; when your browser
+              can open the URL (DNS, TLS, and TCP succeed). That is a
+              reachability check only: HTTP 5xx and healthy 200 responses look
+              the same from here. For application-level health, use each
+              provider&apos;s status page below.
             </p>
             <div className="status-list">
               {services.map((svc) => (

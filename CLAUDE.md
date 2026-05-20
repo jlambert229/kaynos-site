@@ -66,6 +66,7 @@ Before committing UI or routing changes, run `npm run build` and the tests that 
 ## Netlify and shipping
 
 - Site config: `netlify.toml`, `netlify/`.
+- Operational runbooks: `docs/runbook-netlify-forms.md`, `docs/runbook-linear-functions.md`, `docs/deploy-preview-checklist.md`.
 - Follow org rules for production: offer local / draft verification before any production deploy CLI. Do not assume prod deploy without explicit confirmation when the task is deployment-shaped.
 
 ## Build economy

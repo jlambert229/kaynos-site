@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
     "build": "node scripts/build.mjs",
@@ -10,17 +13,18 @@
     "preview:open": "node scripts/build.mjs && vite preview --open --host 127.0.0.1 --port 4173",
     "test": "vitest run",
     "test:e2e": "node scripts/build.mjs && playwright test",
-    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:ui": "node scripts/build.mjs && playwright test --ui",
     "test:e2e:chromium": "node scripts/build.mjs && playwright test --project=chromium",
-    "test:e2e:firefox": "playwright test --project=firefox",
-    "test:e2e:webkit": "playwright test --project=webkit",
-    "test:e2e:ios": "playwright test --project=ios-safari --project=ios-safari-landscape",
-    "test:e2e:mobile": "playwright test --project=ios-safari --project=android-chrome",
+    "test:e2e:firefox": "node scripts/build.mjs && playwright test --project=firefox",
+    "test:e2e:webkit": "node scripts/build.mjs && playwright test --project=webkit",
+    "test:e2e:ios": "node scripts/build.mjs && playwright test --project=ios-safari --project=ios-safari-landscape",
+    "test:e2e:mobile": "node scripts/build.mjs && playwright test --project=ios-safari --project=android-chrome",
+    "verify:remote-headers": "node scripts/verify-remote-headers.mjs",
     "figma:export": "node scripts/figma-export.mjs",
     "figma:export:dry": "node scripts/figma-export.mjs --dry-run",
     "lint": "eslint .",
     "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
-    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/generate-security-txt.mjs && node scripts/verify-prerender-seo.mjs && node scripts/strip-build-only-chunks.mjs && node scripts/compute-csp.mjs"
+    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/generate-security-txt.mjs && node scripts/verify-prerender-seo.mjs && node scripts/strip-build-only-chunks.mjs && node scripts/compute-csp.mjs && node scripts/verify-sitemap-dist.mjs && node scripts/verify-dist-headers.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
