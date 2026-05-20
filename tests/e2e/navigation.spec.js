@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { URLS } from "../../src/config/urls.js";
+import { getE2eNavigationRoutes } from "../../scripts/publicRoutes.mjs";
 
 test.describe("Site navigation", () => {
   test("homepage loads with correct title", async ({ page }) => {
@@ -51,13 +52,7 @@ test.describe("Site navigation", () => {
   });
 
   test("internal page navigation works", async ({ page }) => {
-    const routes = [
-      { path: "/contact", heading: /get in touch/i },
-      { path: "/changelog", heading: /what's new/i },
-      { path: "/privacy", heading: /privacy policy/i },
-      { path: "/getting-started", heading: /up and running/i },
-      { path: "/accessibility", heading: /accessibility/i },
-    ];
+    const routes = getE2eNavigationRoutes();
     for (const { path, heading } of routes) {
       await page.goto(path);
       await expect(page.locator("h1").first()).toContainText(heading);
