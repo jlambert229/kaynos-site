@@ -4,7 +4,7 @@ Public marketing site for Kaynos. Built with React and Vite, deployed on Netlify
 
 ## Prerequisites
 
-- Node.js (use a current LTS version)
+- Node.js (use Node.js 22+ (see .nvmrc))
 - npm
 
 ## Setup
