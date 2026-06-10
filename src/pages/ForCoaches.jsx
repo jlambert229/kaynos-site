@@ -15,8 +15,11 @@ const forCoachesJsonLd = {
 export default function ForCoaches() {
   return (
     <>
+      {/* Title deliberately distinct from Home's "Video review for BJJ
+          coaches | Kaynos" — case-only differences read as duplicates to
+          search engines. */}
       <Seo
-        title="Video Review for BJJ Coaches"
+        title="For Coaches: Video Review & Booking"
         description={`Coaching tools for BJJ and MMA: upload sparring footage, let AI surface key moments, drop timestamped notes, and book private lessons. ${FMT.coachMonthly}/mo flat, students free.`}
         path="/for/coaches"
         jsonLd={forCoachesJsonLd}
@@ -36,7 +39,7 @@ export default function ForCoaches() {
           </p>
           <div className="coaches-cta">
             <a href={URLS.signup} className="btn btn-primary btn-lg plausible-event-name=Signup">
-              Start 14-Day Trial
+              {PRICING_COPY.trialCta}
             </a>
             <a href={URLS.demoCoach} className="btn btn-secondary btn-lg plausible-event-name=Demo+Coach">
               See a Demo
@@ -117,7 +120,7 @@ export default function ForCoaches() {
           <div className="coaches-final-cta">
             <h2>Try it free for {FMT.trialDays}&nbsp;days</h2>
             <a href={URLS.signup} className="btn btn-primary btn-lg plausible-event-name=Signup">
-              Start 14-Day Trial
+              {PRICING_COPY.trialCta}
             </a>
           </div>
         </div>

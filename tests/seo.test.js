@@ -1,9 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  normalizePath,
-  segmentLabel,
-  buildBreadcrumbs,
-} from "../src/components/Seo";
+import { normalizePath, buildBreadcrumbs } from "../src/components/Seo";
 import { SITE_URL } from "../src/seo/constants";
 
 describe("normalizePath", () => {
@@ -17,16 +13,6 @@ describe("normalizePath", () => {
 
   it("leaves already-rooted paths alone", () => {
     expect(normalizePath("/for/coaches")).toBe("/for/coaches");
-  });
-});
-
-describe("segmentLabel", () => {
-  it("title-cases single-word segments", () => {
-    expect(segmentLabel("about")).toBe("About");
-  });
-
-  it("title-cases dash-separated segments and re-joins with a space", () => {
-    expect(segmentLabel("data-use")).toBe("Data Use");
   });
 });
 
@@ -51,16 +37,19 @@ describe("buildBreadcrumbs", () => {
     });
   });
 
-  it("omits item URLs for intermediate segments that aren't real routes", () => {
-    const crumbs = buildBreadcrumbs("/for/coaches", "Video Review for BJJ Coaches");
-    expect(crumbs.itemListElement).toHaveLength(3);
-    // /for is a parent path with no route; it must not get an `item` URL.
-    expect(crumbs.itemListElement[1]).toMatchObject({ position: 2, name: "For" });
-    expect(crumbs.itemListElement[1].item).toBeUndefined();
-    // The leaf does get a URL.
-    expect(crumbs.itemListElement[2]).toMatchObject({
-      position: 3,
-      name: "Video Review for BJJ Coaches",
+  it("omits non-routable intermediate segments — Google requires `item` on every entry except the last", () => {
+    const crumbs = buildBreadcrumbs("/for/coaches", "For Coaches: Video Review & Booking");
+    // /for is a parent path with no route; it's dropped from the trail
+    // entirely rather than listed without an `item` URL.
+    expect(crumbs.itemListElement).toHaveLength(2);
+    expect(crumbs.itemListElement[0]).toMatchObject({
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    });
+    expect(crumbs.itemListElement[1]).toMatchObject({
+      position: 2,
+      name: "For Coaches: Video Review & Booking",
       item: `${SITE_URL}/for/coaches`,
     });
   });

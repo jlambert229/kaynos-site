@@ -61,18 +61,22 @@ async function main() {
     if (!title) missing.push({ route, field: "title" });
     if (!description) missing.push({ route, field: "description" });
 
+    // Compare case-insensitively: titles differing only by case are
+    // duplicates to search engines.
     if (title) {
-      if (seenTitles.has(title)) {
-        dupes.push({ field: "title", value: title, routes: [seenTitles.get(title), route] });
+      const key = title.toLowerCase();
+      if (seenTitles.has(key)) {
+        dupes.push({ field: "title", value: title, routes: [seenTitles.get(key), route] });
       } else {
-        seenTitles.set(title, route);
+        seenTitles.set(key, route);
       }
     }
     if (description) {
-      if (seenDescriptions.has(description)) {
-        dupes.push({ field: "description", value: description, routes: [seenDescriptions.get(description), route] });
+      const key = description.toLowerCase();
+      if (seenDescriptions.has(key)) {
+        dupes.push({ field: "description", value: description, routes: [seenDescriptions.get(key), route] });
       } else {
-        seenDescriptions.set(description, route);
+        seenDescriptions.set(key, route);
       }
     }
   }

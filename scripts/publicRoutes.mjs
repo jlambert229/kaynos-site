@@ -36,8 +36,16 @@ export function pathToDistArtifact(routePath) {
   return `${routePath.replace(/^\//, "")}/index.html`;
 }
 
+/** Prerendered 404 page (additionalPrerenderRoutes in vite.config.js).
+ *  Served by the netlify.toml catch-all with a 404 status; deliberately
+ *  NOT in publicRoutes so it stays out of the sitemap. */
+export const NOT_FOUND_ARTIFACT = "404.html";
+
 /** @type {string[]} */
-export const prerenderArtifactPaths = publicRoutes.map((r) => pathToDistArtifact(r.path));
+export const prerenderArtifactPaths = [
+  ...publicRoutes.map((r) => pathToDistArtifact(r.path)),
+  NOT_FOUND_ARTIFACT,
+];
 
 /**
  * Routes with e2e heading matchers for navigation smoke tests.

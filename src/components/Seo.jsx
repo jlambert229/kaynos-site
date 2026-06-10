@@ -6,6 +6,7 @@ import {
   OG_SHARE_ALT,
   OG_SHARE_WIDTH,
   OG_SHARE_HEIGHT,
+  TWITTER_HANDLE,
 } from "../seo/constants";
 
 /** Normalize a route path for canonical URL construction. */
@@ -14,33 +15,21 @@ export function normalizePath(path) {
   return path.startsWith("/") ? path : `/${path}`;
 }
 
-/** Title-case a single path segment (e.g. "for" → "For", "data-use" → "Data Use"). */
-export function segmentLabel(seg) {
-  return seg
-    .split("-")
-    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-    .join(" ");
-}
-
-/** Build a BreadcrumbList ItemList for a path with any number of segments.
- *  Intermediate segments (not the final leaf) omit `item` to avoid pointing at
- *  URLs that may not resolve as real routes (e.g., /for exists only as a parent). */
+/** Build a BreadcrumbList for a path: Home → page. Intermediate path
+ *  segments (e.g. /for in /for/coaches) aren't real routes, and Google
+ *  requires `item` on every ListItem except the last — so non-routable
+ *  parents are omitted from the trail rather than listed without a URL. */
 export function buildBreadcrumbs(path, pageTitle) {
-  const segments = normalizePath(path).split("/").filter(Boolean);
-  if (segments.length === 0) return null;
-  const items = [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-  ];
-  let acc = "";
-  segments.forEach((seg, i) => {
-    acc += `/${seg}`;
-    const isLast = i === segments.length - 1;
-    const item = isLast
-      ? { "@type": "ListItem", position: i + 2, name: pageTitle, item: `${SITE_URL}${acc}` }
-      : { "@type": "ListItem", position: i + 2, name: segmentLabel(seg) };
-    items.push(item);
-  });
-  return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items };
+  const normalized = normalizePath(path);
+  if (!normalized) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: pageTitle, item: `${SITE_URL}${normalized}` },
+    ],
+  };
 }
 
 /* SERP truncation happens around these lengths on Google desktop. They're
@@ -63,8 +52,14 @@ export default function Seo({
 }) {
   const canonicalUrl = `${SITE_URL}${normalizePath(path) || "/"}`;
   const pageTitle = title.includes("|") ? title : `${title} | Kaynos`;
+  // Normalize relative overrides to absolute URLs — crawlers require them.
+  const imageUrl = ogImage
+    ? (ogImage.startsWith("/") ? `${SITE_URL}${ogImage}` : ogImage)
+    : OG_SHARE_URL;
   const imageAlt = ogImageAlt || (ogImage ? title : OG_SHARE_ALT);
-  const breadcrumbs = buildBreadcrumbs(path, title);
+  // Noindexed pages (404) skip canonical + breadcrumbs: a canonical pointing
+  // at a URL that returns 404 sends Google mixed signals.
+  const breadcrumbs = noIndex ? null : buildBreadcrumbs(path, title);
 
   if (import.meta.env?.DEV) {
     if (pageTitle.length > SEO_TITLE_BUDGET) {
@@ -79,8 +74,11 @@ export default function Seo({
     <Helmet prioritizeSeoTags>
       <title>{pageTitle}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonicalUrl} />
-      {noIndex ? <meta name="robots" content="noindex, follow" /> : null}
+      {noIndex ? (
+        <meta name="robots" content="noindex, follow" />
+      ) : (
+        <link rel="canonical" href={canonicalUrl} />
+      )}
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Kaynos" />
@@ -88,18 +86,19 @@ export default function Seo({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage || OG_SHARE_URL} />
-      <meta property="og:image:width" content={String(OG_SHARE_WIDTH)} />
-      <meta property="og:image:height" content={String(OG_SHARE_HEIGHT)} />
+      <meta property="og:image" content={imageUrl} />
+      {/* Dimensions are only known for the default share image. */}
+      {!ogImage && <meta property="og:image:width" content={String(OG_SHARE_WIDTH)} />}
+      {!ogImage && <meta property="og:image:height" content={String(OG_SHARE_HEIGHT)} />}
       <meta property="og:image:alt" content={imageAlt} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage || OG_SHARE_URL} />
+      <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={imageAlt} />
-      <meta name="twitter:site" content="@kaynos_net" />
-      <meta name="twitter:creator" content="@kaynos_net" />
+      <meta name="twitter:site" content={TWITTER_HANDLE} />
+      <meta name="twitter:creator" content={TWITTER_HANDLE} />
 
       {jsonLd ? (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

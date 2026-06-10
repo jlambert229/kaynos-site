@@ -41,7 +41,7 @@ export default function Accessibility() {
 
       <div className="legal-section legal-cta">
         <h2>Ready to try it?</h2>
-        <CtaButton>Start 14-Day Trial</CtaButton>
+        <CtaButton />
       </div>
     </LegalLayout>
   );

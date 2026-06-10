@@ -1,5 +1,28 @@
 import { describe, it, expect } from "vitest";
-import { extractLeadingHeadMarkup, extractJsonLdScripts } from "../src/prerender.jsx";
+import {
+  extractLeadingHeadMarkup,
+  extractJsonLdScripts,
+  stampPrerendered,
+} from "../src/prerender.jsx";
+
+describe("stampPrerendered", () => {
+  it("adds data-prerendered to meta, link, and script tags", () => {
+    expect(stampPrerendered('<meta name="description" content="d">')).toBe(
+      '<meta data-prerendered="true" name="description" content="d">',
+    );
+    expect(stampPrerendered('<link rel="canonical" href="/">')).toBe(
+      '<link data-prerendered="true" rel="canonical" href="/">',
+    );
+    expect(stampPrerendered('<script type="application/ld+json">{"@type":"X"}</script>')).toBe(
+      '<script data-prerendered="true" type="application/ld+json">{"@type":"X"}</script>',
+    );
+  });
+
+  it("does not double-stamp a tag that already carries data-prerendered", () => {
+    const tag = '<meta data-prerendered="true" name="x" content="y">';
+    expect(stampPrerendered(tag)).toBe(tag);
+  });
+});
 
 describe("extractLeadingHeadMarkup", () => {
   it("extracts title and meta tags from leading HTML", () => {

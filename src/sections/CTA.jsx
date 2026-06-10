@@ -16,7 +16,7 @@ export default function CTA() {
           students free.
         </p>
         <div className="cta-actions">
-          <CtaButton>Start 14-Day Trial</CtaButton>
+          <CtaButton />
           <DemoLink className="btn btn-outline btn-lg">See a Demo</DemoLink>
         </div>
       </div>

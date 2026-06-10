@@ -38,7 +38,14 @@ export default function Contact() {
     e.preventDefault();
     if (honeypotRef.current && honeypotRef.current.value) return;
     const errs = validate();
-    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      // Tell screen-reader users validation failed by moving focus to the
+      // first invalid field (aria-describedby reads its error message).
+      const firstInvalid = errs.name ? "contact-name" : errs.email ? "contact-email" : "contact-msg";
+      requestAnimationFrame(() => document.getElementById(firstInvalid)?.focus());
+      return;
+    }
     setErrors({});
     setStatus("submitting");
     const controller = new AbortController();
@@ -87,7 +94,12 @@ export default function Contact() {
             <form className="contact-form" name="contact" method="post" data-netlify="true" data-netlify-honeypot="phone_ext" onSubmit={handleSubmit}>
               <input type="hidden" name="form-name" value="contact" />
               <h2 className="contact-form-title">Send a message</h2>
-              {status === "error" && <div className="contact-error contact-form-error" aria-live="polite">Something went wrong on my end. Try again or just email support@kaynos.net directly.</div>}
+              {/* Live region stays mounted (regions that appear with their
+                  message already inside are skipped by many screen readers);
+                  the padded-box styling only applies when there's content. */}
+              <div className={status === "error" ? "contact-error contact-form-error" : undefined} role="alert">
+                {status === "error" ? "Something went wrong on my end. Try again or just email support@kaynos.net directly." : null}
+              </div>
               {/* Honeypot - hidden from humans, bots will fill it */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
                 <label htmlFor="contact-phone-ext">Phone ext</label>

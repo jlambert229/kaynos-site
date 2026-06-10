@@ -110,7 +110,7 @@ export default function Security() {
 
           <section className="security-section security-cta">
             <h2>Ready to try it?</h2>
-            <CtaButton>Start 14-Day Trial</CtaButton>
+            <CtaButton />
           </section>
         </div>
       </main>

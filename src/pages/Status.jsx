@@ -15,25 +15,25 @@ const services = [
   {
     name: "Application",
     description: "app.kaynos.net — coach and student dashboards",
-    checkUrl: "https://app.kaynos.net",
+    checkUrl: URLS.app,
     type: "external",
   },
   {
     name: "Coach Demo",
     description: "demo.kaynos.net — live demo with sample data",
-    checkUrl: "https://demo.kaynos.net",
+    checkUrl: URLS.demoCoach,
     type: "external",
   },
   {
     name: "Student Demo",
     description: "student.kaynos.net — student demo view",
-    checkUrl: "https://student.kaynos.net",
+    checkUrl: URLS.demoStudent,
     type: "external",
   },
   {
     name: "Help Center",
     description: "docs.kaynos.net — documentation and guides",
-    checkUrl: "https://docs.kaynos.net",
+    checkUrl: URLS.helpCenter,
     type: "external",
   },
 ];
@@ -65,19 +65,20 @@ function statusLabel(status) {
 
 async function checkOne(svc) {
   if (svc.type === "self") return "operational";
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 8000);
     // `mode: "no-cors"` returns an opaque response — we can't read the status
     // code, so this confirms the URL accepts a request (DNS + TCP + TLS),
     // not that the service is healthy. A 5xx looks the same as a 200.
     // The label distinguishes "Responding" from "Operational" to make that
     // limitation visible to anyone reading the page.
     await fetch(svc.checkUrl, { method: "HEAD", mode: "no-cors", signal: controller.signal });
-    clearTimeout(timeout);
     return "reachable";
   } catch {
     return "down";
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
@@ -133,7 +134,12 @@ export default function Status() {
             <a href="/security">Security</a>
           </div>
 
-          <div className={`status-banner ${allOk ? "status-banner--ok" : anyDown ? "status-banner--down" : "status-banner--checking"}`}>
+          {/* role=status: announce the transition from "Checking…" to the
+              result, and re-announce after a manual Refresh. */}
+          <div
+            role="status"
+            className={`status-banner ${allOk ? "status-banner--ok" : anyDown ? "status-banner--down" : "status-banner--checking"}`}
+          >
             {allOk ? (
               hasReachabilityOnly ? (
                 <><CheckCircle2 size={22} aria-hidden="true" /> All services reachable</>

@@ -32,6 +32,21 @@ export function extractJsonLdScripts(html) {
 }
 
 /**
+ * Mark a serialized head tag as build-time prerender output. On hydration,
+ * React 19 hoists Helmet's client-rendered meta/link/JSON-LD tags into
+ * <head> as fresh copies (react-helmet-async's data-rh reconciliation never
+ * runs under React 19's native head hoisting), so without cleanup every
+ * page carries doubled metadata and structured data once JS runs. App.jsx
+ * removes [data-prerendered] tags after mount; if JS never runs, the
+ * prerendered tags simply stay — which is the desired no-JS behavior.
+ * @param {string} tagHtml
+ */
+export function stampPrerendered(tagHtml) {
+  if (/\bdata-prerendered\s*=/i.test(tagHtml)) return tagHtml;
+  return tagHtml.replace(/^<([a-zA-Z][\w-]*)/, '<$1 data-prerendered="true"');
+}
+
+/**
  * React 19 renders Helmet `<title>`, `<meta>`, and `<link>` at the start of
  * the root HTML string. Move them into the document head via
  * vite-prerender-plugin.
@@ -95,7 +110,7 @@ export async function prerender(data) {
   const head = {
     lang: "en",
     title: plainTitle,
-    elements: new Set([...headMarkup, ...scripts]),
+    elements: new Set([...headMarkup, ...scripts].map(stampPrerendered)),
   };
 
   const { parseLinks } = await import("vite-prerender-plugin/parse");

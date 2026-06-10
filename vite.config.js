@@ -22,6 +22,10 @@ export default defineConfig({
     vitePrerenderPlugin({
       renderTarget: "#root",
       prerenderScript: path.resolve(__dirname, "src/prerender.jsx"),
+      // /404.html isn't linked from anywhere, so the crawler can't find it.
+      // The .html suffix makes the plugin emit dist/404.html (not
+      // 404/index.html), which is what the netlify.toml fallback serves.
+      additionalPrerenderRoutes: ["/404.html"],
     }),
   ],
   build: {
