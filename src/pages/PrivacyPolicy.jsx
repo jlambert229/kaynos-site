@@ -6,7 +6,7 @@ import LegalLayout from "../components/LegalLayout";
 import { URLS } from "../config/urls";
 import { BUSINESS_ADDRESS_LINE } from "../config/business";
 
-const effectiveDate = "April 9, 2026";
+const effectiveDate = "June 10, 2026";
 
 export default function PrivacyPolicy() {
   return (
@@ -292,9 +292,11 @@ export default function PrivacyPolicy() {
       <section className="legal-section">
         <h2>10B. International Transfers</h2>
         <p>
-          Our service providers (Netlify, Backblaze B2, Neon) are based in the United
-          States. We rely on Standard Contractual Clauses (SCCs) under GDPR Article
-          46(2)(c) for transfers of personal data from the EU/EEA.
+          Our service providers (listed on our <a href="/processors">sub-processors
+          page</a>) are based in the United States. For transfers of personal data
+          from the EU/EEA, we rely on the safeguards in each provider&apos;s standard
+          data-processing terms, which incorporate Standard Contractual Clauses
+          (SCCs) under GDPR Article 46(2)(c) where applicable.
         </p>
       </section>
 
