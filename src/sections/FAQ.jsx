@@ -45,6 +45,14 @@ export default function FAQ() {
             />
           </div>
 
+          {/* Announce filter results to screen readers; visually the list
+              itself is the feedback. Always mounted so the swap announces. */}
+          <p className="sr-only" role="status">
+            {search.trim()
+              ? `${filtered.length} question${filtered.length === 1 ? "" : "s"} match`
+              : ""}
+          </p>
+
           {filtered.length === 0 ? (
             <p className="faq-no-results">
               No matching questions. Try a different search or{" "}

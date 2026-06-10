@@ -71,6 +71,9 @@ async function main() {
   const scriptSrc = ["'self'", "https://plausible.io", ...hashes].join(" ");
   const csp = [
     "default-src 'self'",
+    // Explicit: the default-src fallback would otherwise allow same-origin
+    // plugin embedding (<object>/<embed>).
+    "object-src 'none'",
     `script-src ${scriptSrc}`,
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data:",

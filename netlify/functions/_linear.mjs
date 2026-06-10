@@ -96,6 +96,12 @@ export function rateLimited(event) {
     || event.headers?.["x-forwarded-for"]?.split(",")[0]?.trim()
     || "unknown";
   const now = Date.now();
+  // Evict idle IPs so the map can't grow unbounded over a warm instance's
+  // lifetime — old keys were previously only filtered when the same IP hit
+  // again.
+  for (const [key, times] of rateBucket) {
+    if (times.every((t) => now - t >= RATE_WINDOW_MS)) rateBucket.delete(key);
+  }
   const arr = (rateBucket.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
   arr.push(now);
   rateBucket.set(ip, arr);

@@ -50,6 +50,8 @@ export const COACH_FEATURES = [
 /* ── Copy fragments used in multiple places ──────────────────────── */
 
 export const PRICING_COPY = {
+  /** CTA button label — every trial button on the site uses this. */
+  trialCta: `Start ${TRIAL_DAYS}-Day Trial`,
   heroLine: `Flat ${FMT.coachMonthlySlash} for the coach. Students are free.`,
   subtitle: `${FMT.coachMonthlySlash} for the coach, flat. Students stay free no matter how many you add, and every feature is included without tiers.`,
   ctaLine: `${FMT.coachMonthlySlash} for the coach, students free. ${TRIAL_DAYS}-day trial.`,

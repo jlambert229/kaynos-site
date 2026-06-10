@@ -118,9 +118,13 @@ export default function Newsletter() {
             </form>
           )}
 
-          {status === "error" && (
-            <p className="newsletter-error" aria-live="polite">Something went wrong. Please try again or email <a href={URLS.support}>support@kaynos.net</a>.</p>
-          )}
+          {/* Live region stays mounted: regions that appear with their message
+              already inside are skipped by many screen readers. */}
+          <p className="newsletter-error" role="status">
+            {status === "error" ? (
+              <>Something went wrong. Please try again or email <a href={URLS.support}>support@kaynos.net</a>.</>
+            ) : null}
+          </p>
         </div>
       </div>
     </section>

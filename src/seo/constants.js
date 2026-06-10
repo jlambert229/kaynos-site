@@ -12,3 +12,6 @@ export const OG_SHARE_ALT =
   "Kaynos: video review for BJJ coaches";
 export const OG_SHARE_WIDTH = 1200;
 export const OG_SHARE_HEIGHT = 630;
+
+/** X/Twitter account, kept in sync with URLS.twitter in config/urls.js. */
+export const TWITTER_HANDLE = "@kaynos_net";

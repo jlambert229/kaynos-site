@@ -14,7 +14,11 @@ export default defineConfig({
     screenshot: "only-on-failure",
   },
   webServer: {
-    command: "node scripts/build.mjs && npx vite preview --host 127.0.0.1 --port 4173",
+    // No build here: the npm test:e2e* scripts run `npm run build` first,
+    // which (unlike invoking scripts/build.mjs directly) also triggers the
+    // postbuild pipeline — so e2e exercises the same dist shape that ships
+    // (_headers/CSP, sitemap, stripped chunks).
+    command: "npx vite preview --host 127.0.0.1 --port 4173",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

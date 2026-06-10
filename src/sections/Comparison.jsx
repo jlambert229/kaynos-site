@@ -3,11 +3,13 @@ import useScrollReveal from "../hooks/useScrollReveal";
 import { comparisonColumns, comparisonFeatures } from "../data/competitors";
 import { URLS } from "../config/urls";
 
+// role="img" makes screen readers honor the aria-label — bare <svg> elements
+// with a label are announced inconsistently.
 function Cell({ value }) {
-  if (value === true) return <Check size={18} className="cmp-check" aria-label="Yes" />;
-  if (value === false) return <X size={18} className="cmp-x" aria-label="No" />;
+  if (value === true) return <Check size={18} className="cmp-check" role="img" aria-label="Yes" />;
+  if (value === false) return <X size={18} className="cmp-x" role="img" aria-label="No" />;
   if (typeof value === "string") return <span className="cmp-text">{value}</span>;
-  return <Minus size={18} className="cmp-partial" aria-label="Partial" />;
+  return <Minus size={18} className="cmp-partial" role="img" aria-label="Partial" />;
 }
 
 export default function Comparison() {

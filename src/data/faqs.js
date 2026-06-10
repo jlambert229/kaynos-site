@@ -1,4 +1,4 @@
-import { FMT, VIDEO_UPLOADS, STORAGE_GB } from "../config/pricing";
+import { FMT, PRICING_COPY, VIDEO_UPLOADS, STORAGE_GB } from "../config/pricing";
 import { URLS } from "../config/urls";
 
 export const faqs = [
@@ -34,7 +34,7 @@ export const faqs = [
   {
     question: "What happens after the trial?",
     answer: `The plan continues at ${FMT.coachMonthlySlash}. You can cancel anytime. No contracts, no cancellation fees.`,
-    linkText: "Start 14-Day Trial",
+    linkText: PRICING_COPY.trialCta,
     linkHref: URLS.signup,
     external: true,
   },

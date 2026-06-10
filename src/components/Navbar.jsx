@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import KaynosLogo from "./KaynosLogo";
 import { URLS } from "../config/urls";
+import { PRICING_COPY } from "../config/pricing";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -63,6 +64,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileMenuRef = useRef(null);
+  const mobileToggleRef = useRef(null);
+  const menuWasOpenRef = useRef(false);
 
   useEffect(() => {
     if (hash) scrollToHash(hash);
@@ -91,6 +94,21 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+  // Restore focus to the toggle when the menu closes in place (Escape or
+  // the close button) — otherwise the focused element goes inert and focus
+  // drops to <body>. Page navigations unmount this Navbar instance instead,
+  // so they never reach the restore branch.
+  useEffect(() => {
+    if (mobileOpen) {
+      menuWasOpenRef.current = true;
+      return;
+    }
+    if (menuWasOpenRef.current) {
+      menuWasOpenRef.current = false;
+      mobileToggleRef.current?.focus();
+    }
+  }, [mobileOpen]);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -133,7 +151,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
+    <nav className={`navbar${scrolled ? " scrolled" : ""}`} aria-label="Main">
       <a href="#main-content" className="skip-to-content">Skip to content</a>
       <div className="navbar-inner">
         <Link to="/" className="navbar-brand" aria-label="Kaynos – Home">
@@ -180,12 +198,13 @@ export default function Navbar() {
             Log In
           </a>
           <a href={URLS.signup} className="btn btn-primary plausible-event-name=Signup">
-            Start 14-Day Trial
+            {PRICING_COPY.trialCta}
           </a>
         </div>
 
         <button
           type="button"
+          ref={mobileToggleRef}
           className="mobile-toggle"
           onClick={() => setMobileOpen((prev) => !prev)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -248,7 +267,7 @@ export default function Navbar() {
         )}
         <a href={URLS.login} onClick={closeMobile}>Log In</a>
         <a href={URLS.signup} className="btn btn-primary plausible-event-name=Signup" onClick={closeMobile}>
-          Start 14-Day Trial
+          {PRICING_COPY.trialCta}
         </a>
       </div>
     </nav>

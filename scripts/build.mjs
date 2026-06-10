@@ -53,6 +53,7 @@ let buffer = "";
 let builtSeen = false;
 let prerenderSeen = false;
 let shutdownScheduled = false;
+let killedByWrapper = false;
 
 function distLooksComplete() {
   if (!existsSync(distDir)) return false;
@@ -68,24 +69,29 @@ function distLooksComplete() {
   return true;
 }
 
+function checkDistAndKill() {
+  if (child.exitCode != null || child.signalCode) return;
+  if (!distLooksComplete()) {
+    // Sentinels appeared but dist isn't ready — likely a write race.
+    // Re-poll on a timer: vite may emit no further output (that silent
+    // hang is the exact failure this wrapper exists for), so waiting for
+    // another stdout tick could stall until the Netlify build timeout.
+    setTimeout(checkDistAndKill, GRACE_MS).unref();
+    return;
+  }
+  killedByWrapper = true;
+  child.kill("SIGTERM");
+  setTimeout(() => {
+    if (child.exitCode != null || child.signalCode) return;
+    child.kill("SIGKILL");
+  }, KILL_ESCALATION_MS).unref();
+}
+
 function maybeScheduleShutdown() {
   if (shutdownScheduled) return;
   if (!builtSeen || !prerenderSeen) return;
   shutdownScheduled = true;
-  setTimeout(() => {
-    if (child.exitCode != null || child.signalCode) return;
-    if (!distLooksComplete()) {
-      // Sentinels appeared but dist isn't ready — likely a race. Reset
-      // and re-poll on the next stdout tick rather than killing prematurely.
-      shutdownScheduled = false;
-      return;
-    }
-    child.kill("SIGTERM");
-    setTimeout(() => {
-      if (child.exitCode != null || child.signalCode) return;
-      child.kill("SIGKILL");
-    }, KILL_ESCALATION_MS).unref();
-  }, GRACE_MS).unref();
+  setTimeout(checkDistAndKill, GRACE_MS).unref();
 }
 
 function pipeAndScan(stream, outStream) {
@@ -108,7 +114,10 @@ child.on("error", (err) => {
 });
 
 child.on("close", (code, signal) => {
-  if (shutdownScheduled && builtSeen && prerenderSeen) {
+  // Exit 0 only when the wrapper itself killed vite after verifying dist —
+  // a vite that exits on its own carries a real exit code (e.g. a plugin
+  // failing inside the grace window) that must propagate to the deploy.
+  if (killedByWrapper && code == null && signal) {
     process.exit(0);
   }
   if (code != null) process.exit(code);

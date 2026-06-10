@@ -37,11 +37,12 @@
   to = "/getting-started"
   status = 301
 
-# SPA fallback: serve index.html with a 404 status for unknown routes so bots
-# don't index typos as real pages. The NotFound page still renders client-side.
+# Fallback: serve the prerendered 404 page with a 404 status for unknown
+# routes. Serving index.html here would hand non-JS crawlers the homepage's
+# canonical/title/JSON-LD on a 404 response — contradictory signals.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/404.html"
   status = 404
 
 [[headers]]
@@ -55,7 +56,9 @@
     # default rather than the spec's "allow if not specified" fallback.
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=(), browsing-topics=(), attribution-reporting=(), join-ad-interest-group=(), run-ad-auction=(), private-state-token-issuance=(), private-state-token-redemption=(), private-aggregation=(), shared-storage=(), shared-storage-select-url=(), unload=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    X-XSS-Protection = "1; mode=block"
+    # X-XSS-Protection is intentionally absent: the legacy auditor is
+    # deprecated, can introduce XS-leaks in old browsers, and CSP is the
+    # real control.
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Resource-Policy = "same-origin"
     # Content-Security-Policy is intentionally NOT set here. Netlify gives
@@ -65,6 +68,11 @@
     # — defeating the inline JSON-LD entirely. CSP lives only in
     # dist/_headers, regenerated on every build.
 
+# Prerendered pages are requested as extensionless paths (/, /about), which
+# this rule does NOT match — those get the same policy from Netlify's
+# platform default (public, max-age=0, must-revalidate). The explicit rule
+# covers direct *.html hits (e.g. /404.html). A blanket /* Cache-Control is
+# deliberately avoided: it would collide with the /assets/* immutable rule.
 [[headers]]
   for = "/*.html"
   [headers.values]

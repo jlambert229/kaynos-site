@@ -24,7 +24,7 @@ export default function Hero() {
             ten-second sequence.
           </p>
           <div className="hero-cta-row">
-            <CtaButton>Start 14-Day Trial</CtaButton>
+            <CtaButton />
             <DemoLink className="btn btn-secondary">See a Demo</DemoLink>
           </div>
           <p className="hero-meta">

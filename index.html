@@ -10,6 +10,10 @@
        The site has no real phone numbers or addresses; every email link is
        already wrapped in a real <a href="mailto:...">. -->
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <!-- Scroll-reveal styles are gated on this class so prerendered content
+       stays visible when JS fails or is disabled. Inline + first so it runs
+       before first paint; compute-csp.mjs hashes it into the CSP. -->
+  <script>document.documentElement.classList.add("js");</script>
   <!-- Title, description, canonical, OG, and Twitter tags are injected at build time per route. -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="manifest" href="/manifest.json" />
@@ -32,11 +36,12 @@
 </head>
 
 <body>
+  <!-- Pages are prerendered, so content is readable without JS — only the
+       interactive pieces (menus, accordions, forms) need it. -->
   <noscript>
-    <p
-      style="font-family: system-ui, sans-serif; padding: 24px; color: #ccc; background: #050508; min-height: 100vh; margin: 0;">
-      This site needs JavaScript enabled. If you opened an HTML file from disk, use the hosted URL instead (Vite apps
-      are not loaded from file://).
+    <p style="font-family: system-ui, sans-serif; padding: 12px 24px; color: #ccc; background: #050508; margin: 0;">
+      JavaScript is disabled, so menus and forms won&#39;t work — but everything is readable. Need us? Email
+      support@kaynos.net.
     </p>
   </noscript>
   <div id="root"></div>

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "vite",
@@ -12,13 +12,13 @@
     "preview": "vite preview",
     "preview:open": "node scripts/build.mjs && vite preview --open --host 127.0.0.1 --port 4173",
     "test": "vitest run",
-    "test:e2e": "node scripts/build.mjs && playwright test",
-    "test:e2e:ui": "node scripts/build.mjs && playwright test --ui",
-    "test:e2e:chromium": "node scripts/build.mjs && playwright test --project=chromium",
-    "test:e2e:firefox": "node scripts/build.mjs && playwright test --project=firefox",
-    "test:e2e:webkit": "node scripts/build.mjs && playwright test --project=webkit",
-    "test:e2e:ios": "node scripts/build.mjs && playwright test --project=ios-safari --project=ios-safari-landscape",
-    "test:e2e:mobile": "node scripts/build.mjs && playwright test --project=ios-safari --project=android-chrome",
+    "test:e2e": "npm run build && playwright test",
+    "test:e2e:ui": "npm run build && playwright test --ui",
+    "test:e2e:chromium": "npm run build && playwright test --project=chromium",
+    "test:e2e:firefox": "npm run build && playwright test --project=firefox",
+    "test:e2e:webkit": "npm run build && playwright test --project=webkit",
+    "test:e2e:ios": "npm run build && playwright test --project=ios-safari --project=ios-safari-landscape",
+    "test:e2e:mobile": "npm run build && playwright test --project=ios-safari --project=android-chrome",
     "verify:remote-headers": "node scripts/verify-remote-headers.mjs",
     "figma:export": "node scripts/figma-export.mjs",
     "figma:export:dry": "node scripts/figma-export.mjs --dry-run",

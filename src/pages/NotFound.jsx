@@ -3,10 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { FMT } from "../config/pricing";
 
 const suggestions = [
   { label: "Home", to: "/", desc: "Back to the main page" },
-  { label: "Pricing", to: "/#pricing", desc: "Flat $29/mo, students free" },
+  { label: "Pricing", to: "/#pricing", desc: `Flat ${FMT.coachMonthlySlash}, students free` },
   { label: "Getting Started", to: "/getting-started", desc: "Setup guide" },
   { label: "Contact", to: "/contact", desc: "Get in touch" },
 ];
