@@ -20,7 +20,7 @@ export default function ForCoaches() {
           search engines. */}
       <Seo
         title="For Coaches: Video Review & Booking"
-        description={`Coaching tools for BJJ and MMA: upload sparring footage, let AI surface key moments, drop timestamped notes, and book private lessons. ${FMT.coachMonthly}/mo flat, students free.`}
+        description={`Coaching tools for BJJ and MMA: upload sparring footage, pin timestamped notes, loop the key exchanges, and book private lessons. ${FMT.coachMonthly}/mo flat, students free.`}
         path="/for/coaches"
         jsonLd={forCoachesJsonLd}
       />
@@ -33,9 +33,9 @@ export default function ForCoaches() {
             Video review your students will actually watch.
           </h1>
           <p className="coaches-lead">
-            Upload your sparring footage and let AI do a first pass on
-            what&apos;s worth reviewing. Send the result to the student. They
-            watch in a browser on any device — nothing to install.
+            Upload your sparring footage, mark the moments worth a second
+            look, and send the result to the student. They watch in a
+            browser on any device — nothing to install.
           </p>
           <div className="coaches-cta">
             <a href={URLS.signup} className="btn btn-primary btn-lg plausible-event-name=Signup">
@@ -62,13 +62,14 @@ export default function ForCoaches() {
             <li className="coaches-step">
               <span className="coaches-step-number">2</span>
               <div className="coaches-step-body">
-                <h3>AI flags moments to review</h3>
+                <h3>Mark it up</h3>
                 <p>
-                  AI scans the roll and drops timestamped placeholders on
-                  moments worth a second look. You decide what to keep,
-                  edit, or throw out. Or skip the AI and dictate your own
-                  notes — tap the mic, talk, and it transcribes into the
-                  timeline.
+                  Scrub to the moment and drop a timestamped note. Loop
+                  the exchange with an A&ndash;B loop while you write, save it
+                  as a labeled segment, or draw on the paused frame when
+                  a grip is easier to show than describe. Dictate notes
+                  hands-free — tap the mic, talk, and it transcribes into
+                  the timeline.
                 </p>
               </div>
             </li>
@@ -93,7 +94,7 @@ export default function ForCoaches() {
           <div className="coaches-disciplines">
             <div className="coaches-discipline-card">
               <h3>Sparring &amp; rolls</h3>
-              <p>AI-assisted review of rolls and positional sparring</p>
+              <p>Loop-and-note review of rolls and positional sparring</p>
             </div>
             <div className="coaches-discipline-card">
               <h3>Competition prep</h3>

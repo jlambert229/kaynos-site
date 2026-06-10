@@ -43,8 +43,9 @@ const infrastructure = [
   { name: "Database", provider: "Neon", description: "Managed PostgreSQL with encryption at rest", statusUrl: "https://neonstatus.com" },
   { name: "Video Storage", provider: "Backblaze B2", description: "S3-compatible object storage, encrypted", statusUrl: "https://www.backblazestatus.com" },
   { name: "Email Delivery", provider: "Resend", description: "Transactional email for notifications", statusUrl: "https://resend-status.com" },
-  { name: "Voice Transcription", provider: "Deepgram", description: "Real-time speech-to-text", statusUrl: "https://status.deepgram.com" },
-  { name: "AI Video Analysis", provider: "Twelve Labs", description: "Video understanding and analysis", statusUrl: "https://status.twelvelabs.io" },
+  { name: "Transcription", provider: "Deepgram", description: "Voice dictation, voice notes, and class transcripts", statusUrl: "https://status.deepgram.com" },
+  { name: "SMS Notifications", provider: "Twilio", description: "Lesson reminders and booking texts", statusUrl: "https://status.twilio.com" },
+  { name: "Billing", provider: "Stripe", description: "Subscription billing for coach accounts", statusUrl: "https://status.stripe.com" },
 ];
 
 function StatusIcon({ status }) {

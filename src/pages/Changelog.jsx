@@ -4,6 +4,19 @@ import Seo from "../components/Seo";
 
 const entries = [
   {
+    date: "June 2026",
+    iso: "2026-06",
+    title: "Sharper review tools",
+    items: [
+      "A–B loop in the player, plus labeled session segments for the sequences worth drilling",
+      "Side-by-side session compare for before-and-after breakdowns",
+      "Voice notes get automatic transcripts and show up in search",
+      "Class RSVPs with capacity, and class questions that reach the coach",
+      "Drill-this and mark-done flags on coach notes",
+      "AI video review (from April) is shelved for now — the focus is the core review workflow",
+    ],
+  },
+  {
     date: "April 2026",
     iso: "2026-04",
     title: "AI review and scheduling",

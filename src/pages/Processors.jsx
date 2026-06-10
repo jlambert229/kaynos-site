@@ -15,13 +15,16 @@ const subProcessors = [
   { provider: "Neon", purpose: "Managed PostgreSQL database", location: "United States", dpa: "SCCs in place" },
   { provider: "Backblaze B2", purpose: "Video and file storage", location: "United States", dpa: "SCCs in place" },
   { provider: "Resend", purpose: "Transactional email delivery", location: "United States", dpa: "DPA in place" },
+  { provider: "Deepgram", purpose: "Voice and class video transcription", location: "United States", dpa: "DPA in place" },
+  { provider: "Stripe", purpose: "Subscription billing for coach accounts", location: "United States", dpa: "DPA in place" },
+  { provider: "Twilio", purpose: "SMS notifications and booking reminders", location: "United States", dpa: "DPA in place" },
 ];
 
 export default function Processors() {
   return (
     <LegalLayout
       title="Sub-Processors"
-      description="Third-party providers that process data for Kaynos: Netlify (hosting), Neon (database), Backblaze B2 (video storage), Resend (email). US-hosted with DPAs."
+      description="Third-party providers that process data for Kaynos: Netlify, Neon, Backblaze B2, Resend, Deepgram, Stripe, and Twilio. US-hosted with DPAs."
       path="/processors"
       jsonLd={processorsJsonLd}
       eyebrow="Privacy"
