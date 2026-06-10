@@ -23,5 +23,5 @@ export const BUSINESS_ADDRESS_LINE = `${BUSINESS.city}, ${BUSINESS.region} ${BUS
  * "Effective date: …" lines (PrivacyPolicy, DataUsePolicy) keep their
  * own page-local consts because those dates have legal weight.
  * ─────────────────────────────────────────────────────────────────── */
-export const PROCESSORS_LAST_UPDATED = "April 2026";
+export const PROCESSORS_LAST_UPDATED = "June 2026";
 export const ACCESSIBILITY_LAST_UPDATED = "April 2026";

@@ -19,9 +19,9 @@ export default function Hero() {
           </h1>
           <p className="hero-description">
             Film on your phone, upload, and pin notes at the moments you
-            want your student to come back to. AI scans the footage first
-            so you&rsquo;re not rewatching every minute to find a
-            ten-second sequence.
+            want your student to come back to. Loop the exact sequence,
+            draw on the frame, or dictate the note &mdash; your student
+            watches it all in a browser, nothing to install.
           </p>
           <div className="hero-cta-row">
             <CtaButton />

@@ -1,10 +1,10 @@
-import { FMT, PRICING_COPY, VIDEO_UPLOADS, STORAGE_GB } from "../config/pricing";
+import { FMT, PRICING_COPY, ACTIVE_VIDEO_LIMIT, STORAGE_GB } from "../config/pricing";
 import { URLS } from "../config/urls";
 
 export const faqs = [
   {
     question: "How does pricing work?",
-    answer: `Flat ${FMT.coachMonthlySlash} for the coach. Every feature is included and the price doesn't change as you add more student accounts. There are upload and storage limits on the plan. Cancel anytime.`,
+    answer: `Flat ${FMT.coachMonthlySlash} for the coach. Every feature is included and the price doesn't change as you add more student accounts. There are video and storage limits on the plan. Cancel anytime.`,
     linkText: "See pricing",
     linkHref: "#pricing",
   },
@@ -16,7 +16,7 @@ export const faqs = [
   },
   {
     question: "Who is Kaynos built for?",
-    answer: "BJJ and MMA coaches first. The default AI prompt is written for jiu jitsu, so it gives more useful output on grappling footage than on anything else. Other grappling disciplines (judo, wrestling, submission grappling) work well too. If you teach striking or another sport entirely, the core workflow still works the same way — the AI is just less tuned to what you're watching.",
+    answer: "BJJ and MMA coaches first. The workflow is shaped around grappling — rolls, positional rounds, comp footage, and private lessons. Other grappling disciplines (judo, wrestling, submission grappling) fit the same way. If you teach striking or another sport entirely, the core loop — film, note, share — works just the same; only the grappling-specific touches matter less.",
     linkText: "See use cases",
     linkHref: "#use-cases",
   },
@@ -64,8 +64,11 @@ export const faqs = [
     answer: "Yes. Both coaches and students can upload. It's especially useful for remote coaching — a student films a roll at their home gym, uploads it, and you review on your own schedule.",
   },
   {
-    question: "What does the AI video review do?",
-    answer: "It takes your uploaded video, runs a grappling-focused analysis pass, and drops timestamped placeholders on moments worth a second look — submission attempts, sweep entries, guard passes, takedown setups, scrambles, and position changes are the kinds of things it tends to surface. You go through each placeholder and either turn it into a note for the student, edit it, or throw it out. It's a starting point for your review, not a replacement for it, and you should expect to discard some flags and add your own — especially for moments like stalling or subtle pressure that don't visually pop.",
+    question: "What tools are there for actually reviewing footage?",
+    answer: "The player is built for rewatching. A–B loop a sequence and replay it while you write the note, save labeled segments for the teachable twenty seconds, draw on a paused frame when a grip is easier to show than describe, and put two sessions side by side for a before-and-after. Notes can be typed or dictated, voice notes get automatic transcripts, and everything — notes and transcripts included — shows up in search.",
+    linkText: "Try the coach demo",
+    linkHref: URLS.demoCoach,
+    external: true,
   },
   {
     question: "How long are videos stored?",
@@ -90,8 +93,8 @@ export const faqs = [
     linkHref: "/processors",
   },
   {
-    question: `What happens if I hit ${VIDEO_UPLOADS} uploads or ${STORAGE_GB} GB?`,
-    answer: `You'll get an email at about 80% of either limit so there's no surprise mid-class. If you hit the ceiling, new uploads pause until the next billing cycle (older videos also cycle out past the 6-month retention window, which can free up storage on its own). If you regularly bump the ceiling, email me — I'd rather know and work out a plan than have you blocked.`,
+    question: `What happens if I hit ${ACTIVE_VIDEO_LIMIT} videos or ${STORAGE_GB} GB?`,
+    answer: `You'll get an email at about 80% of either limit so there's no surprise mid-class. The video limit counts what's stored right now, not monthly uploads — delete a video, or let an older one cycle out past the 6-month retention window, and the slot frees up immediately. If you regularly bump the ceiling, email me — I'd rather know and work out a plan than have you blocked.`,
     linkText: "Email support",
     linkHref: URLS.support,
   },
@@ -111,7 +114,7 @@ export const faqs = [
   },
   {
     question: "Does Kaynos have scheduling?",
-    answer: "Yes. There's a built-in calendar with session scheduling, conflict checks, ICS export, and email reminders. Instructors set their weekly availability and add exceptions for one-off changes. Students can request a private lesson through the booking flow with approval.",
+    answer: "Yes. There's a built-in calendar with recurring classes, conflict checks, ICS export, and Google Calendar sync. Students RSVP to classes and request private lessons through the booking flow — you approve or decline, and both sides get email and SMS reminders. Instructors set weekly availability with exceptions for one-off changes.",
     linkText: "See what's shipped",
     linkHref: "/changelog",
   },

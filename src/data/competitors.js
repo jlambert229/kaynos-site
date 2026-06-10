@@ -23,8 +23,8 @@ export const comparisonColumns = [
 
 export const comparisonFeatures = [
   {
-    name: "BJJ-tuned AI prompt",
-    detail: "Default AI analysis is written for jiu jitsu rather than generic coaching",
+    name: "Private lesson booking built in",
+    detail: "Availability windows, approval flow, SMS and email reminders",
     kaynos: true, coachnow: false, onform: false, diy: false,
   },
   {

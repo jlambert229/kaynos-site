@@ -4,7 +4,7 @@ import {
   UserRoundCheck,
   ShieldCheck,
   AudioLines,
-  Sparkles,
+  Repeat,
   ArrowRight,
 } from "lucide-react";
 import useScrollReveal from "../hooks/useScrollReveal";
@@ -42,10 +42,10 @@ const features = [
       "Tap the mic, talk, and the transcription comes back as a timestamped note you can edit before saving. Useful when you're working through a stack of rolls and don't want to keep pausing to type.",
   },
   {
-    icon: Sparkles,
-    title: "AI does the first pass",
+    icon: Repeat,
+    title: "A player built for rewatching",
     description:
-      "Upload the video and Kaynos runs an AI pass that drops timestamped placeholders on moments worth a second look. They're starting points, not finished notes — you keep, edit, or throw out each one.",
+      "A–B loop the ten seconds that matter and replay them while you write the note. Save the sequence as a labeled segment, draw on the paused frame, or put two rolls side by side to show the before and after.",
   },
 ];
 

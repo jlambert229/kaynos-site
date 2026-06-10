@@ -79,8 +79,8 @@ export default function Security() {
             <ul className="security-list">
               <li>No third-party analytics or tracking on the marketing site</li>
               <li>GDPR-ready: data export and deletion on request</li>
-              <li>Voice transcription (our speech-to-text provider): audio is streamed, not stored</li>
-              <li>AI video review (our AI analysis provider): requires explicit consent per use</li>
+              <li>Voice dictation and transcripts (our speech-to-text provider): audio is processed only to produce your transcript</li>
+              <li>Your videos and notes are never used to train AI models</li>
             </ul>
           </section>
 

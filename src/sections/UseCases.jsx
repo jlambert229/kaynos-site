@@ -9,9 +9,9 @@ const cases = [
     label: "Sparring & Rolls",
     title: "Daily sparring review",
     description:
-      "Film a few rolls each class, upload after, and let AI do a first pass on the moments worth talking through. Then send each student their own session so they can rewatch during the week.",
+      "Film a few rolls each class, upload after, and work through them on your own time — loop the exchanges worth talking through and pin a note on each one. Then send each student their own session so they can rewatch during the week.",
     examples: [
-      "Upload a roll and let AI flag the moments worth reviewing first",
+      "A–B loop an exchange and replay it while you write the note",
       "Pin a note at the exact moment the pass finishes",
       "Dictate corrections hands-free while you watch — no typing between observations",
       "See which students have actually watched their sessions",
@@ -55,7 +55,7 @@ const cases = [
     examples: [
       "Student uploads a roll from their home gym — you watch on your own schedule",
       "Timestamped notes replace long voice memos and scrolling through Google Docs",
-      "AI runs through every upload first so you spend your time on the notes that matter",
+      "Voice notes get automatic transcripts, so past feedback stays searchable",
       "Replaces the Drive + Loom + Trello stack most remote coaches end up with",
     ],
   },
